@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		482922F6231D42B2005DAF11 /* ConfigurableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482922F5231D42B2005DAF11 /* ConfigurableController.swift */; };
+		482922FA231D4523005DAF11 /* UIFile+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482922F9231D4523005DAF11 /* UIFile+Extension.swift */; };
 		48ED6BD0231D3D8E00A792DF /* OneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ED6BCF231D3D8E00A792DF /* OneViewController.swift */; };
 		48ED6BD4231D3DB000A792DF /* OneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ED6BD3231D3DB000A792DF /* OneView.swift */; };
 		48ED6BD7231D3DCB00A792DF /* OneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ED6BD6231D3DCB00A792DF /* OneCell.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		482922F5231D42B2005DAF11 /* ConfigurableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableController.swift; sourceTree = "<group>"; };
+		482922F9231D4523005DAF11 /* UIFile+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFile+Extension.swift"; sourceTree = "<group>"; };
 		48ED6BCF231D3D8E00A792DF /* OneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneViewController.swift; sourceTree = "<group>"; };
 		48ED6BD3231D3DB000A792DF /* OneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneView.swift; sourceTree = "<group>"; };
 		48ED6BD6231D3DCB00A792DF /* OneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneCell.swift; sourceTree = "<group>"; };
@@ -47,12 +49,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		482922F7231D4503005DAF11 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				482922F5231D42B2005DAF11 /* ConfigurableController.swift */,
+				482922F8231D4512005DAF11 /* extension */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
+		482922F8231D4512005DAF11 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				482922F9231D4523005DAF11 /* UIFile+Extension.swift */,
+			);
+			path = extension;
+			sourceTree = "<group>";
+		};
 		48ED6BCE231D3D7300A792DF /* controller */ = {
 			isa = PBXGroup;
 			children = (
 				48ED6BCF231D3D8E00A792DF /* OneViewController.swift */,
 				48ED6BDC231D3F4000A792DF /* ProductsViewController.swift */,
-				482922F5231D42B2005DAF11 /* ConfigurableController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -115,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				A343CF5623180C3C005F2210 /* Info.plist */,
+				482922F7231D4503005DAF11 /* util */,
 				48ED6BDB231D3DF700A792DF /* application */,
 				48ED6BD2231D3D9C00A792DF /* view */,
 				48ED6BCE231D3D7300A792DF /* controller */,
@@ -198,6 +217,7 @@
 				A343CF4823180C31005F2210 /* AppDelegate.swift in Sources */,
 				48ED6BDF231D3FAC00A792DF /* ProductsView.swift in Sources */,
 				482922F6231D42B2005DAF11 /* ConfigurableController.swift in Sources */,
+				482922FA231D4523005DAF11 /* UIFile+Extension.swift in Sources */,
 				48ED6BD0231D3D8E00A792DF /* OneViewController.swift in Sources */,
 				48ED6BDA231D3DE000A792DF /* OneContentView.swift in Sources */,
 				48ED6BD4231D3DB000A792DF /* OneView.swift in Sources */,
