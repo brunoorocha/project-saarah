@@ -12,7 +12,6 @@
 		48ED6BD7231D3DCB00A792DF /* OneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ED6BD6231D3DCB00A792DF /* OneCell.swift */; };
 		48ED6BDA231D3DE000A792DF /* OneContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ED6BD9231D3DE000A792DF /* OneContentView.swift */; };
 		A343CF4823180C31005F2210 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A343CF4723180C31005F2210 /* AppDelegate.swift */; };
-		A343CF4D23180C32005F2210 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A343CF4B23180C32005F2210 /* Main.storyboard */; };
 		A343CF5023180C32005F2210 /* project_saarah.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A343CF4E23180C32005F2210 /* project_saarah.xcdatamodeld */; };
 		A343CF5223180C3C005F2210 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A343CF5123180C3C005F2210 /* Assets.xcassets */; };
 		A343CF5523180C3C005F2210 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A343CF5323180C3C005F2210 /* LaunchScreen.storyboard */; };
@@ -25,7 +24,6 @@
 		48ED6BD9231D3DE000A792DF /* OneContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneContentView.swift; sourceTree = "<group>"; };
 		A343CF4423180C31005F2210 /* project-saarah.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "project-saarah.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A343CF4723180C31005F2210 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A343CF4C23180C32005F2210 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A343CF4F23180C32005F2210 /* project_saarah.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = project_saarah.xcdatamodel; sourceTree = "<group>"; };
 		A343CF5123180C3C005F2210 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A343CF5423180C3C005F2210 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -82,7 +80,7 @@
 			children = (
 				A343CF4723180C31005F2210 /* AppDelegate.swift */,
 				A343CF5323180C3C005F2210 /* LaunchScreen.storyboard */,
-				A343CF4B23180C32005F2210 /* Main.storyboard */,
+				A343CF4E23180C32005F2210 /* project_saarah.xcdatamodeld */,
 				A343CF5123180C3C005F2210 /* Assets.xcassets */,
 			);
 			path = application;
@@ -108,7 +106,6 @@
 			isa = PBXGroup;
 			children = (
 				A343CF5623180C3C005F2210 /* Info.plist */,
-				A343CF4E23180C32005F2210 /* project_saarah.xcdatamodeld */,
 				48ED6BDB231D3DF700A792DF /* application */,
 				48ED6BD2231D3D9C00A792DF /* view */,
 				48ED6BCE231D3D7300A792DF /* controller */,
@@ -176,7 +173,6 @@
 			files = (
 				A343CF5523180C3C005F2210 /* LaunchScreen.storyboard in Resources */,
 				A343CF5223180C3C005F2210 /* Assets.xcassets in Resources */,
-				A343CF4D23180C32005F2210 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,14 +195,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		A343CF4B23180C32005F2210 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A343CF4C23180C32005F2210 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A343CF5323180C3C005F2210 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
