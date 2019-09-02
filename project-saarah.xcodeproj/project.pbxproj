@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		482922F6231D42B2005DAF11 /* ConfigurableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482922F5231D42B2005DAF11 /* ConfigurableController.swift */; };
 		48ED6BD0231D3D8E00A792DF /* OneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ED6BCF231D3D8E00A792DF /* OneViewController.swift */; };
 		48ED6BD4231D3DB000A792DF /* OneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ED6BD3231D3DB000A792DF /* OneView.swift */; };
 		48ED6BD7231D3DCB00A792DF /* OneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ED6BD6231D3DCB00A792DF /* OneCell.swift */; };
 		48ED6BDA231D3DE000A792DF /* OneContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ED6BD9231D3DE000A792DF /* OneContentView.swift */; };
+		48ED6BDD231D3F4000A792DF /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ED6BDC231D3F4000A792DF /* ProductsViewController.swift */; };
+		48ED6BDF231D3FAC00A792DF /* ProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ED6BDE231D3FAC00A792DF /* ProductsView.swift */; };
 		A343CF4823180C31005F2210 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A343CF4723180C31005F2210 /* AppDelegate.swift */; };
 		A343CF5023180C32005F2210 /* project_saarah.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A343CF4E23180C32005F2210 /* project_saarah.xcdatamodeld */; };
 		A343CF5223180C3C005F2210 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A343CF5123180C3C005F2210 /* Assets.xcassets */; };
@@ -18,10 +21,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		482922F5231D42B2005DAF11 /* ConfigurableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableController.swift; sourceTree = "<group>"; };
 		48ED6BCF231D3D8E00A792DF /* OneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneViewController.swift; sourceTree = "<group>"; };
 		48ED6BD3231D3DB000A792DF /* OneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneView.swift; sourceTree = "<group>"; };
 		48ED6BD6231D3DCB00A792DF /* OneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneCell.swift; sourceTree = "<group>"; };
 		48ED6BD9231D3DE000A792DF /* OneContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneContentView.swift; sourceTree = "<group>"; };
+		48ED6BDC231D3F4000A792DF /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
+		48ED6BDE231D3FAC00A792DF /* ProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsView.swift; sourceTree = "<group>"; };
 		A343CF4423180C31005F2210 /* project-saarah.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "project-saarah.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A343CF4723180C31005F2210 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A343CF4F23180C32005F2210 /* project_saarah.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = project_saarah.xcdatamodel; sourceTree = "<group>"; };
@@ -45,6 +51,8 @@
 			isa = PBXGroup;
 			children = (
 				48ED6BCF231D3D8E00A792DF /* OneViewController.swift */,
+				48ED6BDC231D3F4000A792DF /* ProductsViewController.swift */,
+				482922F5231D42B2005DAF11 /* ConfigurableController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -71,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				48ED6BD9231D3DE000A792DF /* OneContentView.swift */,
+				48ED6BDE231D3FAC00A792DF /* ProductsView.swift */,
 			);
 			path = content;
 			sourceTree = "<group>";
@@ -185,7 +194,10 @@
 			files = (
 				48ED6BD7231D3DCB00A792DF /* OneCell.swift in Sources */,
 				A343CF5023180C32005F2210 /* project_saarah.xcdatamodeld in Sources */,
+				48ED6BDD231D3F4000A792DF /* ProductsViewController.swift in Sources */,
 				A343CF4823180C31005F2210 /* AppDelegate.swift in Sources */,
+				48ED6BDF231D3FAC00A792DF /* ProductsView.swift in Sources */,
+				482922F6231D42B2005DAF11 /* ConfigurableController.swift in Sources */,
 				48ED6BD0231D3D8E00A792DF /* OneViewController.swift in Sources */,
 				48ED6BDA231D3DE000A792DF /* OneContentView.swift in Sources */,
 				48ED6BD4231D3DB000A792DF /* OneView.swift in Sources */,
