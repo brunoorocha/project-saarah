@@ -10,7 +10,7 @@ import UIKit
 
 class ProductsViewController: UIViewController, ConfigurableController {
 	var contentView: UIView? = ProductsView()
-	
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		

@@ -14,6 +14,8 @@ class ProductsView: UIView {
 	init() {
 		super.init(frame: .zero)
 		
+		translatesAutoresizingMaskIntoConstraints = false
+		
 		instantiateViews()
 		buildViewHierarchy()
 		setupConstraints()
@@ -26,6 +28,7 @@ class ProductsView: UIView {
 	func instantiateViews() {
 		tableView = UITableView(frame: .zero, style: .plain)
 		tableView.translatesAutoresizingMaskIntoConstraints = false
+		tableView.backgroundColor = UIColor.white
 		tableView.delegate = self
 		tableView.dataSource = self
 		tableView.register(ProductTableViewCell.self, forCellReuseIdentifier: "ProductTableViewCell")
