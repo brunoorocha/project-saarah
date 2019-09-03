@@ -28,11 +28,8 @@ extension ProductItem {
     func information() -> String? {
         return nil
     }
-    
+
     func averagePrice() -> Double {
-        guard let product = self.product else {
-            return 0.0
-        }
         return product.price
     }
 
