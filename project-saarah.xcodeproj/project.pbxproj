@@ -7,17 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B4F417A231DF84600EB1F13 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4F4179231DF84600EB1F13 /* CoreDataService.swift */; };
 		1B4F4184231DFA6C00EB1F13 /* Ingredient+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4F417C231DFA6C00EB1F13 /* Ingredient+CoreDataClass.swift */; };
-		1B4F4185231DFA6C00EB1F13 /* Ingredient+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4F417D231DFA6C00EB1F13 /* Ingredient+CoreDataProperties.swift */; };
 		1B4F4186231DFA6C00EB1F13 /* Product+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4F417E231DFA6C00EB1F13 /* Product+CoreDataClass.swift */; };
-		1B4F4187231DFA6C00EB1F13 /* Product+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4F417F231DFA6C00EB1F13 /* Product+CoreDataProperties.swift */; };
-		1B4F4188231DFA6C00EB1F13 /* Quantity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4F4180231DFA6C00EB1F13 /* Quantity+CoreDataClass.swift */; };
-		1B4F4189231DFA6C00EB1F13 /* Quantity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4F4181231DFA6C00EB1F13 /* Quantity+CoreDataProperties.swift */; };
 		1B4F418A231DFA6C00EB1F13 /* ProductItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4F4182231DFA6C00EB1F13 /* ProductItem+CoreDataClass.swift */; };
-		1B4F418B231DFA6C00EB1F13 /* ProductItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4F4183231DFA6C00EB1F13 /* ProductItem+CoreDataProperties.swift */; };
 		1B4F418D231DFB1800EB1F13 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4F418C231DFB1800EB1F13 /* Item.swift */; };
 		1B4F418F231DFECD00EB1F13 /* QuantityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4F418E231DFECD00EB1F13 /* QuantityType.swift */; };
+		1BBA1967231E9ECC00116004 /* CoreStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBA1963231E9ECC00116004 /* CoreStack.swift */; };
+		1BBA1968231E9ECC00116004 /* CoreDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBA1964231E9ECC00116004 /* CoreDao.swift */; };
+		1BBA1969231E9ECC00116004 /* NSManagedObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBA1965231E9ECC00116004 /* NSManagedObject+Extension.swift */; };
+		1BBA196A231E9ECC00116004 /* ConfigurableDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBA1966231E9ECC00116004 /* ConfigurableDao.swift */; };
+		1BBA196C231EA98800116004 /* CoreDao+Saarah.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBA196B231EA98800116004 /* CoreDao+Saarah.swift */; };
+		1BBA1998231ED9CD00116004 /* ProductItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBA1992231ED9CD00116004 /* ProductItem+CoreDataProperties.swift */; };
+		1BBA199C231ED9CD00116004 /* Ingredient+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBA1996231ED9CD00116004 /* Ingredient+CoreDataProperties.swift */; };
+		1BBA19A0231EDB2400116004 /* Product+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBA199E231EDB2400116004 /* Product+CoreDataProperties.swift */; };
 		482922FA231D4523005DAF11 /* UIFile+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482922F9231D4523005DAF11 /* UIFile+Extension.swift */; };
 		48ED6BD0231D3D8E00A792DF /* OneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ED6BCF231D3D8E00A792DF /* OneViewController.swift */; };
 		48ED6BD4231D3DB000A792DF /* OneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ED6BD3231D3DB000A792DF /* OneView.swift */; };
@@ -30,17 +32,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1B4F4179231DF84600EB1F13 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		1B4F417C231DFA6C00EB1F13 /* Ingredient+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ingredient+CoreDataClass.swift"; sourceTree = "<group>"; };
-		1B4F417D231DFA6C00EB1F13 /* Ingredient+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ingredient+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1B4F417E231DFA6C00EB1F13 /* Product+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataClass.swift"; sourceTree = "<group>"; };
-		1B4F417F231DFA6C00EB1F13 /* Product+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		1B4F4180231DFA6C00EB1F13 /* Quantity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Quantity+CoreDataClass.swift"; sourceTree = "<group>"; };
-		1B4F4181231DFA6C00EB1F13 /* Quantity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Quantity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1B4F4182231DFA6C00EB1F13 /* ProductItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductItem+CoreDataClass.swift"; sourceTree = "<group>"; };
-		1B4F4183231DFA6C00EB1F13 /* ProductItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1B4F418C231DFB1800EB1F13 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		1B4F418E231DFECD00EB1F13 /* QuantityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantityType.swift; sourceTree = "<group>"; };
+		1BBA1963231E9ECC00116004 /* CoreStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreStack.swift; sourceTree = "<group>"; };
+		1BBA1964231E9ECC00116004 /* CoreDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDao.swift; sourceTree = "<group>"; };
+		1BBA1965231E9ECC00116004 /* NSManagedObject+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Extension.swift"; sourceTree = "<group>"; };
+		1BBA1966231E9ECC00116004 /* ConfigurableDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurableDao.swift; sourceTree = "<group>"; };
+		1BBA196B231EA98800116004 /* CoreDao+Saarah.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDao+Saarah.swift"; sourceTree = "<group>"; };
+		1BBA1992231ED9CD00116004 /* ProductItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		1BBA1996231ED9CD00116004 /* Ingredient+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ingredient+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		1BBA199E231EDB2400116004 /* Product+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		482922F9231D4523005DAF11 /* UIFile+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFile+Extension.swift"; sourceTree = "<group>"; };
 		48ED6BCF231D3D8E00A792DF /* OneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneViewController.swift; sourceTree = "<group>"; };
 		48ED6BD3231D3DB000A792DF /* OneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneView.swift; sourceTree = "<group>"; };
@@ -68,7 +72,8 @@
 		1B4F4178231DF83400EB1F13 /* service */ = {
 			isa = PBXGroup;
 			children = (
-				1B4F4179231DF84600EB1F13 /* CoreDataService.swift */,
+				1BBA1962231E9E8600116004 /* CoreData */,
+				1BBA196B231EA98800116004 /* CoreDao+Saarah.swift */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -76,10 +81,10 @@
 		1B4F417B231DF98300EB1F13 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				1B4F418E231DFECD00EB1F13 /* QuantityType.swift */,
 				1B4F4192231E018000EB1F13 /* protocol */,
 				1B4F4190231E009F00EB1F13 /* core-data-class */,
 				1B4F4191231E015000EB1F13 /* core-data-property */,
-				1B4F418E231DFECD00EB1F13 /* QuantityType.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -89,7 +94,6 @@
 			children = (
 				1B4F417C231DFA6C00EB1F13 /* Ingredient+CoreDataClass.swift */,
 				1B4F417E231DFA6C00EB1F13 /* Product+CoreDataClass.swift */,
-				1B4F4180231DFA6C00EB1F13 /* Quantity+CoreDataClass.swift */,
 				1B4F4182231DFA6C00EB1F13 /* ProductItem+CoreDataClass.swift */,
 			);
 			path = "core-data-class";
@@ -98,10 +102,9 @@
 		1B4F4191231E015000EB1F13 /* core-data-property */ = {
 			isa = PBXGroup;
 			children = (
-				1B4F417D231DFA6C00EB1F13 /* Ingredient+CoreDataProperties.swift */,
-				1B4F417F231DFA6C00EB1F13 /* Product+CoreDataProperties.swift */,
-				1B4F4181231DFA6C00EB1F13 /* Quantity+CoreDataProperties.swift */,
-				1B4F4183231DFA6C00EB1F13 /* ProductItem+CoreDataProperties.swift */,
+				1BBA1992231ED9CD00116004 /* ProductItem+CoreDataProperties.swift */,
+				1BBA199E231EDB2400116004 /* Product+CoreDataProperties.swift */,
+				1BBA1996231ED9CD00116004 /* Ingredient+CoreDataProperties.swift */,
 			);
 			path = "core-data-property";
 			sourceTree = "<group>";
@@ -112,6 +115,17 @@
 				1B4F418C231DFB1800EB1F13 /* Item.swift */,
 			);
 			path = protocol;
+			sourceTree = "<group>";
+		};
+		1BBA1962231E9E8600116004 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				1BBA1966231E9ECC00116004 /* ConfigurableDao.swift */,
+				1BBA1964231E9ECC00116004 /* CoreDao.swift */,
+				1BBA1963231E9ECC00116004 /* CoreStack.swift */,
+				1BBA1965231E9ECC00116004 /* NSManagedObject+Extension.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		482922F7231D4503005DAF11 /* util */ = {
@@ -298,23 +312,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B4F418F231DFECD00EB1F13 /* QuantityType.swift in Sources */,
+				1BBA1968231E9ECC00116004 /* CoreDao.swift in Sources */,
+				1BBA199C231ED9CD00116004 /* Ingredient+CoreDataProperties.swift in Sources */,
 				48ED6BD7231D3DCB00A792DF /* OneCell.swift in Sources */,
 				1B4F4184231DFA6C00EB1F13 /* Ingredient+CoreDataClass.swift in Sources */,
+				1BBA1969231E9ECC00116004 /* NSManagedObject+Extension.swift in Sources */,
+				1BBA1998231ED9CD00116004 /* ProductItem+CoreDataProperties.swift in Sources */,
 				1B4F418D231DFB1800EB1F13 /* Item.swift in Sources */,
-				1B4F4187231DFA6C00EB1F13 /* Product+CoreDataProperties.swift in Sources */,
+				1BBA19A0231EDB2400116004 /* Product+CoreDataProperties.swift in Sources */,
 				A343CF5023180C32005F2210 /* project_saarah.xcdatamodeld in Sources */,
-				1B4F4189231DFA6C00EB1F13 /* Quantity+CoreDataProperties.swift in Sources */,
+				1BBA196A231E9ECC00116004 /* ConfigurableDao.swift in Sources */,
 				A343CF4823180C31005F2210 /* AppDelegate.swift in Sources */,
-				1B4F4185231DFA6C00EB1F13 /* Ingredient+CoreDataProperties.swift in Sources */,
-				1B4F4188231DFA6C00EB1F13 /* Quantity+CoreDataClass.swift in Sources */,
 				1B4F4186231DFA6C00EB1F13 /* Product+CoreDataClass.swift in Sources */,
 				482922FA231D4523005DAF11 /* UIFile+Extension.swift in Sources */,
-				1B4F418B231DFA6C00EB1F13 /* ProductItem+CoreDataProperties.swift in Sources */,
-				1B4F417A231DF84600EB1F13 /* CoreDataService.swift in Sources */,
 				48ED6BD0231D3D8E00A792DF /* OneViewController.swift in Sources */,
 				1B4F418A231DFA6C00EB1F13 /* ProductItem+CoreDataClass.swift in Sources */,
+				1BBA1967231E9ECC00116004 /* CoreStack.swift in Sources */,
 				48ED6BDA231D3DE000A792DF /* OneContentView.swift in Sources */,
 				48ED6BD4231D3DB000A792DF /* OneView.swift in Sources */,
+				1BBA196C231EA98800116004 /* CoreDao+Saarah.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
