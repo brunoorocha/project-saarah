@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Item {
+@objc public protocol Item {
 
     var name: String { get set }
     var price: Double { get set }

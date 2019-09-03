@@ -13,4 +13,12 @@ import CoreData
 @objc(ProductItem)
 public class ProductItem: NSManagedObject, Item {
 
+    public func information() -> String? {
+        return nil
+    }
+
+    public func averagePrice() -> Double {
+        return product.price
+    }
+
 }
