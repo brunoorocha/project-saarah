@@ -13,6 +13,7 @@
 		48AA5F24231D58E700BFCF96 /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AA5F23231D58E700BFCF96 /* AddProductViewController.swift */; };
 		48AA5F26231D5A4D00BFCF96 /* AddProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AA5F25231D5A4D00BFCF96 /* AddProductView.swift */; };
 		48AA5F39231E8FCC00BFCF96 /* FormTwoFieldsParallelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AA5F38231E8FCC00BFCF96 /* FormTwoFieldsParallelTableViewCell.swift */; };
+		48AA5F3B231E94F100BFCF96 /* FormThreeFieldsParallelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AA5F3A231E94F100BFCF96 /* FormThreeFieldsParallelTableViewCell.swift */; };
 		48ED6BD0231D3D8E00A792DF /* OneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ED6BCF231D3D8E00A792DF /* OneViewController.swift */; };
 		48ED6BD4231D3DB000A792DF /* OneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ED6BD3231D3DB000A792DF /* OneView.swift */; };
 		48ED6BD7231D3DCB00A792DF /* OneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ED6BD6231D3DCB00A792DF /* OneCell.swift */; };
@@ -32,6 +33,7 @@
 		48AA5F23231D58E700BFCF96 /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
 		48AA5F25231D5A4D00BFCF96 /* AddProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductView.swift; sourceTree = "<group>"; };
 		48AA5F38231E8FCC00BFCF96 /* FormTwoFieldsParallelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTwoFieldsParallelTableViewCell.swift; sourceTree = "<group>"; };
+		48AA5F3A231E94F100BFCF96 /* FormThreeFieldsParallelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormThreeFieldsParallelTableViewCell.swift; sourceTree = "<group>"; };
 		48ED6BCF231D3D8E00A792DF /* OneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneViewController.swift; sourceTree = "<group>"; };
 		48ED6BD3231D3DB000A792DF /* OneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneView.swift; sourceTree = "<group>"; };
 		48ED6BD6231D3DCB00A792DF /* OneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneCell.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				48ED6BD6231D3DCB00A792DF /* OneCell.swift */,
 				48AA5F21231D4F3700BFCF96 /* ProductTableViewCell.swift */,
 				48AA5F38231E8FCC00BFCF96 /* FormTwoFieldsParallelTableViewCell.swift */,
+				48AA5F3A231E94F100BFCF96 /* FormThreeFieldsParallelTableViewCell.swift */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				48ED6BDD231D3F4000A792DF /* ProductsViewController.swift in Sources */,
 				A343CF4823180C31005F2210 /* AppDelegate.swift in Sources */,
 				48ED6BDF231D3FAC00A792DF /* ProductsView.swift in Sources */,
+				48AA5F3B231E94F100BFCF96 /* FormThreeFieldsParallelTableViewCell.swift in Sources */,
 				482922F6231D42B2005DAF11 /* ConfigurableController.swift in Sources */,
 				482922FA231D4523005DAF11 /* UIFile+Extension.swift in Sources */,
 				48AA5F22231D4F3700BFCF96 /* ProductTableViewCell.swift in Sources */,
