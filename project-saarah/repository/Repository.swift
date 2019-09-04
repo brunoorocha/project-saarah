@@ -24,7 +24,7 @@ enum Environment {
 }
 
 protocol Repository {
-    
+
     associatedtype RepositoryModel: NSManagedObject
     associatedtype ModelParameters
 
@@ -32,13 +32,13 @@ protocol Repository {
 
     init()
     init(_ environment: Environment)
-    
+
     func getAll() -> [RepositoryModel]
     func create(_ object: ModelParameters) -> RepositoryModel
     func create(_ object: RepositoryModel)
     func update(_ object: RepositoryModel)
     func delete(_ object: RepositoryModel)
-    
+
 }
 
 extension Repository {

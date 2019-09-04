@@ -23,22 +23,6 @@ class ProductRepository: Repository {
         self.modelDao = CoreDao<RepositoryModel>(with: Environment.production.coreData)
     }
 
-    func getAll() -> [RepositoryModel] {
-        return modelDao.fetchAll()
-    }
-
-    func create(_ object: RepositoryModel) {
-        modelDao.insert(object: object)
-    }
-
-    func update(_ object: RepositoryModel) {
-        modelDao.save()
-    }
-
-    func delete(_ object: RepositoryModel) {
-        modelDao.delete(object: object)
-    }
-
     func create(_ object: ModelParameters) -> RepositoryModel {
 
         let product = new()
@@ -50,6 +34,22 @@ class ProductRepository: Repository {
         create(product)
 
         return product
+    }
+
+    func getAll() -> [RepositoryModel] {
+        return getDaoAll()
+    }
+
+    func create(_ object: RepositoryModel) {
+        createDao(object)
+    }
+
+    func update(_ object: RepositoryModel) {
+        updateDao(object)
+    }
+
+    func delete(_ object: RepositoryModel) {
+        deleteDao(object)
     }
 
 }
