@@ -47,7 +47,7 @@ class FormTwoFieldsParallelTableViewCell: UITableViewCell {
 		NSLayoutConstraint.activate([
 			fieldNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
 			fieldNameLabel.centerYAnchor.constraint(equalTo: getDataTextField.centerYAnchor),
-			getDataTextField.widthAnchor.constraint(equalTo: contentView.widthAnchor),
+			getDataTextField.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.5),
 			getDataTextField.leadingAnchor.constraint(equalTo: fieldNameLabel.trailingAnchor),
 			getDataTextField.topAnchor.constraint(equalTo: contentView.topAnchor),
 			getDataTextField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),

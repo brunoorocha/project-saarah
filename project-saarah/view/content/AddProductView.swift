@@ -81,15 +81,25 @@ class AddProductView: UIView {
 
 extension AddProductView: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 3
+		return 4
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		//need implement the method that says how the form has to be builded
-		guard let cell = tableView.dequeueReusableCell(withIdentifier: "FormThreeFieldsParallelTableViewCell", for: indexPath) as? FormThreeFieldsParallelTableViewCell else { return UITableViewCell() }
-
-		cell.setContent()
-
-		return cell
+		//implementation to show both cells
+		if (indexPath.row % 2 == 0) {
+			guard let cell = tableView.dequeueReusableCell(withIdentifier: "FormThreeFieldsParallelTableViewCell", for: indexPath) as? FormThreeFieldsParallelTableViewCell else { return UITableViewCell() }
+			
+			cell.setContent()
+			
+			return cell
+		}
+		else {
+			guard let cell = tableView.dequeueReusableCell(withIdentifier: "FormTwoFieldsParallelTableViewCell", for: indexPath) as? FormTwoFieldsParallelTableViewCell else { return UITableViewCell() }
+			
+			cell.setContent()
+			
+			return cell
+		}
 	}
 }
