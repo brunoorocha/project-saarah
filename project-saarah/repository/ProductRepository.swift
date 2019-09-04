@@ -11,8 +11,17 @@ import CoreData
 
 class ProductRepository: Repository {
 
+    typealias ModelParameters = (name: String,
+                                 price: Double,
+                                 quantityType: QuantityType,
+                                 quantity: Double)
     typealias RepositoryModel = Product
-    let modelDao = CoreDao<RepositoryModel>()
+
+    var modelDao: CoreDao<RepositoryModel>
+
+    required init() {
+        self.modelDao = CoreDao<RepositoryModel>(with: Environment.production.coreData)
+    }
 
     func getAll() -> [RepositoryModel] {
         return modelDao.fetchAll()
@@ -30,17 +39,13 @@ class ProductRepository: Repository {
         modelDao.delete(object: object)
     }
 
-    func create(_ name: String,
-                _ price: Double,
-                _ quantityType: QuantityType,
-                _ quantity: Double)
-                -> RepositoryModel {
+    func create(_ object: ModelParameters) -> RepositoryModel {
 
         let product = new()
-        product.name = name
-        product.price = price
-        product.quantityType = quantityType.rawValue
-        product.quantity = quantity
+        product.name = object.name
+        product.price = object.price
+        product.quantityType = object.quantityType.rawValue
+        product.quantity = object.quantity
 
         create(product)
 
