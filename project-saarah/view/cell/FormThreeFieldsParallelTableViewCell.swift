@@ -12,33 +12,33 @@ class FormThreeFieldsParallelTableViewCell: UITableViewCell {
 	var fieldNameLabel: UILabel!
 	var inputDataTextField: UITextField!
 	var typeDataTextField: UITextField!
-	
+
 	let typeDataPickerView = UIPickerView()
-	
+
 	override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
-		
+
 		selectionStyle = .none
-		
+
 		instantiateViews()
 		buildViewsHierarchy()
 		setupConstraints()
 	}
-	
+
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
-	
+
 	func setContent() {
 		fieldNameLabel.text = "Outro campo"
 		inputDataTextField.placeholder = "Input do outro campo"
 		typeDataTextField.text = "??"
 	}
-	
+
 	@objc func dismissTypeDataPickerView() {
 		contentView.endEditing(true)
 	}
-	
+
 	func instantiateViews() {
 		fieldNameLabel = UILabel(frame: .zero)
 		fieldNameLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -49,7 +49,7 @@ class FormThreeFieldsParallelTableViewCell: UITableViewCell {
 		typeDataTextField.textAlignment = .center
 		typeDataTextField.inputView = typeDataPickerView
 		typeDataPickerView.delegate = self
-		
+
 		let toolBar = UIToolbar()
 		toolBar.barStyle = UIBarStyle.default
 		toolBar.isTranslucent = true
@@ -60,13 +60,13 @@ class FormThreeFieldsParallelTableViewCell: UITableViewCell {
 		toolBar.isUserInteractionEnabled = true
 		typeDataTextField.inputAccessoryView = toolBar
 	}
-	
+
 	func buildViewsHierarchy() {
 		contentView.addSubview(fieldNameLabel)
 		contentView.addSubview(inputDataTextField)
 		contentView.addSubview(typeDataTextField)
 	}
-	
+
 	func setupConstraints() {
 		NSLayoutConstraint.activate([
 			fieldNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
@@ -86,15 +86,15 @@ extension FormThreeFieldsParallelTableViewCell: UIPickerViewDelegate, UIPickerVi
 	func numberOfComponents(in pickerView: UIPickerView) -> Int {
 		return 1
 	}
-	
+
 	func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
 		return 4
 	}
-	
+
 	func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
 		return "Titulo do tipo de quantidade"
 	}
-	
+
 	func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 		typeDataTextField.text = "teste seleção"
 	}

@@ -11,38 +11,38 @@ import UIKit
 class FormTwoFieldsParallelTableViewCell: UITableViewCell {
 	var fieldNameLabel: UILabel!
 	var getDataTextField: UITextField!
-	
+
 	override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
-		
+
 		selectionStyle = .none
-		
+
 		instantiateViews()
 		buildViewsHierarchy()
 		setupConstraints()
 	}
-	
+
 	func setContent() {
 		fieldNameLabel.text = "Campo do form"
 		getDataTextField.placeholder = "recebe campo do form"
 	}
-	
+
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
-	
+
 	func instantiateViews() {
 		fieldNameLabel = UILabel(frame: .zero)
 		fieldNameLabel.translatesAutoresizingMaskIntoConstraints = false
 		getDataTextField = UITextField(frame: .zero)
 		getDataTextField.translatesAutoresizingMaskIntoConstraints = false
 	}
-	
+
 	func buildViewsHierarchy() {
 		contentView.addSubview(fieldNameLabel)
 		contentView.addSubview(getDataTextField)
 	}
-	
+
 	func setupConstraints() {
 		NSLayoutConstraint.activate([
 			fieldNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),

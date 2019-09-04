@@ -10,12 +10,12 @@ import UIKit
 
 class AddProductViewController: UIViewController, ConfigurableController {
 	var contentView: UIView? = AddProductView()
-	
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
+
 		setupContentView()
-		
+
 		if let addProductView = contentView as? AddProductView {
 			addProductView.delegate = self
 		}
@@ -26,7 +26,7 @@ extension AddProductViewController: AddProductViewDelegate {
 	func dismiss() {
 		dismiss(animated: true, completion: nil)
 	}
-	
+
 	func productAdded() {
 		print("product added")
 	}

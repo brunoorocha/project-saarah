@@ -16,31 +16,31 @@ protocol AddProductViewDelegate: class {
 class AddProductView: UIView {
 	var navigationBar: UINavigationBar!
 	var tableView: UITableView!
-	
+
 	weak var delegate: AddProductViewDelegate?
-	
+
 	init() {
 		super.init(frame: .zero)
-		
+
 		translatesAutoresizingMaskIntoConstraints = false
-		
+
 		instantiateViews()
 		buildViewsHierarchy()
 		setupConstraints()
 	}
-	
+
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
-	
+
 	@objc func cancelButtonAction() {
 		delegate?.dismiss()
 	}
-	
+
 	@objc func saveButtonAction() {
 		delegate?.productAdded()
 	}
-	
+
 	func instantiateViews() {
 		navigationBar = UINavigationBar(frame: .zero)
 		navigationBar.translatesAutoresizingMaskIntoConstraints = false
@@ -51,7 +51,7 @@ class AddProductView: UIView {
 		let saveButton = UIBarButtonItem(title: "Salvar", style: .done, target: self, action: #selector(saveButtonAction))
 		navigationBar.topItem?.leftBarButtonItem = cancelButton
 		navigationBar.topItem?.rightBarButtonItem = saveButton
-		
+
 		tableView = UITableView(frame: .zero, style: .plain)
 		tableView.translatesAutoresizingMaskIntoConstraints = false
 		tableView.backgroundColor = UIColor.white
@@ -60,12 +60,12 @@ class AddProductView: UIView {
 		tableView.register(FormTwoFieldsParallelTableViewCell.self, forCellReuseIdentifier: "FormTwoFieldsParallelTableViewCell")
 		tableView.register(FormThreeFieldsParallelTableViewCell.self, forCellReuseIdentifier: "FormThreeFieldsParallelTableViewCell")
 	}
-	
+
 	func buildViewsHierarchy() {
 		addSubview(navigationBar)
 		addSubview(tableView)
 	}
-	
+
 	func setupConstraints() {
 		NSLayoutConstraint.activate([
 			navigationBar.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -83,22 +83,21 @@ extension AddProductView: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return 4
 	}
-	
+
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		//need implement the method that says how the form has to be builded
 		//implementation to show both cells
 		if (indexPath.row % 2 == 0) {
 			guard let cell = tableView.dequeueReusableCell(withIdentifier: "FormThreeFieldsParallelTableViewCell", for: indexPath) as? FormThreeFieldsParallelTableViewCell else { return UITableViewCell() }
-			
+
 			cell.setContent()
-			
+
 			return cell
-		}
-		else {
+		} else {
 			guard let cell = tableView.dequeueReusableCell(withIdentifier: "FormTwoFieldsParallelTableViewCell", for: indexPath) as? FormTwoFieldsParallelTableViewCell else { return UITableViewCell() }
-			
+
 			cell.setContent()
-			
+
 			return cell
 		}
 	}

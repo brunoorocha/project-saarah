@@ -10,7 +10,7 @@ import UIKit
 
 protocol ConfigurableController: UIViewController {
 	var contentView: UIView? { get set }
-	
+
 	func setupContentView()
 	func addContentView()
 	func setupContentViewConstraints()
@@ -21,12 +21,12 @@ extension ConfigurableController {
 		addContentView()
 		setupContentViewConstraints()
 	}
-	
+
 	func addContentView() {
 		guard let myView = contentView else { return print("You should pass view") }
 		view.addSubview(myView)
 	}
-	
+
 	func setupContentViewConstraints() {
 		if let myView = contentView {
 			NSLayoutConstraint.activate([

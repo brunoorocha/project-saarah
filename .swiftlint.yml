@@ -1,3 +1,5 @@
+disabled_rules:
+ - control_statement
 line_length:
  - 200 # warning
  - 300 # error
