@@ -46,11 +46,10 @@ public class CoreDao<Element: NSManagedObject>: ConfigurableDao {
 
     public func save() {
         do {
-            do {
-                try context.save()
-            } catch {
-                print(error)
-            }
+            try context.save()
+        } catch {
+            print(error)
         }
     }
+
 }
