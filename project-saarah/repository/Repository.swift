@@ -24,21 +24,21 @@ enum Environment {
 }
 
 protocol Repository {
-
+    
     associatedtype RepositoryModel: NSManagedObject
     associatedtype ModelParameters
 
-//    var environment: Environment { get set }
     var modelDao: CoreDao<RepositoryModel> { get set }
 
+    init()
+    init(_ environment: Environment)
+    
     func getAll() -> [RepositoryModel]
     func create(_ object: ModelParameters) -> RepositoryModel
     func create(_ object: RepositoryModel)
     func update(_ object: RepositoryModel)
     func delete(_ object: RepositoryModel)
-    init(_ environment: Environment)
-    init()
-
+    
 }
 
 extension Repository {
