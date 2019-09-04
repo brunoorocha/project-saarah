@@ -15,6 +15,7 @@ class ProductsViewController: UIViewController, ConfigurableController {
 		super.viewDidLoad()
 
 		setupContentView()
+        setupAddButton()
 	}
 
 	@objc func addButtonAction() {

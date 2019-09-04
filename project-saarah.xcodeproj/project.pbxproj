@@ -32,7 +32,6 @@
 		A353D7D7231FE5AB004A5139 /* InventoryMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A353D7D6231FE5AB004A5139 /* InventoryMenuViewController.swift */; };
 		A353D7D9231FE5DC004A5139 /* RestaurantDomainsMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A353D7D8231FE5DC004A5139 /* RestaurantDomainsMenuViewController.swift */; };
 		A353D7DC231FE61C004A5139 /* AppSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A353D7DB231FE61C004A5139 /* AppSplitViewController.swift */; };
-		A353D7DF231FE669004A5139 /* InventoryAllItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A353D7DE231FE669004A5139 /* InventoryAllItemsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,7 +62,6 @@
 		A353D7D6231FE5AB004A5139 /* InventoryMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryMenuViewController.swift; sourceTree = "<group>"; };
 		A353D7D8231FE5DC004A5139 /* RestaurantDomainsMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDomainsMenuViewController.swift; sourceTree = "<group>"; };
 		A353D7DB231FE61C004A5139 /* AppSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSplitViewController.swift; sourceTree = "<group>"; };
-		A353D7DE231FE669004A5139 /* InventoryAllItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryAllItemsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +95,6 @@
 		48ED6BCE231D3D7300A792DF /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				A353D7DD231FE63E004A5139 /* inventory-all-items */,
 				A353D7DA231FE605004A5139 /* split-view */,
 				A353D7D1231FE525004A5139 /* navigation-drawer */,
 				48ED6BCF231D3D8E00A792DF /* OneViewController.swift */,
@@ -169,10 +166,10 @@
 		A343CF4623180C31005F2210 /* project-saarah */ = {
 			isa = PBXGroup;
 			children = (
-				A353D7CA231FE44A004A5139 /* models */,
 				A343CF5623180C3C005F2210 /* Info.plist */,
 				482922F7231D4503005DAF11 /* util */,
 				48ED6BDB231D3DF700A792DF /* application */,
+				A353D7CA231FE44A004A5139 /* models */,
 				48ED6BD2231D3D9C00A792DF /* view */,
 				48ED6BCE231D3D7300A792DF /* controller */,
 			);
@@ -229,14 +226,6 @@
 				A353D7DB231FE61C004A5139 /* AppSplitViewController.swift */,
 			);
 			path = "split-view";
-			sourceTree = "<group>";
-		};
-		A353D7DD231FE63E004A5139 /* inventory-all-items */ = {
-			isa = PBXGroup;
-			children = (
-				A353D7DE231FE669004A5139 /* InventoryAllItemsViewController.swift */,
-			);
-			path = "inventory-all-items";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,7 +336,6 @@
 				48ED6BDF231D3FAC00A792DF /* ProductsView.swift in Sources */,
 				48AA5F3B231E94F100BFCF96 /* FormThreeFieldsParallelTableViewCell.swift in Sources */,
 				A353D7DC231FE61C004A5139 /* AppSplitViewController.swift in Sources */,
-				A353D7DF231FE669004A5139 /* InventoryAllItemsViewController.swift in Sources */,
 				482922F6231D42B2005DAF11 /* ConfigurableController.swift in Sources */,
 				482922FA231D4523005DAF11 /* UIFile+Extension.swift in Sources */,
 				48AA5F22231D4F3700BFCF96 /* ProductTableViewCell.swift in Sources */,
