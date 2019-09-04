@@ -16,7 +16,6 @@
 		1BBA1968231E9ECC00116004 /* CoreDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBA1964231E9ECC00116004 /* CoreDao.swift */; };
 		1BBA1969231E9ECC00116004 /* NSManagedObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBA1965231E9ECC00116004 /* NSManagedObject+Extension.swift */; };
 		1BBA196A231E9ECC00116004 /* ConfigurableDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBA1966231E9ECC00116004 /* ConfigurableDao.swift */; };
-		1BBA196C231EA98800116004 /* CoreDao+Saarah.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBA196B231EA98800116004 /* CoreDao+Saarah.swift */; };
 		1BBA1998231ED9CD00116004 /* ProductItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBA1992231ED9CD00116004 /* ProductItem+CoreDataProperties.swift */; };
 		1BBA199C231ED9CD00116004 /* Ingredient+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBA1996231ED9CD00116004 /* Ingredient+CoreDataProperties.swift */; };
 		1BBA19A0231EDB2400116004 /* Product+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBA199E231EDB2400116004 /* Product+CoreDataProperties.swift */; };
@@ -43,7 +42,6 @@
 		1BBA1964231E9ECC00116004 /* CoreDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDao.swift; sourceTree = "<group>"; };
 		1BBA1965231E9ECC00116004 /* NSManagedObject+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Extension.swift"; sourceTree = "<group>"; };
 		1BBA1966231E9ECC00116004 /* ConfigurableDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurableDao.swift; sourceTree = "<group>"; };
-		1BBA196B231EA98800116004 /* CoreDao+Saarah.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDao+Saarah.swift"; sourceTree = "<group>"; };
 		1BBA1992231ED9CD00116004 /* ProductItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1BBA1996231ED9CD00116004 /* Ingredient+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ingredient+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1BBA199E231EDB2400116004 /* Product+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -77,7 +75,6 @@
 			isa = PBXGroup;
 			children = (
 				1BBA1962231E9E8600116004 /* CoreData */,
-				1BBA196B231EA98800116004 /* CoreDao+Saarah.swift */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -346,7 +343,6 @@
 				1BBA1967231E9ECC00116004 /* CoreStack.swift in Sources */,
 				48ED6BDA231D3DE000A792DF /* OneContentView.swift in Sources */,
 				48ED6BD4231D3DB000A792DF /* OneView.swift in Sources */,
-				1BBA196C231EA98800116004 /* CoreDao+Saarah.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
