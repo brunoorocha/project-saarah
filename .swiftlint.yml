@@ -1,5 +1,6 @@
 disabled_rules:
  - control_statement
+ - comma
 line_length:
  - 200 # warning
  - 300 # error
