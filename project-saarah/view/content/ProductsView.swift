@@ -52,7 +52,7 @@ extension ProductsView: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return 3
 	}
-	
+
 	func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
 		let deleteAction = UITableViewRowAction(style: .destructive, title: "Apagar produto") { (_ , _) in
 			let confirmAlert = UIAlertController(title: "Apagar produtor", message: "Você realmente deseja apagar esse produto?", preferredStyle: .actionSheet)
@@ -63,7 +63,7 @@ extension ProductsView: UITableViewDelegate, UITableViewDataSource {
 				print("deletar produto")
 			}))
 		}
-		
+
 		return [deleteAction]
 	}
 
