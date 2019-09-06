@@ -10,6 +10,8 @@ import UIKit
 
 class ProductsView: UIView {
 	var tableView: UITableView!
+	
+	var products: [Product] = []
 
 	init() {
 		super.init(frame: .zero)
@@ -26,6 +28,9 @@ class ProductsView: UIView {
 	}
 
 	func instantiateViews() {
+		let productRepository = ProductRepository()
+		products = productRepository.getAll()
+		
 		tableView = UITableView(frame: .zero, style: .plain)
 		tableView.translatesAutoresizingMaskIntoConstraints = false
 		tableView.backgroundColor = UIColor.white
@@ -50,7 +55,7 @@ class ProductsView: UIView {
 
 extension ProductsView: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 3
+		return products.count
 	}
 
 	func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
@@ -70,7 +75,8 @@ extension ProductsView: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProductTableViewCell", for: indexPath) as? ProductTableViewCell else { return UITableViewCell() }
 
-		cell.setContent()
+		let product = products[indexPath.row]
+		cell.setContent(product)
 
 		return cell
 	}
