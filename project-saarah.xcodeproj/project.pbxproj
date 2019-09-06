@@ -28,6 +28,8 @@
 		4818E13123227FF300EFF585 /* PListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4818E13023227FF300EFF585 /* PListManager.swift */; };
 		4818E133232280FF00EFF585 /* AddProductForm.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4818E132232280FF00EFF585 /* AddProductForm.plist */; };
 		4818E135232283AB00EFF585 /* FormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4818E134232283AB00EFF585 /* FormData.swift */; };
+		4818E1372322AFC500EFF585 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A343CF4723180C31005F2210 /* AppDelegate.swift */; };
+		4818E1382322AFC500EFF585 /* project_saarah.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A343CF4E23180C32005F2210 /* project_saarah.xcdatamodeld */; };
 		482922F6231D42B2005DAF11 /* ConfigurableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482922F5231D42B2005DAF11 /* ConfigurableController.swift */; };
 		482922FA231D4523005DAF11 /* UIFile+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482922F9231D4523005DAF11 /* UIFile+Extension.swift */; };
 		48AA5F22231D4F3700BFCF96 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AA5F21231D4F3700BFCF96 /* ProductTableViewCell.swift */; };
@@ -41,8 +43,6 @@
 		48ED6BDA231D3DE000A792DF /* OneContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ED6BD9231D3DE000A792DF /* OneContentView.swift */; };
 		48ED6BDD231D3F4000A792DF /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ED6BDC231D3F4000A792DF /* ProductsViewController.swift */; };
 		48ED6BDF231D3FAC00A792DF /* ProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ED6BDE231D3FAC00A792DF /* ProductsView.swift */; };
-		A343CF4823180C31005F2210 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A343CF4723180C31005F2210 /* AppDelegate.swift */; };
-		A343CF5023180C32005F2210 /* project_saarah.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A343CF4E23180C32005F2210 /* project_saarah.xcdatamodeld */; };
 		A343CF5223180C3C005F2210 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A343CF5123180C3C005F2210 /* Assets.xcassets */; };
 		A343CF5523180C3C005F2210 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A343CF5323180C3C005F2210 /* LaunchScreen.storyboard */; };
 		A353D7C9231FE416004A5139 /* NavigationDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A353D7C8231FE416004A5139 /* NavigationDrawerView.swift */; };
@@ -391,7 +391,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = "Bruno Rocha";
 				TargetAttributes = {
 					A343CF4323180C31005F2210 = {
@@ -461,7 +461,7 @@
 				1BBA199C231ED9CD00116004 /* Ingredient+CoreDataProperties.swift in Sources */,
 				48ED6BD7231D3DCB00A792DF /* OneCell.swift in Sources */,
 				48AA5F26231D5A4D00BFCF96 /* AddProductView.swift in Sources */,
-				A343CF5023180C32005F2210 /* project_saarah.xcdatamodeld in Sources */,
+				4818E1382322AFC500EFF585 /* project_saarah.xcdatamodeld in Sources */,
 				48AA5F24231D58E700BFCF96 /* AddProductViewController.swift in Sources */,
 				A353D7CC231FE478004A5139 /* InventoryMenu.swift in Sources */,
 				A353D7D0231FE4EE004A5139 /* RestaurantDomainMenu.swift in Sources */,
@@ -470,7 +470,7 @@
 				A353D7D9231FE5DC004A5139 /* RestaurantDomainsMenuViewController.swift in Sources */,
 				A353D7CE231FE4B1004A5139 /* NavigationDrawerMenu.swift in Sources */,
 				48ED6BDD231D3F4000A792DF /* ProductsViewController.swift in Sources */,
-				A343CF4823180C31005F2210 /* AppDelegate.swift in Sources */,
+				4818E1372322AFC500EFF585 /* AppDelegate.swift in Sources */,
 				A353D7D3231FE55B004A5139 /* NavigationDrawerViewController.swift in Sources */,
 				4818E13123227FF300EFF585 /* PListManager.swift in Sources */,
 				48ED6BDF231D3FAC00A792DF /* ProductsView.swift in Sources */,
@@ -484,10 +484,8 @@
 				1B4F418D231DFB1800EB1F13 /* Item.swift in Sources */,
 				1BBA19AE231FE2F700116004 /* CoreDao+Repository.swift in Sources */,
 				1BBA19A0231EDB2400116004 /* Product+CoreDataProperties.swift in Sources */,
-				A343CF5023180C32005F2210 /* project_saarah.xcdatamodeld in Sources */,
 				1BBA196A231E9ECC00116004 /* ConfigurableDao.swift in Sources */,
 				1BBA19A5231F47E000116004 /* ProductRepository.swift in Sources */,
-				A343CF4823180C31005F2210 /* AppDelegate.swift in Sources */,
 				1BBA19AA231FDFA900116004 /* IngredientRepository.swift in Sources */,
 				1B4F4186231DFA6C00EB1F13 /* Product+CoreDataClass.swift in Sources */,
 				482922FA231D4523005DAF11 /* UIFile+Extension.swift in Sources */,
