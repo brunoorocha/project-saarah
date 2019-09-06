@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum QuantityType: String {
+enum QuantityType: String, CaseIterable {
 
     case weight = "Weight"
     case unit = "Unit"

@@ -18,6 +18,7 @@ class AddProductView: UIView {
 	var tableView: UITableView!
 
 	weak var delegate: AddProductViewDelegate?
+	var arrayFormData: [FormData]!
 
 	init() {
 		super.init(frame: .zero)
@@ -38,10 +39,31 @@ class AddProductView: UIView {
 	}
 
 	@objc func saveButtonAction() {
+		var indexPath = IndexPath(row: 0, section: 0)
+		guard let cell0 = tableView.cellForRow(at: indexPath) as? FormTwoFieldsParallelTableViewCell else { return }
+		indexPath.row = 1
+		guard let cell1 = tableView.cellForRow(at: indexPath) as? FormTwoFieldsParallelTableViewCell else { return }
+		indexPath.row = 2
+		guard let cell2 = tableView.cellForRow(at: indexPath) as? FormThreeFieldsParallelTableViewCell else { return }
+		
+		guard let name = cell0.inputDataTextField.text as? String else { return }
+		guard let priceString = cell1.inputDataTextField.text as? String else { return }
+		guard let quantityString = cell2.inputDataTextField.text as? String else { return }
+		guard let quantityType = cell2.typeDataTextField.text as? String else { return }
+		
+		guard let price = Double(priceString) else { return }
+		guard let quantity = Double(quantityString) else { return }
+		guard let quantityTypeEnum = QuantityType(rawValue: quantityType) else { return }
+		
+		let productRepository = ProductRepository()
+		let product = productRepository.create((name: name, price: price, quantityType: quantityTypeEnum, quantity: quantity))
+		
 		delegate?.productAdded()
 	}
 
 	func instantiateViews() {
+		arrayFormData = PListManager.load("AddProductForm")
+		
 		navigationBar = UINavigationBar(frame: .zero)
 		navigationBar.translatesAutoresizingMaskIntoConstraints = false
 		navigationBar.barTintColor = UIColor.red
@@ -81,24 +103,29 @@ class AddProductView: UIView {
 
 extension AddProductView: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 4
+		return arrayFormData.count
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		//need implement the method that says how the form has to be builded
 		//implementation to show both cells
-		if (indexPath.row % 2 == 0) {
-			guard let cell = tableView.dequeueReusableCell(withIdentifier: "FormThreeFieldsParallelTableViewCell", for: indexPath) as? FormThreeFieldsParallelTableViewCell else { return UITableViewCell() }
-
-			cell.setContent()
-
-			return cell
-		} else {
+		let formData = arrayFormData[indexPath.row]
+		
+		switch (formData.cellType) {
+		case 0:
 			guard let cell = tableView.dequeueReusableCell(withIdentifier: "FormTwoFieldsParallelTableViewCell", for: indexPath) as? FormTwoFieldsParallelTableViewCell else { return UITableViewCell() }
-
-			cell.setContent()
-
+			
+			cell.setContent(formData)
+			
 			return cell
+		case 1:
+			guard let cell = tableView.dequeueReusableCell(withIdentifier: "FormThreeFieldsParallelTableViewCell", for: indexPath) as? FormThreeFieldsParallelTableViewCell else { return UITableViewCell() }
+			
+			cell.setContent(formData)
+			
+			return cell
+		default:
+			return UITableViewCell()
 		}
 	}
 }

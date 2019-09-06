@@ -20,11 +20,21 @@ class ProductsViewController: UIViewController, ConfigurableController {
 
 	@objc func addButtonAction() {
 		let addProductVC = AddProductViewController()
+		addProductVC.delegate = self
+		
 		present(addProductVC, animated: true, completion: nil)
 	}
 
 	func setupAddButton() {
 		let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonAction))
 		navigationItem.rightBarButtonItem = addButton
+	}
+}
+
+extension ProductsViewController: AddProductViewControllerDelegate {
+	func productAdded() {
+		if let productsView = contentView as? ProductsView {
+			productsView.tableView.reloadData()
+		}
 	}
 }

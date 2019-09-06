@@ -8,8 +8,14 @@
 
 import UIKit
 
+protocol AddProductViewControllerDelegate {
+	func productAdded()
+}
+
 class AddProductViewController: UIViewController, ConfigurableController {
 	var contentView: UIView? = AddProductView()
+	
+	var delegate: AddProductViewControllerDelegate?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -28,6 +34,7 @@ extension AddProductViewController: AddProductViewDelegate {
 	}
 
 	func productAdded() {
-		print("product added")
+		delegate?.productAdded()
+		dismiss(animated: true, completion: nil)
 	}
 }

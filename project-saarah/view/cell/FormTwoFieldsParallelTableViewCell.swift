@@ -10,7 +10,7 @@ import UIKit
 
 class FormTwoFieldsParallelTableViewCell: UITableViewCell {
 	var fieldNameLabel: UILabel!
-	var getDataTextField: UITextField!
+	var inputDataTextField: UITextField!
 
 	override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -22,9 +22,10 @@ class FormTwoFieldsParallelTableViewCell: UITableViewCell {
 		setupConstraints()
 	}
 
-	func setContent() {
-		fieldNameLabel.text = "Campo do form"
-		getDataTextField.placeholder = "recebe campo do form"
+	func setContent(_ data: FormData) {
+		fieldNameLabel.text = data.fieldName
+		inputDataTextField.placeholder = data.placeholder
+		//need config the keyboard indicate by data
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -34,24 +35,24 @@ class FormTwoFieldsParallelTableViewCell: UITableViewCell {
 	func instantiateViews() {
 		fieldNameLabel = UILabel(frame: .zero)
 		fieldNameLabel.translatesAutoresizingMaskIntoConstraints = false
-		getDataTextField = UITextField(frame: .zero)
-		getDataTextField.translatesAutoresizingMaskIntoConstraints = false
+		inputDataTextField = UITextField(frame: .zero)
+		inputDataTextField.translatesAutoresizingMaskIntoConstraints = false
 	}
 
 	func buildViewsHierarchy() {
 		contentView.addSubview(fieldNameLabel)
-		contentView.addSubview(getDataTextField)
+		contentView.addSubview(inputDataTextField)
 	}
 
 	func setupConstraints() {
 		NSLayoutConstraint.activate([
 			fieldNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-			fieldNameLabel.centerYAnchor.constraint(equalTo: getDataTextField.centerYAnchor),
-			getDataTextField.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.5),
-			getDataTextField.leadingAnchor.constraint(equalTo: fieldNameLabel.trailingAnchor),
-			getDataTextField.topAnchor.constraint(equalTo: contentView.topAnchor),
-			getDataTextField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-			getDataTextField.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+			fieldNameLabel.centerYAnchor.constraint(equalTo: inputDataTextField.centerYAnchor),
+			inputDataTextField.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.5),
+			inputDataTextField.leadingAnchor.constraint(equalTo: fieldNameLabel.trailingAnchor),
+			inputDataTextField.topAnchor.constraint(equalTo: contentView.topAnchor),
+			inputDataTextField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+			inputDataTextField.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
 		])
 	}
 }

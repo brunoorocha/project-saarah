@@ -29,10 +29,10 @@ class FormThreeFieldsParallelTableViewCell: UITableViewCell {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-	func setContent() {
-		fieldNameLabel.text = "Outro campo"
-		inputDataTextField.placeholder = "Input do outro campo"
-		typeDataTextField.text = "??"
+	func setContent(_ data: FormData) {
+		fieldNameLabel.text = data.fieldName
+		inputDataTextField.placeholder = data.placeholder
+		//need config the keyboard indicate by data
 	}
 
 	@objc func dismissTypeDataPickerView() {
@@ -49,7 +49,8 @@ class FormThreeFieldsParallelTableViewCell: UITableViewCell {
 		typeDataTextField.textAlignment = .center
 		typeDataTextField.inputView = typeDataPickerView
 		typeDataPickerView.delegate = self
-
+		typeDataTextField.text = QuantityType.allCases[0].rawValue
+		
 		let toolBar = UIToolbar()
 		toolBar.barStyle = UIBarStyle.default
 		toolBar.isTranslucent = true
@@ -88,14 +89,14 @@ extension FormThreeFieldsParallelTableViewCell: UIPickerViewDelegate, UIPickerVi
 	}
 
 	func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-		return 4
+		return QuantityType.allCases.count
 	}
 
 	func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-		return "Titulo do tipo de quantidade"
+		return QuantityType.allCases[row].rawValue
 	}
 
 	func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-		typeDataTextField.text = "teste seleção"
+		typeDataTextField.text = QuantityType.allCases[row].rawValue
 	}
 }
