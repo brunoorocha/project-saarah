@@ -21,7 +21,7 @@ class ProductsViewController: UIViewController, ConfigurableController {
 	@objc func addButtonAction() {
 		let addProductVC = AddProductViewController()
 		addProductVC.delegate = self
-		
+
 		present(addProductVC, animated: true, completion: nil)
 	}
 

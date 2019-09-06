@@ -8,14 +8,14 @@
 
 import UIKit
 
-protocol AddProductViewControllerDelegate {
+protocol AddProductViewControllerDelegate: class {
 	func productAdded()
 }
 
 class AddProductViewController: UIViewController, ConfigurableController {
 	var contentView: UIView? = AddProductView()
-	
-	var delegate: AddProductViewControllerDelegate?
+
+	weak var delegate: AddProductViewControllerDelegate?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()

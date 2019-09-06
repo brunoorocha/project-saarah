@@ -10,7 +10,7 @@ import UIKit
 
 class ProductsView: UIView {
 	var tableView: UITableView!
-	
+
 	var products: [Product] = []
 
 	init() {
@@ -30,7 +30,7 @@ class ProductsView: UIView {
 	func instantiateViews() {
 		let productRepository = ProductRepository()
 		products = productRepository.getAll()
-		
+
 		tableView = UITableView(frame: .zero, style: .plain)
 		tableView.translatesAutoresizingMaskIntoConstraints = false
 		tableView.backgroundColor = UIColor.white

@@ -50,7 +50,7 @@ class FormThreeFieldsParallelTableViewCell: UITableViewCell {
 		typeDataTextField.inputView = typeDataPickerView
 		typeDataPickerView.delegate = self
 		typeDataTextField.text = QuantityType.allCases[0].rawValue
-		
+
 		let toolBar = UIToolbar()
 		toolBar.barStyle = UIBarStyle.default
 		toolBar.isTranslucent = true
