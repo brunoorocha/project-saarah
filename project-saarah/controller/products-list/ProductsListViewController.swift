@@ -50,8 +50,6 @@ class ProductsListViewController: UIViewController, ConfigurableController {
 
 extension ProductsListViewController: AddProductViewControllerDelegate {
 	func productAdded() {
-		if let productsView = contentView as? ProductsView {
-			productsView.tableView.reloadData()
-		}
+		loadAndPresentProducts()
 	}
 }

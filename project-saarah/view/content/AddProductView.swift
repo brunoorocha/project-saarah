@@ -66,7 +66,6 @@ class AddProductView: UIView {
 
 		navigationBar = UINavigationBar(frame: .zero)
 		navigationBar.translatesAutoresizingMaskIntoConstraints = false
-		navigationBar.barTintColor = UIColor.red
 		let title = UINavigationItem(title: "Adicionar produto")
 		navigationBar.setItems([title], animated: true)
 		let cancelButton = UIBarButtonItem(title: "Cancelar", style: .plain, target: self, action: #selector(cancelButtonAction))
