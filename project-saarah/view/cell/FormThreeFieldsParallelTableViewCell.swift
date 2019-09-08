@@ -12,8 +12,9 @@ class FormThreeFieldsParallelTableViewCell: UITableViewCell {
 	var fieldNameLabel: UILabel!
 	var inputDataTextField: UITextField!
 	var typeDataTextField: UITextField!
-
 	let typeDataPickerView = UIPickerView()
+	
+	var formData: FormData?
 
 	override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -30,9 +31,16 @@ class FormThreeFieldsParallelTableViewCell: UITableViewCell {
 	}
 
 	func setContent(_ data: FormData) {
+		self.formData = data
 		fieldNameLabel.text = data.fieldName
 		inputDataTextField.placeholder = data.placeholder
 		//need config the keyboard indicate by data
+		
+		//set the input for pickerview in the dictionary
+		let keyType = "\(data.key)Type"
+		let pickerViewRow = typeDataPickerView.selectedRow(inComponent: 0)
+		let valueType = QuantityType.allCases[pickerViewRow].rawValue
+		formData?.inputData[keyType] = valueType
 	}
 
 	@objc func dismissTypeDataPickerView() {
@@ -44,12 +52,14 @@ class FormThreeFieldsParallelTableViewCell: UITableViewCell {
 		fieldNameLabel.translatesAutoresizingMaskIntoConstraints = false
 		inputDataTextField = UITextField(frame: .zero)
 		inputDataTextField.translatesAutoresizingMaskIntoConstraints = false
+		inputDataTextField.delegate = self
 		typeDataTextField = UITextField(frame: .zero)
 		typeDataTextField.translatesAutoresizingMaskIntoConstraints = false
 		typeDataTextField.textAlignment = .center
+		typeDataTextField.delegate = self
 		typeDataTextField.inputView = typeDataPickerView
-		typeDataPickerView.delegate = self
 		typeDataTextField.text = QuantityType.allCases[0].rawValue
+		typeDataPickerView.delegate = self
 
 		let toolBar = UIToolbar()
 		toolBar.barStyle = UIBarStyle.default
@@ -97,6 +107,31 @@ extension FormThreeFieldsParallelTableViewCell: UIPickerViewDelegate, UIPickerVi
 	}
 
 	func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-		typeDataTextField.text = QuantityType.allCases[row].rawValue
+		let text = QuantityType.allCases[row].rawValue
+		
+		typeDataTextField.text = text
+		
+		if let key = formData?.key {
+			let keyForPicker = "\(key)Type"
+			formData?.inputData[keyForPicker] = text
+		}
+	}
+}
+
+extension FormThreeFieldsParallelTableViewCell: UITextFieldDelegate {
+	func textFieldDidBeginEditing(_ textField: UITextField) {
+		if (textField == typeDataTextField) {
+			let item = textField.inputAssistantItem
+			item.leadingBarButtonGroups = []
+			item.trailingBarButtonGroups = []
+		}
+	}
+
+	func textFieldDidEndEditing(_ textField: UITextField) {
+		let text = textField.text
+		
+		if let key = formData?.key {
+			formData?.inputData[key] = text
+		}
 	}
 }

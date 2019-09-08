@@ -11,6 +11,8 @@ import UIKit
 class FormTwoFieldsParallelTableViewCell: UITableViewCell {
 	var fieldNameLabel: UILabel!
 	var inputDataTextField: UITextField!
+	
+	var formData: FormData?
 
 	override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -23,6 +25,7 @@ class FormTwoFieldsParallelTableViewCell: UITableViewCell {
 	}
 
 	func setContent(_ data: FormData) {
+		self.formData = data
 		fieldNameLabel.text = data.fieldName
 		inputDataTextField.placeholder = data.placeholder
 		//need config the keyboard indicate by data
@@ -37,6 +40,7 @@ class FormTwoFieldsParallelTableViewCell: UITableViewCell {
 		fieldNameLabel.translatesAutoresizingMaskIntoConstraints = false
 		inputDataTextField = UITextField(frame: .zero)
 		inputDataTextField.translatesAutoresizingMaskIntoConstraints = false
+		inputDataTextField.delegate = self
 	}
 
 	func buildViewsHierarchy() {
@@ -54,5 +58,15 @@ class FormTwoFieldsParallelTableViewCell: UITableViewCell {
 			inputDataTextField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
 			inputDataTextField.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
 		])
+	}
+}
+
+extension FormTwoFieldsParallelTableViewCell: UITextFieldDelegate {
+	func textFieldDidEndEditing(_ textField: UITextField) {
+		let text = textField.text
+		
+		if let key = formData?.key {
+			formData?.inputData[key] = text
+		}
 	}
 }

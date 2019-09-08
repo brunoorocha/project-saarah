@@ -8,11 +8,13 @@
 
 import Foundation
 
-struct FormData {
+class FormData {
 	let fieldName: String
 	let placeholder: String
 	let cellType: Int
 	let inputType: Int
+	let key: String
+	var inputData: [String: Any]
 
 	init(dictionary: [String: Any]) {
 		if let fieldName = dictionary["fieldName"] as? String {
@@ -30,10 +32,16 @@ struct FormData {
 		} else {
 			self.cellType = -1
 		}
-		if let inputType = dictionary["inputeType"] as? Int {
+		if let inputType = dictionary["inputType"] as? Int {
 			self.inputType = inputType
 		} else {
 			self.inputType = -1
 		}
+		if let key = dictionary["key"] as? String {
+			self.key = key
+		} else {
+			self.key = ""
+		}
+		self.inputData = [:]
 	}
 }

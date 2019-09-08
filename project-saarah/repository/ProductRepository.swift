@@ -43,6 +43,21 @@ class ProductRepository: Repository {
     func create(_ object: RepositoryModel) {
         createDao(object)
     }
+	
+	func create(with dictionary: [String: Any]) -> RepositoryModel? {
+		guard let name = dictionary["name"] as? String else { return nil }
+		guard let price = dictionary["price"] as? Double else { return nil }
+		guard let quantity = dictionary["quantity"] as? Double else { return nil }
+		guard let quantityType = dictionary["quantityType"] as? String else { return nil }
+		
+		let product = new()
+		product.name = name
+		product.price = price
+		product.quantityType = quantityType
+		product.quantity = quantity
+		
+		return product
+	}
 
     func update(_ object: RepositoryModel) {
         updateDao(object)
