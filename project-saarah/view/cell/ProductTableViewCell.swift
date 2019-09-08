@@ -26,9 +26,9 @@ class ProductTableViewCell: UITableViewCell {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-	func setContent(_ product: Product) {
-		productNameLabel.text = product.name
-		productQuantityLabel.text = "\(product.quantity)"
+	func setViewModel(_ viewModel: ProductsListViewModel) {
+		productNameLabel.text = viewModel.name
+		productQuantityLabel.text = viewModel.quantity
 	}
 
 	func instantiateViews() {

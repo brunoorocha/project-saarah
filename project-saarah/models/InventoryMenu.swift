@@ -14,7 +14,7 @@ enum InventoryMenu: NavigationDrawerMenu, CaseIterable {
     var viewController: UIViewController {
         switch self {
         case .all:
-            return ProductsViewController()
+            return ProductsListViewController()
         }
     }
 

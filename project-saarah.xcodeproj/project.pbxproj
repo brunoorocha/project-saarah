@@ -41,10 +41,11 @@
 		48ED6BD4231D3DB000A792DF /* OneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ED6BD3231D3DB000A792DF /* OneView.swift */; };
 		48ED6BD7231D3DCB00A792DF /* OneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ED6BD6231D3DCB00A792DF /* OneCell.swift */; };
 		48ED6BDA231D3DE000A792DF /* OneContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ED6BD9231D3DE000A792DF /* OneContentView.swift */; };
-		48ED6BDD231D3F4000A792DF /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ED6BDC231D3F4000A792DF /* ProductsViewController.swift */; };
+		48ED6BDD231D3F4000A792DF /* ProductsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ED6BDC231D3F4000A792DF /* ProductsListViewController.swift */; };
 		48ED6BDF231D3FAC00A792DF /* ProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ED6BDE231D3FAC00A792DF /* ProductsView.swift */; };
 		A343CF5223180C3C005F2210 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A343CF5123180C3C005F2210 /* Assets.xcassets */; };
 		A343CF5523180C3C005F2210 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A343CF5323180C3C005F2210 /* LaunchScreen.storyboard */; };
+		A349B19E2325C3D1007FEB8A /* ProductsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A349B19D2325C3D1007FEB8A /* ProductsListViewModel.swift */; };
 		A353D7C9231FE416004A5139 /* NavigationDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A353D7C8231FE416004A5139 /* NavigationDrawerView.swift */; };
 		A353D7CC231FE478004A5139 /* InventoryMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A353D7CB231FE478004A5139 /* InventoryMenu.swift */; };
 		A353D7CE231FE4B1004A5139 /* NavigationDrawerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A353D7CD231FE4B1004A5139 /* NavigationDrawerMenu.swift */; };
@@ -88,7 +89,7 @@
 		48ED6BD3231D3DB000A792DF /* OneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneView.swift; sourceTree = "<group>"; };
 		48ED6BD6231D3DCB00A792DF /* OneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneCell.swift; sourceTree = "<group>"; };
 		48ED6BD9231D3DE000A792DF /* OneContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneContentView.swift; sourceTree = "<group>"; };
-		48ED6BDC231D3F4000A792DF /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
+		48ED6BDC231D3F4000A792DF /* ProductsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListViewController.swift; sourceTree = "<group>"; };
 		48ED6BDE231D3FAC00A792DF /* ProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsView.swift; sourceTree = "<group>"; };
 		A343CF4423180C31005F2210 /* project-saarah.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "project-saarah.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A343CF4723180C31005F2210 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +97,7 @@
 		A343CF5123180C3C005F2210 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A343CF5423180C3C005F2210 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A343CF5623180C3C005F2210 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A349B19D2325C3D1007FEB8A /* ProductsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListViewModel.swift; sourceTree = "<group>"; };
 		A353D7C8231FE416004A5139 /* NavigationDrawerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDrawerView.swift; sourceTree = "<group>"; };
 		A353D7CB231FE478004A5139 /* InventoryMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryMenu.swift; sourceTree = "<group>"; };
 		A353D7CD231FE4B1004A5139 /* NavigationDrawerMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDrawerMenu.swift; sourceTree = "<group>"; };
@@ -227,10 +229,10 @@
 		48ED6BCE231D3D7300A792DF /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				A349B19C2325C3AA007FEB8A /* products-list */,
 				A353D7DA231FE605004A5139 /* split-view */,
 				A353D7D1231FE525004A5139 /* navigation-drawer */,
 				48ED6BCF231D3D8E00A792DF /* OneViewController.swift */,
-				48ED6BDC231D3F4000A792DF /* ProductsViewController.swift */,
 				48AA5F23231D58E700BFCF96 /* AddProductViewController.swift */,
 			);
 			path = controller;
@@ -309,6 +311,15 @@
 				1BBA19A3231F47CA00116004 /* repository */,
 			);
 			path = "project-saarah";
+			sourceTree = "<group>";
+		};
+		A349B19C2325C3AA007FEB8A /* products-list */ = {
+			isa = PBXGroup;
+			children = (
+				48ED6BDC231D3F4000A792DF /* ProductsListViewController.swift */,
+				A349B19D2325C3D1007FEB8A /* ProductsListViewModel.swift */,
+			);
+			path = "products-list";
 			sourceTree = "<group>";
 		};
 		A353D7C7231FE3F3004A5139 /* components */ = {
@@ -469,7 +480,8 @@
 				A353D7C9231FE416004A5139 /* NavigationDrawerView.swift in Sources */,
 				A353D7D9231FE5DC004A5139 /* RestaurantDomainsMenuViewController.swift in Sources */,
 				A353D7CE231FE4B1004A5139 /* NavigationDrawerMenu.swift in Sources */,
-				48ED6BDD231D3F4000A792DF /* ProductsViewController.swift in Sources */,
+				48ED6BDD231D3F4000A792DF /* ProductsListViewController.swift in Sources */,
+				A349B19E2325C3D1007FEB8A /* ProductsListViewModel.swift in Sources */,
 				4818E1372322AFC500EFF585 /* AppDelegate.swift in Sources */,
 				A353D7D3231FE55B004A5139 /* NavigationDrawerViewController.swift in Sources */,
 				4818E13123227FF300EFF585 /* PListManager.swift in Sources */,
