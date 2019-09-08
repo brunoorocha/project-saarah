@@ -13,7 +13,7 @@ class FormThreeFieldsParallelTableViewCell: UITableViewCell {
 	var inputDataTextField: UITextField!
 	var typeDataTextField: UITextField!
 	let typeDataPickerView = UIPickerView()
-	
+
 	var formData: FormData?
 
 	override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -35,7 +35,7 @@ class FormThreeFieldsParallelTableViewCell: UITableViewCell {
 		fieldNameLabel.text = data.fieldName
 		inputDataTextField.placeholder = data.placeholder
 		//need config the keyboard indicate by data
-		
+
 		//set the input for pickerview in the dictionary
 		let keyType = "\(data.key)Type"
 		let pickerViewRow = typeDataPickerView.selectedRow(inComponent: 0)
@@ -108,9 +108,9 @@ extension FormThreeFieldsParallelTableViewCell: UIPickerViewDelegate, UIPickerVi
 
 	func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 		let text = QuantityType.allCases[row].rawValue
-		
+
 		typeDataTextField.text = text
-		
+
 		if let key = formData?.key {
 			let keyForPicker = "\(key)Type"
 			formData?.inputData[keyForPicker] = text
@@ -120,7 +120,7 @@ extension FormThreeFieldsParallelTableViewCell: UIPickerViewDelegate, UIPickerVi
 
 extension FormThreeFieldsParallelTableViewCell: UITextFieldDelegate {
 	func textFieldDidBeginEditing(_ textField: UITextField) {
-		if (textField == typeDataTextField) {
+		if textField == typeDataTextField {
 			let item = textField.inputAssistantItem
 			item.leadingBarButtonGroups = []
 			item.trailingBarButtonGroups = []
@@ -128,10 +128,12 @@ extension FormThreeFieldsParallelTableViewCell: UITextFieldDelegate {
 	}
 
 	func textFieldDidEndEditing(_ textField: UITextField) {
-		let text = textField.text
-		
-		if let key = formData?.key {
-			formData?.inputData[key] = text
+		if textField == inputDataTextField {
+			let text = textField.text
+
+			if let key = formData?.key {
+				formData?.inputData[key] = text
+			}
 		}
 	}
 }

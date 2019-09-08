@@ -39,24 +39,14 @@ class AddProductView: UIView {
 	}
 
 	@objc func saveButtonAction() {
-		var indexPath = IndexPath(row: 0, section: 0)
-		guard let cell0 = tableView.cellForRow(at: indexPath) as? FormTwoFieldsParallelTableViewCell else { return }
-		indexPath.row = 1
-		guard let cell1 = tableView.cellForRow(at: indexPath) as? FormTwoFieldsParallelTableViewCell else { return }
-		indexPath.row = 2
-		guard let cell2 = tableView.cellForRow(at: indexPath) as? FormThreeFieldsParallelTableViewCell else { return }
+		var productDictionary: [String: Any] = [:]
 
-		guard let name = cell0.inputDataTextField.text else { return }
-		guard let priceString = cell1.inputDataTextField.text else { return }
-		guard let quantityString = cell2.inputDataTextField.text else { return }
-		guard let quantityType = cell2.typeDataTextField.text else { return }
-
-		guard let price = Double(priceString) else { return }
-		guard let quantity = Double(quantityString) else { return }
-		guard let quantityTypeEnum = QuantityType(rawValue: quantityType) else { return }
+		arrayFormData.forEach { (formaData) in
+			productDictionary.merge(formaData.inputData) { (current, _) in current }
+		}
 
 		let productRepository = ProductRepository()
-		_ = productRepository.create((name: name, price: price, quantityType: quantityTypeEnum, quantity: quantity))
+		_ = productRepository.create(with: productDictionary)
 
 		delegate?.productAdded()
 	}
