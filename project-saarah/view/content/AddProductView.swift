@@ -10,7 +10,7 @@ import UIKit
 
 protocol AddProductViewDelegate: class {
 	func dismiss()
-	func productAdded()
+	func productAdded(_ dictionary: [String: Any])
 }
 
 class AddProductView: UIView {
@@ -45,10 +45,7 @@ class AddProductView: UIView {
 			productDictionary.merge(formaData.inputData) { (current, _) in current }
 		}
 
-		let productRepository = ProductRepository()
-		_ = productRepository.create(with: productDictionary)
-
-		delegate?.productAdded()
+		delegate?.productAdded(productDictionary)
 	}
 
 	func instantiateViews() {
