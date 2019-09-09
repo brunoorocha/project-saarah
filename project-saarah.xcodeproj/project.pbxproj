@@ -17,6 +17,7 @@
 		4C7E46B523267EF500D29FAC /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E46B423267EF500D29FAC /* Label.swift */; };
 		4C7E46B72326801200D29FAC /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E46B62326801200D29FAC /* MenuTableViewCell.swift */; };
 		4C7E46B92326804600D29FAC /* MenuTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E46B82326804600D29FAC /* MenuTableViewHeader.swift */; };
+		4C7E46BB232680D700D29FAC /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E46BA232680D700D29FAC /* MenuTableViewController.swift */; };
 		A343CF4823180C31005F2210 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A343CF4723180C31005F2210 /* AppDelegate.swift */; };
 		A343CF5023180C32005F2210 /* project_saarah.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A343CF4E23180C32005F2210 /* project_saarah.xcdatamodeld */; };
 		A343CF5223180C3C005F2210 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A343CF5123180C3C005F2210 /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 		4C7E46B423267EF500D29FAC /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		4C7E46B62326801200D29FAC /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		4C7E46B82326804600D29FAC /* MenuTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewHeader.swift; sourceTree = "<group>"; };
+		4C7E46BA232680D700D29FAC /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		A343CF4423180C31005F2210 /* project-saarah.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "project-saarah.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A343CF4723180C31005F2210 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A343CF4F23180C32005F2210 /* project_saarah.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = project_saarah.xcdatamodel; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				48ED6BCF231D3D8E00A792DF /* OneViewController.swift */,
+				4C7E46BA232680D700D29FAC /* MenuTableViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 			files = (
 				48ED6BD7231D3DCB00A792DF /* OneCell.swift in Sources */,
 				A343CF5023180C32005F2210 /* project_saarah.xcdatamodeld in Sources */,
+				4C7E46BB232680D700D29FAC /* MenuTableViewController.swift in Sources */,
 				A343CF4823180C31005F2210 /* AppDelegate.swift in Sources */,
 				4C7E46B023267E5700D29FAC /* DishData.swift in Sources */,
 				482922FA231D4523005DAF11 /* UIFile+Extension.swift in Sources */,
