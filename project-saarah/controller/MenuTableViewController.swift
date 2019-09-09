@@ -9,7 +9,7 @@
 import UIKit
 
 class MenuTableViewController: UITableViewController {
-    let dishes: [Dish]? = [
+    var dishes: [Dish]? = [
         Dish(
             dishImageName: "british-roast-vegetable-salad-with-stilton",
             dishName: "British Roast Vegetable Salad with Stilton",
@@ -52,6 +52,7 @@ class MenuTableViewController: UITableViewController {
         super.viewDidLoad()
         
         navigationItem.title = "MENU"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Insert", style: .plain, target: self, action: "Insert new item to MENU.")
         
         tableView.backgroundColor = .white
         
@@ -91,5 +92,9 @@ class MenuTableViewController: UITableViewController {
         }
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("You tapped cell number \(indexPath.item).")
     }
 }
