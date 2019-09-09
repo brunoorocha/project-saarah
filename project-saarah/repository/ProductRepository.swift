@@ -23,7 +23,11 @@ class ProductRepository: Repository {
         self.modelDao = CoreDao<RepositoryModel>(with: Environment.production.coreData)
     }
 
-    func create(_ object: ModelParameters) -> RepositoryModel {
+	func getAll() -> [RepositoryModel] {
+		return getDaoAll()
+	}
+
+    func create(with object: ModelParameters) -> RepositoryModel {
 
         let product = new()
         product.name = object.name
@@ -31,42 +35,33 @@ class ProductRepository: Repository {
         product.quantityType = object.quantityType.rawValue
         product.quantity = object.quantity
 
-        create(product)
-
         return product
-    }
-
-    func getAll() -> [RepositoryModel] {
-        return getDaoAll()
-    }
-
-    func create(_ object: RepositoryModel) {
-        createDao(object)
     }
 
 	func create(with dictionary: [String: Any]) -> RepositoryModel? {
 		guard let name = dictionary["name"] as? String else { return nil }
 		guard let priceString = dictionary["price"] as? String else { return nil }
 		guard let quantityString = dictionary["quantity"] as? String else { return nil }
-		guard let quantityType = dictionary["quantityType"] as? String else { return nil }
+		guard let quantityTypeString = dictionary["quantityType"] as? String else { return nil }
 
 		guard  let price = Double(priceString) else { return nil }
 		guard  let quantity = Double(quantityString) else { return nil }
+		guard let quantityType = QuantityType.init(rawValue: quantityTypeString) else { return nil }
 
-		let product = new()
-		product.name = name
-		product.price = price
-		product.quantityType = quantityType
-		product.quantity = quantity
+		let product = create(with: (name: name, price: price, quantityType: quantityType, quantity: quantity))
 
 		return product
 	}
 
-    func update(_ object: RepositoryModel) {
+	func save(with object: Product) {
+		createDao(object)
+	}
+
+    func update(with object: RepositoryModel) {
         updateDao(object)
     }
 
-    func delete(_ object: RepositoryModel) {
+    func delete(with object: RepositoryModel) {
         deleteDao(object)
     }
 

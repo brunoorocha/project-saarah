@@ -34,10 +34,11 @@ protocol Repository {
     init(_ environment: Environment)
 
     func getAll() -> [RepositoryModel]
-    func create(_ object: ModelParameters) -> RepositoryModel
-    func create(_ object: RepositoryModel)
-    func update(_ object: RepositoryModel)
-    func delete(_ object: RepositoryModel)
+    func create(with object: ModelParameters) -> RepositoryModel
+	func create(with dictionary: [String: Any]) -> RepositoryModel?
+    func save(with object: RepositoryModel)
+    func update(with object: RepositoryModel)
+    func delete(with object: RepositoryModel)
 
 }
 

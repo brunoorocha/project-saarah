@@ -18,38 +18,48 @@ class ProductItemRepository: Repository {
         self.modelDao = CoreDao<RepositoryModel>(with: Environment.production.coreData)
     }
 
-    func create(_ object: ModelParameters) -> ProductItem {
-        let productItem = new()
-        productItem.name = object.name
-        productItem.price = object.price
-
-        guard let imageURL = DocumentsDirectory.saveFile(with: object.image, and: object.name) else {
-            fatalError("Fail to save image")
-        }
-
-        productItem.imagePath = "\(imageURL)"
-        productItem.product = object.product
-
-        create(productItem)
-
-        return productItem
-    }
-
     var modelDao: CoreDao<ProductItem>
 
     func getAll() -> [RepositoryModel] {
         return getDaoAll()
     }
 
-    func create(_ object: RepositoryModel) {
+	func create(with object: ModelParameters) -> ProductItem {
+		let productItem = new()
+		productItem.name = object.name
+		productItem.price = object.price
+
+		guard let imageURL = DocumentsDirectory.saveFile(with: object.image, and: object.name) else {
+			fatalError("Fail to save image")
+		}
+
+		productItem.imagePath = "\(imageURL)"
+		productItem.product = object.product
+
+		return productItem
+	}
+
+	func create(with dictionary: [String: Any]) -> ProductItem? {
+		guard let name = dictionary["name"] as? String else { return nil }
+		guard let priceString = dictionary["value"] as? String else { return nil }
+		guard let price = Double(priceString) else { return nil }
+		guard let image = dictionary["image"] as? Data else { return nil }
+		guard let product = dictionary["product"] as? Product else { return nil }
+
+		let productItem = create(with: (name: name, price: price, image: image, product: product))
+
+		return productItem
+	}
+
+    func save(with object: RepositoryModel) {
         createDao(object)
     }
 
-    func update(_ object: RepositoryModel) {
+    func update(with object: RepositoryModel) {
         updateDao(object)
     }
 
-    func delete(_ object: RepositoryModel) {
+    func delete(with object: RepositoryModel) {
         deleteDao(object)
     }
 
