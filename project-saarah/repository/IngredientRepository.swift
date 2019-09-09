@@ -20,30 +20,39 @@ class IngredientRepository: Repository {
         self.modelDao = CoreDao<RepositoryModel>(with: Environment.production.coreData)
     }
 
-    func create(_ object: ModelParameters) -> Ingredient {
+	func getAll() -> [RepositoryModel] {
+		return getDaoAll()
+	}
+
+    func create(with object: ModelParameters) -> Ingredient {
         let ingredient = new()
         ingredient.name = object.name
         ingredient.value = object.value
         ingredient.product = object.product
 
-        create(ingredient)
-
         return ingredient
     }
 
-    func getAll() -> [RepositoryModel] {
-        return getDaoAll()
-    }
+	func create(with dictionary: [String: Any]) -> Ingredient? {
+		guard let name = dictionary["name"] as? String else { return nil }
+		guard let valueString = dictionary["value"] as? String else { return nil }
+		guard let value = Double(valueString) else { return nil }
+		guard let product = dictionary["product"] as? Product else { return nil }
 
-    func create(_ object: RepositoryModel) {
+		let ingredient = create(with: (name: name, value: value, product: product))
+
+		return ingredient
+	}
+
+    func save(with object: RepositoryModel) {
         createDao(object)
     }
 
-    func update(_ object: RepositoryModel) {
+    func update(with object: RepositoryModel) {
         updateDao(object)
     }
 
-    func delete(_ object: RepositoryModel) {
+    func delete(with object: RepositoryModel) {
         deleteDao(object)
     }
 

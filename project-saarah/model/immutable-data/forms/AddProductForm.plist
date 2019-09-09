@@ -3,6 +3,8 @@
 <plist version="1.0">
 <array>
 	<dict>
+		<key>key</key>
+		<string>name</string>
 		<key>fieldName</key>
 		<string>Nome</string>
 		<key>placeholder</key>
@@ -13,6 +15,8 @@
 		<integer>0</integer>
 	</dict>
 	<dict>
+		<key>key</key>
+		<string>price</string>
 		<key>fieldName</key>
 		<string>Valor</string>
 		<key>placeholder</key>
@@ -23,6 +27,8 @@
 		<integer>1</integer>
 	</dict>
 	<dict>
+		<key>key</key>
+		<string>quantity</string>
 		<key>fieldName</key>
 		<string>Quantidade</string>
 		<key>placeholder</key>
