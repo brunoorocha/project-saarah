@@ -11,6 +11,11 @@ import UIKit
 class Label: UILabel {
     override init(frame: CGRect) {
         super.init(frame: frame)
+        textColor = .white
+        
+        font = UIFont.boldSystemFont(ofSize: 16.0)
+        
+        textAlignment = .center
         
         backgroundColor = .red
         
