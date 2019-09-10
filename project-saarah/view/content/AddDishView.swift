@@ -113,7 +113,7 @@ extension AddDishView: UITableViewDelegate, UITableViewDataSource {
 extension AddDishView: FormButtonTableViewCellDelegate {
 	func addNewCell() {
 		let formData = FormData(key: "ingredient", fieldName: "Ingrediente", placeholder: "Insira outro ingrediente", cellType: 1, inputType: 1)
-		let beforeLastRow = arrayFormData.count - 2
+		let beforeLastRow = arrayFormData.count - 1
 		let indexPath = IndexPath(row: beforeLastRow, section: 0)
 
 		arrayFormData.insert(formData, at: beforeLastRow)

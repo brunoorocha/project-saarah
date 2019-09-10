@@ -42,13 +42,13 @@
 		<key>key</key>
 		<string></string>
 		<key>fieldName</key>
-		<string>Adicionar produto</string>
+		<string>Adicionar ingrediente</string>
 		<key>placeholder</key>
 		<string></string>
 		<key>cellType</key>
-		<string>2</string>
+		<integer>2</integer>
 		<key>inputType</key>
-		<string></string>
+		<integer>0</integer>
 	</dict>
 </array>
 </plist>
