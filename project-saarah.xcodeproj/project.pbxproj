@@ -36,6 +36,7 @@
 		487B9AF72327C3AB00D8D6CC /* DishesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487B9AF62327C3AB00D8D6CC /* DishesListView.swift */; };
 		487B9AF92327C69C00D8D6CC /* DishTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487B9AF82327C69C00D8D6CC /* DishTableViewCell.swift */; };
 		487B9AFB2327CA9700D8D6CC /* DishViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487B9AFA2327CA9700D8D6CC /* DishViewModel.swift */; };
+		487B9AFD2327D24500D8D6CC /* AddDishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487B9AFC2327D24500D8D6CC /* AddDishViewController.swift */; };
 		48AA5F22231D4F3700BFCF96 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AA5F21231D4F3700BFCF96 /* ProductTableViewCell.swift */; };
 		48AA5F24231D58E700BFCF96 /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AA5F23231D58E700BFCF96 /* AddProductViewController.swift */; };
 		48AA5F26231D5A4D00BFCF96 /* AddProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AA5F25231D5A4D00BFCF96 /* AddProductView.swift */; };
@@ -94,6 +95,7 @@
 		487B9AF62327C3AB00D8D6CC /* DishesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesListView.swift; sourceTree = "<group>"; };
 		487B9AF82327C69C00D8D6CC /* DishTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishTableViewCell.swift; sourceTree = "<group>"; };
 		487B9AFA2327CA9700D8D6CC /* DishViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishViewModel.swift; sourceTree = "<group>"; };
+		487B9AFC2327D24500D8D6CC /* AddDishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDishViewController.swift; sourceTree = "<group>"; };
 		48AA5F21231D4F3700BFCF96 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 		48AA5F23231D58E700BFCF96 /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
 		48AA5F25231D5A4D00BFCF96 /* AddProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductView.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 			children = (
 				487B9AF42327C30600D8D6CC /* DishesListViewController.swift */,
 				487B9AFA2327CA9700D8D6CC /* DishViewModel.swift */,
+				487B9AFC2327D24500D8D6CC /* AddDishViewController.swift */,
 			);
 			path = "dishes-list";
 			sourceTree = "<group>";
@@ -560,6 +563,7 @@
 				1BBA196A231E9ECC00116004 /* ConfigurableDao.swift in Sources */,
 				1BBA19A5231F47E000116004 /* ProductRepository.swift in Sources */,
 				1BBA19AA231FDFA900116004 /* IngredientRepository.swift in Sources */,
+				487B9AFD2327D24500D8D6CC /* AddDishViewController.swift in Sources */,
 				1B4F4186231DFA6C00EB1F13 /* Product+CoreDataClass.swift in Sources */,
 				482922FA231D4523005DAF11 /* UIFile+Extension.swift in Sources */,
 				48AA5F22231D4F3700BFCF96 /* ProductTableViewCell.swift in Sources */,
