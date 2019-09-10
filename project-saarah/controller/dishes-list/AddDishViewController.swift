@@ -9,12 +9,12 @@
 import UIKit
 
 class AddDishViewController: UIViewController, ConfigurableController {
-	
+
 	var contentView: UIView? = AddDishView()
-	
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
+
 		setupContentView()
 	}
 }

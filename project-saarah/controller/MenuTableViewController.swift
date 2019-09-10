@@ -47,30 +47,30 @@ class MenuTableViewController: UITableViewController {
             dishPrice: 11.66
         )
     ]
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         navigationItem.title = "MENU"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Insert", style: .plain, target: self, action: "Insert new item to MENU.")
-        
+
         tableView.backgroundColor = .white
-        
+
         tableView.separatorStyle = .none
-        
+
         tableView.register(MenuTableViewCell.self, forCellReuseIdentifier: "Cell")
     }
-    
+
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 64.0
     }
-    
+
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header: UIView = MenuTableViewHeader()
-        
+
         return header
     }
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let dishes = dishes {
             return dishes.count
@@ -78,22 +78,22 @@ class MenuTableViewController: UITableViewController {
             return 0
         }
     }
-    
+
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 128.0
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell: MenuTableViewCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? MenuTableViewCell else { return UITableViewCell() }
-        
+
         if let dishes = dishes {
             cell.dish = dishes[indexPath.item]
             cell.selectionStyle = .none
         }
-        
+
         return cell
     }
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You tapped cell number \(indexPath.item).")
     }

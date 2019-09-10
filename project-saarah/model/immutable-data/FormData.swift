@@ -44,7 +44,7 @@ class FormData {
 		}
 		self.inputData = [:]
 	}
-	
+
 	init(key: String, fieldName: String, placeholder: String, cellType: Int, inputType: Int) {
 		self.key = key
 		self.fieldName = fieldName
