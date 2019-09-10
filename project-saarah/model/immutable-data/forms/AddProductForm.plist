@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>key</key>
+		<string>name</string>
+		<key>fieldName</key>
+		<string>Nome</string>
+		<key>placeholder</key>
+		<string>Insira o nome</string>
+		<key>cellType</key>
+		<integer>0</integer>
+		<key>inputType</key>
+		<integer>0</integer>
+	</dict>
+	<dict>
+		<key>key</key>
+		<string>price</string>
+		<key>fieldName</key>
+		<string>Valor</string>
+		<key>placeholder</key>
+		<string>Insira o valor</string>
+		<key>cellType</key>
+		<integer>0</integer>
+		<key>inputType</key>
+		<integer>1</integer>
+	</dict>
+	<dict>
+		<key>key</key>
+		<string>quantity</string>
+		<key>fieldName</key>
+		<string>Quantidade</string>
+		<key>placeholder</key>
+		<string>Insira a quantidade</string>
+		<key>cellType</key>
+		<integer>1</integer>
+		<key>inputType</key>
+		<integer>1</integer>
+	</dict>
+</array>
+</plist>
