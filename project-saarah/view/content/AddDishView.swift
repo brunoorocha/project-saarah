@@ -12,10 +12,14 @@ class AddDishView: UIView {
 	var navigationBar: UINavigationBar!
 	var tableView: UITableView!
 	
+	var arrayFormData: [FormData] = []
+	
 	init() {
 		super.init(frame: .zero)
 		
 		translatesAutoresizingMaskIntoConstraints = false
+		
+		arrayFormData = PListManager.load("AddDishForm")
 		
 		instantiateViews()
 		buildViewsHierarchy()
@@ -49,6 +53,7 @@ class AddDishView: UIView {
 		tableView.dataSource = self
 		tableView.register(FormTwoFieldsParallelTableViewCell.self, forCellReuseIdentifier: "FormTwoFieldsParallelTableViewCell")
 		tableView.register(FormThreeFieldsParallelTableViewCell.self, forCellReuseIdentifier: "FormThreeFieldsParallelTableViewCell")
+		tableView.register(FormButtonTableViewCell.self, forCellReuseIdentifier: "FormButtonTableViewCell")
 	}
 	
 	func buildViewsHierarchy() {
@@ -92,8 +97,26 @@ extension AddDishView: UITableViewDelegate, UITableViewDataSource {
 			cell.setContent(formData)
 			
 			return cell
+		case 2:
+			guard let cell = tableView.dequeueReusableCell(withIdentifier: "FormButtonTableViewCell", for: indexPath) as? FormButtonTableViewCell else { return UITableViewCell() }
+			
+			cell.setContent(formData)
+			cell.delegate = self
+			
+			return cell
 		default:
 			return UITableViewCell()
 		}
+	}
+}
+
+extension AddDishView: FormButtonTableViewCellDelegate {
+	func addNewCell() {
+		let formData = FormData(key: "ingredient", fieldName: "Ingrediente", placeholder: "Insira outro ingrediente", cellType: 1, inputType: 1)
+		let beforeLastRow = arrayFormData.count - 2
+		let indexPath = IndexPath(row: beforeLastRow, section: 0)
+		
+		arrayFormData.insert(formData, at: beforeLastRow)
+		tableView.insertRows(at: [indexPath], with: .none)
 	}
 }

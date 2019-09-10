@@ -35,6 +35,10 @@ class FormButtonTableViewCell: UITableViewCell {
 		delegate?.addNewCell()
 	}
 	
+	func setContent(_ data: FormData) {
+		addButton.setTitle(data.fieldName, for: .normal)
+	}
+	
 	func instantiateViews() {
 		addButton = UIButton()
 		addButton.translatesAutoresizingMaskIntoConstraints = false
