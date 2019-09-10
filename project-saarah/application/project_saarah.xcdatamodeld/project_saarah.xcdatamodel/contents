@@ -1,4 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14492.1" systemVersion="19A546d" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="1.0.0">
+    <entity name="Ingredient" representedClassName="Ingredient" syncable="YES">
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="value" attributeType="Double" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="product" maxCount="1" deletionRule="Nullify" destinationEntity="Product" inverseName="ingrendients" inverseEntity="Product" syncable="YES"/>
+    </entity>
+    <entity name="Product" representedClassName="Product" syncable="YES">
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="price" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="quantity" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="quantityType" attributeType="String" syncable="YES"/>
+        <relationship name="ingrendients" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ingredient" inverseName="product" inverseEntity="Ingredient" syncable="YES"/>
+        <relationship name="productItem" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ProductItem" inverseName="product" inverseEntity="ProductItem" syncable="YES"/>
+    </entity>
+    <entity name="ProductItem" representedClassName="ProductItem" syncable="YES">
+        <attribute name="imagePath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="price" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="product" maxCount="1" deletionRule="Nullify" destinationEntity="Product" inverseName="productItem" inverseEntity="Product" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Ingredient" positionX="-211" positionY="21.90234375" width="128" height="88"/>
+        <element name="Product" positionX="-38.14453125" positionY="-89.328125" width="128" height="133"/>
+        <element name="ProductItem" positionX="174.55859375" positionY="-227.4921875" width="128" height="103"/>
+    </elements>
 </model>
