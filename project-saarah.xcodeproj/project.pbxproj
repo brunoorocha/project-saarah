@@ -38,6 +38,8 @@
 		487B9AFB2327CA9700D8D6CC /* DishViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487B9AFA2327CA9700D8D6CC /* DishViewModel.swift */; };
 		487B9AFD2327D24500D8D6CC /* AddDishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487B9AFC2327D24500D8D6CC /* AddDishViewController.swift */; };
 		487B9AFF2327D3AA00D8D6CC /* AddDishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487B9AFE2327D3AA00D8D6CC /* AddDishView.swift */; };
+		487B9B012327D69300D8D6CC /* AddDishForm.plist in Resources */ = {isa = PBXBuildFile; fileRef = 487B9B002327D69300D8D6CC /* AddDishForm.plist */; };
+		487B9B032327DF3300D8D6CC /* FormButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487B9B022327DF3300D8D6CC /* FormButtonTableViewCell.swift */; };
 		48AA5F22231D4F3700BFCF96 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AA5F21231D4F3700BFCF96 /* ProductTableViewCell.swift */; };
 		48AA5F24231D58E700BFCF96 /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AA5F23231D58E700BFCF96 /* AddProductViewController.swift */; };
 		48AA5F26231D5A4D00BFCF96 /* AddProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AA5F25231D5A4D00BFCF96 /* AddProductView.swift */; };
@@ -98,6 +100,8 @@
 		487B9AFA2327CA9700D8D6CC /* DishViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishViewModel.swift; sourceTree = "<group>"; };
 		487B9AFC2327D24500D8D6CC /* AddDishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDishViewController.swift; sourceTree = "<group>"; };
 		487B9AFE2327D3AA00D8D6CC /* AddDishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDishView.swift; sourceTree = "<group>"; };
+		487B9B002327D69300D8D6CC /* AddDishForm.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AddDishForm.plist; sourceTree = "<group>"; };
+		487B9B022327DF3300D8D6CC /* FormButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormButtonTableViewCell.swift; sourceTree = "<group>"; };
 		48AA5F21231D4F3700BFCF96 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 		48AA5F23231D58E700BFCF96 /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
 		48AA5F25231D5A4D00BFCF96 /* AddProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductView.swift; sourceTree = "<group>"; };
@@ -228,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				4818E132232280FF00EFF585 /* AddProductForm.plist */,
+				487B9B002327D69300D8D6CC /* AddDishForm.plist */,
 			);
 			path = forms;
 			sourceTree = "<group>";
@@ -297,6 +302,7 @@
 				48AA5F38231E8FCC00BFCF96 /* FormTwoFieldsParallelTableViewCell.swift */,
 				48AA5F3A231E94F100BFCF96 /* FormThreeFieldsParallelTableViewCell.swift */,
 				487B9AF82327C69C00D8D6CC /* DishTableViewCell.swift */,
+				487B9B022327DF3300D8D6CC /* FormButtonTableViewCell.swift */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -493,6 +499,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				487B9B012327D69300D8D6CC /* AddDishForm.plist in Resources */,
 				4818E133232280FF00EFF585 /* AddProductForm.plist in Resources */,
 				A343CF5523180C3C005F2210 /* LaunchScreen.storyboard in Resources */,
 				A343CF5223180C3C005F2210 /* Assets.xcassets in Resources */,
@@ -558,6 +565,7 @@
 				1B4F4184231DFA6C00EB1F13 /* Ingredient+CoreDataClass.swift in Sources */,
 				1BBA19A7231F4D3F00116004 /* Repository.swift in Sources */,
 				487B9AFB2327CA9700D8D6CC /* DishViewModel.swift in Sources */,
+				487B9B032327DF3300D8D6CC /* FormButtonTableViewCell.swift in Sources */,
 				1BBA1969231E9ECC00116004 /* NSManagedObject+Extension.swift in Sources */,
 				487B9AFF2327D3AA00D8D6CC /* AddDishView.swift in Sources */,
 				1BBA1998231ED9CD00116004 /* ProductItem+CoreDataProperties.swift in Sources */,
