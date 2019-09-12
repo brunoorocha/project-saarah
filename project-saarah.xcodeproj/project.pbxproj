@@ -313,8 +313,8 @@
 				48AA5F38231E8FCC00BFCF96 /* FormTwoFieldsParallelTableViewCell.swift */,
 				48AA5F3A231E94F100BFCF96 /* FormThreeFieldsParallelTableViewCell.swift */,
 				487B9B022327DF3300D8D6CC /* FormButtonTableViewCell.swift */,
-				487B9AF82327C69C00D8D6CC /* DishTableViewCell.swift */,
 				487B9B10232A6EBB00D8D6CC /* FormTwoTextFieldsTableViewCell.swift */,
+				487B9AF82327C69C00D8D6CC /* DishTableViewCell.swift */,
 			);
 			path = cell;
 			sourceTree = "<group>";
