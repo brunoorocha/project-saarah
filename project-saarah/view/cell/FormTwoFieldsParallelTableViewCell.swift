@@ -11,7 +11,7 @@ import UIKit
 class FormTwoFieldsParallelTableViewCell: UITableViewCell {
 	var fieldNameLabel: UILabel!
 	var inputDataTextField: UITextField!
-
+	
 	var formData: FormData?
 
 	override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -66,7 +66,7 @@ extension FormTwoFieldsParallelTableViewCell: UITextFieldDelegate {
 		let text = textField.text
 
 		if let key = formData?.key {
-			formData?.inputData[key] = text
+			formData?.fieldValue[key] = text
 		}
 	}
 }

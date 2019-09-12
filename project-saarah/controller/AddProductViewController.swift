@@ -42,12 +42,9 @@ extension AddProductViewController: AddProductViewDelegate {
 		dismiss(animated: true, completion: nil)
 	}
 
-	func productAdded(_ dictionary: [String: Any]) {
+	func added(_ product: Product) {
 		let productRepository = ProductRepository()
-
-		if let product = productRepository.create(with: dictionary) {
-			productRepository.save(with: product)
-		}
+		productRepository.save(with: product)
 
 		delegate?.productAdded()
 		dismiss(animated: true, completion: nil)

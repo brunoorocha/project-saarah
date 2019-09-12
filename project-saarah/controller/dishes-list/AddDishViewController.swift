@@ -30,5 +30,19 @@ class AddDishViewController: UIViewController, ConfigurableController {
 		super.viewDidLoad()
 
 		setupContentView()
+		
+		if let addDishView = contentView as? AddDishView {
+			addDishView.delegate = self
+		}
+	}
+}
+
+extension AddDishViewController: AddDishViewDelegate {
+	func dismiss() {
+		dismiss(animated: true, completion: nil)
+	}
+	
+	func dishAdded(_ dictionary: [String : Any]) {
+		print("dishadde")
 	}
 }

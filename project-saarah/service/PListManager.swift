@@ -26,17 +26,17 @@ class PListManager {
 		}
 	}
 
-	static func load(_ form: String) -> [FormData] {
-		var arrayFormData: [FormData] = []
-		let plistData = openFile(form)
-
-		if let cells = plistData as? [[String: Any]] {
-			cells.forEach { (cell) in
-				let formData = FormData(dictionary: cell)
-				arrayFormData.append(formData)
-			}
-		}
-
-		return arrayFormData
-	}
+//	static func load(_ form: String) -> [FormData] {
+//		var arrayFormData: [FormData] = []
+//		let plistData = openFile(form)
+//
+//		if let cells = plistData as? [[String: Any]] {
+//			cells.forEach { (cell) in
+//				let formData = FormData(dictionary: cell)
+//				arrayFormData.append(formData)
+//			}
+//		}
+//
+//		return arrayFormData
+//	}
 }

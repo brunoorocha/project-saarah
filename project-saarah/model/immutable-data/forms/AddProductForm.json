@@ -1,0 +1,23 @@
+[
+	{
+		"key": "name",
+		"fieldName": "Nome",
+		"placeholder": "Insira o nome",
+		"cellType": 0,
+		"inputType": 0
+	},
+	{
+		"key": "price",
+		"fieldName": "Valor",
+		"placeholder": "Insira o valor",
+		"cellType": 0,
+		"inputType": 1
+	},
+	{
+		"key": "quantity",
+		"fieldName": "Quantidade",
+		"placeholder": "Insira a quantidade",
+		"cellType": 1,
+		"inputType": 1
+	}
+]

@@ -37,10 +37,12 @@ class FormThreeFieldsParallelTableViewCell: UITableViewCell {
 		//need config the keyboard indicate by data
 
 		//set the input for pickerview in the dictionary
-		let keyType = "\(data.key)Type"
-		let pickerViewRow = typeDataPickerView.selectedRow(inComponent: 0)
-		let valueType = QuantityType.allCases[pickerViewRow].rawValue
-		formData?.inputData[keyType] = valueType
+		if let key = data.key {
+			let keyType = "\(key)Type"
+			let pickerViewRow = typeDataPickerView.selectedRow(inComponent: 0)
+			let valueType = QuantityType.allCases[pickerViewRow].rawValue
+			formData?.fieldValue[keyType] = valueType
+		}
 	}
 
 	@objc func dismissTypeDataPickerView() {
@@ -113,7 +115,7 @@ extension FormThreeFieldsParallelTableViewCell: UIPickerViewDelegate, UIPickerVi
 
 		if let key = formData?.key {
 			let keyForPicker = "\(key)Type"
-			formData?.inputData[keyForPicker] = text
+			formData?.fieldValue[keyForPicker] = text
 		}
 	}
 }
@@ -132,7 +134,7 @@ extension FormThreeFieldsParallelTableViewCell: UITextFieldDelegate {
 			let text = textField.text
 
 			if let key = formData?.key {
-				formData?.inputData[key] = text
+				formData?.fieldValue[key] = text
 			}
 		}
 	}

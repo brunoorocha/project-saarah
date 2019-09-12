@@ -10,7 +10,7 @@ import UIKit
 
 protocol AddProductViewDelegate: class {
 	func dismiss()
-	func productAdded(_ dictionary: [String: Any])
+	func added(_ product: Product)
 }
 
 class AddProductView: UIView {
@@ -18,12 +18,14 @@ class AddProductView: UIView {
 	var tableView: UITableView!
 
 	weak var delegate: AddProductViewDelegate?
-	var arrayFormData: [FormData]!
+	var formManager: FormManager!
 
 	init() {
 		super.init(frame: .zero)
 
 		translatesAutoresizingMaskIntoConstraints = false
+		
+		formManager = FormManager(formaName: "AddProductForm")
 
 		instantiateViews()
 		buildViewsHierarchy()
@@ -39,18 +41,14 @@ class AddProductView: UIView {
 	}
 
 	@objc func saveButtonAction() {
-		var productDictionary: [String: Any] = [:]
-
-		arrayFormData.forEach { (formaData) in
-			productDictionary.merge(formaData.inputData) { (current, _) in current }
+		if let product = formManager.product() {
+			delegate?.added(product)
+		} else {
+			
 		}
-
-		delegate?.productAdded(productDictionary)
 	}
 
 	func instantiateViews() {
-		arrayFormData = PListManager.load("AddProductForm")
-
 		navigationBar = UINavigationBar(frame: .zero)
 		navigationBar.translatesAutoresizingMaskIntoConstraints = false
 		let title = UINavigationItem(title: "Adicionar produto")
@@ -89,13 +87,13 @@ class AddProductView: UIView {
 
 extension AddProductView: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return arrayFormData.count
+		return formManager.fields.count
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		//need implement the method that says how the form has to be builded
 		//implementation to show both cells
-		let formData = arrayFormData[indexPath.row]
+		let formData = formManager.fields[indexPath.row]
 
 		switch (formData.cellType) {
 		case 0:

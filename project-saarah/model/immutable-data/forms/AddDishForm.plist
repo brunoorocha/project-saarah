@@ -28,7 +28,7 @@
 	</dict>
 	<dict>
 		<key>key</key>
-		<string>ingredient</string>
+		<string>ingredient1</string>
 		<key>fieldName</key>
 		<string>Ingrediente</string>
 		<key>placeholder</key>

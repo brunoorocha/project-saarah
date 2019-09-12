@@ -8,18 +8,24 @@
 
 import UIKit
 
+protocol AddDishViewDelegate: class {
+	func dismiss()
+	func dishAdded(_ dictionary: [String: Any])
+}
+
 class AddDishView: UIView {
 	var navigationBar: UINavigationBar!
 	var tableView: UITableView!
 
-	var arrayFormData: [FormData] = []
+	weak var delegate: AddDishViewDelegate?
+	var formManager: FormManager!
 
 	init() {
 		super.init(frame: .zero)
 
 		translatesAutoresizingMaskIntoConstraints = false
 
-		arrayFormData = PListManager.load("AddDishForm")
+		formManager = FormManager(formaName: "AddDishForm")
 
 		instantiateViews()
 		buildViewsHierarchy()
@@ -31,9 +37,12 @@ class AddDishView: UIView {
 	}
 
 	@objc func cancelButtonAction() {
+		delegate?.dismiss()
 	}
 
 	@objc func saveButtonAction() {
+		print("dishview dish added")
+		formManager.dish()
 	}
 
 	func instantiateViews() {
@@ -76,13 +85,11 @@ class AddDishView: UIView {
 
 extension AddDishView: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return arrayFormData.count
+		return formManager.fields.count
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		//need implement the method that says how the form has to be builded
-		//implementation to show both cells
-		let formData = arrayFormData[indexPath.row]
+		let formData = formManager.fields[indexPath.row]
 
 		switch (formData.cellType) {
 		case 0:
@@ -112,11 +119,7 @@ extension AddDishView: UITableViewDelegate, UITableViewDataSource {
 
 extension AddDishView: FormButtonTableViewCellDelegate {
 	func addNewCell() {
-		let formData = FormData(key: "ingredient", fieldName: "Ingrediente", placeholder: "Insira outro ingrediente", cellType: 1, inputType: 1)
-		let beforeLastRow = arrayFormData.count - 1
-		let indexPath = IndexPath(row: beforeLastRow, section: 0)
-
-		arrayFormData.insert(formData, at: beforeLastRow)
+		let indexPath = formManager.addNewIngredientField()
 		tableView.insertRows(at: [indexPath], with: .none)
 	}
 }
