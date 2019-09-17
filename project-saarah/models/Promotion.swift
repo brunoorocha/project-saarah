@@ -20,16 +20,22 @@ class Promotion {
 	let endHour: Date
 	let days: [Int]
 
-	init(id: Int, menuItemPromotions: [MenuItemPromotion], name: String, price: Double, image: UIImage?, startDay: Date, endDay: Date, startHour: Date, endHour: Date, days: [Int]) {
+	init(id: Int, menuItemPromotions: [MenuItemPromotion], name: String, price: Double, imagePath: String?, startDay: Date, endDay: Date, startHour: Date, endHour: Date, days: [Int]) {
 		self.id = id
 		self.menuItemPromotions = menuItemPromotions
 		self.name = name
 		self.price = price
-		self.image = image
 		self.startDay = startDay
 		self.endDay = endDay
 		self.startHour = startHour
 		self.endHour = endHour
 		self.days = days
+
+		if let imagePath = imagePath {
+			let image = DocumentsDirectory.getImage(with: imagePath)
+			self.image = image
+		} else {
+			self.image = nil
+		}
 	}
 }

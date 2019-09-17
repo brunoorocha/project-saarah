@@ -16,12 +16,18 @@ class MenuItem {
 	let onMenu: Bool
 	let products: [MenuItemProduct]
 
-	init(id: Int, name: String, price: Double, image: UIImage, onMenu: Bool, products: [MenuItemProduct]) {
+	init(id: Int, name: String, price: Double, imagePath: String?, onMenu: Bool, products: [MenuItemProduct]) {
 		self.id = id
 		self.name = name
 		self.price = price
-		self.image = image
 		self.onMenu = onMenu
 		self.products = products
+
+		if let imagePath = imagePath {
+			let image = DocumentsDirectory.getImage(with: imagePath)
+			self.image = image
+		} else {
+			self.image = nil
+		}
 	}
 }
