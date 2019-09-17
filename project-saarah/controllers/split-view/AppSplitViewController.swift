@@ -23,8 +23,8 @@ class AppSplitViewController: UISplitViewController {
     }
 
     private func configurateLeftNavigationController() {
-        let restaurantDomainsMenuViewController = RestaurantDomainsMenuViewController()
-        let leftNavigationController = UINavigationController(rootViewController: restaurantDomainsMenuViewController)
+        let viewController = UIViewController()
+        let leftNavigationController = UINavigationController(rootViewController: viewController)
         let blankViewController = UIViewController()
         blankViewController.view.backgroundColor = .white
 
