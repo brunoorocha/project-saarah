@@ -17,6 +17,7 @@
 		487B9B2923311C8F00D8D6CC /* LogType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487B9B2823311C8F00D8D6CC /* LogType.swift */; };
 		487B9B2B23311D2100D8D6CC /* Measure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487B9B2A23311D2100D8D6CC /* Measure.swift */; };
 		487B9B2D23311DE400D8D6CC /* MenuItemProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487B9B2C23311DE400D8D6CC /* MenuItemProduct.swift */; };
+		487B9B2F23311E5400D8D6CC /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487B9B2E23311E5400D8D6CC /* MenuItem.swift */; };
 		A343CF5223180C3C005F2210 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A343CF5123180C3C005F2210 /* Assets.xcassets */; };
 		A343CF5523180C3C005F2210 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A343CF5323180C3C005F2210 /* LaunchScreen.storyboard */; };
 		A353D7C9231FE416004A5139 /* NavigationDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A353D7C8231FE416004A5139 /* NavigationDrawerView.swift */; };
@@ -37,6 +38,7 @@
 		487B9B2823311C8F00D8D6CC /* LogType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogType.swift; sourceTree = "<group>"; };
 		487B9B2A23311D2100D8D6CC /* Measure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measure.swift; sourceTree = "<group>"; };
 		487B9B2C23311DE400D8D6CC /* MenuItemProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemProduct.swift; sourceTree = "<group>"; };
+		487B9B2E23311E5400D8D6CC /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		A343CF4423180C31005F2210 /* project-saarah.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "project-saarah.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A343CF4723180C31005F2210 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A343CF5123180C3C005F2210 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				487B9B2823311C8F00D8D6CC /* LogType.swift */,
 				487B9B2A23311D2100D8D6CC /* Measure.swift */,
 				487B9B2C23311DE400D8D6CC /* MenuItemProduct.swift */,
+				487B9B2E23311E5400D8D6CC /* MenuItem.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				4818E1372322AFC500EFF585 /* AppDelegate.swift in Sources */,
 				487B9B2D23311DE400D8D6CC /* MenuItemProduct.swift in Sources */,
 				487B9B2723311BC900D8D6CC /* ProductLog.swift in Sources */,
+				487B9B2F23311E5400D8D6CC /* MenuItem.swift in Sources */,
 				1BFB061E2331096A00E7DB70 /* HomeViewController.swift in Sources */,
 				A353D7D3231FE55B004A5139 /* NavigationDrawerViewController.swift in Sources */,
 				A353D7DC231FE61C004A5139 /* AppSplitViewController.swift in Sources */,
