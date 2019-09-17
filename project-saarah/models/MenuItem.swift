@@ -15,7 +15,7 @@ class MenuItem {
 	let image: UIImage?
 	let onMenu: Bool
 	let products: [MenuItemProduct]
-	
+
 	init(id: Int, name: String, price: Double, image: UIImage, onMenu: Bool, products: [MenuItemProduct]) {
 		self.id = id
 		self.name = name

@@ -11,7 +11,7 @@ import Foundation
 class MenuItemProduct {
 	let product: Product
 	let quantity: Double
-	
+
 	init(product: Product, quantity: Double) {
 		self.product = product
 		self.quantity = quantity

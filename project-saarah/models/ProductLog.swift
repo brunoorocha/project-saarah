@@ -14,8 +14,8 @@ class ProductLog {
 	let price: Double?
 	let quantity: Double
 	let expiration: Date?
-	
-	init(id: Int, type: LogType, price: Double?, quantity: Doube, expiration: Date?) {
+
+	init(id: Int, type: LogType, price: Double?, quantity: Double, expiration: Date?) {
 		self.id = id
 		self.type = type
 		self.price = price

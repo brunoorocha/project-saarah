@@ -11,7 +11,7 @@ import Foundation
 class Menu {
 	let menuItens: [MenuItem]
 	let promotions: [Promotion]
-	
+
 	init(menuItens: [MenuItem], promotions: [Promotion]) {
 		self.menuItens = menuItens
 		self.promotions = promotions

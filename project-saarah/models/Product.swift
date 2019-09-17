@@ -14,7 +14,7 @@ class Product {
 	let measure: Measure
 	let barCode: String?
 	let log: [ProductLog]
-	
+
 	init(id: Int, name: String, measure: Measure, barCode: String?, log: [ProductLog]) {
 		self.id = id
 		self.name = name

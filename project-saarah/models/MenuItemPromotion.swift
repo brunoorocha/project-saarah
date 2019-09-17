@@ -11,7 +11,7 @@ import Foundation
 class MenuItemPromotion {
 	let menuItem: MenuItem
 	let quantity: Int
-	
+
 	init(menuItem: MenuItem, quantity: Int) {
 		self.menuItem = menuItem
 		self.quantity = quantity

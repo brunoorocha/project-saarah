@@ -19,7 +19,7 @@ class Promotion {
 	let startHour: Date
 	let endHour: Date
 	let days: [Int]
-	
+
 	init(id: Int, menuItemPromotions: [MenuItemPromotion], name: String, price: Double, image: UIImage?, startDay: Date, endDay: Date, startHour: Date, endHour: Date, days: [Int]) {
 		self.id = id
 		self.menuItemPromotions = menuItemPromotions
