@@ -32,8 +32,6 @@
 /* Begin PBXFileReference section */
 		1BBA19B1231FF4D300116004 /* FileManager+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Image.swift"; sourceTree = "<group>"; };
 		1BFB06192331040D00E7DB70 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		1BFB061B2331093300E7DB70 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		1BFB061C2331093400E7DB70 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1BFB061D2331096A00E7DB70 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		482922F5231D42B2005DAF11 /* ConfigurableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableController.swift; sourceTree = "<group>"; };
 		487B9B242331193900D8D6CC /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
@@ -98,26 +96,8 @@
 			isa = PBXGroup;
 			children = (
 				A353D7C7231FE3F3004A5139 /* components */,
-				48ED6BD8231D3DD100A792DF /* contents */,
-				48ED6BD5231D3DBF00A792DF /* cell */,
 			);
 			path = views;
-			sourceTree = "<group>";
-		};
-		48ED6BD5231D3DBF00A792DF /* cell */ = {
-			isa = PBXGroup;
-			children = (
-				1BFB061C2331093400E7DB70 /* README.md */,
-			);
-			path = cell;
-			sourceTree = "<group>";
-		};
-		48ED6BD8231D3DD100A792DF /* contents */ = {
-			isa = PBXGroup;
-			children = (
-				1BFB061B2331093300E7DB70 /* README.md */,
-			);
-			path = contents;
 			sourceTree = "<group>";
 		};
 		48ED6BDB231D3DF700A792DF /* applications */ = {
@@ -155,6 +135,7 @@
 				48ED6BDB231D3DF700A792DF /* applications */,
 				A353D7CA231FE44A004A5139 /* models */,
 				48ED6BD2231D3D9C00A792DF /* views */,
+				A3780871233B8CF9005B26E8 /* scenes */,
 				48ED6BCE231D3D7300A792DF /* controllers */,
 			);
 			path = "project-saarah";
@@ -199,6 +180,13 @@
 				A353D7DB231FE61C004A5139 /* AppSplitViewController.swift */,
 			);
 			path = "split-view";
+			sourceTree = "<group>";
+		};
+		A3780871233B8CF9005B26E8 /* scenes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
