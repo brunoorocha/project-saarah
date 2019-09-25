@@ -11,15 +11,15 @@ import UIKit
 extension UIView {
     convenience public init(cornerRadius: CGFloat = 0.0, backgroundColor: UIColor = .clear) {
         self.init(frame: .zero)
-        
+
         self.layer.cornerRadius = cornerRadius
-        
+
         self.backgroundColor = backgroundColor
-        
+
         // This enables cornerRadius to bounds of the class UIView.
         self.layer.masksToBounds = true
     }
-    
+
     public struct AnchoredConstraints {
         var top: NSLayoutConstraint?
         var leading: NSLayoutConstraint?
@@ -28,13 +28,13 @@ extension UIView {
         var width: NSLayoutConstraint?
         var height: NSLayoutConstraint?
     }
-    
+
     public func addSubviews(_ views: [UIView]) {
         views.forEach { (view) in
             self.addSubview(view)
         }
     }
-    
+
     @discardableResult
     public func anchor(
         top: NSLayoutYAxisAnchor?,
@@ -46,33 +46,33 @@ extension UIView {
     ) -> AnchoredConstraints {
         // This enables autolayout to class UIView.
         self.translatesAutoresizingMaskIntoConstraints = false
-        
+
         var anchoredConstraints = AnchoredConstraints()
-        
+
         if let topAnchor = top {
             anchoredConstraints.top = self.topAnchor.constraint(equalTo: topAnchor, constant: padding.top)
         }
-        
+
         if let leadingAnchor = leading {
             anchoredConstraints.leading = self.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding.left)
         }
-        
+
         if let bottomAnchor = bottom {
             anchoredConstraints.bottom = self.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding.bottom)
         }
-        
+
         if let trailingAnchor = trailing {
             anchoredConstraints.trailing = self.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding.right)
         }
-        
+
         if size.width != 0 {
             anchoredConstraints.width = self.widthAnchor.constraint(equalToConstant: size.width)
         }
-        
+
         if size.height != 0 {
             anchoredConstraints.height = self.heightAnchor.constraint(equalToConstant: size.height)
         }
-        
+
         [
             anchoredConstraints.top,
             anchoredConstraints.leading,
@@ -81,7 +81,7 @@ extension UIView {
             anchoredConstraints.width,
             anchoredConstraints.height
         ].forEach { $0?.isActive = true }
-        
+
         return anchoredConstraints
     }
 }
