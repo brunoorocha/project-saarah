@@ -12,7 +12,7 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.title = "NAVIGATION"
+        navigationItem.title = "MENU"
 
         tableView.backgroundColor = .gray
         tableView.separatorStyle = .none
@@ -20,7 +20,7 @@ class TableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -36,7 +36,7 @@ class TableViewController: UITableViewController {
         cell.setupNumericLabelsWith(
             amountText: "8 Kg",
             validityText: "01/10/2020",
-            valueText: "R$ 120,00",
+            priceText: "R$ 120,00",
             addedOnDayText: "01/10/2019"
         )
 

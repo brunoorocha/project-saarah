@@ -13,12 +13,12 @@ class ProductItemTableViewCell: UITableViewCell {
 
     private let amountLabel = UILabel(text: "Quantidade")
     private let validityLabel = UILabel(text: "Validade")
-    private let valueLabel = UILabel(text: "Valor")
+    private let priceLabel = UILabel(text: "Valor")
     private let addedOnDayLabel = UILabel(text: "Adicionado no Dia")
 
     private let numericAmountLabel = UILabel(textColor: .lightGray, textAlignment: .right)
     private let numericValidityLabel = UILabel(textColor: .lightGray, textAlignment: .right)
-    private let numericValueLabel = UILabel(textColor: .lightGray, textAlignment: .right)
+    private let numericPriceLabel = UILabel(textColor: .lightGray, textAlignment: .right)
     private let numericAddedOnDayLabel = UILabel(textColor: .lightGray, textAlignment: .right)
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -32,12 +32,12 @@ class ProductItemTableViewCell: UITableViewCell {
     public func setupNumericLabelsWith(
         amountText: String,
         validityText: String,
-        valueText: String,
+        priceText: String,
         addedOnDayText: String
     ) {
         numericAmountLabel.text = amountText
         numericValidityLabel.text = validityText
-        numericValueLabel.text = valueText
+        numericPriceLabel.text = priceText
         numericAddedOnDayLabel.text = addedOnDayText
     }
 
@@ -46,7 +46,8 @@ class ProductItemTableViewCell: UITableViewCell {
         self.addSubview(backgroundCell)
 
         // Add subviews to backgroundCell.
-        backgroundCell.addSubviews([amountLabel, validityLabel, valueLabel, addedOnDayLabel, numericAmountLabel, numericValidityLabel, numericValueLabel, numericAddedOnDayLabel])
+        backgroundCell.addSubviews([amountLabel, validityLabel, priceLabel, addedOnDayLabel,
+                                    numericAmountLabel, numericValidityLabel, numericPriceLabel, numericAddedOnDayLabel])
 
         // Constraint for backgroundCell.
         backgroundCell.anchor(
@@ -79,7 +80,7 @@ class ProductItemTableViewCell: UITableViewCell {
         )
 
         // Constraint for valueLabel.
-        valueLabel.anchor(
+        priceLabel.anchor(
             top: validityLabel.bottomAnchor,
             leading: backgroundCell.leadingAnchor,
             bottom: nil,
@@ -90,7 +91,7 @@ class ProductItemTableViewCell: UITableViewCell {
 
         // Constraint for addedOnDayLabel.
         addedOnDayLabel.anchor(
-            top: valueLabel.bottomAnchor,
+            top: priceLabel.bottomAnchor,
             leading: backgroundCell.leadingAnchor,
             bottom: nil,
             trailing: nil,
@@ -119,7 +120,7 @@ class ProductItemTableViewCell: UITableViewCell {
         )
 
         // Constraint for numericValueLabel.
-        numericValueLabel.anchor(
+        numericPriceLabel.anchor(
             top: numericValidityLabel.bottomAnchor,
             leading: nil,
             bottom: nil,
@@ -130,7 +131,7 @@ class ProductItemTableViewCell: UITableViewCell {
 
         // Constraint for numericValidityLabel.
         numericAddedOnDayLabel.anchor(
-            top: numericValueLabel.bottomAnchor,
+            top: numericPriceLabel.bottomAnchor,
             leading: nil,
             bottom: nil,
             trailing: backgroundCell.trailingAnchor,
