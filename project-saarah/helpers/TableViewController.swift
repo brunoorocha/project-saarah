@@ -1,5 +1,5 @@
 //
-//  TestTableViewController.swift
+//  TableViewController.swift
 //  project-saarah
 //
 //  Created by Marcus Vinícius on 25/09/19.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-class TestTableViewController: UITableViewController {
+class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.title = "TEST"
+        navigationItem.title = "NAVIGATION"
 
         tableView.backgroundColor = .gray
         tableView.separatorStyle = .none
@@ -20,7 +20,7 @@ class TestTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
