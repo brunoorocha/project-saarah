@@ -12,9 +12,15 @@ class TestTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.title = "TEST"
+        
         tableView.backgroundColor = .gray
         tableView.separatorStyle = .none
         tableView.register(ProductItemTableViewCell.self, forCellReuseIdentifier: "Cell")
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
