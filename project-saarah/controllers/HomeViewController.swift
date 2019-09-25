@@ -9,11 +9,43 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    private let productItemCell = UIView(backgroundColor: .red)
-    private let amountLabel = UILabel(backgroundColor: .green)
-    private let validityLabel = UILabel(backgroundColor: .green)
-    private let valueLabel = UILabel(backgroundColor: .green)
-    private let addedDayLabel = UILabel(backgroundColor: .green)
+    private let productItemView = UIView(backgroundColor: .red)
+    
+    private let amountLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Quantidade"
+        label.font = UIFont.boldSystemFont(ofSize: 16.0)
+        label.textAlignment = .natural
+        
+        return label
+    }()
+    
+    private let validityLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Validade"
+        label.font = UIFont.boldSystemFont(ofSize: 16.0)
+        label.textAlignment = .natural
+        
+        return label
+    }()
+    
+    private let valueLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Valor"
+        label.font = UIFont.boldSystemFont(ofSize: 16.0)
+        label.textAlignment = .natural
+        
+        return label
+    }()
+    
+    private let addedOnDayLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Adicionado no Dia"
+        label.font = UIFont.boldSystemFont(ofSize: 16.0)
+        label.textAlignment = .natural
+        
+        return label
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,13 +57,13 @@ class HomeViewController: UIViewController {
     
     private func setupLayout() {
         // Add subview to view.
-        view.addSubview(productItemCell)
+        view.addSubview(productItemView)
         
         // Add subviews to productItemCell.
-        productItemCell.addSubviews([amountLabel, validityLabel, valueLabel, addedDayLabel])
+        productItemView.addSubviews([amountLabel, validityLabel, valueLabel, addedOnDayLabel])
         
         // Constraints for productItemCell.
-        productItemCell.anchor(
+        productItemView.anchor(
             top: view.safeAreaLayoutGuide.topAnchor,
             leading: view.safeAreaLayoutGuide.leadingAnchor,
             bottom: nil,
@@ -42,42 +74,42 @@ class HomeViewController: UIViewController {
         
         // Contraints for amountLabel.
         amountLabel.anchor(
-            top: productItemCell.topAnchor,
-            leading: productItemCell.leadingAnchor,
+            top: productItemView.topAnchor,
+            leading: productItemView.leadingAnchor,
             bottom: nil,
             trailing: nil,
             padding: UIEdgeInsets(top: 16.0, left: 16.0, bottom: 0.0, right: 0.0),
-            size: CGSize(width: 120.0, height: 24.0)
+            size: CGSize(width: 136.0, height: 24.0)
         )
         
         // Contraints for validityLabel.
         validityLabel.anchor(
             top: amountLabel.bottomAnchor,
-            leading: productItemCell.leadingAnchor,
+            leading: productItemView.leadingAnchor,
             bottom: nil,
             trailing: nil,
             padding: UIEdgeInsets(top: 16.0, left: 16.0, bottom: 0.0, right: 0.0),
-            size: CGSize(width: 120.0, height: 24.0)
+            size: CGSize(width: 136.0, height: 24.0)
         )
         
         // Contraints for valueLabel.
         valueLabel.anchor(
             top: validityLabel.bottomAnchor,
-            leading: productItemCell.leadingAnchor,
+            leading: productItemView.leadingAnchor,
             bottom: nil,
             trailing: nil,
             padding: UIEdgeInsets(top: 16.0, left: 16.0, bottom: 0.0, right: 0.0),
-            size: CGSize(width: 120.0, height: 24.0)
+            size: CGSize(width: 136.0, height: 24.0)
         )
         
         // Contraints for addedDayLabel.
-        addedDayLabel.anchor(
+        addedOnDayLabel.anchor(
             top: valueLabel.bottomAnchor,
-            leading: productItemCell.leadingAnchor,
+            leading: productItemView.leadingAnchor,
             bottom: nil,
             trailing: nil,
             padding: UIEdgeInsets(top: 16.0, left: 16.0, bottom: 0.0, right: 0.0),
-            size: CGSize(width: 120.0, height: 24.0)
+            size: CGSize(width: 136.0, height: 24.0)
         )
     }
 }
