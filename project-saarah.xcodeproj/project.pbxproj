@@ -38,6 +38,11 @@
 		A378089A233BA791005B26E8 /* SaarahLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3780899233BA791005B26E8 /* SaarahLabel.swift */; };
 		A378089C233BA853005B26E8 /* ParagraphLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A378089B233BA853005B26E8 /* ParagraphLabel.swift */; };
 		A378089E233BA8B8005B26E8 /* CaptionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A378089D233BA8B8005B26E8 /* CaptionLabel.swift */; };
+		A37808A0233BB05F005B26E8 /* UIView+addSubviewsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A378089F233BB05F005B26E8 /* UIView+addSubviewsExtension.swift */; };
+		A37808A2233BB0D6005B26E8 /* TableViewSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37808A1233BB0D6005B26E8 /* TableViewSeparator.swift */; };
+		A37808A6233BDD6C005B26E8 /* SaarahImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37808A5233BDD6C005B26E8 /* SaarahImageView.swift */; };
+		A37808A7233BDF6C005B26E8 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3780881233B94C6005B26E8 /* Nunito-Bold.ttf */; };
+		A37808A9233BDFF4005B26E8 /* UIColor+rgbaExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37808A8233BDFF4005B26E8 /* UIColor+rgbaExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +81,10 @@
 		A3780899233BA791005B26E8 /* SaarahLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahLabel.swift; sourceTree = "<group>"; };
 		A378089B233BA853005B26E8 /* ParagraphLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParagraphLabel.swift; sourceTree = "<group>"; };
 		A378089D233BA8B8005B26E8 /* CaptionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionLabel.swift; sourceTree = "<group>"; };
+		A378089F233BB05F005B26E8 /* UIView+addSubviewsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+addSubviewsExtension.swift"; sourceTree = "<group>"; };
+		A37808A1233BB0D6005B26E8 /* TableViewSeparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewSeparator.swift; sourceTree = "<group>"; };
+		A37808A5233BDD6C005B26E8 /* SaarahImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahImageView.swift; sourceTree = "<group>"; };
+		A37808A8233BDFF4005B26E8 /* UIColor+rgbaExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+rgbaExtension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +112,8 @@
 				A3780873233B8E64005B26E8 /* app-style-guide */,
 				482922F5231D42B2005DAF11 /* ConfigurableController.swift */,
 				1BBA19B1231FF4D300116004 /* FileManager+Image.swift */,
+				A378089F233BB05F005B26E8 /* UIView+addSubviewsExtension.swift */,
+				A37808A8233BDFF4005B26E8 /* UIColor+rgbaExtension.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -245,6 +256,8 @@
 				A3780899233BA791005B26E8 /* SaarahLabel.swift */,
 				A378089B233BA853005B26E8 /* ParagraphLabel.swift */,
 				A378089D233BA8B8005B26E8 /* CaptionLabel.swift */,
+				A37808A1233BB0D6005B26E8 /* TableViewSeparator.swift */,
+				A37808A5233BDD6C005B26E8 /* SaarahImageView.swift */,
 			);
 			path = "base-components";
 			sourceTree = "<group>";
@@ -317,6 +330,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A37808A7233BDF6C005B26E8 /* Nunito-Bold.ttf in Resources */,
 				A3780885233B9555005B26E8 /* Nunito-Black.ttf in Resources */,
 				A3780886233B9555005B26E8 /* Nunito-Regular.ttf in Resources */,
 				A343CF5523180C3C005F2210 /* LaunchScreen.storyboard in Resources */,
@@ -365,12 +379,16 @@
 				1BFB061E2331096A00E7DB70 /* HomeViewController.swift in Sources */,
 				A378089C233BA853005B26E8 /* ParagraphLabel.swift in Sources */,
 				A353D7D3231FE55B004A5139 /* NavigationDrawerViewController.swift in Sources */,
+				A37808A6233BDD6C005B26E8 /* SaarahImageView.swift in Sources */,
 				A3780890233B9CEE005B26E8 /* SaarahTableViewCell.swift in Sources */,
 				A353D7DC231FE61C004A5139 /* AppSplitViewController.swift in Sources */,
 				A3780875233B8ECA005B26E8 /* AppStyleGuide.swift in Sources */,
 				487B9B2923311C8F00D8D6CC /* LogType.swift in Sources */,
+				A37808A9233BDFF4005B26E8 /* UIColor+rgbaExtension.swift in Sources */,
 				487B9B37233122C400D8D6CC /* Menu.swift in Sources */,
+				A37808A0233BB05F005B26E8 /* UIView+addSubviewsExtension.swift in Sources */,
 				482922F6231D42B2005DAF11 /* ConfigurableController.swift in Sources */,
+				A37808A2233BB0D6005B26E8 /* TableViewSeparator.swift in Sources */,
 				A3780889233B988A005B26E8 /* Heading1Label.swift in Sources */,
 				A3780898233BA771005B26E8 /* Heading3Label.swift in Sources */,
 				1BBA19B2231FF4D300116004 /* FileManager+Image.swift in Sources */,

@@ -28,6 +28,7 @@
 	<array>
 		<string>Nunito-Black.ttf</string>
 		<string>Nunito-Regular.ttf</string>
+		<string>Nunito-Bold.ttf</string>
 	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>

@@ -9,14 +9,8 @@
 import UIKit
 
 class CaptionLabel: SaarahLabel {
-    override var text: String? {
-        willSet (newValue) {
-//            newValue = String.capitalized(newValue)
-        }
-    }
-    
     override func customize() {
         font = AppStyleGuide.Typography.caption.uiFont
-        textColor = AppStyleGuide.Colors.textColor.uiColor
+        textColor = AppStyleGuide.Colors.mediumGray.uiColor
     }
 }

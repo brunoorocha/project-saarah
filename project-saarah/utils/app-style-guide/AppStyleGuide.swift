@@ -30,13 +30,13 @@ enum AppStyleGuide {
             case .heading1:
                 return UIFont(name: "Nunito-Black", size: 32.0) ?? UIFont.systemFont(ofSize: 32.0)
             case .heading2:
-                return UIFont(name: "Nunito-Bolf", size: 24.0) ?? UIFont.systemFont(ofSize: 24.0)
+                return UIFont(name: "Nunito-Bold", size: 24.0) ?? UIFont.systemFont(ofSize: 24.0)
             case .heading3:
                 return UIFont(name: "Nunito-Bold", size: 16.0) ?? UIFont.systemFont(ofSize: 16.0)
             case .paragraph:
                 return UIFont(name: "Nunito-Regular", size: 16.0) ?? UIFont.systemFont(ofSize: 16.0)
             case .caption:
-                return UIFont(name: "Nunito-Bold", size: 16.0) ?? UIFont.systemFont(ofSize: 16.0)
+                return UIFont(name: "Nunito-Bold", size: 12.0) ?? UIFont.systemFont(ofSize: 12.0)
             }
         }
     }
@@ -46,17 +46,23 @@ enum AppStyleGuide {
         case background
         case foreground
         case textColor
+        case lightGray
+        case mediumGray
 
         var uiColor: UIColor {
             switch self {
             case .primary:
-                return UIColor(red: (88 / 255.0), green: (72 / 255.0), blue: (160 / 255.0), alpha: 1.0)
+                return UIColor.rgba(88, 72, 160)
             case .background:
-                return UIColor(red: (248 / 255.0), green: (248 / 255.0), blue: (248 / 255.0), alpha: 1.0)
+                return UIColor.rgba(248, 248, 248)
             case .foreground:
                 return UIColor.white
             case .textColor:
-                return UIColor(red: (56 / 255.0), green: (56 / 255.0), blue: (56 / 255.0), alpha: 1.0)
+                return UIColor.rgba(56, 56, 56)
+            case .lightGray:
+                return UIColor.rgba(244, 244, 244)
+            case .mediumGray:
+                return UIColor.rgba(168, 168, 168)
             }
         }
     }
