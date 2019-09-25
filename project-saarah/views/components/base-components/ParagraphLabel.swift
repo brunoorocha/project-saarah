@@ -1,5 +1,5 @@
 //
-//  Heading1Label.swift
+//  ParagraphLabel.swift
 //  project-saarah
 //
 //  Created by Bruno Rocha on 25/09/19.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class Heading1Label: SaarahLabel {
+class ParagraphLabel: SaarahLabel {
     override func customize() {
-        font = AppStyleGuide.Typography.heading1.uiFont
+        font = AppStyleGuide.Typography.paragraph.uiFont
         textColor = AppStyleGuide.Colors.textColor.uiColor
     }
 }
