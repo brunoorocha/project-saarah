@@ -14,6 +14,7 @@ class HomeViewController: UIViewController {
     private let amountLabel: UILabel = {
         let label = UILabel()
         label.text = "Quantidade"
+        label.textColor = .blue
         label.font = UIFont.boldSystemFont(ofSize: 16.0)
         label.textAlignment = .natural
         

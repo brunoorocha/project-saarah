@@ -9,9 +9,15 @@
 import UIKit
 
 extension UIView {
-    convenience public init(backgroundColor: UIColor = .clear) {
+    convenience public init(cornerRadius: CGFloat = 0.0, backgroundColor: UIColor = .clear) {
         self.init(frame: .zero)
+        
+        self.layer.cornerRadius = cornerRadius
+        
         self.backgroundColor = backgroundColor
+        
+        // This enables cornerRadius to bounds of the class UIView.
+        self.layer.masksToBounds = true
     }
     
     public struct AnchoredConstraints {
