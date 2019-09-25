@@ -52,6 +52,7 @@
 		A353D7CD231FE4B1004A5139 /* NavigationDrawerMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDrawerMenu.swift; sourceTree = "<group>"; };
 		A353D7D2231FE55B004A5139 /* NavigationDrawerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDrawerViewController.swift; sourceTree = "<group>"; };
 		A353D7DB231FE61C004A5139 /* AppSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSplitViewController.swift; sourceTree = "<group>"; };
+		A3780872233B8D63005B26E8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +186,7 @@
 		A3780871233B8CF9005B26E8 /* scenes */ = {
 			isa = PBXGroup;
 			children = (
+				A3780872233B8D63005B26E8 /* README.md */,
 			);
 			path = scenes;
 			sourceTree = "<group>";
