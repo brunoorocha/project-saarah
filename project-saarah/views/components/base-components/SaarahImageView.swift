@@ -13,24 +13,23 @@ class SaarahImageView: UIImageView {
         super.init(frame: .zero)
         customize()
     }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         customize()
     }
-    
+
     override init(image: UIImage?) {
         super.init(image: image)
         customize()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     private func customize() {
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = AppStyleGuide.Colors.lightGray.uiColor
         clipsToBounds = true
         contentMode = .scaleAspectFill
     }

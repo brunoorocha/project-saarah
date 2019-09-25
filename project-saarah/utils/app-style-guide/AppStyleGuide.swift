@@ -24,6 +24,7 @@ enum AppStyleGuide {
         case heading3
         case paragraph
         case caption
+        case captionBold
 
         var uiFont: UIFont {
             switch self {
@@ -36,6 +37,8 @@ enum AppStyleGuide {
             case .paragraph:
                 return UIFont(name: "Nunito-Regular", size: 16.0) ?? UIFont.systemFont(ofSize: 16.0)
             case .caption:
+                return UIFont(name: "Nunito-Regular", size: 12.0) ?? UIFont.systemFont(ofSize: 12.0)
+            case .captionBold:
                 return UIFont(name: "Nunito-Bold", size: 12.0) ?? UIFont.systemFont(ofSize: 12.0)
             }
         }
@@ -63,6 +66,17 @@ enum AppStyleGuide {
                 return UIColor.rgba(244, 244, 244)
             case .mediumGray:
                 return UIColor.rgba(168, 168, 168)
+            }
+        }
+    }
+
+    enum Icons {
+        case activityArrowUp
+
+        var uiImage: UIImage? {
+            switch self {
+            case .activityArrowUp:
+                return UIImage(named: "ActivityArrowUp")
             }
         }
     }

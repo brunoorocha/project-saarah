@@ -13,7 +13,7 @@ class ProductActivityTableViewCell: SaarahTableViewCell {
     var label = ParagraphLabel()
     var activityIcon = SaarahImageView()
     var separator = TableViewSeparator()
-    
+
     var labelsView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -24,25 +24,30 @@ class ProductActivityTableViewCell: SaarahTableViewCell {
         labelsView.addSubviews([dateLabel, label, separator])
         contentView.addSubviews([activityIcon, labelsView])
 
+        let xSmallMargin = AppStyleGuide.Margins.xsmall.rawValue
+        let mediumMargin = AppStyleGuide.Margins.medium.rawValue
+        let largeMargin = AppStyleGuide.Margins.large.rawValue
+
         NSLayoutConstraint.activate([
-            activityIcon.widthAnchor.constraint(equalToConstant: 32.0),
-            activityIcon.heightAnchor.constraint(equalToConstant: 32.0),
+            activityIcon.widthAnchor.constraint(equalToConstant: largeMargin),
+            activityIcon.heightAnchor.constraint(equalToConstant: largeMargin),
             activityIcon.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            activityIcon.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16.0),
+            activityIcon.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumMargin),
 
             labelsView.topAnchor.constraint(equalTo: contentView.topAnchor),
             labelsView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             labelsView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            labelsView.leadingAnchor.constraint(equalTo: activityIcon.trailingAnchor, constant: 16.0),
+            labelsView.leadingAnchor.constraint(equalTo: activityIcon.trailingAnchor, constant: mediumMargin),
 
-            dateLabel.topAnchor.constraint(equalTo: labelsView.topAnchor, constant: 16.0),
+            dateLabel.topAnchor.constraint(equalTo: labelsView.topAnchor, constant: mediumMargin),
             dateLabel.leadingAnchor.constraint(equalTo: labelsView.leadingAnchor),
-            dateLabel.bottomAnchor.constraint(equalTo: label.topAnchor, constant: -4.0),
+            dateLabel.bottomAnchor.constraint(equalTo: label.topAnchor, constant: -xSmallMargin),
 
             label.leadingAnchor.constraint(equalTo: labelsView.leadingAnchor),
-            label.bottomAnchor.constraint(equalTo: labelsView.bottomAnchor, constant: -16.0),
+            label.bottomAnchor.constraint(equalTo: labelsView.bottomAnchor, constant: -mediumMargin),
 
-            separator.bottomAnchor.constraint(equalTo: labelsView.bottomAnchor, constant: -1.0),
+            separator.heightAnchor.constraint(equalToConstant: 1),
+            separator.bottomAnchor.constraint(equalTo: labelsView.bottomAnchor),
             separator.leadingAnchor.constraint(equalTo: labelsView.leadingAnchor),
             separator.trailingAnchor.constraint(equalTo: labelsView.trailingAnchor)
         ])
