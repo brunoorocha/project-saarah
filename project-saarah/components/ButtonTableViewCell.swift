@@ -11,7 +11,16 @@ import UIKit
 class ButtonTableViewCell: UITableViewCell {
     private let componentBackgroundView = UIView(cornerRadius: 8.0, backgroundColor: .white)
 
-    private let addIconImageView = UIView(cornerRadius: 8.0, backgroundColor: .red)
+    private let addIconImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "add-icon")
+        imageView.contentMode = .scaleAspectFill
+        
+        imageView.layer.masksToBounds = true
+        imageView.layer.cornerRadius = 8.0
+        
+        return imageView
+    }()
 
     private let buttonTitleLabel = UILabel(text: "Adicionar Mais Itens Nesse Produto", textAlignment: .center)
 
@@ -46,8 +55,8 @@ class ButtonTableViewCell: UITableViewCell {
             leading: componentBackgroundView.leadingAnchor,
             bottom: nil,
             trailing: nil,
-            padding: UIEdgeInsets(top: 16.0, left: 16.0, bottom: 0.0, right: 0.0),
-            size: CGSize(width: 24.0, height: 24.0)
+            padding: UIEdgeInsets(top: 20.0, left: 20.0, bottom: 0.0, right: 0.0),
+            size: CGSize(width: 16.0, height: 16.0)
         )
 
         // Constraints for buttonTitleLabel.
@@ -57,7 +66,7 @@ class ButtonTableViewCell: UITableViewCell {
             bottom: nil,
             trailing: nil,
             padding: UIEdgeInsets(top: 16.0, left: 8.0, bottom: 0.0, right: 0.0),
-            size: CGSize(width: 279.0 , height: 24.0)
+            size: CGSize(width: 287.0 , height: 24.0)
         )
     }
 
