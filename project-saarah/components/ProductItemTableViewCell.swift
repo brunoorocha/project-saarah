@@ -21,7 +21,7 @@ class ProductItemTableViewCell: UITableViewCell {
     private let numericPriceLabel = UILabel(textColor: .lightGray, textAlignment: .right)
     private let numericAddedOnDayLabel = UILabel(textColor: .lightGray, textAlignment: .right)
 
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    override private init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         self.backgroundColor = .clear
