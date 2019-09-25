@@ -27,6 +27,10 @@
 		A353D7CE231FE4B1004A5139 /* NavigationDrawerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A353D7CD231FE4B1004A5139 /* NavigationDrawerMenu.swift */; };
 		A353D7D3231FE55B004A5139 /* NavigationDrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A353D7D2231FE55B004A5139 /* NavigationDrawerViewController.swift */; };
 		A353D7DC231FE61C004A5139 /* AppSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A353D7DB231FE61C004A5139 /* AppSplitViewController.swift */; };
+		A3780875233B8ECA005B26E8 /* AppStyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3780874233B8ECA005B26E8 /* AppStyleGuide.swift */; };
+		A3780885233B9555005B26E8 /* Nunito-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A378087E233B94C6005B26E8 /* Nunito-Black.ttf */; };
+		A3780886233B9555005B26E8 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A378087A233B94C6005B26E8 /* Nunito-Regular.ttf */; };
+		A3780889233B988A005B26E8 /* Heading1Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3780888233B988A005B26E8 /* Heading1Label.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +57,11 @@
 		A353D7D2231FE55B004A5139 /* NavigationDrawerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDrawerViewController.swift; sourceTree = "<group>"; };
 		A353D7DB231FE61C004A5139 /* AppSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSplitViewController.swift; sourceTree = "<group>"; };
 		A3780872233B8D63005B26E8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		A3780874233B8ECA005B26E8 /* AppStyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyleGuide.swift; sourceTree = "<group>"; };
+		A378087A233B94C6005B26E8 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
+		A378087E233B94C6005B26E8 /* Nunito-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Black.ttf"; sourceTree = "<group>"; };
+		A3780881233B94C6005B26E8 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
+		A3780888233B988A005B26E8 /* Heading1Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heading1Label.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +86,7 @@
 		482922F7231D4503005DAF11 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				A3780873233B8E64005B26E8 /* app-style-guide */,
 				482922F5231D42B2005DAF11 /* ConfigurableController.swift */,
 				1BBA19B1231FF4D300116004 /* FileManager+Image.swift */,
 			);
@@ -145,6 +155,7 @@
 		A353D7C7231FE3F3004A5139 /* components */ = {
 			isa = PBXGroup;
 			children = (
+				A3780887233B9865005B26E8 /* base-components */,
 				A353D7C8231FE416004A5139 /* NavigationDrawerView.swift */,
 			);
 			path = components;
@@ -189,6 +200,33 @@
 				A3780872233B8D63005B26E8 /* README.md */,
 			);
 			path = scenes;
+			sourceTree = "<group>";
+		};
+		A3780873233B8E64005B26E8 /* app-style-guide */ = {
+			isa = PBXGroup;
+			children = (
+				A3780876233B9462005B26E8 /* fonts */,
+				A3780874233B8ECA005B26E8 /* AppStyleGuide.swift */,
+			);
+			path = "app-style-guide";
+			sourceTree = "<group>";
+		};
+		A3780876233B9462005B26E8 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A378087E233B94C6005B26E8 /* Nunito-Black.ttf */,
+				A3780881233B94C6005B26E8 /* Nunito-Bold.ttf */,
+				A378087A233B94C6005B26E8 /* Nunito-Regular.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
+		A3780887233B9865005B26E8 /* base-components */ = {
+			isa = PBXGroup;
+			children = (
+				A3780888233B988A005B26E8 /* Heading1Label.swift */,
+			);
+			path = "base-components";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,6 +288,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3780885233B9555005B26E8 /* Nunito-Black.ttf in Resources */,
+				A3780886233B9555005B26E8 /* Nunito-Regular.ttf in Resources */,
 				A343CF5523180C3C005F2210 /* LaunchScreen.storyboard in Resources */,
 				1BFB061A2331040D00E7DB70 /* README.md in Resources */,
 				A343CF5223180C3C005F2210 /* Assets.xcassets in Resources */,
@@ -296,9 +336,11 @@
 				1BFB061E2331096A00E7DB70 /* HomeViewController.swift in Sources */,
 				A353D7D3231FE55B004A5139 /* NavigationDrawerViewController.swift in Sources */,
 				A353D7DC231FE61C004A5139 /* AppSplitViewController.swift in Sources */,
+				A3780875233B8ECA005B26E8 /* AppStyleGuide.swift in Sources */,
 				487B9B2923311C8F00D8D6CC /* LogType.swift in Sources */,
 				487B9B37233122C400D8D6CC /* Menu.swift in Sources */,
 				482922F6231D42B2005DAF11 /* ConfigurableController.swift in Sources */,
+				A3780889233B988A005B26E8 /* Heading1Label.swift in Sources */,
 				1BBA19B2231FF4D300116004 /* FileManager+Image.swift in Sources */,
 				487B9B3323311F7200D8D6CC /* MenuItemPromotion.swift in Sources */,
 			);
