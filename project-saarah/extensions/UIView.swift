@@ -19,6 +19,18 @@ extension UIView {
         // This enables cornerRadius to bounds of the class UIView.
         self.layer.masksToBounds = true
     }
+    
+    convenience public init(corners: CACornerMask, cornerRadius: CGFloat) {
+        self.init(frame: .zero)
+        
+        self.layer.maskedCorners = corners
+        self.layer.cornerRadius = cornerRadius
+        
+        self.backgroundColor = .white
+        
+        // This enables cornerRadius to bounds of the class UIView.
+        self.layer.masksToBounds = true
+    }
 
     public struct AnchoredConstraints {
         var top: NSLayoutConstraint?
@@ -27,6 +39,10 @@ extension UIView {
         var trailing: NSLayoutConstraint?
         var width: NSLayoutConstraint?
         var height: NSLayoutConstraint?
+    }
+    
+    public func roundedCorners(corners: CACornerMask, radius: CGFloat) {
+        
     }
 
     public func addSubviews(_ views: [UIView]) {
