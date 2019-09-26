@@ -72,11 +72,14 @@ enum AppStyleGuide {
 
     enum Icons {
         case activityArrowUp
+        case chevronRight
 
         var uiImage: UIImage? {
             switch self {
             case .activityArrowUp:
-                return UIImage(named: "ActivityArrowUp")
+                return UIImage(named: "activity-arrow-up")
+            case .chevronRight:
+                return UIImage(named: "chevron-right")
             }
         }
     }

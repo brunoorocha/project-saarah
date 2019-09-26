@@ -12,7 +12,9 @@ class ProductActivityTableViewCell: SaarahTableViewCell {
     var dateLabel = CaptionLabel()
     var label = ParagraphLabel()
     var activityIcon = SaarahImageView()
-    var separator = TableViewSeparator()
+
+    private var separator = TableViewSeparator()
+    private var arrowRightIcon = SaarahIconImageView(image: AppStyleGuide.Icons.chevronRight.uiImage)
 
     var labelsView: UIView = {
         let view = UIView()
@@ -21,7 +23,7 @@ class ProductActivityTableViewCell: SaarahTableViewCell {
     }()
 
     override func configureCellComponents () {
-        labelsView.addSubviews([dateLabel, label, separator])
+        labelsView.addSubviews([dateLabel, label, separator, arrowRightIcon])
         contentView.addSubviews([activityIcon, labelsView])
 
         let xSmallMargin = AppStyleGuide.Margins.xsmall.rawValue
@@ -44,7 +46,11 @@ class ProductActivityTableViewCell: SaarahTableViewCell {
             dateLabel.bottomAnchor.constraint(equalTo: label.topAnchor, constant: -xSmallMargin),
 
             label.leadingAnchor.constraint(equalTo: labelsView.leadingAnchor),
+            label.trailingAnchor.constraint(lessThanOrEqualTo: arrowRightIcon.leadingAnchor, constant: -mediumMargin),
             label.bottomAnchor.constraint(equalTo: labelsView.bottomAnchor, constant: -mediumMargin),
+            
+            arrowRightIcon.trailingAnchor.constraint(equalTo: labelsView.trailingAnchor, constant: -mediumMargin),
+            arrowRightIcon.centerYAnchor.constraint(equalTo: labelsView.centerYAnchor),
 
             separator.bottomAnchor.constraint(equalTo: labelsView.bottomAnchor),
             separator.leadingAnchor.constraint(equalTo: labelsView.leadingAnchor),

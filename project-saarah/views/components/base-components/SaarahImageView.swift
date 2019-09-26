@@ -28,7 +28,7 @@ class SaarahImageView: UIImageView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func customize() {
+    func customize() {
         translatesAutoresizingMaskIntoConstraints = false
         clipsToBounds = true
         contentMode = .scaleAspectFill
