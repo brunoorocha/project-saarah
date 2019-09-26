@@ -10,9 +10,9 @@ import UIKit
 
 class ProductTableViewCell: UITableViewCell {
     private let componentBackgroundView = UIView(cornerRadius: 8.0, backgroundColor: .white)
-    
+
     private let productNameLabel = UILabel(text: "Mussarela")
-    
+
     private let productAmountLabel: UITextView = {
         let textView = UITextView()
         let attributedText = NSMutableAttributedString(
@@ -22,7 +22,7 @@ class ProductTableViewCell: UITableViewCell {
                 NSAttributedString.Key.foregroundColor: UIColor.black
             ]
         )
-        
+
         attributedText.append(
             NSAttributedString(
                 string: " / 5 (kg)",
@@ -32,21 +32,21 @@ class ProductTableViewCell: UITableViewCell {
                 ]
             )
         )
-        
+
         textView.attributedText = attributedText
         textView.textAlignment = .right
-        
+
         textView.textContainerInset = UIEdgeInsets(top: 2.0, left: 0.0, bottom: 0.0, right: 0.0)
-        
+
         textView.isEditable = false
         textView.isScrollEnabled = false
-        
+
         // This enables autolayout for textView.
         textView.translatesAutoresizingMaskIntoConstraints = false
-        
+
         return textView
     }()
-    
+
     private let arrowIconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "arrow-icon")
@@ -57,22 +57,22 @@ class ProductTableViewCell: UITableViewCell {
 
         return imageView
     }()
-    
+
     override private init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+
         self.backgroundColor = .clear
-        
+
         setupLayout()
     }
-    
+
     private func setupLayout() {
         // Add subview to cell.
         self.addSubview(componentBackgroundView)
-        
+
         // Add subviews to componentBackgroundView.
         componentBackgroundView.addSubviews([productNameLabel, productAmountLabel, arrowIconImageView])
-        
+
         // Constraints for componentBackgroundView.
         componentBackgroundView.anchor(
             top: self.topAnchor,
@@ -82,7 +82,7 @@ class ProductTableViewCell: UITableViewCell {
             padding: UIEdgeInsets(top: 16.0, left: 16.0, bottom: 0.0, right: 0.0),
             size: CGSize(width: 343.0, height: 56.0)
         )
-        
+
         // Constraints for productNameLabel.
         productNameLabel.anchor(
             top: componentBackgroundView.topAnchor,
@@ -91,7 +91,7 @@ class ProductTableViewCell: UITableViewCell {
             trailing: productAmountLabel.leadingAnchor,
             padding: UIEdgeInsets(top: 16.0, left: 16.0, bottom: 16.0, right: 8.0)
         )
-        
+
         // Constraints for productAmountLabel.
         productAmountLabel.anchor(
             top: componentBackgroundView.topAnchor,
@@ -101,7 +101,7 @@ class ProductTableViewCell: UITableViewCell {
             padding: UIEdgeInsets(top: 16.0, left: 0.0, bottom: 0.0, right: 8.0),
             size: CGSize(width: 96.0, height: 24.0)
         )
-        
+
         // Constraints for arrowIconImageView.
         arrowIconImageView.anchor(
             top: componentBackgroundView.topAnchor,
@@ -112,7 +112,7 @@ class ProductTableViewCell: UITableViewCell {
             size: CGSize(width: 8.0, height: 16.0)
         )
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder aDecoder: ) has not been implemented.")
     }

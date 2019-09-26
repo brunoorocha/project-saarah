@@ -28,6 +28,7 @@
 		4C94BAE4233BEE05008D62F5 /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94BAE3233BEE05008D62F5 /* ButtonTableViewCell.swift */; };
 		4C94BAE6233CD7BC008D62F5 /* LabeledTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94BAE5233CD7BC008D62F5 /* LabeledTableViewCell.swift */; };
 		4C94BAE8233CE4FA008D62F5 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94BAE7233CE4FA008D62F5 /* ProductTableViewCell.swift */; };
+		4C94BAEB233CFB71008D62F5 /* PickerFieldtableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94BAEA233CFB71008D62F5 /* PickerFieldtableViewCell.swift */; };
 		A343CF5223180C3C005F2210 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A343CF5123180C3C005F2210 /* Assets.xcassets */; };
 		A343CF5523180C3C005F2210 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A343CF5323180C3C005F2210 /* LaunchScreen.storyboard */; };
 		A353D7C9231FE416004A5139 /* NavigationDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A353D7C8231FE416004A5139 /* NavigationDrawerView.swift */; };
@@ -57,6 +58,7 @@
 		4C94BAE3233BEE05008D62F5 /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
 		4C94BAE5233CD7BC008D62F5 /* LabeledTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabeledTableViewCell.swift; sourceTree = "<group>"; };
 		4C94BAE7233CE4FA008D62F5 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
+		4C94BAEA233CFB71008D62F5 /* PickerFieldtableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerFieldtableViewCell.swift; sourceTree = "<group>"; };
 		A343CF4423180C31005F2210 /* project-saarah.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "project-saarah.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A343CF4723180C31005F2210 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A343CF5123180C3C005F2210 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -153,6 +155,14 @@
 			path = helpers;
 			sourceTree = "<group>";
 		};
+		4C94BAE9233CFAF9008D62F5 /* forms */ = {
+			isa = PBXGroup;
+			children = (
+				4C94BAEA233CFB71008D62F5 /* PickerFieldtableViewCell.swift */,
+			);
+			path = forms;
+			sourceTree = "<group>";
+		};
 		A343CF3B23180C31005F2210 = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +187,7 @@
 				482922F7231D4503005DAF11 /* utils */,
 				4C94BAD6233B9060008D62F5 /* extensions */,
 				4C94BAD9233BA515008D62F5 /* components */,
+				4C94BAE9233CFAF9008D62F5 /* forms */,
 				4C94BAE0233BE149008D62F5 /* helpers */,
 				48ED6BDB231D3DF700A792DF /* applications */,
 				A353D7CA231FE44A004A5139 /* models */,
@@ -334,6 +345,7 @@
 				A353D7C9231FE416004A5139 /* NavigationDrawerView.swift in Sources */,
 				487B9B3523311FDC00D8D6CC /* Promotion.swift in Sources */,
 				A353D7CE231FE4B1004A5139 /* NavigationDrawerMenu.swift in Sources */,
+				4C94BAEB233CFB71008D62F5 /* PickerFieldtableViewCell.swift in Sources */,
 				487B9B2B23311D2100D8D6CC /* Measure.swift in Sources */,
 				487B9B252331193900D8D6CC /* Product.swift in Sources */,
 				4818E1372322AFC500EFF585 /* AppDelegate.swift in Sources */,
