@@ -22,7 +22,7 @@ class LabeledTableViewCell: UITableViewCell {
 
         setupLayout()
     }
-    
+
     public func setupProductNameLabelWith(_ productName: String) {
         productNameLabel.text = productName
     }
