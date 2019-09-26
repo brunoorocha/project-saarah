@@ -13,7 +13,7 @@ class LabeledTableViewCell: UITableViewCell {
     
     private let productLabel = UILabel(text: "Produto")
     
-    private let productNameLabel = UILabel(textColor: .lightGray)
+    private let productNameLabel = UIView(backgroundColor: .red)
     
     override private init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
