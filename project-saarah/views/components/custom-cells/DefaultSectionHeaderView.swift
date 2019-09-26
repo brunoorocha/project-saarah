@@ -32,7 +32,7 @@ class DefaultSectionHeaderView: UIView {
             titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -smallMargin),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: mediumMargin),
             titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: rightButton.leadingAnchor, constant: -mediumMargin),
-                        
+
             rightButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -smallMargin),
             rightButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -mediumMargin),
 

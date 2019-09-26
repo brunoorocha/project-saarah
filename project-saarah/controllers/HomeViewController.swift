@@ -49,10 +49,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = ProductActivityTableViewCell(style: .default, reuseIdentifier: "ProductActivityTableViewCell")
-        cell.dateLabel.text = "01/01/2019"
-        cell.label.text = "Adicionados 5 kg de mussarela"
-        cell.activityIcon.image = AppStyleGuide.Icons.activityArrowUp.uiImage
+        let cell = DefaultCellTableViewCell()
+        cell.label.text = "Item de menu"
+        cell.detailLabel.text = "40"
         return cell
     }
 }

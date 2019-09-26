@@ -25,6 +25,7 @@
 		A304F940233CD9EA00C3B6F7 /* CaptionBoldLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304F93F233CD9EA00C3B6F7 /* CaptionBoldLabel.swift */; };
 		A304F942233CDA9800C3B6F7 /* SaarahButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304F941233CDA9800C3B6F7 /* SaarahButton.swift */; };
 		A304F944233CDB3300C3B6F7 /* CaptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304F943233CDB3300C3B6F7 /* CaptionButton.swift */; };
+		A304F946233CE21300C3B6F7 /* DefaultCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304F945233CE21300C3B6F7 /* DefaultCellTableViewCell.swift */; };
 		A343CF5223180C3C005F2210 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A343CF5123180C3C005F2210 /* Assets.xcassets */; };
 		A343CF5523180C3C005F2210 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A343CF5323180C3C005F2210 /* LaunchScreen.storyboard */; };
 		A353D7C9231FE416004A5139 /* NavigationDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A353D7C8231FE416004A5139 /* NavigationDrawerView.swift */; };
@@ -68,6 +69,7 @@
 		A304F93F233CD9EA00C3B6F7 /* CaptionBoldLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionBoldLabel.swift; sourceTree = "<group>"; };
 		A304F941233CDA9800C3B6F7 /* SaarahButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahButton.swift; sourceTree = "<group>"; };
 		A304F943233CDB3300C3B6F7 /* CaptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionButton.swift; sourceTree = "<group>"; };
+		A304F945233CE21300C3B6F7 /* DefaultCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCellTableViewCell.swift; sourceTree = "<group>"; };
 		A343CF4423180C31005F2210 /* project-saarah.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "project-saarah.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A343CF4723180C31005F2210 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A343CF5123180C3C005F2210 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 				A378088B233B9C1D005B26E8 /* ProductActivityTableViewCell.swift */,
 				A378088F233B9CEE005B26E8 /* SaarahTableViewCell.swift */,
 				A304F93B233CD90B00C3B6F7 /* DefaultSectionHeaderView.swift */,
+				A304F945233CE21300C3B6F7 /* DefaultCellTableViewCell.swift */,
 			);
 			path = "custom-cells";
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				A378089A233BA791005B26E8 /* SaarahLabel.swift in Sources */,
 				A378088C233B9C1D005B26E8 /* ProductActivityTableViewCell.swift in Sources */,
 				A3780894233BA40E005B26E8 /* Heading2Label.swift in Sources */,
+				A304F946233CE21300C3B6F7 /* DefaultCellTableViewCell.swift in Sources */,
 				487B9B3323311F7200D8D6CC /* MenuItemPromotion.swift in Sources */,
 				A378089E233BA8B8005B26E8 /* CaptionLabel.swift in Sources */,
 			);
