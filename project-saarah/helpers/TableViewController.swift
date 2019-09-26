@@ -33,6 +33,7 @@ class TableViewController: UITableViewController {
         }
 
         cell.selectionStyle = .none
+        cell.setupProductNameLabelWith("Pão Bola")
 
         return cell
     }
