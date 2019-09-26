@@ -47,9 +47,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = DefaultCellTableViewCell()
-        cell.label.text = "Item de menu"
-        cell.detailLabel.text = "40"
+        let cell = TextFieldTableViewCell()
+        cell.fieldLabel.text = "Nome do produto:"
+        cell.textField.placeholder = "Toque para inserir o nome do produto"
         return cell
     }
 }
