@@ -15,10 +15,10 @@ class ButtonTableViewCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "add-icon")
         imageView.contentMode = .scaleAspectFill
-        
+
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = 8.0
-        
+
         return imageView
     }()
 
