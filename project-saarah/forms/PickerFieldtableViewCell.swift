@@ -9,15 +9,7 @@
 import UIKit
 
 class PickerFieldTableViewCell: UITableViewCell {
-    private let formBackgroundView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
-        view.layer.masksToBounds = true
-        view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
-        view.layer.cornerRadius = 8.0
-
-        return view
-    }()
+    private let formBackgroundView = UIView(corners: [.layerMinXMaxYCorner, .layerMaxXMaxYCorner], cornerRadius: 8.0)
 
     private let measurementUnitLabel = UILabel(text: "Unidade de Medida")
     private let measureUnitTypesLabel = UILabel(text: "Unidades, Quilos, Gramas...", textColor: .lightGray)
