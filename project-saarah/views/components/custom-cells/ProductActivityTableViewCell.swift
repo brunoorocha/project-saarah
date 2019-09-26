@@ -46,7 +46,6 @@ class ProductActivityTableViewCell: SaarahTableViewCell {
             label.leadingAnchor.constraint(equalTo: labelsView.leadingAnchor),
             label.bottomAnchor.constraint(equalTo: labelsView.bottomAnchor, constant: -mediumMargin),
 
-            separator.heightAnchor.constraint(equalToConstant: 1),
             separator.bottomAnchor.constraint(equalTo: labelsView.bottomAnchor),
             separator.leadingAnchor.constraint(equalTo: labelsView.leadingAnchor),
             separator.trailingAnchor.constraint(equalTo: labelsView.trailingAnchor)

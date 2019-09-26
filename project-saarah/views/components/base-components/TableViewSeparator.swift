@@ -19,8 +19,8 @@ class TableViewSeparator: UIView {
     }
 
     private func customize() {
-        frame.size = CGSize(width: frame.size.width, height: 1)
         translatesAutoresizingMaskIntoConstraints = false
+        self.heightAnchor.constraint(equalToConstant: 1).isActive = true
         backgroundColor = AppStyleGuide.Colors.lightGray.uiColor
     }
 }
