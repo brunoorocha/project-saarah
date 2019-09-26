@@ -37,6 +37,13 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = DefaultSectionHeaderView()
+        headerView.titleLabel.text = "ATIVIDADE"
+        headerView.rightButton.setTitle("VER TODAS", for: .normal)
+        return headerView
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }

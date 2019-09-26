@@ -48,7 +48,7 @@ class ProductActivityTableViewCell: SaarahTableViewCell {
             label.leadingAnchor.constraint(equalTo: labelsView.leadingAnchor),
             label.trailingAnchor.constraint(lessThanOrEqualTo: arrowRightIcon.leadingAnchor, constant: -mediumMargin),
             label.bottomAnchor.constraint(equalTo: labelsView.bottomAnchor, constant: -mediumMargin),
-            
+
             arrowRightIcon.trailingAnchor.constraint(equalTo: labelsView.trailingAnchor, constant: -mediumMargin),
             arrowRightIcon.centerYAnchor.constraint(equalTo: labelsView.centerYAnchor),
 
