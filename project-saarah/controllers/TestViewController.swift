@@ -35,7 +35,9 @@ class TestViewController: UIViewController {
 
 extension TestViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = EmptySectionHeaderView()
+        let headerView = DefaultSectionHeaderView()
+        headerView.titleLabel.text = "ATIVIDADE"
+        headerView.rightButton.setTitle("VER TODAS", for: .normal)
         return headerView
     }
 
