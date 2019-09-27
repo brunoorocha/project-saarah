@@ -39,6 +39,7 @@
 		A304F94D233CED4100C3B6F7 /* SaarahTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304F94C233CED4100C3B6F7 /* SaarahTextField.swift */; };
 		A304F94F233E270600C3B6F7 /* SelectableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304F94E233E270600C3B6F7 /* SelectableCell.swift */; };
 		A304F951233E337000C3B6F7 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304F950233E337000C3B6F7 /* TestViewController.swift */; };
+		A304F953233E4AD400C3B6F7 /* SaarahTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304F952233E4AD400C3B6F7 /* SaarahTableView.swift */; };
 		A343CF5223180C3C005F2210 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A343CF5123180C3C005F2210 /* Assets.xcassets */; };
 		A343CF5523180C3C005F2210 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A343CF5323180C3C005F2210 /* LaunchScreen.storyboard */; };
 		A353D7C9231FE416004A5139 /* NavigationDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A353D7C8231FE416004A5139 /* NavigationDrawerView.swift */; };
@@ -95,6 +96,7 @@
 		A304F94C233CED4100C3B6F7 /* SaarahTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahTextField.swift; sourceTree = "<group>"; };
 		A304F94E233E270600C3B6F7 /* SelectableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableCell.swift; sourceTree = "<group>"; };
 		A304F950233E337000C3B6F7 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		A304F952233E4AD400C3B6F7 /* SaarahTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahTableView.swift; sourceTree = "<group>"; };
 		A343CF4423180C31005F2210 /* project-saarah.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "project-saarah.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A343CF4723180C31005F2210 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A343CF5123180C3C005F2210 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 				A304F941233CDA9800C3B6F7 /* SaarahButton.swift */,
 				A304F943233CDB3300C3B6F7 /* CaptionButton.swift */,
 				A304F94C233CED4100C3B6F7 /* SaarahTextField.swift */,
+				A304F952233E4AD400C3B6F7 /* SaarahTableView.swift */,
 			);
 			path = "base-components";
 			sourceTree = "<group>";
@@ -496,6 +499,7 @@
 				A304F93C233CD90B00C3B6F7 /* DefaultSectionHeaderView.swift in Sources */,
 				A304F948233CE74500C3B6F7 /* EmptySectionHeaderView.swift in Sources */,
 				A3780889233B988A005B26E8 /* Heading1Label.swift in Sources */,
+				A304F953233E4AD400C3B6F7 /* SaarahTableView.swift in Sources */,
 				A3780898233BA771005B26E8 /* Heading3Label.swift in Sources */,
 				1BBA19B2231FF4D300116004 /* FileManager+Image.swift in Sources */,
 				A378089A233BA791005B26E8 /* SaarahLabel.swift in Sources */,

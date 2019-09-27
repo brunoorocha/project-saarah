@@ -9,31 +9,29 @@
 import UIKit
 
 class TestViewController: UIViewController {
-    var tableView = UITableView()
+    var tableView = SaarahTableView()
 
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            view.backgroundColor = AppStyleGuide.Colors.background.uiColor
-            configureTableView()
-        }
-
-        func configureTableView() {
-            tableView.translatesAutoresizingMaskIntoConstraints = false
-            tableView.separatorStyle = .none
-            view.addSubview(tableView)
-
-            NSLayoutConstraint.activate([
-                tableView.topAnchor.constraint(equalTo: view.topAnchor),
-                tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-                tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-                tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-            ])
-
-            tableView.delegate = self
-            tableView.dataSource = self
-        }
-
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = AppStyleGuide.Colors.background.uiColor
+        configureTableView()
     }
+
+    func configureTableView() {
+        view.addSubview(tableView)
+
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+
+}
 
 extension TestViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -46,8 +44,10 @@ extension TestViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = SelectableCell()
+        let cell = ProductActivityTableViewCell()
         cell.label.text = "Item"
+        cell.dateLabel.text = "00/00/0000"
+        cell.activityIcon.image = AppStyleGuide.Icons.activityArrowUp.uiImage
         return cell
     }
 }

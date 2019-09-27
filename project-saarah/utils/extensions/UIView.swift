@@ -49,10 +49,10 @@ extension UIView {
 
     @discardableResult
     public func anchor(
-        top: NSLayoutYAxisAnchor?,
-        leading: NSLayoutXAxisAnchor?,
-        bottom: NSLayoutYAxisAnchor?,
-        trailing: NSLayoutXAxisAnchor?,
+        top: NSLayoutYAxisAnchor? = nil,
+        leading: NSLayoutXAxisAnchor? = nil,
+        bottom: NSLayoutYAxisAnchor? = nil,
+        trailing: NSLayoutXAxisAnchor? = nil,
         padding: UIEdgeInsets = .zero,
         size: CGSize = .zero
     ) -> AnchoredConstraints {

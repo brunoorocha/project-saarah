@@ -26,15 +26,15 @@ class DefaultSectionHeaderView: UIView {
         addSubviews([titleLabel, rightButton])
 
         let smallMargin = AppStyleGuide.Margins.small.rawValue
-        let mediumMargin = AppStyleGuide.Margins.medium.rawValue
+        let largeMargin = AppStyleGuide.Margins.large.rawValue
 
         NSLayoutConstraint.activate([
             titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -smallMargin),
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: mediumMargin),
-            titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: rightButton.leadingAnchor, constant: -mediumMargin),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: largeMargin),
+            titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: rightButton.leadingAnchor, constant: -largeMargin),
 
             rightButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -smallMargin),
-            rightButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -mediumMargin),
+            rightButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -largeMargin),
 
             heightAnchor.constraint(equalToConstant: 48.0)
         ])

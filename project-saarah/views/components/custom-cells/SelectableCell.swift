@@ -20,23 +20,23 @@ class SelectableCell: SaarahTableViewCell {
     private var checkIcon = SaarahIconImageView(image: AppStyleGuide.Icons.check.uiImage)
 
     override func configureCellComponents() {
-        contentView.addSubviews([label, checkIcon, separator])
+        cellContentView.addSubviews([label, checkIcon, separator])
         checkIcon.isHidden = !isChecked
 
         let mediumMargin = AppStyleGuide.Margins.medium.rawValue
 
         NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: contentView.topAnchor, constant: mediumMargin),
-            label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumMargin),
+            label.topAnchor.constraint(equalTo: cellContentView.topAnchor, constant: mediumMargin),
+            label.leadingAnchor.constraint(equalTo: cellContentView.leadingAnchor, constant: mediumMargin),
             label.trailingAnchor.constraint(lessThanOrEqualTo: checkIcon.leadingAnchor, constant: -mediumMargin),
-            label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -mediumMargin),
+            label.bottomAnchor.constraint(equalTo: cellContentView.bottomAnchor, constant: -mediumMargin),
 
-            checkIcon.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -mediumMargin),
-            checkIcon.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            checkIcon.trailingAnchor.constraint(equalTo: cellContentView.trailingAnchor, constant: -mediumMargin),
+            checkIcon.centerYAnchor.constraint(equalTo: cellContentView.centerYAnchor),
 
-            separator.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            separator.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumMargin),
-            separator.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+            separator.bottomAnchor.constraint(equalTo: cellContentView.bottomAnchor),
+            separator.leadingAnchor.constraint(equalTo: cellContentView.leadingAnchor, constant: mediumMargin),
+            separator.trailingAnchor.constraint(equalTo: cellContentView.trailingAnchor)
         ])
     }
 }

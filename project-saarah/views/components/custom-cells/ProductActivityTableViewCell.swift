@@ -24,7 +24,7 @@ class ProductActivityTableViewCell: SaarahTableViewCell {
 
     override func configureCellComponents () {
         labelsView.addSubviews([dateLabel, label, separator, arrowRightIcon])
-        contentView.addSubviews([activityIcon, labelsView])
+        cellContentView.addSubviews([activityIcon, labelsView])
 
         let xSmallMargin = AppStyleGuide.Margins.xsmall.rawValue
         let mediumMargin = AppStyleGuide.Margins.medium.rawValue
@@ -33,12 +33,12 @@ class ProductActivityTableViewCell: SaarahTableViewCell {
         NSLayoutConstraint.activate([
             activityIcon.widthAnchor.constraint(equalToConstant: largeMargin),
             activityIcon.heightAnchor.constraint(equalToConstant: largeMargin),
-            activityIcon.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            activityIcon.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumMargin),
+            activityIcon.centerYAnchor.constraint(equalTo: cellContentView.centerYAnchor),
+            activityIcon.leadingAnchor.constraint(equalTo: cellContentView.leadingAnchor, constant: mediumMargin),
 
-            labelsView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            labelsView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            labelsView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            labelsView.topAnchor.constraint(equalTo: cellContentView.topAnchor),
+            labelsView.trailingAnchor.constraint(equalTo: cellContentView.trailingAnchor),
+            labelsView.bottomAnchor.constraint(equalTo: cellContentView.bottomAnchor),
             labelsView.leadingAnchor.constraint(equalTo: activityIcon.trailingAnchor, constant: mediumMargin),
 
             dateLabel.topAnchor.constraint(equalTo: labelsView.topAnchor, constant: mediumMargin),
