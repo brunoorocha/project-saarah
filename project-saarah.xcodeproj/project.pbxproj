@@ -21,6 +21,14 @@
 		487B9B3323311F7200D8D6CC /* MenuItemPromotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487B9B3223311F7200D8D6CC /* MenuItemPromotion.swift */; };
 		487B9B3523311FDC00D8D6CC /* Promotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487B9B3423311FDC00D8D6CC /* Promotion.swift */; };
 		487B9B37233122C400D8D6CC /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487B9B36233122C400D8D6CC /* Menu.swift */; };
+		4C94BAD8233B9086008D62F5 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94BAD7233B9086008D62F5 /* UIView.swift */; };
+		4C94BADB233BA553008D62F5 /* ProductItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94BADA233BA552008D62F5 /* ProductItemTableViewCell.swift */; };
+		4C94BADD233BA8ED008D62F5 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94BADC233BA8ED008D62F5 /* UILabel.swift */; };
+		4C94BAE2233BE19A008D62F5 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94BAE1233BE19A008D62F5 /* TableViewController.swift */; };
+		4C94BAE4233BEE05008D62F5 /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94BAE3233BEE05008D62F5 /* ButtonTableViewCell.swift */; };
+		4C94BAE6233CD7BC008D62F5 /* LabeledTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94BAE5233CD7BC008D62F5 /* LabeledTableViewCell.swift */; };
+		4C94BAE8233CE4FA008D62F5 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94BAE7233CE4FA008D62F5 /* ProductTableViewCell.swift */; };
+		4C94BAEB233CFB71008D62F5 /* PickerFieldtableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94BAEA233CFB71008D62F5 /* PickerFieldtableViewCell.swift */; };
 		A304F93C233CD90B00C3B6F7 /* DefaultSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304F93B233CD90B00C3B6F7 /* DefaultSectionHeaderView.swift */; };
 		A304F940233CD9EA00C3B6F7 /* CaptionBoldLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304F93F233CD9EA00C3B6F7 /* CaptionBoldLabel.swift */; };
 		A304F942233CDA9800C3B6F7 /* SaarahButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304F941233CDA9800C3B6F7 /* SaarahButton.swift */; };
@@ -48,7 +56,6 @@
 		A378089A233BA791005B26E8 /* SaarahLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3780899233BA791005B26E8 /* SaarahLabel.swift */; };
 		A378089C233BA853005B26E8 /* ParagraphLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A378089B233BA853005B26E8 /* ParagraphLabel.swift */; };
 		A378089E233BA8B8005B26E8 /* CaptionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A378089D233BA8B8005B26E8 /* CaptionLabel.swift */; };
-		A37808A0233BB05F005B26E8 /* UIView+addSubviewsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A378089F233BB05F005B26E8 /* UIView+addSubviewsExtension.swift */; };
 		A37808A2233BB0D6005B26E8 /* TableViewSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37808A1233BB0D6005B26E8 /* TableViewSeparator.swift */; };
 		A37808A6233BDD6C005B26E8 /* SaarahImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37808A5233BDD6C005B26E8 /* SaarahImageView.swift */; };
 		A37808A7233BDF6C005B26E8 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3780881233B94C6005B26E8 /* Nunito-Bold.ttf */; };
@@ -70,6 +77,14 @@
 		487B9B3223311F7200D8D6CC /* MenuItemPromotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemPromotion.swift; sourceTree = "<group>"; };
 		487B9B3423311FDC00D8D6CC /* Promotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Promotion.swift; sourceTree = "<group>"; };
 		487B9B36233122C400D8D6CC /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		4C94BAD7233B9086008D62F5 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		4C94BADA233BA552008D62F5 /* ProductItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductItemTableViewCell.swift; sourceTree = "<group>"; };
+		4C94BADC233BA8ED008D62F5 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		4C94BAE1233BE19A008D62F5 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		4C94BAE3233BEE05008D62F5 /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
+		4C94BAE5233CD7BC008D62F5 /* LabeledTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabeledTableViewCell.swift; sourceTree = "<group>"; };
+		4C94BAE7233CE4FA008D62F5 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
+		4C94BAEA233CFB71008D62F5 /* PickerFieldtableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerFieldtableViewCell.swift; sourceTree = "<group>"; };
 		A304F93B233CD90B00C3B6F7 /* DefaultSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSectionHeaderView.swift; sourceTree = "<group>"; };
 		A304F93F233CD9EA00C3B6F7 /* CaptionBoldLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionBoldLabel.swift; sourceTree = "<group>"; };
 		A304F941233CDA9800C3B6F7 /* SaarahButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahButton.swift; sourceTree = "<group>"; };
@@ -102,7 +117,6 @@
 		A3780899233BA791005B26E8 /* SaarahLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahLabel.swift; sourceTree = "<group>"; };
 		A378089B233BA853005B26E8 /* ParagraphLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParagraphLabel.swift; sourceTree = "<group>"; };
 		A378089D233BA8B8005B26E8 /* CaptionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionLabel.swift; sourceTree = "<group>"; };
-		A378089F233BB05F005B26E8 /* UIView+addSubviewsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+addSubviewsExtension.swift"; sourceTree = "<group>"; };
 		A37808A1233BB0D6005B26E8 /* TableViewSeparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewSeparator.swift; sourceTree = "<group>"; };
 		A37808A5233BDD6C005B26E8 /* SaarahImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahImageView.swift; sourceTree = "<group>"; };
 		A37808A8233BDFF4005B26E8 /* UIColor+rgbaExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+rgbaExtension.swift"; sourceTree = "<group>"; };
@@ -131,10 +145,10 @@
 		482922F7231D4503005DAF11 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				4C94BAD6233B9060008D62F5 /* extensions */,
 				A3780873233B8E64005B26E8 /* app-style-guide */,
 				482922F5231D42B2005DAF11 /* ConfigurableController.swift */,
 				1BBA19B1231FF4D300116004 /* FileManager+Image.swift */,
-				A378089F233BB05F005B26E8 /* UIView+addSubviewsExtension.swift */,
 				A37808A8233BDFF4005B26E8 /* UIColor+rgbaExtension.swift */,
 			);
 			path = utils;
@@ -169,6 +183,42 @@
 			path = applications;
 			sourceTree = "<group>";
 		};
+		4C94BAD6233B9060008D62F5 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4C94BAD7233B9086008D62F5 /* UIView.swift */,
+				4C94BADC233BA8ED008D62F5 /* UILabel.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
+		4C94BAD9233BA515008D62F5 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				4C94BAE3233BEE05008D62F5 /* ButtonTableViewCell.swift */,
+				4C94BAE5233CD7BC008D62F5 /* LabeledTableViewCell.swift */,
+				4C94BADA233BA552008D62F5 /* ProductItemTableViewCell.swift */,
+				4C94BAE7233CE4FA008D62F5 /* ProductTableViewCell.swift */,
+			);
+			path = components;
+			sourceTree = "<group>";
+		};
+		4C94BAE0233BE149008D62F5 /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4C94BAE1233BE19A008D62F5 /* TableViewController.swift */,
+			);
+			path = helpers;
+			sourceTree = "<group>";
+		};
+		4C94BAE9233CFAF9008D62F5 /* forms */ = {
+			isa = PBXGroup;
+			children = (
+				4C94BAEA233CFB71008D62F5 /* PickerFieldtableViewCell.swift */,
+			);
+			path = forms;
+			sourceTree = "<group>";
+		};
 		A304F949233CEC9E00C3B6F7 /* form-cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +249,9 @@
 				A343CF5623180C3C005F2210 /* Info.plist */,
 				1B4F4178231DF83400EB1F13 /* services */,
 				482922F7231D4503005DAF11 /* utils */,
+				4C94BAD9233BA515008D62F5 /* components */,
+				4C94BAE9233CFAF9008D62F5 /* forms */,
+				4C94BAE0233BE149008D62F5 /* helpers */,
 				48ED6BDB231D3DF700A792DF /* applications */,
 				A353D7CA231FE44A004A5139 /* models */,
 				48ED6BD2231D3D9C00A792DF /* views */,
@@ -408,9 +461,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C94BADB233BA553008D62F5 /* ProductItemTableViewCell.swift in Sources */,
+				4C94BAE4233BEE05008D62F5 /* ButtonTableViewCell.swift in Sources */,
 				A353D7C9231FE416004A5139 /* NavigationDrawerView.swift in Sources */,
 				487B9B3523311FDC00D8D6CC /* Promotion.swift in Sources */,
 				A353D7CE231FE4B1004A5139 /* NavigationDrawerMenu.swift in Sources */,
+				4C94BAEB233CFB71008D62F5 /* PickerFieldtableViewCell.swift in Sources */,
 				487B9B2B23311D2100D8D6CC /* Measure.swift in Sources */,
 				487B9B252331193900D8D6CC /* Product.swift in Sources */,
 				4818E1372322AFC500EFF585 /* AppDelegate.swift in Sources */,
@@ -418,6 +474,7 @@
 				487B9B2D23311DE400D8D6CC /* MenuItemProduct.swift in Sources */,
 				487B9B2723311BC900D8D6CC /* ProductLog.swift in Sources */,
 				487B9B2F23311E5400D8D6CC /* MenuItem.swift in Sources */,
+				4C94BADD233BA8ED008D62F5 /* UILabel.swift in Sources */,
 				1BFB061E2331096A00E7DB70 /* HomeViewController.swift in Sources */,
 				A304F94F233E270600C3B6F7 /* SelectableCell.swift in Sources */,
 				A378089C233BA853005B26E8 /* ParagraphLabel.swift in Sources */,
@@ -433,7 +490,6 @@
 				A37808A9233BDFF4005B26E8 /* UIColor+rgbaExtension.swift in Sources */,
 				A3ABCE71233CCFDE00FF54FD /* SaarahIconImageView.swift in Sources */,
 				487B9B37233122C400D8D6CC /* Menu.swift in Sources */,
-				A37808A0233BB05F005B26E8 /* UIView+addSubviewsExtension.swift in Sources */,
 				482922F6231D42B2005DAF11 /* ConfigurableController.swift in Sources */,
 				A304F942233CDA9800C3B6F7 /* SaarahButton.swift in Sources */,
 				A37808A2233BB0D6005B26E8 /* TableViewSeparator.swift in Sources */,
@@ -446,6 +502,12 @@
 				A378088C233B9C1D005B26E8 /* ProductActivityTableViewCell.swift in Sources */,
 				A3780894233BA40E005B26E8 /* Heading2Label.swift in Sources */,
 				A304F946233CE21300C3B6F7 /* DefaultCellTableViewCell.swift in Sources */,
+				4C94BAE8233CE4FA008D62F5 /* ProductTableViewCell.swift in Sources */,
+				4C94BAE2233BE19A008D62F5 /* TableViewController.swift in Sources */,
+				482922F6231D42B2005DAF11 /* ConfigurableController.swift in Sources */,
+				4C94BAE6233CD7BC008D62F5 /* LabeledTableViewCell.swift in Sources */,
+				1BBA19B2231FF4D300116004 /* FileManager+Image.swift in Sources */,
+				4C94BAD8233B9086008D62F5 /* UIView.swift in Sources */,
 				487B9B3323311F7200D8D6CC /* MenuItemPromotion.swift in Sources */,
 				A378089E233BA8B8005B26E8 /* CaptionLabel.swift in Sources */,
 				A304F94B233CECC100C3B6F7 /* TextFieldTableViewCell.swift in Sources */,
