@@ -19,7 +19,7 @@ class SaarahTableView: UITableView {
     }
 
     convenience init() {
-        self.init(frame: .zero, style: .plain)
+        self.init(frame: .zero, style: .grouped)
     }
 
     private func defaultConfiguration () {

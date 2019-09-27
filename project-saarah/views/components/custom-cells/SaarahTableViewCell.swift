@@ -26,7 +26,7 @@ class SaarahTableViewCell: UITableViewCell {
         contentView.backgroundColor = AppStyleGuide.Colors.background.uiColor
         contentView.addSubview(cellContentView)
         let margin = AppStyleGuide.Margins.medium.rawValue
-        
+
         cellContentView.anchor(
             top: contentView.topAnchor,
             leading: contentView.leadingAnchor,
@@ -34,6 +34,24 @@ class SaarahTableViewCell: UITableViewCell {
             trailing: contentView.trailingAnchor,
             padding: UIEdgeInsets(top: 0, left: margin, bottom: 0, right: margin)
         )
+    }
+
+    func roundCellIfNeeded (index: Int, numberOfCells: Int) {
+        var corners = CACornerMask()
+
+        if (index == 0) {
+            corners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        } else if (index == (numberOfCells - 1)) {
+            corners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]        
+        }
+        
+        if (numberOfCells == 1) {
+            corners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner, .layerMinXMinYCorner, .layerMaxXMinYCorner]
+        }
+
+        cellContentView.layer.maskedCorners = corners
+        cellContentView.layer.cornerRadius = 8.0
+        cellContentView.layer.masksToBounds = true
     }
 
     func configureCellComponents () {}
