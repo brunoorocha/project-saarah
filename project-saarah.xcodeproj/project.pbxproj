@@ -7,11 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1BBA19B2231FF4D300116004 /* FileManager+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBA19B1231FF4D300116004 /* FileManager+Image.swift */; };
 		1BFB061A2331040D00E7DB70 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1BFB06192331040D00E7DB70 /* README.md */; };
 		1BFB061E2331096A00E7DB70 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFB061D2331096A00E7DB70 /* HomeViewController.swift */; };
 		4818E1372322AFC500EFF585 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A343CF4723180C31005F2210 /* AppDelegate.swift */; };
-		482922F6231D42B2005DAF11 /* ConfigurableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482922F5231D42B2005DAF11 /* ConfigurableController.swift */; };
 		487B9B252331193900D8D6CC /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487B9B242331193900D8D6CC /* Product.swift */; };
 		487B9B2723311BC900D8D6CC /* ProductLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487B9B2623311BC900D8D6CC /* ProductLog.swift */; };
 		487B9B2923311C8F00D8D6CC /* LogType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487B9B2823311C8F00D8D6CC /* LogType.swift */; };
@@ -40,6 +38,11 @@
 		A304F94F233E270600C3B6F7 /* SelectableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304F94E233E270600C3B6F7 /* SelectableCell.swift */; };
 		A304F951233E337000C3B6F7 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304F950233E337000C3B6F7 /* TestViewController.swift */; };
 		A304F953233E4AD400C3B6F7 /* SaarahTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304F952233E4AD400C3B6F7 /* SaarahTableView.swift */; };
+		A32D814B233F6A03008DB50F /* HomeCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32D814A233F6A03008DB50F /* HomeCardCollectionViewCell.swift */; };
+		A32D814D233F6FE0008DB50F /* HomeMenuCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32D814C233F6FE0008DB50F /* HomeMenuCollectionViewController.swift */; };
+		A32D814F233F7F8B008DB50F /* HomeMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32D814E233F7F8B008DB50F /* HomeMenuTableViewCell.swift */; };
+		A32D8150233F849E008DB50F /* FileManager+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBA19B1231FF4D300116004 /* FileManager+Image.swift */; };
+		A32D8151233F84BD008DB50F /* ConfigurableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482922F5231D42B2005DAF11 /* ConfigurableController.swift */; };
 		A343CF5223180C3C005F2210 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A343CF5123180C3C005F2210 /* Assets.xcassets */; };
 		A343CF5523180C3C005F2210 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A343CF5323180C3C005F2210 /* LaunchScreen.storyboard */; };
 		A353D7C9231FE416004A5139 /* NavigationDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A353D7C8231FE416004A5139 /* NavigationDrawerView.swift */; };
@@ -97,6 +100,9 @@
 		A304F94E233E270600C3B6F7 /* SelectableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableCell.swift; sourceTree = "<group>"; };
 		A304F950233E337000C3B6F7 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		A304F952233E4AD400C3B6F7 /* SaarahTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahTableView.swift; sourceTree = "<group>"; };
+		A32D814A233F6A03008DB50F /* HomeCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		A32D814C233F6FE0008DB50F /* HomeMenuCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuCollectionViewController.swift; sourceTree = "<group>"; };
+		A32D814E233F7F8B008DB50F /* HomeMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuTableViewCell.swift; sourceTree = "<group>"; };
 		A343CF4423180C31005F2210 /* project-saarah.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "project-saarah.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A343CF4723180C31005F2210 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A343CF5123180C3C005F2210 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -351,6 +357,7 @@
 				A304F943233CDB3300C3B6F7 /* CaptionButton.swift */,
 				A304F94C233CED4100C3B6F7 /* SaarahTextField.swift */,
 				A304F952233E4AD400C3B6F7 /* SaarahTableView.swift */,
+				A32D814C233F6FE0008DB50F /* HomeMenuCollectionViewController.swift */,
 			);
 			path = "base-components";
 			sourceTree = "<group>";
@@ -364,6 +371,8 @@
 				A304F945233CE21300C3B6F7 /* DefaultCellTableViewCell.swift */,
 				A304F947233CE74500C3B6F7 /* EmptySectionHeaderView.swift */,
 				A304F94E233E270600C3B6F7 /* SelectableCell.swift */,
+				A32D814A233F6A03008DB50F /* HomeCardCollectionViewCell.swift */,
+				A32D814E233F7F8B008DB50F /* HomeMenuTableViewCell.swift */,
 			);
 			path = "custom-cells";
 			sourceTree = "<group>";
@@ -464,8 +473,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A32D8151233F84BD008DB50F /* ConfigurableController.swift in Sources */,
+				A32D8150233F849E008DB50F /* FileManager+Image.swift in Sources */,
 				4C94BADB233BA553008D62F5 /* ProductItemTableViewCell.swift in Sources */,
 				4C94BAE4233BEE05008D62F5 /* ButtonTableViewCell.swift in Sources */,
+				A32D814D233F6FE0008DB50F /* HomeMenuCollectionViewController.swift in Sources */,
 				A353D7C9231FE416004A5139 /* NavigationDrawerView.swift in Sources */,
 				487B9B3523311FDC00D8D6CC /* Promotion.swift in Sources */,
 				A353D7CE231FE4B1004A5139 /* NavigationDrawerMenu.swift in Sources */,
@@ -474,6 +486,7 @@
 				487B9B252331193900D8D6CC /* Product.swift in Sources */,
 				4818E1372322AFC500EFF585 /* AppDelegate.swift in Sources */,
 				A304F94D233CED4100C3B6F7 /* SaarahTextField.swift in Sources */,
+				A32D814B233F6A03008DB50F /* HomeCardCollectionViewCell.swift in Sources */,
 				487B9B2D23311DE400D8D6CC /* MenuItemProduct.swift in Sources */,
 				487B9B2723311BC900D8D6CC /* ProductLog.swift in Sources */,
 				487B9B2F23311E5400D8D6CC /* MenuItem.swift in Sources */,
@@ -491,9 +504,9 @@
 				A3780875233B8ECA005B26E8 /* AppStyleGuide.swift in Sources */,
 				487B9B2923311C8F00D8D6CC /* LogType.swift in Sources */,
 				A37808A9233BDFF4005B26E8 /* UIColor+rgbaExtension.swift in Sources */,
+				A32D814F233F7F8B008DB50F /* HomeMenuTableViewCell.swift in Sources */,
 				A3ABCE71233CCFDE00FF54FD /* SaarahIconImageView.swift in Sources */,
 				487B9B37233122C400D8D6CC /* Menu.swift in Sources */,
-				482922F6231D42B2005DAF11 /* ConfigurableController.swift in Sources */,
 				A304F942233CDA9800C3B6F7 /* SaarahButton.swift in Sources */,
 				A37808A2233BB0D6005B26E8 /* TableViewSeparator.swift in Sources */,
 				A304F93C233CD90B00C3B6F7 /* DefaultSectionHeaderView.swift in Sources */,
@@ -501,16 +514,13 @@
 				A3780889233B988A005B26E8 /* Heading1Label.swift in Sources */,
 				A304F953233E4AD400C3B6F7 /* SaarahTableView.swift in Sources */,
 				A3780898233BA771005B26E8 /* Heading3Label.swift in Sources */,
-				1BBA19B2231FF4D300116004 /* FileManager+Image.swift in Sources */,
 				A378089A233BA791005B26E8 /* SaarahLabel.swift in Sources */,
 				A378088C233B9C1D005B26E8 /* ProductActivityTableViewCell.swift in Sources */,
 				A3780894233BA40E005B26E8 /* Heading2Label.swift in Sources */,
 				A304F946233CE21300C3B6F7 /* DefaultCellTableViewCell.swift in Sources */,
 				4C94BAE8233CE4FA008D62F5 /* ProductTableViewCell.swift in Sources */,
 				4C94BAE2233BE19A008D62F5 /* TableViewController.swift in Sources */,
-				482922F6231D42B2005DAF11 /* ConfigurableController.swift in Sources */,
 				4C94BAE6233CD7BC008D62F5 /* LabeledTableViewCell.swift in Sources */,
-				1BBA19B2231FF4D300116004 /* FileManager+Image.swift in Sources */,
 				4C94BAD8233B9086008D62F5 /* UIView.swift in Sources */,
 				487B9B3323311F7200D8D6CC /* MenuItemPromotion.swift in Sources */,
 				A378089E233BA8B8005B26E8 /* CaptionLabel.swift in Sources */,

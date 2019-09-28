@@ -18,6 +18,10 @@ enum AppStyleGuide {
         case xlarge = 64.0
     }
 
+    enum Sizes: CGFloat {
+        case cornerRadius = 8.0
+    }
+
     enum Typography {
         case heading1
         case heading2
