@@ -43,6 +43,7 @@
 		A32D814F233F7F8B008DB50F /* HomeMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32D814E233F7F8B008DB50F /* HomeMenuTableViewCell.swift */; };
 		A32D8150233F849E008DB50F /* FileManager+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBA19B1231FF4D300116004 /* FileManager+Image.swift */; };
 		A32D8151233F84BD008DB50F /* ConfigurableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482922F5231D42B2005DAF11 /* ConfigurableController.swift */; };
+		A32D8155233F9028008DB50F /* HomeMenuModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32D8154233F9028008DB50F /* HomeMenuModels.swift */; };
 		A343CF5223180C3C005F2210 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A343CF5123180C3C005F2210 /* Assets.xcassets */; };
 		A343CF5523180C3C005F2210 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A343CF5323180C3C005F2210 /* LaunchScreen.storyboard */; };
 		A353D7C9231FE416004A5139 /* NavigationDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A353D7C8231FE416004A5139 /* NavigationDrawerView.swift */; };
@@ -103,6 +104,7 @@
 		A32D814A233F6A03008DB50F /* HomeCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		A32D814C233F6FE0008DB50F /* HomeMenuCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuCollectionViewController.swift; sourceTree = "<group>"; };
 		A32D814E233F7F8B008DB50F /* HomeMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuTableViewCell.swift; sourceTree = "<group>"; };
+		A32D8154233F9028008DB50F /* HomeMenuModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuModels.swift; sourceTree = "<group>"; };
 		A343CF4423180C31005F2210 /* project-saarah.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "project-saarah.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A343CF4723180C31005F2210 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A343CF5123180C3C005F2210 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -235,6 +237,17 @@
 			path = "form-cells";
 			sourceTree = "<group>";
 		};
+		A32D8153233F8FFF008DB50F /* home-menu */ = {
+			isa = PBXGroup;
+			children = (
+				A32D814E233F7F8B008DB50F /* HomeMenuTableViewCell.swift */,
+				A32D814A233F6A03008DB50F /* HomeCardCollectionViewCell.swift */,
+				A32D814C233F6FE0008DB50F /* HomeMenuCollectionViewController.swift */,
+				A32D8154233F9028008DB50F /* HomeMenuModels.swift */,
+			);
+			path = "home-menu";
+			sourceTree = "<group>";
+		};
 		A343CF3B23180C31005F2210 = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +285,7 @@
 		A353D7C7231FE3F3004A5139 /* components */ = {
 			isa = PBXGroup;
 			children = (
+				A32D8153233F8FFF008DB50F /* home-menu */,
 				A304F949233CEC9E00C3B6F7 /* form-cells */,
 				A378088A233B9BDB005B26E8 /* custom-cells */,
 				A3780887233B9865005B26E8 /* base-components */,
@@ -357,7 +371,6 @@
 				A304F943233CDB3300C3B6F7 /* CaptionButton.swift */,
 				A304F94C233CED4100C3B6F7 /* SaarahTextField.swift */,
 				A304F952233E4AD400C3B6F7 /* SaarahTableView.swift */,
-				A32D814C233F6FE0008DB50F /* HomeMenuCollectionViewController.swift */,
 			);
 			path = "base-components";
 			sourceTree = "<group>";
@@ -371,8 +384,6 @@
 				A304F945233CE21300C3B6F7 /* DefaultCellTableViewCell.swift */,
 				A304F947233CE74500C3B6F7 /* EmptySectionHeaderView.swift */,
 				A304F94E233E270600C3B6F7 /* SelectableCell.swift */,
-				A32D814A233F6A03008DB50F /* HomeCardCollectionViewCell.swift */,
-				A32D814E233F7F8B008DB50F /* HomeMenuTableViewCell.swift */,
 			);
 			path = "custom-cells";
 			sourceTree = "<group>";
@@ -486,6 +497,7 @@
 				487B9B252331193900D8D6CC /* Product.swift in Sources */,
 				4818E1372322AFC500EFF585 /* AppDelegate.swift in Sources */,
 				A304F94D233CED4100C3B6F7 /* SaarahTextField.swift in Sources */,
+				A32D8155233F9028008DB50F /* HomeMenuModels.swift in Sources */,
 				A32D814B233F6A03008DB50F /* HomeCardCollectionViewCell.swift in Sources */,
 				487B9B2D23311DE400D8D6CC /* MenuItemProduct.swift in Sources */,
 				487B9B2723311BC900D8D6CC /* ProductLog.swift in Sources */,

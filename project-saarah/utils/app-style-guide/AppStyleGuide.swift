@@ -9,7 +9,8 @@
 import UIKit
 
 enum AppStyleGuide {
-
+    
+    // MARK: Margins
     enum Margins: CGFloat {
         case xsmall = 4.0
         case small = 8.0
@@ -17,11 +18,13 @@ enum AppStyleGuide {
         case large = 32.0
         case xlarge = 64.0
     }
-
+    
+    // MARK: Sizes
     enum Sizes: CGFloat {
         case cornerRadius = 8.0
     }
-
+    
+    // MARK: Typography
     enum Typography {
         case heading1
         case heading2
@@ -48,6 +51,7 @@ enum AppStyleGuide {
         }
     }
 
+    // MARK: Colors
     enum Colors {
         case primary
         case background
@@ -73,11 +77,16 @@ enum AppStyleGuide {
             }
         }
     }
-
+    
+    // MARK: Icons
     enum Icons {
         case activityArrowUp
         case chevronRight
         case check
+        case inventory
+        case menu
+        case barchart
+        case settings
 
         var uiImage: UIImage? {
             switch self {
@@ -87,6 +96,14 @@ enum AppStyleGuide {
                 return UIImage(named: "chevron-right")
             case .check:
                 return UIImage(named: "check")
+            case .inventory:
+                return UIImage(named: "inventory-icon")
+            case .menu:
+                return UIImage(named: "menu-icon")
+            case .barchart:
+                return UIImage(named: "barchart-icon")
+            case .settings:
+                return UIImage(named: "settings-icon")
             }
         }
     }
