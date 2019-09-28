@@ -20,17 +20,24 @@ class HomeMenuCollectionViewFlowLayout: UICollectionViewFlowLayout {
 
     private func defaultCollectionViewFlowLayoutConfiguration () {
         scrollDirection = .vertical
+        sectionInset = UIEdgeInsets(top: .zero, left: AppStyleGuide.Margins.medium.rawValue, bottom: .zero, right: AppStyleGuide.Margins.medium.rawValue)
         minimumLineSpacing = AppStyleGuide.Margins.medium.rawValue
         minimumInteritemSpacing = AppStyleGuide.Margins.medium.rawValue
     }
 }
 
-class HomeMenuCollectionViewController: UICollectionView {
+class HomeMenuCollectionView: UICollectionView {
     private let flowLayout = HomeMenuCollectionViewFlowLayout()
+        
+    private var cardSize: CGFloat {
+        let screenWidth = UIScreen.main.bounds.width
+        return (screenWidth / 2) - 24
+    }
 
     init() {
         super.init(frame: .zero, collectionViewLayout: flowLayout)
         defaultCollectionViewConfiguration()
+        registerCells()
     }
 
     required init?(coder: NSCoder) {
@@ -41,5 +48,18 @@ class HomeMenuCollectionViewController: UICollectionView {
         translatesAutoresizingMaskIntoConstraints = false
         heightAnchor.constraint(equalToConstant: 208).isActive = true
         backgroundColor = .none
+        setFlowLayoutItemSize()
+    }
+    
+    private func registerCells () {
+        register(HomeCardCollectionViewCell.self, forCellWithReuseIdentifier: "HomeCardCollectionViewCell")
+    }
+    
+    private func setFlowLayoutItemSize () {
+        flowLayout.itemSize = CGSize(width: cardSize, height: 96)
+    }
+    
+    func layoutDidChange () {
+        setFlowLayoutItemSize()
     }
 }

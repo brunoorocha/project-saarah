@@ -9,7 +9,7 @@
 import UIKit
 
 enum AppStyleGuide {
-    
+
     // MARK: Margins
     enum Margins: CGFloat {
         case xsmall = 4.0
@@ -18,12 +18,12 @@ enum AppStyleGuide {
         case large = 32.0
         case xlarge = 64.0
     }
-    
+
     // MARK: Sizes
     enum Sizes: CGFloat {
         case cornerRadius = 8.0
     }
-    
+
     // MARK: Typography
     enum Typography {
         case heading1
@@ -77,7 +77,7 @@ enum AppStyleGuide {
             }
         }
     }
-    
+
     // MARK: Icons
     enum Icons {
         case activityArrowUp

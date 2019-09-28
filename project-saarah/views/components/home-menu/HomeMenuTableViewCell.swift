@@ -9,7 +9,8 @@
 import UIKit
 
 class HomeMenuTableViewCell: UITableViewCell {
-    private let homeMenuCollectionView = HomeMenuCollectionViewController()
+    private let homeMenuCollectionView = HomeMenuCollectionView()
+    var homeMenuOptions = HomeMenuOption.allCases
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -23,6 +24,8 @@ class HomeMenuTableViewCell: UITableViewCell {
 
     private func defaultCellConfiguration () {
         backgroundColor = .none
+        homeMenuCollectionView.delegate = self
+        homeMenuCollectionView.dataSource = self
     }
 
     private func configureCellComponents () {
@@ -33,7 +36,27 @@ class HomeMenuTableViewCell: UITableViewCell {
             leading: contentView.leadingAnchor,
             bottom: contentView.bottomAnchor,
             trailing: contentView.trailingAnchor,
-            padding: .zero   
+            padding: .zero
         )
+    }
+}
+
+extension HomeMenuTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return homeMenuOptions.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCardCollectionViewCell", for: indexPath) as? HomeCardCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        
+        cell.cardTitle.text = homeMenuOptions[indexPath.row].title
+        cell.cardIcon.image = homeMenuOptions[indexPath.row].icon.uiImage
+        return cell
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        homeMenuCollectionView.layoutDidChange()
     }
 }

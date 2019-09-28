@@ -13,7 +13,7 @@ enum HomeMenuOption: CaseIterable {
     case menu
     case measurers
     case settings
-    
+
     var title: String {
         switch self {
         case .inventory:
@@ -26,7 +26,7 @@ enum HomeMenuOption: CaseIterable {
             return "Configurações"
         }
     }
-    
+
     var icon: AppStyleGuide.Icons {
         switch self {
         case .inventory:
@@ -39,7 +39,7 @@ enum HomeMenuOption: CaseIterable {
             return AppStyleGuide.Icons.settings
         }
     }
-    
+
     var viewController: UIViewController {
         switch self {
         case .inventory:

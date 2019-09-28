@@ -10,7 +10,7 @@ import UIKit
 
 class HomeCardCollectionViewCell: UICollectionViewCell {
     var cardTitle = Heading3Label()
-    var cardIcon = SaarahIconImageView()
+    var cardIcon = SaarahImageView()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,7 +36,7 @@ class HomeCardCollectionViewCell: UICollectionViewCell {
         cardTitle.anchor(
             top: cardIcon.bottomAnchor,
             leading: contentView.leadingAnchor,
-            bottom: contentView.topAnchor,
+            bottom: contentView.bottomAnchor,
             trailing: contentView.trailingAnchor,
             padding: UIEdgeInsets(top: smallMargin, left: mediumMargin, bottom: smallMargin, right: mediumMargin)
         )
@@ -44,7 +44,8 @@ class HomeCardCollectionViewCell: UICollectionViewCell {
         cardIcon.anchor(
             top: contentView.topAnchor,
             leading: contentView.leadingAnchor,
-            padding: UIEdgeInsets(top: mediumMargin, left: mediumMargin, bottom: .zero, right: .zero)
+            padding: UIEdgeInsets(top: mediumMargin, left: mediumMargin, bottom: .zero, right: .zero),
+            size: CGSize(width: 40, height: 40)
         )
     }
 }
