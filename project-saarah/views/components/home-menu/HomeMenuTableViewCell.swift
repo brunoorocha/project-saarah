@@ -14,7 +14,7 @@ protocol HomeMenuDelegate: class {
 
 class HomeMenuTableViewCell: UITableViewCell {
     private let homeMenuCollectionView = HomeMenuCollectionView()
-    var homeMenuOptions = HomeMenuOption.allCases
+    var homeMenuOptions = [HomeMenuOption]()
     weak var delegate: HomeMenuDelegate!
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

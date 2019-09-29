@@ -20,7 +20,9 @@ class HomeViewController: SaarahViewController, HomeDisplayLogic {
 	// MARK: Property
 	var interactor: HomeBusinessLogic?
 	var router: (NSObjectProtocol & HomeRoutingLogic & HomeDataPassing)?
+    
     var homeView = HomeView()
+    private var homeMenuOptions = HomeMenuOption.allCases
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -56,7 +58,8 @@ class HomeViewController: SaarahViewController, HomeDisplayLogic {
     func defaultViewControllerConfiguration () {
         title = "Restaurante"
         view = homeView
-        homeView.delegate = self
+        homeView.tableView.delegate = self
+        homeView.tableView.dataSource = self
     }
 
 	// MARK: Do something
@@ -70,8 +73,26 @@ class HomeViewController: SaarahViewController, HomeDisplayLogic {
 	}
 }
 
-extension HomeViewController: HomeViewDelegate {
-    func didRequestNavigationTo(nextViewController: UIViewController) {
-        self.router?.navigateTo(source: self, destination: nextViewController)
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return EmptySectionHeaderView()
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = HomeMenuTableViewCell()
+        cell.homeMenuOptions = homeMenuOptions
+        cell.delegate = self
+        return cell
+    }
+}
+
+extension HomeViewController: HomeMenuDelegate {
+    func didSelectHomeMenuOption(_ option: HomeMenuOption) {
+        let nextViewController = option.viewController
+        router?.navigateTo(source: self, destination: nextViewController)
     }
 }

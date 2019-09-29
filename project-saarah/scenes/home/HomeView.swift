@@ -12,19 +12,11 @@
 
 import UIKit
 
-protocol HomeViewDelegate: class {
-    func didRequestNavigationTo(nextViewController: UIViewController)
-}
-
 class HomeView: UIView {
-    private var tableView = SaarahTableView()
-    weak var delegate: HomeViewDelegate!
+    var tableView = SaarahTableView()
 
 	init() {
-		super.init(frame: .zero)
-
-//		translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = AppStyleGuide.Colors.background.uiColor
+        super.init(frame: .zero)
 
 		instantiateViews()
 		buildViewsHierarchy()
@@ -40,8 +32,6 @@ class HomeView: UIView {
 
 	func buildViewsHierarchy() {
         addSubview(tableView)
-        tableView.delegate = self
-        tableView.dataSource = self
 	}
 
 	func setupConstraints() {
@@ -52,27 +42,4 @@ class HomeView: UIView {
             tableView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
 	}
-}
-
-extension HomeView: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return EmptySectionHeaderView()
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = HomeMenuTableViewCell()
-        cell.delegate = self
-        return cell
-    }
-}
-
-extension HomeView: HomeMenuDelegate {
-    func didSelectHomeMenuOption(_ option: HomeMenuOption) {
-        let nextViewController = option.viewController
-        delegate?.didRequestNavigationTo(nextViewController: nextViewController)
-    }
 }
