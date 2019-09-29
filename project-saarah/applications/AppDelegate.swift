@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         UINavigationBar.appearance().tintColor = AppStyleGuide.Colors.primary.uiColor
 
-        let controller = TestViewController()
+        let controller = HomeViewController()
         let navigationController = UINavigationController(rootViewController: controller)
 
         window = UIWindow(frame: UIScreen.main.bounds)
