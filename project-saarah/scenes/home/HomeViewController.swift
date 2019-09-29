@@ -24,6 +24,7 @@ class HomeViewController: SaarahViewController, HomeDisplayLogic {
 
     private var homeView = HomeView()
     private var homeMenuOptions = HomeMenuOption.allCases
+    private var displayedHomeNotifications = [Home.FetchHomeNotifications.ViewModel.DisplayedHomeNotification]()
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -79,24 +80,55 @@ class HomeViewController: SaarahViewController, HomeDisplayLogic {
 	}
 
     func displayHomeNotifications (viewModel: Home.FetchHomeNotifications.ViewModel) {
-        
+        displayedHomeNotifications = viewModel.displayedHomeNotifications
+        homeView.tableView.reloadData()
     }
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        switch section {
+        case 0:
+            return 1
+        case 1:
+            return displayedHomeNotifications.count
+        default:
+            return 0
+        }
+    }
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return EmptySectionHeaderView()
+        switch section {
+        case 0:
+            return EmptySectionHeaderView()
+        case 1:
+            let headerView = DefaultSectionHeaderView()
+            headerView.titleLabel.text = "NOTIFICAÇÕES"
+            headerView.rightButton.setTitle("VER TODAS", for: .normal)
+            return headerView
+        default:
+            return nil
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = HomeMenuTableViewCell()
-        cell.homeMenuOptions = homeMenuOptions
-        cell.delegate = self
-        return cell
+        switch indexPath.section {
+        case 0:
+            let cell = HomeMenuTableViewCell()
+            cell.homeMenuOptions = homeMenuOptions
+            cell.delegate = self
+            return cell
+        default:
+            let cell = DefaultCellTableViewCell()
+            let index = indexPath.row
+            cell.label.text = "\(displayedHomeNotifications[index].emoji) \(displayedHomeNotifications[index].message)"
+            cell.roundCellIfNeeded(index: indexPath.row, numberOfCells: displayedHomeNotifications.count)
+            return cell
+        }
     }
 }
 
