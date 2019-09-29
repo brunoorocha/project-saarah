@@ -50,12 +50,12 @@ extension HomeMenuTableViewCell: UICollectionViewDelegate, UICollectionViewDataS
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCardCollectionViewCell", for: indexPath) as? HomeCardCollectionViewCell else {
             return UICollectionViewCell()
         }
-        
+
         cell.cardTitle.text = homeMenuOptions[indexPath.row].title
         cell.cardIcon.image = homeMenuOptions[indexPath.row].icon.uiImage
         return cell
     }
-    
+
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         homeMenuCollectionView.layoutDidChange()
     }

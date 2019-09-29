@@ -8,12 +8,12 @@
 
 import UIKit
 
-class TestViewController: UIViewController {
+class TestViewController: SaarahViewController {
     var tableView = SaarahTableView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = AppStyleGuide.Colors.background.uiColor
+        title = "Restaurante"
         configureTableView()
     }
 
@@ -35,6 +35,10 @@ class TestViewController: UIViewController {
 extension TestViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return EmptySectionHeaderView()
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
