@@ -14,6 +14,7 @@ import UIKit
 
 protocol HomePresentationLogic {
 	func presentSomething(response: Home.Something.Response)
+    func presentHomeNotifications (response: Home.FetchHomeNotifications.Response)
 }
 
 class HomePresenter: HomePresentationLogic {
@@ -24,4 +25,15 @@ class HomePresenter: HomePresentationLogic {
 		let viewModel = Home.Something.ViewModel()
 		viewController?.displaySomething(viewModel: viewModel)
 	}
+
+    func presentHomeNotifications(response: Home.FetchHomeNotifications.Response) {
+        var displayedHomeNotifications: [Home.FetchHomeNotifications.ViewModel.DisplayedHomeNotification] = []
+        response.notifications.forEach { homeNotification in
+            let displayedHomeNotification = Home.FetchHomeNotifications.ViewModel.DisplayedHomeNotification(emoji: homeNotification.emoji, message: homeNotification.message)
+            displayedHomeNotifications.append(displayedHomeNotification)
+        }
+
+        let viewModel = Home.FetchHomeNotifications.ViewModel(displayedHomeNotifications: displayedHomeNotifications)
+        viewController?.displayHomeNotifications(viewModel: viewModel)
+    }
 }

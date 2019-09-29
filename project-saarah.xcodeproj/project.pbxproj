@@ -45,6 +45,8 @@
 		A32D8155233F9028008DB50F /* HomeMenuModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32D8154233F9028008DB50F /* HomeMenuModels.swift */; };
 		A343CF5223180C3C005F2210 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A343CF5123180C3C005F2210 /* Assets.xcassets */; };
 		A343CF5523180C3C005F2210 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A343CF5323180C3C005F2210 /* LaunchScreen.storyboard */; };
+		A3522D692341200A00DB1314 /* HomeNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3522D682341200A00DB1314 /* HomeNotification.swift */; };
+		A3522D6E2341253700DB1314 /* LocalHomeNotificationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3522D6D2341253700DB1314 /* LocalHomeNotificationStore.swift */; };
 		A353D7C9231FE416004A5139 /* NavigationDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A353D7C8231FE416004A5139 /* NavigationDrawerView.swift */; };
 		A353D7CE231FE4B1004A5139 /* NavigationDrawerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A353D7CD231FE4B1004A5139 /* NavigationDrawerMenu.swift */; };
 		A353D7D3231FE55B004A5139 /* NavigationDrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A353D7D2231FE55B004A5139 /* NavigationDrawerViewController.swift */; };
@@ -116,6 +118,8 @@
 		A343CF5123180C3C005F2210 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A343CF5423180C3C005F2210 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A343CF5623180C3C005F2210 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3522D682341200A00DB1314 /* HomeNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNotification.swift; sourceTree = "<group>"; };
+		A3522D6D2341253700DB1314 /* LocalHomeNotificationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalHomeNotificationStore.swift; sourceTree = "<group>"; };
 		A353D7C8231FE416004A5139 /* NavigationDrawerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDrawerView.swift; sourceTree = "<group>"; };
 		A353D7CD231FE4B1004A5139 /* NavigationDrawerMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDrawerMenu.swift; sourceTree = "<group>"; };
 		A353D7D2231FE55B004A5139 /* NavigationDrawerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDrawerViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +165,7 @@
 		1B4F4178231DF83400EB1F13 /* services */ = {
 			isa = PBXGroup;
 			children = (
+				A3522D6A234124AF00DB1314 /* home-notification-service */,
 				1BFB06192331040D00E7DB70 /* README.md */,
 			);
 			path = services;
@@ -295,6 +300,14 @@
 			path = "project-saarah";
 			sourceTree = "<group>";
 		};
+		A3522D6A234124AF00DB1314 /* home-notification-service */ = {
+			isa = PBXGroup;
+			children = (
+				A3522D6D2341253700DB1314 /* LocalHomeNotificationStore.swift */,
+			);
+			path = "home-notification-service";
+			sourceTree = "<group>";
+		};
 		A353D7C7231FE3F3004A5139 /* components */ = {
 			isa = PBXGroup;
 			children = (
@@ -320,6 +333,7 @@
 				487B9B3223311F7200D8D6CC /* MenuItemPromotion.swift */,
 				487B9B3423311FDC00D8D6CC /* Promotion.swift */,
 				487B9B36233122C400D8D6CC /* Menu.swift */,
+				A3522D682341200A00DB1314 /* HomeNotification.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -535,6 +549,7 @@
 				487B9B2D23311DE400D8D6CC /* MenuItemProduct.swift in Sources */,
 				487B9B2723311BC900D8D6CC /* ProductLog.swift in Sources */,
 				487B9B2F23311E5400D8D6CC /* MenuItem.swift in Sources */,
+				A3522D692341200A00DB1314 /* HomeNotification.swift in Sources */,
 				4C94BADD233BA8ED008D62F5 /* UILabel.swift in Sources */,
 				A304F94F233E270600C3B6F7 /* SelectableCell.swift in Sources */,
 				A3D2D0D12340E91100432214 /* HomeWorker.swift in Sources */,
@@ -568,6 +583,7 @@
 				4C94BAE8233CE4FA008D62F5 /* ProductTableViewCell.swift in Sources */,
 				4C94BAE2233BE19A008D62F5 /* TableViewController.swift in Sources */,
 				4C94BAE6233CD7BC008D62F5 /* LabeledTableViewCell.swift in Sources */,
+				A3522D6E2341253700DB1314 /* LocalHomeNotificationStore.swift in Sources */,
 				4C94BAD8233B9086008D62F5 /* UIView.swift in Sources */,
 				A3D2D0D42340E91100432214 /* HomeViewController.swift in Sources */,
 				487B9B3323311F7200D8D6CC /* MenuItemPromotion.swift in Sources */,

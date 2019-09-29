@@ -23,7 +23,7 @@ protocol HomeDataPassing {
 class HomeRouter: NSObject, HomeRoutingLogic, HomeDataPassing {
 	weak var viewController: HomeViewController?
 	var dataStore: HomeDataStore?
-    
+
     func navigateTo (source: HomeViewController, destination: UIViewController) {
         source.navigationController?.pushViewController(destination, animated: true)
     }

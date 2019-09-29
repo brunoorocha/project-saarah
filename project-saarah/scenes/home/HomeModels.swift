@@ -22,4 +22,23 @@ enum Home {
 		struct ViewModel {
 		}
 	}
+
+    enum FetchHomeNotifications {
+        struct Request {
+
+        }
+
+        struct Response {
+            var notifications: [HomeNotification]
+        }
+
+        struct ViewModel {
+            var displayedHomeNotifications: [DisplayedHomeNotification]
+
+            struct DisplayedHomeNotification {
+                var emoji: String
+                var message: String
+            }
+        }
+    }
 }

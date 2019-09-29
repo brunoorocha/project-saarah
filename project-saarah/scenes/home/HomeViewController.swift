@@ -14,14 +14,15 @@ import UIKit
 
 protocol HomeDisplayLogic: class {
 	func displaySomething(viewModel: Home.Something.ViewModel)
+    func displayHomeNotifications (viewModel: Home.FetchHomeNotifications.ViewModel)
 }
 
 class HomeViewController: SaarahViewController, HomeDisplayLogic {
 	// MARK: Property
 	var interactor: HomeBusinessLogic?
 	var router: (NSObjectProtocol & HomeRoutingLogic & HomeDataPassing)?
-    
-    var homeView = HomeView()
+
+    private var homeView = HomeView()
     private var homeMenuOptions = HomeMenuOption.allCases
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -38,7 +39,7 @@ class HomeViewController: SaarahViewController, HomeDisplayLogic {
 	override func viewDidLoad() {
 		super.viewDidLoad()
         defaultViewControllerConfiguration()
-		doSomething()
+		requestHomeNotifications()
 	}
 
 	// MARK: Setup
@@ -67,10 +68,19 @@ class HomeViewController: SaarahViewController, HomeDisplayLogic {
 		let request = Home.Something.Request()
 		interactor?.doSomething(request: request)
 	}
+    
+    func requestHomeNotifications () {
+        let request = Home.FetchHomeNotifications.Request()
+        interactor?.fetchHomeNotifications(request: request)
+    }
 
 	func displaySomething(viewModel: Home.Something.ViewModel) {
 		//nameTextField.text = viewModel.name
 	}
+
+    func displayHomeNotifications (viewModel: Home.FetchHomeNotifications.ViewModel) {
+        
+    }
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
