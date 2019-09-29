@@ -13,6 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        UINavigationBar.appearance().tintColor = AppStyleGuide.Colors.primary.uiColor
+
         let controller = TestViewController()
         let navigationController = UINavigationController(rootViewController: controller)
 

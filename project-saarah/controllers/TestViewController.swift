@@ -43,6 +43,14 @@ extension TestViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = HomeMenuTableViewCell()
+        cell.delegate = self
         return cell
+    }
+}
+
+extension TestViewController: HomeMenuDelegate {
+    func didSelectHomeMenuOption(_ option: HomeMenuOption) {
+        let nextViewController = option.viewController
+        navigationController?.pushViewController(nextViewController, animated: true)
     }
 }

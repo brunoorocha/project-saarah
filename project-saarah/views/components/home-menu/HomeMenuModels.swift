@@ -43,13 +43,26 @@ enum HomeMenuOption: CaseIterable {
     var viewController: UIViewController {
         switch self {
         case .inventory:
-            return UIViewController()
+            return SaarahViewController()
         case .menu:
-            return UIViewController()
+            return SaarahViewController()
         case .measurers:
-            return UIViewController()
+            return SaarahViewController()
         case .settings:
-            return UIViewController()
+            return SaarahViewController()
+        }
+    }
+
+    var highlightedColor: UIColor {
+        switch self {
+        case .inventory:
+            return AppStyleGuide.Colors.primary.uiColor
+        case .menu:
+            return AppStyleGuide.Colors.darkCyan.uiColor
+        case .measurers:
+            return AppStyleGuide.Colors.orange.uiColor
+        case .settings:
+            return AppStyleGuide.Colors.gray.uiColor
         }
     }
 }

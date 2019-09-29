@@ -48,6 +48,7 @@ class HomeMenuCollectionView: UICollectionView {
         translatesAutoresizingMaskIntoConstraints = false
         heightAnchor.constraint(equalToConstant: 208).isActive = true
         backgroundColor = .none
+        allowsMultipleSelection = false
         setFlowLayoutItemSize()
     }
 

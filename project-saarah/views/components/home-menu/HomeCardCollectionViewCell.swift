@@ -12,6 +12,21 @@ class HomeCardCollectionViewCell: UICollectionViewCell {
     var cardTitle = Heading3Label()
     var cardIcon = SaarahImageView()
 
+    var highlightedColor = AppStyleGuide.Colors.foreground.uiColor
+
+    override var isSelected: Bool {
+        didSet {
+            if self.isSelected {
+                contentView.backgroundColor = highlightedColor
+                cardTitle.textColor = AppStyleGuide.Colors.foreground.uiColor
+                return
+            }
+
+            contentView.backgroundColor = AppStyleGuide.Colors.foreground.uiColor
+            cardTitle.textColor = AppStyleGuide.Colors.textColor.uiColor
+        }
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         defaultCellConfiguration()

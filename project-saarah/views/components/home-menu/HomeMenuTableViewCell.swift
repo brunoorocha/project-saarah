@@ -8,9 +8,14 @@
 
 import UIKit
 
+protocol HomeMenuDelegate: class {
+    func didSelectHomeMenuOption (_ option: HomeMenuOption)
+}
+
 class HomeMenuTableViewCell: UITableViewCell {
     private let homeMenuCollectionView = HomeMenuCollectionView()
     var homeMenuOptions = HomeMenuOption.allCases
+    weak var delegate: HomeMenuDelegate!
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -53,10 +58,17 @@ extension HomeMenuTableViewCell: UICollectionViewDelegate, UICollectionViewDataS
 
         cell.cardTitle.text = homeMenuOptions[indexPath.row].title
         cell.cardIcon.image = homeMenuOptions[indexPath.row].icon.uiImage
+        cell.highlightedColor = homeMenuOptions[indexPath.row].highlightedColor
         return cell
     }
 
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedOption = homeMenuOptions[indexPath.item]
+        delegate.didSelectHomeMenuOption(selectedOption)
+    }
+
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
         homeMenuCollectionView.layoutDidChange()
     }
 }

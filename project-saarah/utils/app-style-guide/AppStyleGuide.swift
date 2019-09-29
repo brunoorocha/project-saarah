@@ -59,6 +59,9 @@ enum AppStyleGuide {
         case textColor
         case lightGray
         case mediumGray
+        case darkCyan
+        case orange
+        case gray
 
         var uiColor: UIColor {
             switch self {
@@ -74,6 +77,12 @@ enum AppStyleGuide {
                 return UIColor.rgba(244, 244, 244)
             case .mediumGray:
                 return UIColor.rgba(168, 168, 168)
+            case .darkCyan:
+                return UIColor.rgba(48, 128, 144)
+            case .orange:
+                return UIColor.rgba(224, 133, 48)
+            case .gray:
+                return UIColor.rgba(96, 96, 96)
             }
         }
     }

@@ -16,7 +16,10 @@ class SaarahViewController: UIViewController {
 
     private func defaultViewControllerConfiguration () {
         view.backgroundColor = AppStyleGuide.Colors.background.uiColor
+        navigationControllerCustomization()
+    }
 
+    private func navigationControllerCustomization () {
         let navbarTitleAttributes = [
             NSAttributedString.Key.font: AppStyleGuide.Typography.heading3.uiFont,
             NSAttributedString.Key.foregroundColor: AppStyleGuide.Colors.textColor.uiColor
