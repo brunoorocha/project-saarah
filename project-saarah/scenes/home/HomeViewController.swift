@@ -122,6 +122,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableViewSections[indexPath.section].cells[indexPath.row] as? SaarahTableViewCell {
+            cell.roundCellIfNeeded(index: indexPath.row, numberOfCells: tableViewSections[indexPath.section].cells.count)
+            return cell
+        }
+
         return tableViewSections[indexPath.section].cells[indexPath.row]
     }
 }

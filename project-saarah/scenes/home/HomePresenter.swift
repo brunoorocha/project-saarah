@@ -12,7 +12,7 @@
 
 import UIKit
 
-protocol HomePresentationLogic {	
+protocol HomePresentationLogic {
     func presentHomeNotifications (response: Home.FetchHomeNotifications.Response)
 }
 
