@@ -29,7 +29,7 @@ class HomePresenter: HomePresentationLogic {
     func presentHomeNotifications(response: Home.FetchHomeNotifications.Response) {
         var displayedHomeNotifications: [Home.FetchHomeNotifications.ViewModel.DisplayedHomeNotification] = []
         response.notifications.forEach { homeNotification in
-            let displayedHomeNotification = Home.FetchHomeNotifications.ViewModel.DisplayedHomeNotification(emoji: homeNotification.emoji, message: homeNotification.message)
+            let displayedHomeNotification = Home.FetchHomeNotifications.ViewModel.DisplayedHomeNotification(emoji: homeNotification.emoji, message: homeNotification.message, type: homeNotification.type)
             displayedHomeNotifications.append(displayedHomeNotification)
         }
 

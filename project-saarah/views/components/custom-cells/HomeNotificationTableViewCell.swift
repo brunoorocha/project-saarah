@@ -11,6 +11,22 @@ import UIKit
 class HomeNotificationTableViewCell: SaarahTableViewCell {
     var messageLabel = ParagraphLabel()
     var emojiLabel = ParagraphLabel()
+    var type = HomeNotificationType.normal {
+        didSet {
+            emojiView.backgroundColor = emojiViewBackgroundColor
+        }
+    }
+
+    private var emojiViewBackgroundColor: UIColor {
+        switch type {
+        case .normal:
+            return AppStyleGuide.Colors.lightPurple.uiColor
+        case .alert:
+            return AppStyleGuide.Colors.lightRed.uiColor
+        case .warning:
+            return AppStyleGuide.Colors.lightYellow.uiColor
+        }
+    }
 
     private var separator = SaarahTableViewSeparator()
     private var arrowRightIcon = SaarahIconImageView(image: AppStyleGuide.Icons.chevronRight.uiImage)
@@ -44,6 +60,7 @@ class HomeNotificationTableViewCell: SaarahTableViewCell {
             padding: UIEdgeInsets(top: .zero, left: mediumMargin, bottom: .zero, right: .zero)
         )
         emojiView.centerYAnchor.constraint(equalTo: cellContentView.centerYAnchor).isActive = true
+        emojiView.backgroundColor = emojiViewBackgroundColor
 
         separator.anchor(
             leading: messageLabel.leadingAnchor,

@@ -38,6 +38,7 @@ enum Home {
             struct DisplayedHomeNotification {
                 var emoji: String
                 var message: String
+                var type: HomeNotificationType
             }
         }
     }

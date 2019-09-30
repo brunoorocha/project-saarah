@@ -126,6 +126,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = HomeNotificationTableViewCell()
             cell.messageLabel.text = displayedHomeNotifications[indexPath.row].message
             cell.emojiLabel.text = displayedHomeNotifications[indexPath.row].emoji
+            cell.type = displayedHomeNotifications[indexPath.row].type
             cell.roundCellIfNeeded(index: indexPath.row, numberOfCells: displayedHomeNotifications.count)
             return cell
         }
