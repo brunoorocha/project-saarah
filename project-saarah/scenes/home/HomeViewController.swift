@@ -12,8 +12,12 @@
 
 import UIKit
 
+struct SaarahTableViewSection {
+    var headerView: UIView
+    var cells: [UITableViewCell]
+}
+
 protocol HomeDisplayLogic: class {
-	func displaySomething(viewModel: Home.Something.ViewModel)
     func displayHomeNotifications (viewModel: Home.FetchHomeNotifications.ViewModel)
 }
 
@@ -25,6 +29,7 @@ class HomeViewController: SaarahViewController, HomeDisplayLogic {
     private var homeView = HomeView()
     private var homeMenuOptions = HomeMenuOption.allCases
     private var displayedHomeNotifications = [Home.FetchHomeNotifications.ViewModel.DisplayedHomeNotification]()
+    private var tableViewSections = [SaarahTableViewSection]()
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -62,74 +67,62 @@ class HomeViewController: SaarahViewController, HomeDisplayLogic {
         view = homeView
         homeView.tableView.delegate = self
         homeView.tableView.dataSource = self
+        setHomeMenuTableViewSection()
     }
-
-	// MARK: Do something
-	func doSomething() {
-		let request = Home.Something.Request()
-		interactor?.doSomething(request: request)
-	}
 
     func requestHomeNotifications () {
         let request = Home.FetchHomeNotifications.Request()
         interactor?.fetchHomeNotifications(request: request)
     }
 
-	func displaySomething(viewModel: Home.Something.ViewModel) {
-		//nameTextField.text = viewModel.name
-	}
-
     func displayHomeNotifications (viewModel: Home.FetchHomeNotifications.ViewModel) {
         displayedHomeNotifications = viewModel.displayedHomeNotifications
+        setHomeNotificationsTableViewSection()
+    }
+
+    func setHomeMenuTableViewSection  () {
+        let homeMenuTableViewCell = HomeMenuTableViewCell()
+        homeMenuTableViewCell.homeMenuOptions = homeMenuOptions
+        homeMenuTableViewCell.delegate = self
+        let firstSection = SaarahTableViewSection(headerView: EmptySectionHeaderView(), cells: [homeMenuTableViewCell])
+        tableViewSections.append(firstSection)
+        homeView.tableView.reloadData()
+    }
+
+    func setHomeNotificationsTableViewSection () {
+        let secondSectionHeaderView = DefaultSectionHeaderView()
+        secondSectionHeaderView.titleLabel.text = "NOTIFICAÇÕES"
+        secondSectionHeaderView.rightButton.setTitle("VER TODAS", for: .normal)
+        var secondSection = SaarahTableViewSection(headerView: secondSectionHeaderView, cells: [])
+
+        displayedHomeNotifications.forEach { displayedHomeNotification in
+            let cell = HomeNotificationTableViewCell()
+            cell.messageLabel.text = displayedHomeNotification.message
+            cell.emojiLabel.text = displayedHomeNotification.emoji
+            cell.type = displayedHomeNotification.type
+            secondSection.cells.append(cell)
+        }
+
+        tableViewSections.append(secondSection)
         homeView.tableView.reloadData()
     }
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            return 1
-        case 1:
-            return displayedHomeNotifications.count
-        default:
-            return 0
-        }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return tableViewSections.count
     }
 
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tableViewSections[section].cells.count
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        switch section {
-        case 0:
-            return EmptySectionHeaderView()
-        case 1:
-            let headerView = DefaultSectionHeaderView()
-            headerView.titleLabel.text = "NOTIFICAÇÕES"
-            headerView.rightButton.setTitle("VER TODAS", for: .normal)
-            return headerView
-        default:
-            return nil
-        }
+        return tableViewSections[section].headerView
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.section {
-        case 0:
-            let cell = HomeMenuTableViewCell()
-            cell.homeMenuOptions = homeMenuOptions
-            cell.delegate = self
-            return cell
-        default:
-            let cell = HomeNotificationTableViewCell()
-            cell.messageLabel.text = displayedHomeNotifications[indexPath.row].message
-            cell.emojiLabel.text = displayedHomeNotifications[indexPath.row].emoji
-            cell.type = displayedHomeNotifications[indexPath.row].type
-            cell.roundCellIfNeeded(index: indexPath.row, numberOfCells: displayedHomeNotifications.count)
-            return cell
-        }
+        return tableViewSections[indexPath.section].cells[indexPath.row]
     }
 }
 
