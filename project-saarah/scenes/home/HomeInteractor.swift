@@ -13,7 +13,6 @@
 import UIKit
 
 protocol HomeBusinessLogic {
-	func doSomething(request: Home.Something.Request)
     func fetchHomeNotifications (request: Home.FetchHomeNotifications.Request)
 }
 
@@ -27,15 +26,6 @@ class HomeInteractor: HomeBusinessLogic, HomeDataStore {
 	var presenter: HomePresentationLogic?
 	var worker: HomeWorker?
     var homeNotificationWorker = HomeNotificationsWorker(notificationStore: LocalHomeNotificationStore())
-
-	// MARK: Do something
-	func doSomething(request: Home.Something.Request) {
-		worker = HomeWorker()
-		worker?.doSomeWork()
-
-		let response = Home.Something.Response()
-		presenter?.presentSomething(response: response)
-	}
 
     func fetchHomeNotifications (request: Home.FetchHomeNotifications.Request) {
         homeNotificationWorker.fetchNotifications { notifications in

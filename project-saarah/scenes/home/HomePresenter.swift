@@ -12,19 +12,12 @@
 
 import UIKit
 
-protocol HomePresentationLogic {
-	func presentSomething(response: Home.Something.Response)
+protocol HomePresentationLogic {	
     func presentHomeNotifications (response: Home.FetchHomeNotifications.Response)
 }
 
 class HomePresenter: HomePresentationLogic {
 	weak var viewController: HomeDisplayLogic?
-
-	// MARK: Do something
-	func presentSomething(response: Home.Something.Response) {
-		let viewModel = Home.Something.ViewModel()
-		viewController?.displaySomething(viewModel: viewModel)
-	}
 
     func presentHomeNotifications(response: Home.FetchHomeNotifications.Response) {
         var displayedHomeNotifications: [Home.FetchHomeNotifications.ViewModel.DisplayedHomeNotification] = []
