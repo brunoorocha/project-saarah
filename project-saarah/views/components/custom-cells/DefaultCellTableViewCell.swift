@@ -12,7 +12,7 @@ class DefaultCellTableViewCell: SaarahTableViewCell {
     var label = Heading3Label()
     var detailLabel = Heading3Label()
 
-    private var separator = TableViewSeparator()
+    private var separator = SaarahTableViewSeparator()
     private var arrowRightIcon = SaarahIconImageView(image: AppStyleGuide.Icons.chevronRight.uiImage)
 
     override func configureCellComponents() {

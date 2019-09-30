@@ -69,7 +69,7 @@ class HomeViewController: SaarahViewController, HomeDisplayLogic {
 		let request = Home.Something.Request()
 		interactor?.doSomething(request: request)
 	}
-    
+
     func requestHomeNotifications () {
         let request = Home.FetchHomeNotifications.Request()
         interactor?.fetchHomeNotifications(request: request)
@@ -123,9 +123,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             cell.delegate = self
             return cell
         default:
-            let cell = DefaultCellTableViewCell()
-            let index = indexPath.row
-            cell.label.text = "\(displayedHomeNotifications[index].emoji) \(displayedHomeNotifications[index].message)"
+            let cell = HomeNotificationTableViewCell()
+            cell.messageLabel.text = displayedHomeNotifications[indexPath.row].message
+            cell.emojiLabel.text = displayedHomeNotifications[indexPath.row].emoji
             cell.roundCellIfNeeded(index: indexPath.row, numberOfCells: displayedHomeNotifications.count)
             return cell
         }

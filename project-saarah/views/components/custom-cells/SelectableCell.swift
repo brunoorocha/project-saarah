@@ -16,7 +16,7 @@ class SelectableCell: SaarahTableViewCell {
         }
     }
 
-    private var separator = TableViewSeparator()
+    private var separator = SaarahTableViewSeparator()
     private var checkIcon = SaarahIconImageView(image: AppStyleGuide.Icons.check.uiImage)
 
     override func configureCellComponents() {

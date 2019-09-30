@@ -16,14 +16,14 @@ class HomeCardCollectionViewCell: UICollectionViewCell {
 
     override var isSelected: Bool {
         didSet {
-            if self.isSelected {
-                contentView.backgroundColor = highlightedColor
-                cardTitle.textColor = AppStyleGuide.Colors.foreground.uiColor
-                return
-            }
-
-            contentView.backgroundColor = AppStyleGuide.Colors.foreground.uiColor
-            cardTitle.textColor = AppStyleGuide.Colors.textColor.uiColor
+//            if self.isSelected {
+//                contentView.backgroundColor = highlightedColor
+//                cardTitle.textColor = AppStyleGuide.Colors.foreground.uiColor
+//                return
+//            }
+//
+//            contentView.backgroundColor = AppStyleGuide.Colors.foreground.uiColor
+//            cardTitle.textColor = AppStyleGuide.Colors.textColor.uiColor
         }
     }
 

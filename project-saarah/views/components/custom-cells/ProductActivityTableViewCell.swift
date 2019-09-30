@@ -13,7 +13,7 @@ class ProductActivityTableViewCell: SaarahTableViewCell {
     var label = ParagraphLabel()
     var activityIcon = SaarahImageView()
 
-    private var separator = TableViewSeparator()
+    private var separator = SaarahTableViewSeparator()
     private var arrowRightIcon = SaarahIconImageView(image: AppStyleGuide.Icons.chevronRight.uiImage)
 
     var labelsView: UIView = {
