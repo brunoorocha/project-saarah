@@ -9,15 +9,16 @@
 import UIKit
 
 extension UIView {
-    convenience public init(cornerRadius: CGFloat = 0.0, backgroundColor: UIColor = .clear) {
+    convenience public init(
+        cornerRadius: CGFloat = 0.0,
+        backgroundColor: UIColor = .clear
+    ) {
         self.init(frame: .zero)
-
-        self.layer.cornerRadius = cornerRadius
-
         self.backgroundColor = backgroundColor
 
         // This enables cornerRadius to bounds of the class UIView.
         self.layer.masksToBounds = true
+        self.layer.cornerRadius = cornerRadius
     }
     
     convenience public init(corners: CACornerMask, cornerRadius: CGFloat) {
@@ -49,10 +50,10 @@ extension UIView {
 
     @discardableResult
     public func anchor(
-        top: NSLayoutYAxisAnchor?,
-        leading: NSLayoutXAxisAnchor?,
-        bottom: NSLayoutYAxisAnchor?,
-        trailing: NSLayoutXAxisAnchor?,
+        top: NSLayoutYAxisAnchor? = nil,
+        leading: NSLayoutXAxisAnchor? = nil,
+        bottom: NSLayoutYAxisAnchor? = nil,
+        trailing: NSLayoutXAxisAnchor? = nil,
         padding: UIEdgeInsets = .zero,
         size: CGSize = .zero
     ) -> AnchoredConstraints {
@@ -94,6 +95,28 @@ extension UIView {
             anchoredConstraints.height
         ].forEach { $0?.isActive = true }
 
+        return anchoredConstraints
+    }
+    
+    @discardableResult
+    public func constraintWidth(_ constant: CGFloat) -> AnchoredConstraints {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        
+        var anchoredConstraints = AnchoredConstraints()
+        anchoredConstraints.width = self.widthAnchor.constraint(equalToConstant: constant)
+        anchoredConstraints.width?.isActive = true
+        
+        return anchoredConstraints
+    }
+    
+    @discardableResult
+    public func constraintHeight(_ constant: CGFloat) -> AnchoredConstraints {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        
+        var anchoredConstraints = AnchoredConstraints()
+        anchoredConstraints.height = self.heightAnchor.constraint(equalToConstant: constant)
+        anchoredConstraints.height?.isActive = true
+        
         return anchoredConstraints
     }
 }
