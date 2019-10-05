@@ -13,7 +13,7 @@ protocol HomeMenuDelegate: class {
 }
 
 class HomeMenuTableViewCell: UITableViewCell {
-    private let homeMenuCollectionView = HomeMenuCollectionView()
+    let homeMenuCollectionView = HomeMenuCollectionView()
     var homeMenuOptions = [HomeMenuOption]()
     weak var delegate: HomeMenuDelegate!
 
@@ -29,8 +29,6 @@ class HomeMenuTableViewCell: UITableViewCell {
 
     private func defaultCellConfiguration () {
         backgroundColor = .none
-        homeMenuCollectionView.delegate = self
-        homeMenuCollectionView.dataSource = self
     }
 
     private func configureCellComponents () {
@@ -43,32 +41,5 @@ class HomeMenuTableViewCell: UITableViewCell {
             trailing: contentView.trailingAnchor,
             padding: .zero
         )
-    }
-}
-
-extension HomeMenuTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return homeMenuOptions.count
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCardCollectionViewCell", for: indexPath) as? HomeCardCollectionViewCell else {
-            return UICollectionViewCell()
-        }
-
-        cell.cardTitle.text = homeMenuOptions[indexPath.row].title
-        cell.cardIcon.image = homeMenuOptions[indexPath.row].icon.uiImage
-        cell.highlightedColor = homeMenuOptions[indexPath.row].highlightedColor
-        return cell
-    }
-
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedOption = homeMenuOptions[indexPath.item]
-        delegate.didSelectHomeMenuOption(selectedOption)
-    }
-
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        homeMenuCollectionView.layoutDidChange()
     }
 }

@@ -82,8 +82,10 @@ class HomeViewController: SaarahViewController, HomeDisplayLogic {
 
     func setHomeMenuTableViewSection  () {
         let homeMenuTableViewCell = HomeMenuTableViewCell()
+        homeMenuTableViewCell.homeMenuCollectionView.delegate = self
+        homeMenuTableViewCell.homeMenuCollectionView.dataSource = self
         homeMenuTableViewCell.homeMenuOptions = homeMenuOptions
-        homeMenuTableViewCell.delegate = self
+
         let firstSection = SaarahTableViewSection(headerView: EmptySectionHeaderView(), cells: [homeMenuTableViewCell])
         tableViewSections.append(firstSection)
         homeView.tableView.reloadData()
@@ -131,9 +133,31 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension HomeViewController: HomeMenuDelegate {
-    func didSelectHomeMenuOption(_ option: HomeMenuOption) {
-        let nextViewController = option.viewController
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return homeMenuOptions.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCardCollectionViewCell", for: indexPath) as? HomeCardCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+
+        cell.cardTitle.text = homeMenuOptions[indexPath.row].title
+        cell.cardIcon.image = homeMenuOptions[indexPath.row].icon.uiImage
+        cell.highlightedColor = homeMenuOptions[indexPath.row].highlightedColor
+        return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let nextViewController = homeMenuOptions[indexPath.item].viewController
         router?.navigateTo(source: self, destination: nextViewController)
+    }
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        guard let homeMenuSection = tableViewSections.first,
+            let homeMenuTableViewCell = homeMenuSection.cells.first as? HomeMenuTableViewCell else { return }
+        homeMenuTableViewCell.homeMenuCollectionView.layoutDidChange()
     }
 }

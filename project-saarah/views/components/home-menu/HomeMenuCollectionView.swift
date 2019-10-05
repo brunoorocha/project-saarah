@@ -28,6 +28,7 @@ class HomeMenuCollectionViewFlowLayout: UICollectionViewFlowLayout {
 
 class HomeMenuCollectionView: UICollectionView {
     private let flowLayout = HomeMenuCollectionViewFlowLayout()
+    let cellIdentifier = "HomeCardCollectionViewCell"
 
     private var cardSize: CGFloat {
         let screenWidth = UIScreen.main.bounds.width
@@ -53,7 +54,7 @@ class HomeMenuCollectionView: UICollectionView {
     }
 
     private func registerCells () {
-        register(HomeCardCollectionViewCell.self, forCellWithReuseIdentifier: "HomeCardCollectionViewCell")
+        register(HomeCardCollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
     }
 
     private func setFlowLayoutItemSize () {
