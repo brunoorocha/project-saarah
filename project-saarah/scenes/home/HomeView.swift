@@ -12,12 +12,22 @@
 
 import UIKit
 
+struct SaarahTableViewSection {
+    var headerView: UIView
+    var cells: [UITableViewCell]
+}
+
 class HomeView: UIView {
     var tableView = SaarahTableView()
+
+    var tableViewSections = [SaarahTableViewSection]()
+    private var homeMenuSection: Int!
+    private var notificationsSection: Int!
 
 	init() {
         super.init(frame: .zero)
 
+        backgroundColor = AppStyleGuide.Colors.background.uiColor
 		instantiateViews()
 		buildViewsHierarchy()
 		setupConstraints()
@@ -27,8 +37,7 @@ class HomeView: UIView {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-	func instantiateViews() {
-	}
+	func instantiateViews() {}
 
 	func buildViewsHierarchy() {
         addSubview(tableView)
@@ -37,9 +46,36 @@ class HomeView: UIView {
 	func setupConstraints() {
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
 	}
+
+    func buildHomeMenuSection (homeMenuCollectionDelegate delegate: UICollectionViewDelegate, homeMenuCollectionDataSource dataSource: UICollectionViewDataSource) {
+        let homeMenuTableViewCell = HomeMenuTableViewCell()
+        homeMenuTableViewCell.homeMenuCollectionView.delegate = delegate
+        homeMenuTableViewCell.homeMenuCollectionView.dataSource = dataSource
+        homeMenuSection = tableViewSections.count
+
+        let section = SaarahTableViewSection(headerView: EmptySectionHeaderView(), cells: [homeMenuTableViewCell])
+        tableViewSections.append(section)
+    }
+
+    func buildNotificationsSection () {
+        let secondSectionHeaderView = DefaultSectionHeaderView()
+        secondSectionHeaderView.titleLabel.text = "NOTIFICAÇÕES"
+        secondSectionHeaderView.rightButton.setTitle("VER TODAS", for: .normal)
+        let section = SaarahTableViewSection(headerView: secondSectionHeaderView, cells: [])
+        notificationsSection = tableViewSections.count
+        tableViewSections.append(section)
+    }
+
+    func addNotificationCell (with displayedHomeNotification: Home.FetchHomeNotifications.ViewModel.DisplayedHomeNotification) {
+        let cell = HomeNotificationTableViewCell()
+        cell.messageLabel.text = displayedHomeNotification.message
+        cell.emojiLabel.text = displayedHomeNotification.emoji
+        cell.type = displayedHomeNotification.type
+        tableViewSections[notificationsSection].cells.append(cell)
+    }
 }

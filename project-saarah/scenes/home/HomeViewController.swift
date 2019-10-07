@@ -12,11 +12,6 @@
 
 import UIKit
 
-struct SaarahTableViewSection {
-    var headerView: UIView
-    var cells: [UITableViewCell]
-}
-
 protocol HomeDisplayLogic: class {
     func displayHomeNotifications (viewModel: Home.FetchHomeNotifications.ViewModel)
 }
@@ -29,7 +24,6 @@ class HomeViewController: SaarahViewController, HomeDisplayLogic {
     private var homeView = HomeView()
     private var homeMenuOptions = HomeMenuOption.allCases
     private var displayedHomeNotifications = [Home.FetchHomeNotifications.ViewModel.DisplayedHomeNotification]()
-    private var tableViewSections = [SaarahTableViewSection]()
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -67,7 +61,8 @@ class HomeViewController: SaarahViewController, HomeDisplayLogic {
         view = homeView
         homeView.tableView.delegate = self
         homeView.tableView.dataSource = self
-        setHomeMenuTableViewSection()
+        homeView.buildHomeMenuSection(homeMenuCollectionDelegate: self, homeMenuCollectionDataSource: self)
+        homeView.buildNotificationsSection()
     }
 
     func requestHomeNotifications () {
@@ -77,59 +72,38 @@ class HomeViewController: SaarahViewController, HomeDisplayLogic {
 
     func displayHomeNotifications (viewModel: Home.FetchHomeNotifications.ViewModel) {
         displayedHomeNotifications = viewModel.displayedHomeNotifications
-        setHomeNotificationsTableViewSection()
-    }
-
-    func setHomeMenuTableViewSection  () {
-        let homeMenuTableViewCell = HomeMenuTableViewCell()
-        homeMenuTableViewCell.homeMenuCollectionView.delegate = self
-        homeMenuTableViewCell.homeMenuCollectionView.dataSource = self
-        homeMenuTableViewCell.homeMenuOptions = homeMenuOptions
-
-        let firstSection = SaarahTableViewSection(headerView: EmptySectionHeaderView(), cells: [homeMenuTableViewCell])
-        tableViewSections.append(firstSection)
-        homeView.tableView.reloadData()
-    }
-
-    func setHomeNotificationsTableViewSection () {
-        let secondSectionHeaderView = DefaultSectionHeaderView()
-        secondSectionHeaderView.titleLabel.text = "NOTIFICAÇÕES"
-        secondSectionHeaderView.rightButton.setTitle("VER TODAS", for: .normal)
-        var secondSection = SaarahTableViewSection(headerView: secondSectionHeaderView, cells: [])
-
         displayedHomeNotifications.forEach { displayedHomeNotification in
-            let cell = HomeNotificationTableViewCell()
-            cell.messageLabel.text = displayedHomeNotification.message
-            cell.emojiLabel.text = displayedHomeNotification.emoji
-            cell.type = displayedHomeNotification.type
-            secondSection.cells.append(cell)
+            homeView.addNotificationCell(with: displayedHomeNotification)
         }
 
-        tableViewSections.append(secondSection)
         homeView.tableView.reloadData()
     }
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return tableViewSections.count
+        return homeView.tableViewSections.count
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return homeView.tableViewSections[section].headerView.frame.size.height
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableViewSections[section].cells.count
+        return homeView.tableViewSections[section].cells.count
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return tableViewSections[section].headerView
+        return homeView.tableViewSections[section].headerView
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableViewSections[indexPath.section].cells[indexPath.row] as? SaarahTableViewCell {
-            cell.roundCellIfNeeded(index: indexPath.row, numberOfCells: tableViewSections[indexPath.section].cells.count)
+        if let cell = homeView.tableViewSections[indexPath.section].cells[indexPath.row] as? SaarahTableViewCell {
+            cell.roundCellIfNeeded(index: indexPath.row, numberOfCells: homeView.tableViewSections[indexPath.section].cells.count)
             return cell
         }
 
-        return tableViewSections[indexPath.section].cells[indexPath.row]
+        return homeView.tableViewSections[indexPath.section].cells[indexPath.row]
     }
 }
 
@@ -152,12 +126,5 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let nextViewController = homeMenuOptions[indexPath.item].viewController
         router?.navigateTo(source: self, destination: nextViewController)
-    }
-
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        guard let homeMenuSection = tableViewSections.first,
-            let homeMenuTableViewCell = homeMenuSection.cells.first as? HomeMenuTableViewCell else { return }
-        homeMenuTableViewCell.homeMenuCollectionView.layoutDidChange()
     }
 }

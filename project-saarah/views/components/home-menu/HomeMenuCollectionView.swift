@@ -31,7 +31,9 @@ class HomeMenuCollectionView: UICollectionView {
     let cellIdentifier = "HomeCardCollectionViewCell"
 
     private var cardSize: CGFloat {
-        let screenWidth = UIScreen.main.bounds.width
+        guard let keyWindow = UIApplication.shared.keyWindow else { return 0.0 }
+        let safeAreaInsets = keyWindow.safeAreaInsets
+        let screenWidth = UIScreen.main.bounds.width - safeAreaInsets.left - safeAreaInsets.right
         return (screenWidth / 2) - 24
     }
 
@@ -63,5 +65,9 @@ class HomeMenuCollectionView: UICollectionView {
 
     func layoutDidChange () {
         setFlowLayoutItemSize()
+    }
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        layoutDidChange()
     }
 }
