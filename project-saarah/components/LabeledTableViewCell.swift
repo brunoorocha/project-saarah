@@ -27,6 +27,11 @@ class LabeledTableViewCell: UITableViewCell {
         productNameLabel.text = productName
     }
 
+	public func setContent(title: String, subtitle: String) {
+		productLabel.text = title
+		productNameLabel.text = subtitle
+	}
+	
     private func setupLayout() {
         // Add subview to cell.
         self.addSubview(componentBackgroundView)
