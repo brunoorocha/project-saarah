@@ -12,8 +12,12 @@
 
 import UIKit
 
-@objc protocol HomeRoutingLogic {
-	func navigateTo (source: HomeViewController, destination: UIViewController)
+protocol HomeRoutingLogic {
+	func navigateTo (source: HomeDataStore, destination: UIViewController)
+    func navigateToInventory ()
+    func navigateToDishesMenu ()
+    func navigateToMeasurers ()
+    func navigateToSettings ()
 }
 
 protocol HomeDataPassing {
@@ -24,12 +28,35 @@ class HomeRouter: NSObject, HomeRoutingLogic, HomeDataPassing {
 	weak var viewController: HomeViewController?
 	var dataStore: HomeDataStore?
 
-    func navigateTo (source: HomeViewController, destination: UIViewController) {
-        source.navigationController?.pushViewController(destination, animated: true)
+    func navigateTo (source: HomeDataStore, destination: UIViewController) {
+        viewController?.navigationController?.pushViewController(destination, animated: true)
     }
 
-// MARK: Passing data
-//	func passDataToSomewhere(source: HomeDataStore, destination: inout SomewhereDataStore) {
-//		destination.name = source.name
-//	}
+    func navigateToInventory () {
+        // TODO: Change the instance of the inventory view controller to an instance of Inventory Scene view controller
+        let inventoryViewController = SaarahViewController()
+        inventoryViewController.title = "Estoque"
+        viewController?.navigationController?.pushViewController(inventoryViewController, animated: true)
+    }
+
+    func navigateToDishesMenu () {
+        // TODO: Change the instance of the dishes menu view controller to an instance of Dishes Menu Scene view controller
+        let dishesMenuViewController = SaarahViewController()
+        dishesMenuViewController.title = "Cardápio"
+        viewController?.navigationController?.pushViewController(dishesMenuViewController, animated: true)
+    }
+
+    func navigateToMeasurers () {
+        // TODO: Change the instance of the meassurers view controller to an instance of Measurers Scene view controller
+        let measurersViewController = SaarahViewController()
+        measurersViewController.title = "Medidores"
+        viewController?.navigationController?.pushViewController(measurersViewController, animated: true)
+    }
+
+    func navigateToSettings () {
+        // TODO: Change the instance of the settings view controller to an instance of Settings Scene view controller
+        let settingsViewController = SaarahViewController()
+        settingsViewController.title = "Configurações"
+        viewController?.navigationController?.pushViewController(settingsViewController, animated: true)
+    }
 }

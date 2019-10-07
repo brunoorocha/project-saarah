@@ -130,7 +130,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCardCollectionViewCell", for: indexPath) as? HomeCardCollectionViewCell else {
+        guard let collectionView = collectionView as? HomeMenuCollectionView,
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: collectionView.cellIdentifier, for: indexPath) as? HomeCardCollectionViewCell else {
             return UICollectionViewCell()
         }
 
@@ -142,7 +143,16 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let nextViewController = homeMenuOptions[indexPath.item].viewController
-        router?.navigateTo(source: self, destination: nextViewController)
+        let selectedHomeMenuOption = homeMenuOptions[indexPath.item]
+        switch selectedHomeMenuOption {
+        case .inventory:
+            router?.navigateToInventory()
+        case .menu:
+            router?.navigateToDishesMenu()
+        case .measurers:
+            router?.navigateToMeasurers()
+        case .settings:
+            router?.navigateToSettings()
+        }
     }
 }
