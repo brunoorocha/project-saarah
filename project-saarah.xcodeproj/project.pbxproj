@@ -76,6 +76,7 @@
 		A3D2D0D42340E91100432214 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D2D0CD2340E91100432214 /* HomeViewController.swift */; };
 		A3D2D0D52340E91100432214 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D2D0CE2340E91100432214 /* HomeInteractor.swift */; };
 		A3D2D0D62340E91100432214 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D2D0CF2340E91100432214 /* HomeView.swift */; };
+		A3E3C5E1234B602600C3E1B5 /* HomeVIewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E3C5E0234B602600C3E1B5 /* HomeVIewViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -151,6 +152,7 @@
 		A3D2D0CD2340E91100432214 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A3D2D0CE2340E91100432214 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		A3D2D0CF2340E91100432214 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A3E3C5E0234B602600C3E1B5 /* HomeVIewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVIewViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -423,6 +425,7 @@
 		A3D2D0D72340E91800432214 /* home */ = {
 			isa = PBXGroup;
 			children = (
+				A3E3C5DF234B5FEC00C3E1B5 /* home-view-viewmodel */,
 				A3D2D0C92340E91100432214 /* HomePresenter.swift */,
 				A3D2D0CA2340E91100432214 /* HomeWorker.swift */,
 				A3D2D0CB2340E91100432214 /* HomeRouter.swift */,
@@ -432,6 +435,14 @@
 				A3D2D0CF2340E91100432214 /* HomeView.swift */,
 			);
 			path = home;
+			sourceTree = "<group>";
+		};
+		A3E3C5DF234B5FEC00C3E1B5 /* home-view-viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				A3E3C5E0234B602600C3E1B5 /* HomeVIewViewModel.swift */,
+			);
+			path = "home-view-viewmodel";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -532,6 +543,7 @@
 			files = (
 				A32D8151233F84BD008DB50F /* ConfigurableController.swift in Sources */,
 				A32D8150233F849E008DB50F /* FileManager+Image.swift in Sources */,
+				A3E3C5E1234B602600C3E1B5 /* HomeVIewViewModel.swift in Sources */,
 				4C94BADB233BA553008D62F5 /* ProductItemTableViewCell.swift in Sources */,
 				A3D2D0D52340E91100432214 /* HomeInteractor.swift in Sources */,
 				4C94BAE4233BEE05008D62F5 /* ButtonTableViewCell.swift in Sources */,

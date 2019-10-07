@@ -61,8 +61,6 @@ class HomeViewController: SaarahViewController, HomeDisplayLogic {
         view = homeView
         homeView.tableView.delegate = self
         homeView.tableView.dataSource = self
-        homeView.buildHomeMenuSection(homeMenuCollectionDelegate: self, homeMenuCollectionDataSource: self)
-        homeView.buildNotificationsSection()
     }
 
     func requestHomeNotifications () {
@@ -72,10 +70,6 @@ class HomeViewController: SaarahViewController, HomeDisplayLogic {
 
     func displayHomeNotifications (viewModel: Home.FetchHomeNotifications.ViewModel) {
         displayedHomeNotifications = viewModel.displayedHomeNotifications
-        displayedHomeNotifications.forEach { displayedHomeNotification in
-            homeView.addNotificationCell(with: displayedHomeNotification)
-        }
-
         homeView.tableView.reloadData()
     }
 }
@@ -85,25 +79,48 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return homeView.tableViewSections.count
     }
 
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return homeView.tableViewSections[section].headerView.frame.size.height
-    }
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return homeView.tableViewSections[section].cells.count
+        switch HomeView.HomeTableViewSections(rawValue: section) {
+        case .menu:
+            return 1
+        case .notifications:
+            return displayedHomeNotifications.count
+        case .none:
+            return 0
+        }
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return homeView.tableViewSections[section].headerView
+        switch HomeView.HomeTableViewSections(rawValue: section) {
+        case .menu:
+            return EmptySectionHeaderView()
+        case .notifications:
+            let headerView = DefaultSectionHeaderView()
+            headerView.titleLabel.text = "NOTIFICAÇÕES"
+            headerView.rightButton.setTitle("VER TODAS", for: .normal)
+            return headerView
+        case .none:
+            return nil
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = homeView.tableViewSections[indexPath.section].cells[indexPath.row] as? SaarahTableViewCell {
-            cell.roundCellIfNeeded(index: indexPath.row, numberOfCells: homeView.tableViewSections[indexPath.section].cells.count)
-            return cell
+        switch HomeView.HomeTableViewSections(rawValue: indexPath.section) {
+        case .menu:
+            let homeMenuTableViewCell = HomeMenuTableViewCell()
+            homeMenuTableViewCell.homeMenuCollectionView.delegate = self
+            homeMenuTableViewCell.homeMenuCollectionView.dataSource = self
+            return homeMenuTableViewCell
+        case .notifications:
+            let notificationCell = HomeNotificationTableViewCell()
+            let displayedHomeNotification = displayedHomeNotifications[indexPath.row]
+            notificationCell.messageLabel.text = displayedHomeNotification.message
+            notificationCell.emojiLabel.text = displayedHomeNotification.emoji
+            notificationCell.type = displayedHomeNotification.type
+            return notificationCell
+        case .none:
+            return UITableViewCell()
         }
-
-        return homeView.tableViewSections[indexPath.section].cells[indexPath.row]
     }
 }
 
@@ -117,9 +134,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return UICollectionViewCell()
         }
 
-        cell.cardTitle.text = homeMenuOptions[indexPath.row].title
-        cell.cardIcon.image = homeMenuOptions[indexPath.row].icon.uiImage
-        cell.highlightedColor = homeMenuOptions[indexPath.row].highlightedColor
+        let homeMenuOption = homeMenuOptions[indexPath.row]
+        cell.cardTitle.text = homeMenuOption.title
+        cell.cardIcon.image = homeMenuOption.icon.uiImage
+        cell.highlightedColor = homeMenuOption.highlightedColor
         return cell
     }
 

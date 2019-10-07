@@ -15,7 +15,7 @@ class SaarahViewController: UIViewController {
     }
 
     private func defaultViewControllerConfiguration () {
-        view.backgroundColor = AppStyleGuide.Colors.background.uiColor        
+        view.backgroundColor = AppStyleGuide.Colors.background.uiColor
         navigationControllerCustomization()
     }
 
