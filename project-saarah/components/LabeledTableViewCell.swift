@@ -23,14 +23,14 @@ class LabeledTableViewCell: UITableViewCell {
         setupLayout()
     }
 
-    public func setupProductNameLabelWith(_ productName: String) {
-        productNameLabel.text = productName
-    }
-
 	public func setContent(title: String, subtitle: String) {
 		productLabel.text = title
 		productNameLabel.text = subtitle
 	}
+
+    public func setupProductNameLabelWith(_ productName: String) {
+        productNameLabel.text = productName
+    }
 
     private func setupLayout() {
         // Add subview to cell.
