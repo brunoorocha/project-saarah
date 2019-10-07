@@ -42,9 +42,9 @@ class SaarahTableViewCell: UITableViewCell {
         if (index == 0) {
             corners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         } else if (index == (numberOfCells - 1)) {
-            corners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]        
+            corners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         }
-        
+
         if (numberOfCells == 1) {
             corners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner, .layerMinXMinYCorner, .layerMaxXMinYCorner]
         }
