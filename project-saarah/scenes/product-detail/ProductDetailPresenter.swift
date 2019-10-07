@@ -42,6 +42,6 @@ class ProductDetailPresenter: ProductDetailPresentationLogic {
 		}
 		
 		let viewModel = ProductDetail.GetProduct.ViewModel(productViewModel: productViewModel, logsViewModels: logsViewModels)
-		viewController?.displaySomething(viewModel: viewModel)
+		viewController?.displayProduct(viewModel: viewModel)
 	}
 }

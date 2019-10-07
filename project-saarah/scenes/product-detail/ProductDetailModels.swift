@@ -6,7 +6,7 @@
 //  Copyright (c) 2019 Bruno Rocha. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 enum ProductDetail {
 	// MARK: Use cases

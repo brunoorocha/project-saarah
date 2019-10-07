@@ -29,6 +29,8 @@
 		487B9B3523311FDC00D8D6CC /* Promotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487B9B3423311FDC00D8D6CC /* Promotion.swift */; };
 		487B9B37233122C400D8D6CC /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487B9B36233122C400D8D6CC /* Menu.swift */; };
 		489C019B234B626B00AEC143 /* DateFormatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489C019A234B626B00AEC143 /* DateFormatManager.swift */; };
+		489C019D234B7C4C00AEC143 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489C019C234B7C4C00AEC143 /* Reusable.swift */; };
+		489C019F234B7D3F00AEC143 /* UITableView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489C019E234B7D3F00AEC143 /* UITableView+Reusable.swift */; };
 		4C94BAD8233B9086008D62F5 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94BAD7233B9086008D62F5 /* UIView.swift */; };
 		4C94BADB233BA553008D62F5 /* ProductItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94BADA233BA552008D62F5 /* ProductItemTableViewCell.swift */; };
 		4C94BADD233BA8ED008D62F5 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94BADC233BA8ED008D62F5 /* UILabel.swift */; };
@@ -94,6 +96,8 @@
 		487B9B3423311FDC00D8D6CC /* Promotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Promotion.swift; sourceTree = "<group>"; };
 		487B9B36233122C400D8D6CC /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		489C019A234B626B00AEC143 /* DateFormatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatManager.swift; sourceTree = "<group>"; };
+		489C019C234B7C4C00AEC143 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		489C019E234B7D3F00AEC143 /* UITableView+Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Reusable.swift"; sourceTree = "<group>"; };
 		4C94BAD7233B9086008D62F5 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		4C94BADA233BA552008D62F5 /* ProductItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductItemTableViewCell.swift; sourceTree = "<group>"; };
 		4C94BADC233BA8ED008D62F5 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
@@ -183,6 +187,7 @@
 				1BBA19B1231FF4D300116004 /* FileManager+Image.swift */,
 				A37808A8233BDFF4005B26E8 /* UIColor+rgbaExtension.swift */,
 				489C019A234B626B00AEC143 /* DateFormatManager.swift */,
+				489C019C234B7C4C00AEC143 /* Reusable.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -221,6 +226,7 @@
 			children = (
 				4C94BAD7233B9086008D62F5 /* UIView.swift */,
 				4C94BADC233BA8ED008D62F5 /* UILabel.swift */,
+				489C019E234B7D3F00AEC143 /* UITableView+Reusable.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -520,6 +526,7 @@
 				A353D7D3231FE55B004A5139 /* NavigationDrawerViewController.swift in Sources */,
 				A37808A6233BDD6C005B26E8 /* SaarahImageView.swift in Sources */,
 				A304F951233E337000C3B6F7 /* TestViewController.swift in Sources */,
+				489C019D234B7C4C00AEC143 /* Reusable.swift in Sources */,
 				A3780890233B9CEE005B26E8 /* SaarahTableViewCell.swift in Sources */,
 				A304F940233CD9EA00C3B6F7 /* CaptionBoldLabel.swift in Sources */,
 				A353D7DC231FE61C004A5139 /* AppSplitViewController.swift in Sources */,
@@ -540,6 +547,7 @@
 				1BBA19B2231FF4D300116004 /* FileManager+Image.swift in Sources */,
 				A378089A233BA791005B26E8 /* SaarahLabel.swift in Sources */,
 				A378088C233B9C1D005B26E8 /* ProductActivityTableViewCell.swift in Sources */,
+				489C019F234B7D3F00AEC143 /* UITableView+Reusable.swift in Sources */,
 				A3780894233BA40E005B26E8 /* Heading2Label.swift in Sources */,
 				48244F5823478303007B4AA7 /* ProductDetailRouter.swift in Sources */,
 				A304F946233CE21300C3B6F7 /* DefaultCellTableViewCell.swift in Sources */,

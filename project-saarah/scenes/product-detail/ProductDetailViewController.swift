@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ProductDetailDisplayLogic: class {
-	func displaySomething(viewModel: ProductDetail.Something.ViewModel)
+	func displayProduct(viewModel: ProductDetail.GetProduct.ViewModel)
 }
 
 class ProductDetailViewController: UIViewController, ProductDetailDisplayLogic {
@@ -19,12 +19,13 @@ class ProductDetailViewController: UIViewController, ProductDetailDisplayLogic {
 
 	// MARK: Controller Property
 	private var contentView = ProductDetailView()
+	let teste = Teste()
 
 	// MARK: View lifecycle
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupContentView()
-		doSomething()
+		getProduct()
 	}
 
 	// MARK: Init
@@ -58,25 +59,34 @@ class ProductDetailViewController: UIViewController, ProductDetailDisplayLogic {
 	}
 
 	// MARK: Do something
-	func doSomething() {
-		let request = ProductDetail.Something.Request()
-		interactor?.doSomething(request: request)
+	func getProduct() {
+		let request = ProductDetail.GetProduct.Request()
+		interactor?.getProduct(request: request)
 	}
 
-	func displaySomething(viewModel: ProductDetail.Something.ViewModel) {
+	func displayProduct(viewModel: ProductDetail.GetProduct.ViewModel) {
+		teste.viewModel = viewModel
+		contentView.tableView.reloadData()
 	}
 }
 
 extension ProductDetailViewController: UITableViewDelegate, UITableViewDataSource {
 	func numberOfSections(in tableView: UITableView) -> Int {
-		return 2
+		return teste.numberOfSections()
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 2
+		return teste.numberOfRows(in: section)
+	}
+	
+	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+		return teste.viewForHeader(in: section)
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: <#T##String#>, for: <#T##IndexPath#>)
+		let reuseIdentifier = teste.reuseIdentifier(for: indexPath.section)
+		let reusableCell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
+		let cell = teste.modified(reusableCell, for: indexPath)
+		return cell
 	}
 }
