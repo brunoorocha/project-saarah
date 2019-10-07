@@ -80,18 +80,18 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch HomeView.HomeTableViewSections(rawValue: section) {
+        guard let homeSection = HomeView.HomeTableViewSections(rawValue: section) else { return 0 }
+        switch homeSection {
         case .menu:
             return 1
         case .notifications:
             return displayedHomeNotifications.count
-        case .none:
-            return 0
         }
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        switch HomeView.HomeTableViewSections(rawValue: section) {
+        guard let homeSection = HomeView.HomeTableViewSections(rawValue: section) else { return nil }
+        switch homeSection {
         case .menu:
             return EmptySectionHeaderView()
         case .notifications:
@@ -99,13 +99,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             headerView.titleLabel.text = "NOTIFICAÇÕES"
             headerView.rightButton.setTitle("VER TODAS", for: .normal)
             return headerView
-        case .none:
-            return nil
         }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch HomeView.HomeTableViewSections(rawValue: indexPath.section) {
+        guard let homeSection = HomeView.HomeTableViewSections(rawValue: indexPath.section) else { return UITableViewCell() }
+        switch homeSection {
         case .menu:
             let homeMenuTableViewCell = HomeMenuTableViewCell()
             homeMenuTableViewCell.homeMenuCollectionView.delegate = self
@@ -118,8 +117,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             notificationCell.emojiLabel.text = displayedHomeNotification.emoji
             notificationCell.type = displayedHomeNotification.type
             return notificationCell
-        case .none:
-            return UITableViewCell()
         }
     }
 }
