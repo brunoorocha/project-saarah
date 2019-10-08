@@ -38,7 +38,8 @@ class ProductDetailPresenter: ProductDetailPresentationLogic {
 				message = "Usados " + quantityString + message
 			}
 
-			let logViewModel = ProductDetail.GetProduct.ViewModel.LogViewModel(date: dateString, message: message, activityIcon: log.type)
+            guard let activityIcon = ActivityIcon(rawValue: log.type.rawValue) else { return }
+            let logViewModel = ProductDetail.GetProduct.ViewModel.LogViewModel(date: dateString, message: message, activityIcon: activityIcon)
 			logsViewModels.append(logViewModel)
 		}
 

@@ -24,7 +24,7 @@ enum ProductDetail {
 			struct LogViewModel {
 				let date: String
 				let message: String
-				let activityIcon: LogType
+				let activityIcon: ActivityIcon
 			}
 
 			var productViewModel: ProductViewModel
