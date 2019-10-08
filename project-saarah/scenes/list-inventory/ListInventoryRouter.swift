@@ -23,34 +23,30 @@ class ListInventoryRouter: NSObject, ListInventoryRoutingLogic, ListInventoryDat
 	// MARK: Routing
     func routeToDetail() {
         guard let viewController = viewController else { return }
-        guard let index = viewController.selectedRow else { return }
-        guard let products = dataStore!.products else { return }
-        print(products[index].name)
-//        guard let viewController = viewController else { return }
 
-//        let destinationVC = ProductDetailViewController()
-//        guard var destinationDataStore = destinationVC.router?.dataStore else {
-//            return
-//        }
-//
-//        guard let dataStore = dataStore else { return }
-//
-//		passDataToDetail(source: dataStore, destination: &destinationDataStore)
-//		navigateToDetail(source: viewController, destination: destinationVC)
+        let destinationVC = ProductDetailViewController()
+        guard var destinationDataStore = destinationVC.router?.dataStore else {
+            return
+        }
+
+        guard let dataStore = dataStore else { return }
+
+		passDataToDetail(source: dataStore, destination: &destinationDataStore)
+		navigateToDetail(source: viewController, destination: destinationVC)
 	}
 
 	// MARK: Passing data
-//	func passDataToDetail(source: ListInventoryDataStore, destination: inout ProductDetailDataStore) {
-//        guard let viewController = viewController else { return }
-//
-//        guard let index = viewController.selectedRow else { return }
-//        guard let products = source.products else { return }
-//		destination.product = products[index]
-//	}
+	func passDataToDetail(source: ListInventoryDataStore, destination: inout ProductDetailDataStore) {
+        guard let viewController = viewController else { return }
+
+        guard let index = viewController.selectedRow else { return }
+        guard let products = source.products else { return }
+		destination.product = products[index]
+	}
 
 //	// MARK: Navigation
-//	func navigateToDetail(source: ListInventoryViewController, destination: ProductDetailViewController) {
-//		source.show(destination, sender: nil)
-//	}
+	func navigateToDetail(source: ListInventoryViewController, destination: ProductDetailViewController) {
+		source.show(destination, sender: nil)
+	}
 
 }
