@@ -9,11 +9,18 @@
 import UIKit
 
 class LabeledTableViewCell: UITableViewCell {
-    private let componentBackgroundView = UIView(cornerRadius: 8.0, backgroundColor: .white)
+    private let componentBackgroundView = UIView(
+        cornerRadius: 8.0,
+        backgroundColor: .white
+    )
 
-    private let productLabel = UILabel(text: "Produto")
+    private let productLabel = UILabel(
+        text: "Produto"
+    )
 
-    private let productNameLabel = UILabel(textColor: .lightGray)
+    private let productNameLabel = UILabel(
+        textColor: .lightGray
+    )
 
     override private init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -28,21 +35,22 @@ class LabeledTableViewCell: UITableViewCell {
     }
 
     private func setupLayout() {
-        // Add subview to cell.
-        self.addSubview(componentBackgroundView)
+        // Add subview to contentView.
+        contentView.addSubview(componentBackgroundView)
 
         // Add subviews to componentBackgroundView.
         componentBackgroundView.addSubviews([productLabel, productNameLabel])
 
         // Constraints for componentBackgroundView.
         componentBackgroundView.anchor(
-            top: self.topAnchor,
-            leading: self.leadingAnchor,
-            bottom: nil,
-            trailing: nil,
-            padding: UIEdgeInsets(top: 16.0, left: 16.0, bottom: 0.0, right: 0.0),
-            size: CGSize(width: 343.0, height: 88.0)
+            top: contentView.topAnchor,
+            leading: contentView.leadingAnchor,
+            trailing: contentView.trailingAnchor,
+            padding: UIEdgeInsets(top: 16.0, left: 16.0, bottom: 0.0, right: 16.0)
         )
+        
+        // Constraint height for componentBackgroundView.
+        componentBackgroundView.constraintHeight(88.0)
 
         // Constraints for productLabel.
         productLabel.anchor(

@@ -33,7 +33,7 @@ class ButtonTableViewCell: UITableViewCell {
     }
 
     private func setupLayout() {
-        // Add subview to cell.
+        // Add subview to contentView.
         contentView.addSubview(componentBackgroundView)
 
         // Add subviews to componentBackgroundView.
