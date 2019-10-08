@@ -11,7 +11,7 @@ import UIKit
 extension UILabel {
     convenience public init(
         text: String = "",
-        textColor: UIColor = .black,
+        textColor: UIColor = .title,
         fontSize: CGFloat = 16.0,
         textAlignment: NSTextAlignment = .natural
     ) {
