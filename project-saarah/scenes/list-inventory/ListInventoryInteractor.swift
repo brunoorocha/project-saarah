@@ -20,11 +20,15 @@ class ListInventoryInteractor: ListInventoryBusinessLogic, ListInventoryDataStor
 
     var presenter: ListInventoryPresentationLogic?
     var products: [Product]?
+    
+    let productWorker = ProductWorker(productService: MockProduct())
 
 	// MARK: Fetch Products
     func fetchProducts(request: ListInventory.FetchProducts.Request) {
-        guard let products = products else { return }
-        let response = ListInventory.FetchProducts.Response(products: products)
-        presenter?.presentProducts(response: response)
+        productWorker.fetchProducts { (products) in
+            self.products = products
+            let response = ListInventory.FetchProducts.Response(products: products)
+            self.presenter?.presentProducts(response: response)
+        }
 	}
 }
