@@ -8,15 +8,15 @@
 
 import UIKit
 
-class Teste {
+class ProductDetailTableViewDataSource {
 	var viewModel: ProductDetail.GetProduct.ViewModel?
-	
+
 	func resgisterCells(for tableView: UITableView) {
 		tableView.register(LabeledTableViewCell.self, forCellReuseIdentifier: "LabeledTableViewCell")
 		tableView.register(DefaultCellTableViewCell.self, forCellReuseIdentifier: "DefaultCellTableViewCell")
 		tableView.register(ProductActivityTableViewCell.self, forCellReuseIdentifier: "ProductActivityTableViewCell")
 	}
-	
+
 	func reuseIdentifier(for section: Int) -> String {
 		switch (section) {
 		case 0:
@@ -29,11 +29,11 @@ class Teste {
 			return ""
 		}
 	}
-	
+
 	func numberOfSections() -> Int {
 		return 3
 	}
-	
+
 	func numberOfRows(in section: Int) -> Int {
 		if let viewModel = viewModel {
 			switch (section) {
@@ -47,10 +47,10 @@ class Teste {
 				return 0
 			}
 		}
-		
+
 		return 0
 	}
-	
+
 	func viewForHeader(in section: Int) -> UIView {
 		switch (section) {
 		case 0:
@@ -69,26 +69,53 @@ class Teste {
 			return UIView()
 		}
 	}
-	
+
 	func modify(_ cell: UITableViewCell, for indexPath: IndexPath) -> UITableViewCell {
-		guard let viewModel = viewModel else { return UITableViewCell() }
-		
 		switch (indexPath.section) {
 		case 0:
-			return "LabeledTableViewCell"
+			return firsSection(cell, for: indexPath.row)
 		case 1:
-			return "DefaultCellTableViewCell"
+			return secondSection(cell)
 		case 2:
-			return "ProductActivityTableViewCell"
+			return thirdSection(cell, for: indexPath.row)
 		default:
-			return ""
+			return UITableViewCell()
 		}
 	}
-	
+
 	func firsSection(_ cell: UITableViewCell, for row: Int) -> UITableViewCell {
 		guard let cell = cell as? LabeledTableViewCell else { return UITableViewCell() }
+		guard let viewModel = viewModel else { return UITableViewCell() }
+
 		if (row == 0) {
-			cell.setupProductNameLabelWith(<#T##productName: String##String#>)
+			cell.setContent(title: "Nome do produto", subtitle: viewModel.productViewModel.name)
+		} else {
+			cell.setContent(title: "Quantidade em estoque", subtitle: viewModel.productViewModel.quantity)
 		}
+
+		return cell
+	}
+
+	func secondSection(_ cell: UITableViewCell) -> UITableViewCell {
+		guard let cell = cell as? DefaultCellTableViewCell else { return UITableViewCell() }
+		cell.roundCellIfNeeded(index: 0, numberOfCells: 1)
+
+		cell.label.text = "Ver todos os itens desse produto"
+		cell.detailLabel.text = ""
+
+		return cell
+	}
+
+	func thirdSection(_ cell: UITableViewCell, for row: Int) -> UITableViewCell {
+		guard let cell = cell as? ProductActivityTableViewCell else { return UITableViewCell() }
+		guard let viewModel = viewModel else { return UITableViewCell() }
+		cell.roundCellIfNeeded(index: row, numberOfCells: viewModel.logsViewModels.count)
+
+		let logViewModel = viewModel.logsViewModels[row]
+		cell.dateLabel.text = logViewModel.date
+		cell.label.text = logViewModel.message
+		cell.activityIcon.image = logViewModel.activityIcon.image
+
+		return cell
 	}
 }

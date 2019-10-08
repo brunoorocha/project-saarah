@@ -19,7 +19,7 @@ class ProductDetailViewController: UIViewController, ProductDetailDisplayLogic {
 
 	// MARK: Controller Property
 	private var contentView = ProductDetailView()
-	let teste = Teste()
+	let tableViewDataSource = ProductDetailTableViewDataSource()
 
 	// MARK: View lifecycle
 	override func viewDidLoad() {
@@ -31,7 +31,7 @@ class ProductDetailViewController: UIViewController, ProductDetailDisplayLogic {
 	// MARK: Init
 	init() {
 		super.init(nibName: nil, bundle: nil)
-		setupArchiteture()
+		ProductDetailBuilder.build(aroundViewController: self)
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -56,37 +56,44 @@ class ProductDetailViewController: UIViewController, ProductDetailDisplayLogic {
 		view = contentView
 		contentView.tableView.delegate = self
 		contentView.tableView.dataSource = self
+		tableViewDataSource.resgisterCells(for: contentView.tableView)
 	}
 
-	// MARK: Do something
+	// MARK: Get product
 	func getProduct() {
 		let request = ProductDetail.GetProduct.Request()
 		interactor?.getProduct(request: request)
 	}
 
 	func displayProduct(viewModel: ProductDetail.GetProduct.ViewModel) {
-		teste.viewModel = viewModel
+		tableViewDataSource.viewModel = viewModel
 		contentView.tableView.reloadData()
 	}
 }
 
 extension ProductDetailViewController: UITableViewDelegate, UITableViewDataSource {
 	func numberOfSections(in tableView: UITableView) -> Int {
-		return teste.numberOfSections()
+		return tableViewDataSource.numberOfSections()
 	}
-	
+
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return teste.numberOfRows(in: section)
+		return tableViewDataSource.numberOfRows(in: section)
 	}
-	
+
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-		return teste.viewForHeader(in: section)
+		return tableViewDataSource.viewForHeader(in: section)
 	}
-	
+
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let reuseIdentifier = teste.reuseIdentifier(for: indexPath.section)
+		let reuseIdentifier = tableViewDataSource.reuseIdentifier(for: indexPath.section)
 		let reusableCell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
-		let cell = teste.modified(reusableCell, for: indexPath)
+		let cell = tableViewDataSource.modify(reusableCell, for: indexPath)
 		return cell
+	}
+
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		if (indexPath.section == 1) {
+			router?.routeToProductItems()
+		}
 	}
 }

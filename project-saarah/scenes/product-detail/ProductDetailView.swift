@@ -10,7 +10,7 @@ import UIKit
 
 class ProductDetailView: UIView {
 	var tableView: SaarahTableView!
-	
+
 	init() {
 		super.init(frame: .zero)
 

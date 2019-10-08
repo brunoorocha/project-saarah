@@ -6,10 +6,10 @@
 //  Copyright (c) 2019 Bruno Rocha. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 protocol ProductDetailRoutingLogic {
-	//func routeToSomewhere()
+	func routeToProductItems()
 }
 
 protocol ProductDetailDataPassing {
@@ -20,9 +20,10 @@ class ProductDetailRouter: NSObject, ProductDetailRoutingLogic, ProductDetailDat
 	weak var viewController: ProductDetailViewController?
 	var dataStore: ProductDetailDataStore?
 
+	//TODO: - Remove coments to push to next controller
 	// MARK: Routing
-//	func routeToSomewhere() {
-//		let destinationVC = SomewhereViewController()
+	func routeToProductItems() {
+//		let destinationVC = ProductItemsViewController()
 //		guard var destinationDataStore = destinationVC.router?.dataStore else { return }
 //
 //		guard let dataStore = dataStore else { return }
@@ -30,15 +31,15 @@ class ProductDetailRouter: NSObject, ProductDetailRoutingLogic, ProductDetailDat
 //
 //		passDataToSomewhere(source: dataStore, destination: &destinationDataStore)
 //		navigateToSomewhere(source: viewController, destination: destinationVC)
-//	}
-//
-//	// MARK: Passing data
-//	func passDataToSomewhere(source: ProductDetailDataStore, destination: inout SomewhereDataStore) {
-//		destination.name = source.name
+	}
+
+	// MARK: Passing data
+//	func passDataToSomewhere(source: ProductDetailDataStore, destination: inout ProductItemsDataStore) {
+//		destination.product = source.product
 //	}
 //
 //	// MARK: Navigation
-//	func navigateToSomewhere(source: ProductDetailViewController, destination: SomewhereViewController) {
+//	func navigateToSomewhere(source: ProductDetailViewController, destination: ProductItemsViewController) {
 //		source.show(destination, sender: nil)
 //	}
 }

@@ -22,8 +22,9 @@ class Product {
 		self.barCode = barCode
 		self.logs = logs
 	}
-	
+
+	//TODO: - insert a real count quantity function
 	func quantity() -> String {
-		
+		return "10"
 	}
 }

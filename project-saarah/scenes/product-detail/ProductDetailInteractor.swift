@@ -6,7 +6,7 @@
 //  Copyright (c) 2019 Bruno Rocha. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 protocol ProductDetailBusinessLogic {
 	func getProduct(request: ProductDetail.GetProduct.Request)
@@ -24,7 +24,7 @@ class ProductDetailInteractor: ProductDetailBusinessLogic, ProductDetailDataStor
 	// MARK: Do something
 	func getProduct(request: ProductDetail.GetProduct.Request) {
 		if let product = product {
-			
+
 			let response = ProductDetail.GetProduct.Response(product: product)
 			presenter?.presentProduct(response: response)
 		}

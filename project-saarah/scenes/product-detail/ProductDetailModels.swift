@@ -26,7 +26,7 @@ enum ProductDetail {
 				let message: String
 				let activityIcon: LogType
 			}
-			
+
 			var productViewModel: ProductViewModel
 			var logsViewModels: [LogViewModel]
 		}

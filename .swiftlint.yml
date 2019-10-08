@@ -8,3 +8,6 @@ line_length:
 
 force_cast:
  severity: warning # explicity
+
+nesting:
+ type_level: 3
