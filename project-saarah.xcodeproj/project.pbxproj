@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B76635123478E640069D581 /* ListInventoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B76634B23478E640069D581 /* ListInventoryPresenter.swift */; };
+		1B76635223478E640069D581 /* ListInventoryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B76634C23478E640069D581 /* ListInventoryRouter.swift */; };
+		1B76635323478E640069D581 /* ListInventoryModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B76634D23478E640069D581 /* ListInventoryModels.swift */; };
+		1B76635423478E640069D581 /* ListInventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B76634E23478E640069D581 /* ListInventoryViewController.swift */; };
+		1B76635523478E640069D581 /* ListInventoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B76634F23478E640069D581 /* ListInventoryInteractor.swift */; };
+		1B76635623478E640069D581 /* ListInventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B76635023478E640069D581 /* ListInventoryView.swift */; };
+		1B766361234B86740069D581 /* ListInventoryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B766360234B86740069D581 /* ListInventoryBuilder.swift */; };
+		1B7D018F234CD3CD003B365D /* MockProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7D018E234CD3CD003B365D /* MockProduct.swift */; };
+		1B7D0192234CD3F6003B365D /* ProductWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7D0191234CD3F6003B365D /* ProductWorker.swift */; };
 		1BFB061A2331040D00E7DB70 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1BFB06192331040D00E7DB70 /* README.md */; };
 		4818E1372322AFC500EFF585 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A343CF4723180C31005F2210 /* AppDelegate.swift */; };
 		48244F5723478303007B4AA7 /* ProductDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48244F5123478302007B4AA7 /* ProductDetailPresenter.swift */; };
@@ -88,9 +97,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B76634B23478E640069D581 /* ListInventoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInventoryPresenter.swift; sourceTree = "<group>"; };
+		1B76634C23478E640069D581 /* ListInventoryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInventoryRouter.swift; sourceTree = "<group>"; };
+		1B76634D23478E640069D581 /* ListInventoryModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInventoryModels.swift; sourceTree = "<group>"; };
+		1B76634E23478E640069D581 /* ListInventoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInventoryViewController.swift; sourceTree = "<group>"; };
+		1B76634F23478E640069D581 /* ListInventoryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInventoryInteractor.swift; sourceTree = "<group>"; };
+		1B76635023478E640069D581 /* ListInventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInventoryView.swift; sourceTree = "<group>"; };
+		1B766360234B86740069D581 /* ListInventoryBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInventoryBuilder.swift; sourceTree = "<group>"; };
+		1B7D018E234CD3CD003B365D /* MockProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProduct.swift; sourceTree = "<group>"; };
+		1B7D0191234CD3F6003B365D /* ProductWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductWorker.swift; sourceTree = "<group>"; };
 		1BBA19B1231FF4D300116004 /* FileManager+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Image.swift"; sourceTree = "<group>"; };
 		1BFB06192331040D00E7DB70 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		1BFB061D2331096A00E7DB70 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		48244F5123478302007B4AA7 /* ProductDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailPresenter.swift; sourceTree = "<group>"; };
 		48244F5223478302007B4AA7 /* ProductDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailRouter.swift; sourceTree = "<group>"; };
 		48244F5323478302007B4AA7 /* ProductDetailModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailModels.swift; sourceTree = "<group>"; };
@@ -188,8 +205,31 @@
 			children = (
 				A3522D6A234124AF00DB1314 /* home-notification-service */,
 				1BFB06192331040D00E7DB70 /* README.md */,
+				1B7D018E234CD3CD003B365D /* MockProduct.swift */,
 			);
 			path = services;
+			sourceTree = "<group>";
+		};
+		1B76634A23478E4C0069D581 /* list-inventory */ = {
+			isa = PBXGroup;
+			children = (
+				1B76634B23478E640069D581 /* ListInventoryPresenter.swift */,
+				1B76634C23478E640069D581 /* ListInventoryRouter.swift */,
+				1B76634D23478E640069D581 /* ListInventoryModels.swift */,
+				1B76634E23478E640069D581 /* ListInventoryViewController.swift */,
+				1B76634F23478E640069D581 /* ListInventoryInteractor.swift */,
+				1B76635023478E640069D581 /* ListInventoryView.swift */,
+				1B766360234B86740069D581 /* ListInventoryBuilder.swift */,
+			);
+			path = "list-inventory";
+			sourceTree = "<group>";
+		};
+		1B7D0190234CD3DA003B365D /* workers */ = {
+			isa = PBXGroup;
+			children = (
+				1B7D0191234CD3F6003B365D /* ProductWorker.swift */,
+			);
+			path = workers;
 			sourceTree = "<group>";
 		};
 		48244F50234782E4007B4AA7 /* product-detail */ = {
@@ -323,6 +363,7 @@
 			children = (
 				A343CF5623180C3C005F2210 /* Info.plist */,
 				1B4F4178231DF83400EB1F13 /* services */,
+				1B7D0190234CD3DA003B365D /* workers */,
 				482922F7231D4503005DAF11 /* utils */,
 				4C94BAD9233BA515008D62F5 /* components */,
 				4C94BAE9233CFAF9008D62F5 /* forms */,
@@ -393,6 +434,7 @@
 		A3780871233B8CF9005B26E8 /* scenes */ = {
 			isa = PBXGroup;
 			children = (
+				1B76634A23478E4C0069D581 /* list-inventory */,
 				A3D2D0D72340E91800432214 /* home */,
 				48244F50234782E4007B4AA7 /* product-detail */,
 				A3780872233B8D63005B26E8 /* README.md */,
@@ -589,21 +631,25 @@
 				A304F94D233CED4100C3B6F7 /* SaarahTextField.swift in Sources */,
 				A32D8155233F9028008DB50F /* HomeMenuModels.swift in Sources */,
 				A32D814B233F6A03008DB50F /* HomeCardCollectionViewCell.swift in Sources */,
+				1B7D018F234CD3CD003B365D /* MockProduct.swift in Sources */,
 				487B9B2D23311DE400D8D6CC /* MenuItemProduct.swift in Sources */,
+				1B76635223478E640069D581 /* ListInventoryRouter.swift in Sources */,
 				487B9B2723311BC900D8D6CC /* ProductLog.swift in Sources */,
 				487B9B2F23311E5400D8D6CC /* MenuItem.swift in Sources */,
 				A3522D692341200A00DB1314 /* HomeNotification.swift in Sources */,
 				A3B76AD1234CB39D0010B7AF /* HomeBuilder.swift in Sources */,
 				4C94BADD233BA8ED008D62F5 /* UILabel.swift in Sources */,
-				1BFB061E2331096A00E7DB70 /* HomeViewController.swift in Sources */,
 				48BC806B234CB6270001B1A9 /* ProductDetailBuilder.swift in Sources */,
 				489C019B234B626B00AEC143 /* DateFormatManager.swift in Sources */,
 				A304F94F233E270600C3B6F7 /* SelectableCell.swift in Sources */,
+				1B76635323478E640069D581 /* ListInventoryModels.swift in Sources */,
 				A3D2D0D12340E91100432214 /* HomeWorker.swift in Sources */,
 				A378089C233BA853005B26E8 /* ParagraphLabel.swift in Sources */,
+				1B76635123478E640069D581 /* ListInventoryPresenter.swift in Sources */,
 				A353D7D3231FE55B004A5139 /* NavigationDrawerViewController.swift in Sources */,
 				A37808A6233BDD6C005B26E8 /* SaarahImageView.swift in Sources */,
 				A3780890233B9CEE005B26E8 /* SaarahTableViewCell.swift in Sources */,
+				1B766361234B86740069D581 /* ListInventoryBuilder.swift in Sources */,
 				A304F940233CD9EA00C3B6F7 /* CaptionBoldLabel.swift in Sources */,
 				A353D7DC231FE61C004A5139 /* AppSplitViewController.swift in Sources */,
 				A304F944233CDB3300C3B6F7 /* CaptionButton.swift in Sources */,
@@ -615,14 +661,17 @@
 				A3ABCE71233CCFDE00FF54FD /* SaarahIconImageView.swift in Sources */,
 				487B9B37233122C400D8D6CC /* Menu.swift in Sources */,
 				A304F942233CDA9800C3B6F7 /* SaarahButton.swift in Sources */,
+				1B76635523478E640069D581 /* ListInventoryInteractor.swift in Sources */,
 				A304F93C233CD90B00C3B6F7 /* DefaultSectionHeaderView.swift in Sources */,
 				A304F948233CE74500C3B6F7 /* EmptySectionHeaderView.swift in Sources */,
 				A3780889233B988A005B26E8 /* Heading1Label.swift in Sources */,
 				A304F953233E4AD400C3B6F7 /* SaarahTableView.swift in Sources */,
+				1B76635423478E640069D581 /* ListInventoryViewController.swift in Sources */,
 				A3780898233BA771005B26E8 /* Heading3Label.swift in Sources */,
 				A3D2D0D02340E91100432214 /* HomePresenter.swift in Sources */,
 				A378089A233BA791005B26E8 /* SaarahLabel.swift in Sources */,
 				A378088C233B9C1D005B26E8 /* ProductActivityTableViewCell.swift in Sources */,
+				1B76635623478E640069D581 /* ListInventoryView.swift in Sources */,
 				A3780894233BA40E005B26E8 /* Heading2Label.swift in Sources */,
 				48244F5823478303007B4AA7 /* ProductDetailRouter.swift in Sources */,
 				A304F946233CE21300C3B6F7 /* DefaultCellTableViewCell.swift in Sources */,
@@ -638,6 +687,7 @@
 				A304F94B233CECC100C3B6F7 /* TextFieldTableViewCell.swift in Sources */,
 				A3522D70234186AB00DB1314 /* HomeNotificationTableViewCell.swift in Sources */,
 				48244F5723478303007B4AA7 /* ProductDetailPresenter.swift in Sources */,
+				1B7D0192234CD3F6003B365D /* ProductWorker.swift in Sources */,
 				48244F5B23478303007B4AA7 /* ProductDetailInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
