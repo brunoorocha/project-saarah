@@ -20,15 +20,15 @@ extension UIView {
         self.layer.masksToBounds = true
         self.layer.cornerRadius = cornerRadius
     }
-    
+
     convenience public init(corners: CACornerMask, cornerRadius: CGFloat) {
         self.init(frame: .zero)
-        
+
         self.layer.maskedCorners = corners
         self.layer.cornerRadius = cornerRadius
-        
+
         self.backgroundColor = .white
-        
+
         // This enables cornerRadius to bounds of the class UIView.
         self.layer.masksToBounds = true
     }
@@ -97,37 +97,37 @@ extension UIView {
 
         return anchoredConstraints
     }
-    
+
     @discardableResult
     public func constraintWidth(_ constant: CGFloat) -> AnchoredConstraints {
         self.translatesAutoresizingMaskIntoConstraints = false
-        
+
         var anchoredConstraints = AnchoredConstraints()
         anchoredConstraints.width = self.widthAnchor.constraint(equalToConstant: constant)
         anchoredConstraints.width?.isActive = true
-        
+
         return anchoredConstraints
     }
-    
+
     @discardableResult
     public func constraintWidth(_ dimension: NSLayoutDimension) -> AnchoredConstraints {
         self.translatesAutoresizingMaskIntoConstraints = false
-        
+
         var anchoredConstraints = AnchoredConstraints()
         anchoredConstraints.width = self.widthAnchor.constraint(equalTo: dimension)
         anchoredConstraints.width?.isActive = true
-        
+
         return anchoredConstraints
     }
-    
+
     @discardableResult
     public func constraintHeight(_ constant: CGFloat) -> AnchoredConstraints {
         self.translatesAutoresizingMaskIntoConstraints = false
-        
+
         var anchoredConstraints = AnchoredConstraints()
         anchoredConstraints.height = self.heightAnchor.constraint(equalToConstant: constant)
         anchoredConstraints.height?.isActive = true
-        
+
         return anchoredConstraints
     }
 }

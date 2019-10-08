@@ -9,20 +9,20 @@
 import UIKit
 
 class ButtonTableViewCell: UITableViewCell {
-    private let componentBackgroundView = UIView(cornerRadius: 8.0, backgroundColor: .white)
+    private let componentBackgroundView = UIView(
+        cornerRadius: 8.0,
+        backgroundColor: .white
+    )
 
-    private let addIconImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "add-icon")
-        imageView.contentMode = .scaleAspectFill
+    private let addIconImageView = UIImageView(
+        name: "add-icon",
+        cornerRadius: 8.0
+    )
 
-        imageView.layer.masksToBounds = true
-        imageView.layer.cornerRadius = 8.0
-
-        return imageView
-    }()
-
-    private let buttonTitleLabel = UILabel(text: "Adicionar Mais Itens Nesse Produto", textAlignment: .center)
+    private let buttonTitleLabel = UILabel(
+        text: "Adicionar Mais Itens Nesse Produto",
+        textAlignment: .center
+    )
 
     override private init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -46,7 +46,7 @@ class ButtonTableViewCell: UITableViewCell {
             trailing: contentView.trailingAnchor,
             padding: UIEdgeInsets(top: 16.0, left: 16.0, bottom: 0.0, right: 16.0)
         )
-        
+
         // Constraint height for componentBackgroundView.
         componentBackgroundView.constraintHeight(56.0)
 
@@ -57,7 +57,7 @@ class ButtonTableViewCell: UITableViewCell {
             bottom: componentBackgroundView.bottomAnchor,
             padding: UIEdgeInsets(top: 20.0, left: 16.0, bottom: 20.0, right: 0.0)
         )
-        
+
         // Constraint width for componentBackgroundView.
         addIconImageView.constraintWidth(addIconImageView.heightAnchor)
 
