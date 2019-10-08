@@ -31,6 +31,11 @@ class ProductDetailTableViewDataSource {
 	}
 
 	func numberOfSections() -> Int {
+        guard let viewModel = viewModel else { return 0 }
+
+        if (viewModel.logsViewModels.count == 0) {
+            return 2
+        }
 		return 3
 	}
 
