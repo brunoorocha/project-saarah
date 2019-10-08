@@ -23,7 +23,9 @@ class ProductItemTableViewCell: UITableViewCell {
 
     override private init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+
         self.backgroundColor = .clear
+
         setupLayout()
     }
 

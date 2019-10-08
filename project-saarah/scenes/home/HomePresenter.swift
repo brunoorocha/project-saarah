@@ -22,7 +22,7 @@ class HomePresenter: HomePresentationLogic {
     func presentHomeNotifications(response: Home.FetchHomeNotifications.Response) {
         var displayedHomeNotifications: [Home.FetchHomeNotifications.ViewModel.DisplayedHomeNotification] = []
         response.notifications.forEach { homeNotification in
-            let displayedHomeNotification = Home.FetchHomeNotifications.ViewModel.DisplayedHomeNotification(emoji: homeNotification.emoji, message: homeNotification.message, type: homeNotification.type)
+            let displayedHomeNotification = Home.FetchHomeNotifications.ViewModel.DisplayedHomeNotification(emoji: homeNotification.emoji, message: homeNotification.message, type: homeNotification.type) // swiftlint:disable:this line_length
             displayedHomeNotifications.append(displayedHomeNotification)
         }
 

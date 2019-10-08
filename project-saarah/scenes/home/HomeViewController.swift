@@ -16,7 +16,7 @@ protocol HomeDisplayLogic: class {
     func displayHomeNotifications (viewModel: Home.FetchHomeNotifications.ViewModel)
 }
 
-class HomeViewController: SaarahViewController, HomeDisplayLogic {
+class HomeViewController: SaarahViewController {
 	// MARK: Property
 	var interactor: HomeBusinessLogic?
 	var router: (NSObjectProtocol & HomeRoutingLogic & HomeDataPassing)?
@@ -27,12 +27,12 @@ class HomeViewController: SaarahViewController, HomeDisplayLogic {
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        setup()
+        HomeBuilder.build(aroundViewController: self)
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setup()
+        HomeBuilder.build(aroundViewController: self)
     }
 
 	// MARK: View lifecycle
@@ -40,20 +40,6 @@ class HomeViewController: SaarahViewController, HomeDisplayLogic {
 		super.viewDidLoad()
         defaultViewControllerConfiguration()
 		requestHomeNotifications()
-	}
-
-	// MARK: Setup
-	private func setup() {
-		let viewController = self
-		let interactor = HomeInteractor()
-		let presenter = HomePresenter()
-		let router = HomeRouter()
-		viewController.interactor = interactor
-		viewController.router = router
-		interactor.presenter = presenter
-		presenter.viewController = viewController
-		router.viewController = viewController
-		router.dataStore = interactor
 	}
 
     func defaultViewControllerConfiguration () {
@@ -67,7 +53,9 @@ class HomeViewController: SaarahViewController, HomeDisplayLogic {
         let request = Home.FetchHomeNotifications.Request()
         interactor?.fetchHomeNotifications(request: request)
     }
+}
 
+extension HomeViewController: HomeDisplayLogic {
     func displayHomeNotifications (viewModel: Home.FetchHomeNotifications.ViewModel) {
         displayedHomeNotifications = viewModel.displayedHomeNotifications
         homeView.tableView.reloadData()
@@ -116,6 +104,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             notificationCell.messageLabel.text = displayedHomeNotification.message
             notificationCell.emojiLabel.text = displayedHomeNotification.emoji
             notificationCell.type = displayedHomeNotification.type
+            notificationCell.roundCellIfNeeded(index: indexPath.row, numberOfCells: displayedHomeNotifications.count)
             return notificationCell
         }
     }
