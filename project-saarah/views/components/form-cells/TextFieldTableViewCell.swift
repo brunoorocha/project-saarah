@@ -12,7 +12,7 @@ class TextFieldTableViewCell: SaarahTableViewCell {
     var fieldLabel = Heading3Label()
     var textField = SaarahTextField()
 
-    private var separator = TableViewSeparator()
+    private var separator = SaarahTableViewSeparator()
 
     override func configureCellComponents() {
         cellContentView.addSubviews([fieldLabel, textField, separator])

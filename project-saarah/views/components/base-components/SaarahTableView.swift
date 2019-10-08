@@ -11,7 +11,7 @@ import UIKit
 class SaarahTableView: UITableView {
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
-        defaultConfiguration()
+        defaultTableConfiguration()
     }
 
     required init?(coder: NSCoder) {
@@ -22,7 +22,7 @@ class SaarahTableView: UITableView {
         self.init(frame: .zero, style: .grouped)
     }
 
-    private func defaultConfiguration () {
+    private func defaultTableConfiguration () {
         translatesAutoresizingMaskIntoConstraints = false
         separatorStyle = .none
         backgroundColor = AppStyleGuide.Colors.background.uiColor

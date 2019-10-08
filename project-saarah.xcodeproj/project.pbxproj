@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1BFB061A2331040D00E7DB70 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1BFB06192331040D00E7DB70 /* README.md */; };
-		1BFB061E2331096A00E7DB70 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFB061D2331096A00E7DB70 /* HomeViewController.swift */; };
 		4818E1372322AFC500EFF585 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A343CF4723180C31005F2210 /* AppDelegate.swift */; };
 		48244F5723478303007B4AA7 /* ProductDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48244F5123478302007B4AA7 /* ProductDetailPresenter.swift */; };
 		48244F5823478303007B4AA7 /* ProductDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48244F5223478302007B4AA7 /* ProductDetailRouter.swift */; };
@@ -47,10 +46,17 @@
 		A304F94B233CECC100C3B6F7 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304F94A233CECC100C3B6F7 /* TextFieldTableViewCell.swift */; };
 		A304F94D233CED4100C3B6F7 /* SaarahTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304F94C233CED4100C3B6F7 /* SaarahTextField.swift */; };
 		A304F94F233E270600C3B6F7 /* SelectableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304F94E233E270600C3B6F7 /* SelectableCell.swift */; };
-		A304F951233E337000C3B6F7 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304F950233E337000C3B6F7 /* TestViewController.swift */; };
 		A304F953233E4AD400C3B6F7 /* SaarahTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304F952233E4AD400C3B6F7 /* SaarahTableView.swift */; };
+		A32D814B233F6A03008DB50F /* HomeCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32D814A233F6A03008DB50F /* HomeCardCollectionViewCell.swift */; };
+		A32D814D233F6FE0008DB50F /* HomeMenuCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32D814C233F6FE0008DB50F /* HomeMenuCollectionView.swift */; };
+		A32D814F233F7F8B008DB50F /* HomeMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32D814E233F7F8B008DB50F /* HomeMenuTableViewCell.swift */; };
+		A32D8155233F9028008DB50F /* HomeMenuModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32D8154233F9028008DB50F /* HomeMenuModels.swift */; };
 		A343CF5223180C3C005F2210 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A343CF5123180C3C005F2210 /* Assets.xcassets */; };
 		A343CF5523180C3C005F2210 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A343CF5323180C3C005F2210 /* LaunchScreen.storyboard */; };
+		A3522D692341200A00DB1314 /* HomeNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3522D682341200A00DB1314 /* HomeNotification.swift */; };
+		A3522D6E2341253700DB1314 /* LocalHomeNotificationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3522D6D2341253700DB1314 /* LocalHomeNotificationStore.swift */; };
+		A3522D70234186AB00DB1314 /* HomeNotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3522D6F234186AB00DB1314 /* HomeNotificationTableViewCell.swift */; };
+		A3522D722341882300DB1314 /* SaarahTableViewSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3522D712341882300DB1314 /* SaarahTableViewSeparator.swift */; };
 		A353D7C9231FE416004A5139 /* NavigationDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A353D7C8231FE416004A5139 /* NavigationDrawerView.swift */; };
 		A353D7CE231FE4B1004A5139 /* NavigationDrawerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A353D7CD231FE4B1004A5139 /* NavigationDrawerMenu.swift */; };
 		A353D7D3231FE55B004A5139 /* NavigationDrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A353D7D2231FE55B004A5139 /* NavigationDrawerViewController.swift */; };
@@ -66,11 +72,19 @@
 		A378089A233BA791005B26E8 /* SaarahLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3780899233BA791005B26E8 /* SaarahLabel.swift */; };
 		A378089C233BA853005B26E8 /* ParagraphLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A378089B233BA853005B26E8 /* ParagraphLabel.swift */; };
 		A378089E233BA8B8005B26E8 /* CaptionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A378089D233BA8B8005B26E8 /* CaptionLabel.swift */; };
-		A37808A2233BB0D6005B26E8 /* TableViewSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37808A1233BB0D6005B26E8 /* TableViewSeparator.swift */; };
 		A37808A6233BDD6C005B26E8 /* SaarahImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37808A5233BDD6C005B26E8 /* SaarahImageView.swift */; };
 		A37808A7233BDF6C005B26E8 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3780881233B94C6005B26E8 /* Nunito-Bold.ttf */; };
 		A37808A9233BDFF4005B26E8 /* UIColor+rgbaExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37808A8233BDFF4005B26E8 /* UIColor+rgbaExtension.swift */; };
+		A3AACBC82340C946000EFB6B /* SaarahViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AACBC72340C946000EFB6B /* SaarahViewController.swift */; };
 		A3ABCE71233CCFDE00FF54FD /* SaarahIconImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ABCE70233CCFDE00FF54FD /* SaarahIconImageView.swift */; };
+		A3B76AD1234CB39D0010B7AF /* HomeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B76AD0234CB39D0010B7AF /* HomeBuilder.swift */; };
+		A3D2D0D02340E91100432214 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D2D0C92340E91100432214 /* HomePresenter.swift */; };
+		A3D2D0D12340E91100432214 /* HomeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D2D0CA2340E91100432214 /* HomeWorker.swift */; };
+		A3D2D0D22340E91100432214 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D2D0CB2340E91100432214 /* HomeRouter.swift */; };
+		A3D2D0D32340E91100432214 /* HomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D2D0CC2340E91100432214 /* HomeModels.swift */; };
+		A3D2D0D42340E91100432214 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D2D0CD2340E91100432214 /* HomeViewController.swift */; };
+		A3D2D0D52340E91100432214 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D2D0CE2340E91100432214 /* HomeInteractor.swift */; };
+		A3D2D0D62340E91100432214 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D2D0CF2340E91100432214 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,13 +127,20 @@
 		A304F94A233CECC100C3B6F7 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		A304F94C233CED4100C3B6F7 /* SaarahTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahTextField.swift; sourceTree = "<group>"; };
 		A304F94E233E270600C3B6F7 /* SelectableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableCell.swift; sourceTree = "<group>"; };
-		A304F950233E337000C3B6F7 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		A304F952233E4AD400C3B6F7 /* SaarahTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahTableView.swift; sourceTree = "<group>"; };
+		A32D814A233F6A03008DB50F /* HomeCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		A32D814C233F6FE0008DB50F /* HomeMenuCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuCollectionView.swift; sourceTree = "<group>"; };
+		A32D814E233F7F8B008DB50F /* HomeMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuTableViewCell.swift; sourceTree = "<group>"; };
+		A32D8154233F9028008DB50F /* HomeMenuModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuModels.swift; sourceTree = "<group>"; };
 		A343CF4423180C31005F2210 /* project-saarah.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "project-saarah.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A343CF4723180C31005F2210 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A343CF5123180C3C005F2210 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A343CF5423180C3C005F2210 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A343CF5623180C3C005F2210 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3522D682341200A00DB1314 /* HomeNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNotification.swift; sourceTree = "<group>"; };
+		A3522D6D2341253700DB1314 /* LocalHomeNotificationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalHomeNotificationStore.swift; sourceTree = "<group>"; };
+		A3522D6F234186AB00DB1314 /* HomeNotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNotificationTableViewCell.swift; sourceTree = "<group>"; };
+		A3522D712341882300DB1314 /* SaarahTableViewSeparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahTableViewSeparator.swift; sourceTree = "<group>"; };
 		A353D7C8231FE416004A5139 /* NavigationDrawerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDrawerView.swift; sourceTree = "<group>"; };
 		A353D7CD231FE4B1004A5139 /* NavigationDrawerMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDrawerMenu.swift; sourceTree = "<group>"; };
 		A353D7D2231FE55B004A5139 /* NavigationDrawerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDrawerViewController.swift; sourceTree = "<group>"; };
@@ -137,10 +158,18 @@
 		A3780899233BA791005B26E8 /* SaarahLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahLabel.swift; sourceTree = "<group>"; };
 		A378089B233BA853005B26E8 /* ParagraphLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParagraphLabel.swift; sourceTree = "<group>"; };
 		A378089D233BA8B8005B26E8 /* CaptionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionLabel.swift; sourceTree = "<group>"; };
-		A37808A1233BB0D6005B26E8 /* TableViewSeparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewSeparator.swift; sourceTree = "<group>"; };
 		A37808A5233BDD6C005B26E8 /* SaarahImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahImageView.swift; sourceTree = "<group>"; };
 		A37808A8233BDFF4005B26E8 /* UIColor+rgbaExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+rgbaExtension.swift"; sourceTree = "<group>"; };
+		A3AACBC72340C946000EFB6B /* SaarahViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahViewController.swift; sourceTree = "<group>"; };
 		A3ABCE70233CCFDE00FF54FD /* SaarahIconImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahIconImageView.swift; sourceTree = "<group>"; };
+		A3B76AD0234CB39D0010B7AF /* HomeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBuilder.swift; sourceTree = "<group>"; };
+		A3D2D0C92340E91100432214 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		A3D2D0CA2340E91100432214 /* HomeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWorker.swift; sourceTree = "<group>"; };
+		A3D2D0CB2340E91100432214 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		A3D2D0CC2340E91100432214 /* HomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModels.swift; sourceTree = "<group>"; };
+		A3D2D0CD2340E91100432214 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A3D2D0CE2340E91100432214 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		A3D2D0CF2340E91100432214 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +186,7 @@
 		1B4F4178231DF83400EB1F13 /* services */ = {
 			isa = PBXGroup;
 			children = (
+				A3522D6A234124AF00DB1314 /* home-notification-service */,
 				1BFB06192331040D00E7DB70 /* README.md */,
 			);
 			path = services;
@@ -195,8 +225,6 @@
 			children = (
 				A353D7DA231FE605004A5139 /* split-view */,
 				A353D7D1231FE525004A5139 /* navigation-drawer */,
-				1BFB061D2331096A00E7DB70 /* HomeViewController.swift */,
-				A304F950233E337000C3B6F7 /* TestViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -263,6 +291,17 @@
 			path = "form-cells";
 			sourceTree = "<group>";
 		};
+		A32D8153233F8FFF008DB50F /* home-menu */ = {
+			isa = PBXGroup;
+			children = (
+				A32D814E233F7F8B008DB50F /* HomeMenuTableViewCell.swift */,
+				A32D814A233F6A03008DB50F /* HomeCardCollectionViewCell.swift */,
+				A32D814C233F6FE0008DB50F /* HomeMenuCollectionView.swift */,
+				A32D8154233F9028008DB50F /* HomeMenuModels.swift */,
+			);
+			path = "home-menu";
+			sourceTree = "<group>";
+		};
 		A343CF3B23180C31005F2210 = {
 			isa = PBXGroup;
 			children = (
@@ -297,9 +336,18 @@
 			path = "project-saarah";
 			sourceTree = "<group>";
 		};
+		A3522D6A234124AF00DB1314 /* home-notification-service */ = {
+			isa = PBXGroup;
+			children = (
+				A3522D6D2341253700DB1314 /* LocalHomeNotificationStore.swift */,
+			);
+			path = "home-notification-service";
+			sourceTree = "<group>";
+		};
 		A353D7C7231FE3F3004A5139 /* components */ = {
 			isa = PBXGroup;
 			children = (
+				A32D8153233F8FFF008DB50F /* home-menu */,
 				A304F949233CEC9E00C3B6F7 /* form-cells */,
 				A378088A233B9BDB005B26E8 /* custom-cells */,
 				A3780887233B9865005B26E8 /* base-components */,
@@ -321,6 +369,7 @@
 				487B9B3223311F7200D8D6CC /* MenuItemPromotion.swift */,
 				487B9B3423311FDC00D8D6CC /* Promotion.swift */,
 				487B9B36233122C400D8D6CC /* Menu.swift */,
+				A3522D682341200A00DB1314 /* HomeNotification.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -344,6 +393,7 @@
 		A3780871233B8CF9005B26E8 /* scenes */ = {
 			isa = PBXGroup;
 			children = (
+				A3D2D0D72340E91800432214 /* home */,
 				48244F50234782E4007B4AA7 /* product-detail */,
 				A3780872233B8D63005B26E8 /* README.md */,
 			);
@@ -378,7 +428,6 @@
 				A3780899233BA791005B26E8 /* SaarahLabel.swift */,
 				A378089B233BA853005B26E8 /* ParagraphLabel.swift */,
 				A378089D233BA8B8005B26E8 /* CaptionLabel.swift */,
-				A37808A1233BB0D6005B26E8 /* TableViewSeparator.swift */,
 				A37808A5233BDD6C005B26E8 /* SaarahImageView.swift */,
 				A3ABCE70233CCFDE00FF54FD /* SaarahIconImageView.swift */,
 				A304F93F233CD9EA00C3B6F7 /* CaptionBoldLabel.swift */,
@@ -386,6 +435,8 @@
 				A304F943233CDB3300C3B6F7 /* CaptionButton.swift */,
 				A304F94C233CED4100C3B6F7 /* SaarahTextField.swift */,
 				A304F952233E4AD400C3B6F7 /* SaarahTableView.swift */,
+				A3AACBC72340C946000EFB6B /* SaarahViewController.swift */,
+				A3522D712341882300DB1314 /* SaarahTableViewSeparator.swift */,
 			);
 			path = "base-components";
 			sourceTree = "<group>";
@@ -399,8 +450,24 @@
 				A304F945233CE21300C3B6F7 /* DefaultCellTableViewCell.swift */,
 				A304F947233CE74500C3B6F7 /* EmptySectionHeaderView.swift */,
 				A304F94E233E270600C3B6F7 /* SelectableCell.swift */,
+				A3522D6F234186AB00DB1314 /* HomeNotificationTableViewCell.swift */,
 			);
 			path = "custom-cells";
+			sourceTree = "<group>";
+		};
+		A3D2D0D72340E91800432214 /* home */ = {
+			isa = PBXGroup;
+			children = (
+				A3D2D0C92340E91100432214 /* HomePresenter.swift */,
+				A3D2D0CA2340E91100432214 /* HomeWorker.swift */,
+				A3D2D0CB2340E91100432214 /* HomeRouter.swift */,
+				A3D2D0CC2340E91100432214 /* HomeModels.swift */,
+				A3D2D0CD2340E91100432214 /* HomeViewController.swift */,
+				A3D2D0CE2340E91100432214 /* HomeInteractor.swift */,
+				A3D2D0CF2340E91100432214 /* HomeView.swift */,
+				A3B76AD0234CB39D0010B7AF /* HomeBuilder.swift */,
+			);
+			path = home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -502,46 +569,58 @@
 				48BC8069234CB1560001B1A9 /* ConfigurableController.swift in Sources */,
 				489C01A1234B89FC00AEC143 /* FileManager+Image.swift in Sources */,
 				4C94BADB233BA553008D62F5 /* ProductItemTableViewCell.swift in Sources */,
+				A3D2D0D52340E91100432214 /* HomeInteractor.swift in Sources */,
 				4C94BAE4233BEE05008D62F5 /* ButtonTableViewCell.swift in Sources */,
+				A3D2D0D22340E91100432214 /* HomeRouter.swift in Sources */,
+				A32D814D233F6FE0008DB50F /* HomeMenuCollectionView.swift in Sources */,
 				A353D7C9231FE416004A5139 /* NavigationDrawerView.swift in Sources */,
 				48244F5E23479187007B4AA7 /* ProductDetailTableViewDataSource.swift in Sources */,
 				487B9B3523311FDC00D8D6CC /* Promotion.swift in Sources */,
 				A353D7CE231FE4B1004A5139 /* NavigationDrawerMenu.swift in Sources */,
+				A3D2D0D62340E91100432214 /* HomeView.swift in Sources */,
+				A3AACBC82340C946000EFB6B /* SaarahViewController.swift in Sources */,
 				48244F5C23478303007B4AA7 /* ProductDetailView.swift in Sources */,
 				4C94BAEB233CFB71008D62F5 /* PickerFieldtableViewCell.swift in Sources */,
+				A3522D722341882300DB1314 /* SaarahTableViewSeparator.swift in Sources */,
 				487B9B2B23311D2100D8D6CC /* Measure.swift in Sources */,
 				48244F5A23478303007B4AA7 /* ProductDetailViewController.swift in Sources */,
 				487B9B252331193900D8D6CC /* Product.swift in Sources */,
 				4818E1372322AFC500EFF585 /* AppDelegate.swift in Sources */,
 				A304F94D233CED4100C3B6F7 /* SaarahTextField.swift in Sources */,
+				A32D8155233F9028008DB50F /* HomeMenuModels.swift in Sources */,
+				A32D814B233F6A03008DB50F /* HomeCardCollectionViewCell.swift in Sources */,
 				487B9B2D23311DE400D8D6CC /* MenuItemProduct.swift in Sources */,
 				487B9B2723311BC900D8D6CC /* ProductLog.swift in Sources */,
 				487B9B2F23311E5400D8D6CC /* MenuItem.swift in Sources */,
+				A3522D692341200A00DB1314 /* HomeNotification.swift in Sources */,
+				A3B76AD1234CB39D0010B7AF /* HomeBuilder.swift in Sources */,
 				4C94BADD233BA8ED008D62F5 /* UILabel.swift in Sources */,
 				1BFB061E2331096A00E7DB70 /* HomeViewController.swift in Sources */,
 				48BC806B234CB6270001B1A9 /* ProductDetailBuilder.swift in Sources */,
 				489C019B234B626B00AEC143 /* DateFormatManager.swift in Sources */,
 				A304F94F233E270600C3B6F7 /* SelectableCell.swift in Sources */,
+				A3D2D0D12340E91100432214 /* HomeWorker.swift in Sources */,
 				A378089C233BA853005B26E8 /* ParagraphLabel.swift in Sources */,
 				A353D7D3231FE55B004A5139 /* NavigationDrawerViewController.swift in Sources */,
 				A37808A6233BDD6C005B26E8 /* SaarahImageView.swift in Sources */,
-				A304F951233E337000C3B6F7 /* TestViewController.swift in Sources */,
 				A3780890233B9CEE005B26E8 /* SaarahTableViewCell.swift in Sources */,
 				A304F940233CD9EA00C3B6F7 /* CaptionBoldLabel.swift in Sources */,
 				A353D7DC231FE61C004A5139 /* AppSplitViewController.swift in Sources */,
 				A304F944233CDB3300C3B6F7 /* CaptionButton.swift in Sources */,
 				A3780875233B8ECA005B26E8 /* AppStyleGuide.swift in Sources */,
 				487B9B2923311C8F00D8D6CC /* LogType.swift in Sources */,
+				A3D2D0D32340E91100432214 /* HomeModels.swift in Sources */,
 				A37808A9233BDFF4005B26E8 /* UIColor+rgbaExtension.swift in Sources */,
+				A32D814F233F7F8B008DB50F /* HomeMenuTableViewCell.swift in Sources */,
 				A3ABCE71233CCFDE00FF54FD /* SaarahIconImageView.swift in Sources */,
 				487B9B37233122C400D8D6CC /* Menu.swift in Sources */,
 				A304F942233CDA9800C3B6F7 /* SaarahButton.swift in Sources */,
-				A37808A2233BB0D6005B26E8 /* TableViewSeparator.swift in Sources */,
 				A304F93C233CD90B00C3B6F7 /* DefaultSectionHeaderView.swift in Sources */,
 				A304F948233CE74500C3B6F7 /* EmptySectionHeaderView.swift in Sources */,
 				A3780889233B988A005B26E8 /* Heading1Label.swift in Sources */,
 				A304F953233E4AD400C3B6F7 /* SaarahTableView.swift in Sources */,
 				A3780898233BA771005B26E8 /* Heading3Label.swift in Sources */,
+				A3D2D0D02340E91100432214 /* HomePresenter.swift in Sources */,
 				A378089A233BA791005B26E8 /* SaarahLabel.swift in Sources */,
 				A378088C233B9C1D005B26E8 /* ProductActivityTableViewCell.swift in Sources */,
 				A3780894233BA40E005B26E8 /* Heading2Label.swift in Sources */,
@@ -551,10 +630,13 @@
 				4C94BAE2233BE19A008D62F5 /* TableViewController.swift in Sources */,
 				48244F5923478303007B4AA7 /* ProductDetailModels.swift in Sources */,
 				4C94BAE6233CD7BC008D62F5 /* LabeledTableViewCell.swift in Sources */,
+				A3522D6E2341253700DB1314 /* LocalHomeNotificationStore.swift in Sources */,
 				4C94BAD8233B9086008D62F5 /* UIView.swift in Sources */,
+				A3D2D0D42340E91100432214 /* HomeViewController.swift in Sources */,
 				487B9B3323311F7200D8D6CC /* MenuItemPromotion.swift in Sources */,
 				A378089E233BA8B8005B26E8 /* CaptionLabel.swift in Sources */,
 				A304F94B233CECC100C3B6F7 /* TextFieldTableViewCell.swift in Sources */,
+				A3522D70234186AB00DB1314 /* HomeNotificationTableViewCell.swift in Sources */,
 				48244F5723478303007B4AA7 /* ProductDetailPresenter.swift in Sources */,
 				48244F5B23478303007B4AA7 /* ProductDetailInteractor.swift in Sources */,
 			);

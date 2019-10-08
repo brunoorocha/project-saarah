@@ -34,18 +34,19 @@ class LabeledTableViewCell: UITableViewCell {
 
     private func setupLayout() {
         // Add subview to cell.
-        contentView.addSubview(componentBackgroundView)
+        self.addSubview(componentBackgroundView)
 
         // Add subviews to componentBackgroundView.
         componentBackgroundView.addSubviews([productLabel, productNameLabel])
 
         // Constraints for componentBackgroundView.
         componentBackgroundView.anchor(
-            top: contentView.topAnchor,
-            leading: contentView.leadingAnchor,
-            bottom: contentView.bottomAnchor,
-            trailing: contentView.trailingAnchor,
-            padding: UIEdgeInsets(top: 0.0, left: 16.0, bottom: 0.0, right: 16.0)
+            top: self.topAnchor,
+            leading: self.leadingAnchor,
+            bottom: nil,
+            trailing: nil,
+            padding: UIEdgeInsets(top: 16.0, left: 16.0, bottom: 0.0, right: 0.0),
+            size: CGSize(width: 343.0, height: 88.0)
         )
 
         // Constraints for productLabel.
