@@ -9,7 +9,11 @@
 import UIKit
 
 extension UILabel {
-    convenience public init(text: String = "", textColor: UIColor = .black, textAlignment: NSTextAlignment = .natural) {
+    convenience public init(
+        text: String = "",
+        textColor: UIColor = .black,
+        textAlignment: NSTextAlignment = .natural
+    ) {
         self.init(frame: .zero)
 
         self.text = text

@@ -34,39 +34,40 @@ class ButtonTableViewCell: UITableViewCell {
 
     private func setupLayout() {
         // Add subview to cell.
-        self.addSubview(componentBackgroundView)
+        contentView.addSubview(componentBackgroundView)
 
         // Add subviews to componentBackgroundView.
         componentBackgroundView.addSubviews([addIconImageView, buttonTitleLabel])
 
         // Constraints for componentBackgroundView.
         componentBackgroundView.anchor(
-            top: self.topAnchor,
-            leading: self.leadingAnchor,
-            bottom: nil,
-            trailing: nil,
-            padding: UIEdgeInsets(top: 16.0, left: 16.0, bottom: 0.0, right: 0.0),
-            size: CGSize(width: 343.0, height: 56.0)
+            top: contentView.topAnchor,
+            leading: contentView.leadingAnchor,
+            trailing: contentView.trailingAnchor,
+            padding: UIEdgeInsets(top: 16.0, left: 16.0, bottom: 0.0, right: 16.0)
         )
+        
+        // Constraint height for componentBackgroundView.
+        componentBackgroundView.constraintHeight(56.0)
 
         // Contraints for addIconImageView.
         addIconImageView.anchor(
             top: componentBackgroundView.topAnchor,
             leading: componentBackgroundView.leadingAnchor,
-            bottom: nil,
-            trailing: nil,
-            padding: UIEdgeInsets(top: 20.0, left: 20.0, bottom: 0.0, right: 0.0),
-            size: CGSize(width: 16.0, height: 16.0)
+            bottom: componentBackgroundView.bottomAnchor,
+            padding: UIEdgeInsets(top: 20.0, left: 16.0, bottom: 20.0, right: 0.0)
         )
+        
+        // Constraint width for componentBackgroundView.
+        addIconImageView.constraintWidth(addIconImageView.heightAnchor)
 
         // Constraints for buttonTitleLabel.
         buttonTitleLabel.anchor(
             top: componentBackgroundView.topAnchor,
             leading: addIconImageView.trailingAnchor,
-            bottom: nil,
-            trailing: nil,
-            padding: UIEdgeInsets(top: 16.0, left: 8.0, bottom: 0.0, right: 0.0),
-            size: CGSize(width: 287.0 , height: 24.0)
+            bottom: componentBackgroundView.bottomAnchor,
+            trailing: componentBackgroundView.trailingAnchor,
+            padding: UIEdgeInsets(top: 16.0, left: 8.0, bottom: 16.0, right: 16.0)
         )
     }
 

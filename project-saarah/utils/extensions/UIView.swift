@@ -110,6 +110,17 @@ extension UIView {
     }
     
     @discardableResult
+    public func constraintWidth(_ dimension: NSLayoutDimension) -> AnchoredConstraints {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        
+        var anchoredConstraints = AnchoredConstraints()
+        anchoredConstraints.width = self.widthAnchor.constraint(equalTo: dimension)
+        anchoredConstraints.width?.isActive = true
+        
+        return anchoredConstraints
+    }
+    
+    @discardableResult
     public func constraintHeight(_ constant: CGFloat) -> AnchoredConstraints {
         self.translatesAutoresizingMaskIntoConstraints = false
         
