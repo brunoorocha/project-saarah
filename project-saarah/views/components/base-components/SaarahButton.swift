@@ -11,7 +11,7 @@ import UIKit
 class SaarahButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
-        defaultConfiguration()
+        defaultButtonConfiguration()
         customize()
     }
 
@@ -19,9 +19,9 @@ class SaarahButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func defaultConfiguration () {
+    private func defaultButtonConfiguration () {
         translatesAutoresizingMaskIntoConstraints = false
     }
 
-    func customize() {}
+    func customize () {}
 }

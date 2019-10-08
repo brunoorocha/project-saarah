@@ -13,13 +13,15 @@ class ProductLog {
 	let type: LogType
 	let price: Double?
 	let quantity: Double
+    let createdDate: Date
 	let expiration: Date?
 
-	init(id: Int, type: LogType, price: Double?, quantity: Double, expiration: Date?) {
+    init(id: Int, type: LogType, price: Double?, quantity: Double, createdDate: Date, expiration: Date?) {
 		self.id = id
 		self.type = type
 		self.price = price
 		self.quantity = quantity
+        self.createdDate = createdDate
 		self.expiration = expiration
 	}
 }

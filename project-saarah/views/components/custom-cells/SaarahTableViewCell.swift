@@ -13,8 +13,8 @@ class SaarahTableViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        configureCellComponents()
         defaultConfiguration()
+        configureCellComponents()
     }
 
     required init?(coder: NSCoder) {
@@ -42,15 +42,15 @@ class SaarahTableViewCell: UITableViewCell {
         if (index == 0) {
             corners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         } else if (index == (numberOfCells - 1)) {
-            corners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]        
+            corners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         }
-        
+
         if (numberOfCells == 1) {
             corners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner, .layerMinXMinYCorner, .layerMaxXMinYCorner]
         }
 
         cellContentView.layer.maskedCorners = corners
-        cellContentView.layer.cornerRadius = 8.0
+        cellContentView.layer.cornerRadius = AppStyleGuide.Sizes.cornerRadius.rawValue
         cellContentView.layer.masksToBounds = true
     }
 

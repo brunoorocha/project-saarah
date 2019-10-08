@@ -13,13 +13,18 @@ class Product {
 	let name: String
 	let measure: Measure
 	let barCode: String?
-	let log: [ProductLog]
+	let logs: [ProductLog]
 
-	init(id: Int, name: String, measure: Measure, barCode: String?, log: [ProductLog]) {
+	init(id: Int, name: String, measure: Measure, barCode: String?, logs: [ProductLog]) {
 		self.id = id
 		self.name = name
 		self.measure = measure
 		self.barCode = barCode
-		self.log = log
+		self.logs = logs
 	}
+
+    //TODO: - insert a real count quantity function
+    func quantity() -> String {
+        return "10"
+    }
 }

@@ -11,16 +11,19 @@ import UIKit
 class SaarahImageView: UIImageView {
     init() {
         super.init(frame: .zero)
+        defaultImageConfiguration()
         customize()
     }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        defaultImageConfiguration()
         customize()
     }
 
     override init(image: UIImage?) {
         super.init(image: image)
+        defaultImageConfiguration()
         customize()
     }
 
@@ -28,9 +31,11 @@ class SaarahImageView: UIImageView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func customize() {
+    private func defaultImageConfiguration () {
         translatesAutoresizingMaskIntoConstraints = false
         clipsToBounds = true
         contentMode = .scaleAspectFill
     }
+
+    func customize () {}
 }

@@ -8,12 +8,33 @@
 
 import UIKit
 
+enum ActivityIcon: String {
+    case input = "in"
+    case output = "out"
+    
+    var image: UIImage {
+        switch (self) {
+        case .input:
+            if let image = UIImage(named: "activity-arrow-up") {
+                return image
+            }
+        case .output:
+            //TODO: - insert the arrow-down in assets and place the name here
+            if let image = UIImage(named: "activity-arrow-up") {
+                return image
+            }
+        }
+
+        return UIImage()
+    }
+}
+
 class ProductActivityTableViewCell: SaarahTableViewCell {
     var dateLabel = CaptionLabel()
     var label = ParagraphLabel()
     var activityIcon = SaarahImageView()
 
-    private var separator = TableViewSeparator()
+    private var separator = SaarahTableViewSeparator()
     private var arrowRightIcon = SaarahIconImageView(image: AppStyleGuide.Icons.chevronRight.uiImage)
 
     var labelsView: UIView = {

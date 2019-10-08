@@ -9,7 +9,7 @@
 import UIKit
 
 class CaptionBoldLabel: SaarahLabel {
-    override func customize() {
+    override func customize () {
         font = AppStyleGuide.Typography.captionBold.uiFont
         textColor = AppStyleGuide.Colors.mediumGray.uiColor
     }

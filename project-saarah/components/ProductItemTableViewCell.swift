@@ -23,9 +23,7 @@ class ProductItemTableViewCell: UITableViewCell {
 
     override private init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
         self.backgroundColor = .clear
-
         setupLayout()
     }
 
@@ -41,7 +39,7 @@ class ProductItemTableViewCell: UITableViewCell {
         numericAddedOnDayLabel.text = addedOnDayText
     }
 
-    private func setupLayout() {
+    private func setupLayout() { // swiftlint:disable:this function_body_length
         // Add subview to cell.
         self.addSubview(backgroundCell)
 
