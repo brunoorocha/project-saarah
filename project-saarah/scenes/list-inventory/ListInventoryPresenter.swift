@@ -22,7 +22,7 @@ class ListInventoryPresenter: ListInventoryPresentationLogic {
             // TODO: Get the quantity from product function
             let displayedProduct = ListInventory.FetchProducts.ViewModel.DisplayProduct(
                 name: product.name,
-                quantity: "\(product.log.count)")
+                quantity: "\(product.logs.count)")
             displayProducts.append(displayedProduct)
         }
 		let viewModel = ListInventory.FetchProducts.ViewModel(displayProducts: displayProducts)

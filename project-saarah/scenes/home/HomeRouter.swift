@@ -34,8 +34,7 @@ class HomeRouter: NSObject, HomeRoutingLogic, HomeDataPassing {
 
     func navigateToInventory () {
         // TODO: Change the instance of the inventory view controller to an instance of Inventory Scene view controller
-        let inventoryViewController = SaarahViewController()
-        inventoryViewController.title = "Estoque"
+        let inventoryViewController = ListInventoryViewController()
         viewController?.navigationController?.pushViewController(inventoryViewController, animated: true)
     }
 
