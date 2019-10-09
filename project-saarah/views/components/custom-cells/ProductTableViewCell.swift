@@ -15,41 +15,7 @@ class ProductTableViewCell: UITableViewCell {
     )
 
     private let productNameLabel = UILabel(textColor: .buttonTitle)
-
-    private let productAmountLabel: UITextView = {
-        let textView = UITextView()
-        let attributedText = NSMutableAttributedString(
-            string: "40",
-            attributes: [
-                NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16.0),
-                NSAttributedString.Key.foregroundColor: UIColor.black
-            ]
-        )
-
-        attributedText.append(
-            NSAttributedString(
-                string: " / 5 (kg)",
-                attributes: [
-                    NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12.0),
-                    NSAttributedString.Key.foregroundColor: UIColor.lightGray
-                ]
-            )
-        )
-
-        textView.attributedText = attributedText
-        textView.textAlignment = .right
-
-        textView.textContainerInset = UIEdgeInsets(top: 2.0, left: 0.0, bottom: 0.0, right: 0.0)
-
-        textView.isEditable = false
-        textView.isScrollEnabled = false
-
-        // This enables autolayout for textView.
-        textView.translatesAutoresizingMaskIntoConstraints = false
-
-        return textView
-    }()
-    
+    private let productDetailsTextView = UITextView()
     private let arrowIconImageView = UIImageView(name: "arrow-icon")
 
     override private init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -60,8 +26,17 @@ class ProductTableViewCell: UITableViewCell {
         setupLayout()
     }
     
-    public func setupProductNameLabelWith(_ productName: String) {
+    public func setupProductNameAndDetailsWith(
+        productName: String,
+        numberInStock: Int,
+        numberOfProductItem: Int,
+        measurementUnit: String
+    ) {
         productNameLabel.text = productName
+        productDetailsTextView.setupProductDetailsWith(
+            numberInStock: numberInStock,
+            numberOfProductItem: numberOfProductItem,
+            measurementUnit: measurementUnit)
     }
 
     private func setupLayout() {
@@ -72,7 +47,7 @@ class ProductTableViewCell: UITableViewCell {
         componentBackgroundView.addSubviews(
             [
                 productNameLabel,
-                productAmountLabel,
+                productDetailsTextView,
                 arrowIconImageView
             ]
         )
@@ -93,19 +68,20 @@ class ProductTableViewCell: UITableViewCell {
             top: componentBackgroundView.topAnchor,
             leading: componentBackgroundView.leadingAnchor,
             bottom: componentBackgroundView.bottomAnchor,
-            trailing: productAmountLabel.leadingAnchor,
+            trailing: productDetailsTextView.leadingAnchor,
             padding: UIEdgeInsets(top: 16.0, left: 16.0, bottom: 16.0, right: 8.0)
         )
 
-        // Constraints for productAmountLabel.
-        productAmountLabel.anchor(
+        // Constraints for productDetailsTextView.
+        productDetailsTextView.anchor(
             top: componentBackgroundView.topAnchor,
-            leading: nil,
-            bottom: nil,
+            bottom: componentBackgroundView.bottomAnchor,
             trailing: arrowIconImageView.leadingAnchor,
-            padding: UIEdgeInsets(top: 16.0, left: 0.0, bottom: 0.0, right: 8.0),
-            size: CGSize(width: 96.0, height: 24.0)
+            padding: UIEdgeInsets(top: 16.0, left: 0.0, bottom: 16.0, right: 12.0)
         )
+        
+        // Constraint width for productDetailsTextView.
+        productDetailsTextView.constraintWidth(96.0)
 
         // Constraints for arrowIconImageView.
         arrowIconImageView.anchor(

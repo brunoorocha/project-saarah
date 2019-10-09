@@ -33,7 +33,12 @@ class TableViewController: UITableViewController {
         }
         
         cell.selectionStyle = .none
-        cell.setupProductNameLabelWith("Mussarela")
+        cell.setupProductNameAndDetailsWith(
+            productName: "Tomate",
+            numberInStock: 52,
+            numberOfProductItem: 8,
+            measurementUnit: "Kg"
+        )
         
         return cell
     }
