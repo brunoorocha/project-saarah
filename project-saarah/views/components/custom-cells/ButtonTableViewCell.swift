@@ -21,6 +21,7 @@ class ButtonTableViewCell: UITableViewCell {
 
     private let buttonTitleLabel = UILabel(
         text: "Adicionar Mais Itens Nesse Produto",
+        textColor: .buttonTitle,
         textAlignment: .center
     )
 

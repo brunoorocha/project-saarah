@@ -19,7 +19,7 @@ class LabeledTableViewCell: UITableViewCell {
     )
 
     private let productNameLabel = UILabel(
-        textColor: .lightGray
+        textColor: .subtitle
     )
 
     override private init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
