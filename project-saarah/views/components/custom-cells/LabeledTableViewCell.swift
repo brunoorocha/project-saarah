@@ -14,13 +14,8 @@ class LabeledTableViewCell: UITableViewCell {
         backgroundColor: .white
     )
 
-    private let productLabel = UILabel(
-        text: "Produto"
-    )
-
-    private let productNameLabel = UILabel(
-        textColor: .subtitle
-    )
+    private let productLabel = UILabel(text: "Produto")
+    private let productNameLabel = UILabel(textColor: .subtitle)
 
     override private init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

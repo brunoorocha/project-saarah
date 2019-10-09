@@ -21,18 +21,6 @@ extension UIView {
         self.layer.cornerRadius = cornerRadius
     }
 
-    convenience public init(corners: CACornerMask, cornerRadius: CGFloat) {
-        self.init(frame: .zero)
-
-        self.layer.maskedCorners = corners
-        self.layer.cornerRadius = cornerRadius
-
-        self.backgroundColor = .white
-
-        // This enables cornerRadius to bounds of the class UIView.
-        self.layer.masksToBounds = true
-    }
-
     public struct AnchoredConstraints {
         var top: NSLayoutConstraint?
         var leading: NSLayoutConstraint?

@@ -15,7 +15,9 @@ class ProductTableViewCell: UITableViewCell {
     )
 
     private let productNameLabel = UILabel(textColor: .buttonTitle)
+    
     private let productDetailsTextView = UITextView()
+    
     private let arrowIconImageView = UIImageView(name: "arrow-icon")
 
     override private init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
