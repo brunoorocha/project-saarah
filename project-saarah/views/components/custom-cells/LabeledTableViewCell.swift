@@ -39,7 +39,12 @@ class LabeledTableViewCell: UITableViewCell {
         contentView.addSubview(componentBackgroundView)
 
         // Add subviews to componentBackgroundView.
-        componentBackgroundView.addSubviews([productLabel, productNameLabel])
+        componentBackgroundView.addSubviews(
+            [
+                productLabel,
+                productNameLabel
+            ]
+        )
 
         // Constraints for componentBackgroundView.
         componentBackgroundView.anchor(

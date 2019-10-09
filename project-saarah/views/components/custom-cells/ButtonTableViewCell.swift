@@ -38,7 +38,12 @@ class ButtonTableViewCell: UITableViewCell {
         contentView.addSubview(componentBackgroundView)
 
         // Add subviews to componentBackgroundView.
-        componentBackgroundView.addSubviews([addIconImageView, buttonTitleLabel])
+        componentBackgroundView.addSubviews(
+            [
+                addIconImageView,
+                buttonTitleLabel
+            ]
+        )
 
         // Constraints for componentBackgroundView.
         componentBackgroundView.anchor(

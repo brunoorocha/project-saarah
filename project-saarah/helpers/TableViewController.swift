@@ -16,7 +16,7 @@ class TableViewController: UITableViewController {
 
         tableView.backgroundColor = .gray
         tableView.separatorStyle = .none
-        tableView.register(ProductItemTableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.register(ProductTableViewCell.self, forCellReuseIdentifier: "Cell")
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -28,18 +28,13 @@ class TableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? ProductItemTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? ProductTableViewCell else {
             return UITableViewCell()
         }
-
+        
         cell.selectionStyle = .none
-        cell.setupNumericLabelsWith(
-            amountText: "5 Kg",
-            validityText: "01/11/2020",
-            priceText: "R$ 120,00",
-            addedOnDayText: "01/11/2019"
-        )
-
+        cell.setupProductNameLabelWith("Mussarela")
+        
         return cell
     }
 }
