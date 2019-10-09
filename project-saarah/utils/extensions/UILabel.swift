@@ -19,9 +19,14 @@ extension UILabel {
 
         self.text = text
         self.textColor = textColor
-        self.font = UIFont.boldSystemFont(ofSize: fontSize)
         self.textAlignment = textAlignment
 
         self.backgroundColor = .clear
+        
+        if textColor == .subtitle {
+            self.font = UIFont.systemFont(ofSize: fontSize)
+        } else {
+            self.font = UIFont.boldSystemFont(ofSize: fontSize)
+        }
     }
 }

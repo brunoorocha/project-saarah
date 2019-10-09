@@ -9,10 +9,7 @@
 import UIKit
 
 class ProductTableViewCell: UITableViewCell {
-    private let componentBackgroundView = UIView(
-        cornerRadius: 8.0,
-        backgroundColor: .white
-    )
+    private let componentBackgroundView = UIView(backgroundColor: .white)
 
     private let productNameLabel = UILabel(textColor: .buttonTitle)
     
