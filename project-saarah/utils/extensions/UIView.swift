@@ -130,4 +130,15 @@ extension UIView {
 
         return anchoredConstraints
     }
+    
+    @discardableResult
+    public func constraintHeight(_ dimension: NSLayoutDimension) -> AnchoredConstraints {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        
+        var anchoredConstraints = AnchoredConstraints()
+        anchoredConstraints.height = self.heightAnchor.constraint(equalTo: dimension)
+        anchoredConstraints.height?.isActive = true
+        
+        return anchoredConstraints
+    }
 }
