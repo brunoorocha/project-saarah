@@ -9,17 +9,17 @@
 import Foundation
 
 protocol MockProductStore {
-    func fetchProducts(_ completion: @escaping ([Product])->())
+    func fetchProducts(_ completion: @escaping ([Product]) -> Void)
 }
 
 class ProductWorker {
     let productService: MockProductStore
-    
+
     init(productService: MockProductStore) {
         self.productService = productService
     }
-    
-    func fetchProducts(_ completion: @escaping ([Product])->()) {
+
+    func fetchProducts(_ completion: @escaping ([Product]) -> Void) {
         productService.fetchProducts { (products) in
             DispatchQueue.main.async {
                 completion(products)
