@@ -11,7 +11,7 @@ import UIKit
 enum ActivityIcon: String {
     case input = "in"
     case output = "out"
-    
+
     var image: UIImage {
         switch (self) {
         case .input:
@@ -19,7 +19,7 @@ enum ActivityIcon: String {
                 return image
             }
         case .output:
-            //TODO: - insert the arrow-down in assets and place the name here
+            // TODO: - insert the arrow-down in assets and place the name here
             if let image = UIImage(named: "activity-arrow-up") {
                 return image
             }
