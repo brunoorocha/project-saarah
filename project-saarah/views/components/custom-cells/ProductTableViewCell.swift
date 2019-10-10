@@ -8,9 +8,7 @@
 
 import UIKit
 
-class ProductTableViewCell: UITableViewCell {
-    private let componentBackgroundView = UIView(backgroundColor: .white)
-
+class ProductTableViewCell: SaarahTableViewCell {
     private let productNameLabel = UILabel(textColor: .buttonTitle)
     
     private let productDetailsTextView = UITextView()
@@ -39,11 +37,12 @@ class ProductTableViewCell: UITableViewCell {
     }
 
     private func setupLayout() {
-        // Add subview to contentView.
-        contentView.addSubview(componentBackgroundView)
-
-        // Add subviews to componentBackgroundView.
-        componentBackgroundView.addSubviews(
+        // This defines the margin numbers for content elements.
+        let smallMargin = AppStyleGuide.Margins.small.rawValue
+        let mediumMargin = AppStyleGuide.Margins.medium.rawValue
+        
+        // Add subviews to cellContentView.
+        cellContentView.addSubviews(
             [
                 productNameLabel,
                 productDetailsTextView,
@@ -51,32 +50,44 @@ class ProductTableViewCell: UITableViewCell {
             ]
         )
 
-        // Constraints for componentBackgroundView.
-        componentBackgroundView.anchor(
+        // Constraints for cellContentView.
+        cellContentView.anchor(
             top: contentView.topAnchor,
             leading: contentView.leadingAnchor,
             trailing: contentView.trailingAnchor,
-            padding: UIEdgeInsets(top: 16.0, left: 16.0, bottom: 0.0, right: 16.0)
+            padding: UIEdgeInsets(
+                top: mediumMargin,
+                left: mediumMargin,
+                bottom: .zero,
+                right: mediumMargin
+            )
         )
-        
-        // Constraint height for componentBackgroundView.
-        componentBackgroundView.constraintHeight(56.0)
 
         // Constraints for productNameLabel.
         productNameLabel.anchor(
-            top: componentBackgroundView.topAnchor,
-            leading: componentBackgroundView.leadingAnchor,
-            bottom: componentBackgroundView.bottomAnchor,
+            top: cellContentView.topAnchor,
+            leading: cellContentView.leadingAnchor,
+            bottom: cellContentView.bottomAnchor,
             trailing: productDetailsTextView.leadingAnchor,
-            padding: UIEdgeInsets(top: 16.0, left: 16.0, bottom: 16.0, right: 8.0)
+            padding: UIEdgeInsets(
+                top: mediumMargin,
+                left: mediumMargin,
+                bottom: mediumMargin,
+                right: smallMargin
+            )
         )
 
         // Constraints for productDetailsTextView.
         productDetailsTextView.anchor(
-            top: componentBackgroundView.topAnchor,
-            bottom: componentBackgroundView.bottomAnchor,
+            top: cellContentView.topAnchor,
+            bottom: cellContentView.bottomAnchor,
             trailing: arrowIconImageView.leadingAnchor,
-            padding: UIEdgeInsets(top: 16.0, left: 0.0, bottom: 16.0, right: 12.0)
+            padding: UIEdgeInsets(
+                top: mediumMargin,
+                left: .zero,
+                bottom: mediumMargin,
+                right: 12.0
+            )
         )
         
         // Constraint width for productDetailsTextView.
@@ -84,10 +95,15 @@ class ProductTableViewCell: UITableViewCell {
 
         // Constraints for arrowIconImageView.
         arrowIconImageView.anchor(
-            top: componentBackgroundView.topAnchor,
-            bottom: componentBackgroundView.bottomAnchor,
-            trailing: componentBackgroundView.trailingAnchor,
-            padding: UIEdgeInsets(top: 20.0, left: 0.0, bottom: 20.0, right: 16.0)
+            top: cellContentView.topAnchor,
+            bottom: cellContentView.bottomAnchor,
+            trailing: cellContentView.trailingAnchor,
+            padding: UIEdgeInsets(
+                top: 20.0,
+                left: .zero,
+                bottom: 20.0,
+                right: mediumMargin
+            )
         )
         
         // Constraint width for arrowIconImageView.
