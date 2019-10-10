@@ -8,12 +8,7 @@
 
 import UIKit
 
-class LabeledTableViewCell: UITableViewCell {
-    private let componentBackgroundView = UIView(
-        cornerRadius: 8.0,
-        backgroundColor: .white
-    )
-
+class LabeledTableViewCell: SaarahTableViewCell {
     private let productLabel = UILabel(text: "Produto")
     private let productNameLabel = UILabel(textColor: .subtitle)
 
@@ -25,49 +20,49 @@ class LabeledTableViewCell: UITableViewCell {
         setupLayout()
     }
 
+	public func setContent(title: String, subtitle: String) {
+		productLabel.text = title
+		productNameLabel.text = subtitle
+	}
+
     public func setupProductNameLabelWith(_ productName: String) {
         productNameLabel.text = productName
     }
 
     private func setupLayout() {
-        // Add subview to contentView.
-        contentView.addSubview(componentBackgroundView)
-
-        // Add subviews to componentBackgroundView.
-        componentBackgroundView.addSubviews(
+        // Add subviews to cellContentView.
+        cellContentView.addSubviews(
             [
                 productLabel,
                 productNameLabel
             ]
         )
 
-        // Constraints for componentBackgroundView.
-        componentBackgroundView.anchor(
+        // Constraints for cellContentView.
+        cellContentView.anchor(
             top: contentView.topAnchor,
             leading: contentView.leadingAnchor,
+            bottom: contentView.bottomAnchor,
             trailing: contentView.trailingAnchor,
-            padding: UIEdgeInsets(top: 16.0, left: 16.0, bottom: 0.0, right: 16.0)
+            padding: UIEdgeInsets(top: 0.0, left: 16.0, bottom: 0.0, right: 16.0)
         )
-        
-        // Constraint height for componentBackgroundView.
-        componentBackgroundView.constraintHeight(88.0)
 
         // Constraints for productLabel.
         productLabel.anchor(
-            top: componentBackgroundView.topAnchor,
-            leading: componentBackgroundView.leadingAnchor,
-            bottom: componentBackgroundView.centerYAnchor,
-            trailing: componentBackgroundView.trailingAnchor,
-            padding: UIEdgeInsets(top: 16.0, left: 16.0, bottom: 4.0, right: 16.0)
+            top: cellContentView.topAnchor,
+            leading: cellContentView.leadingAnchor,
+            bottom: cellContentView.centerYAnchor,
+            trailing: cellContentView.trailingAnchor,
+            padding: UIEdgeInsets(top: 8.0, left: 16.0, bottom: 4.0, right: 16.0)
         )
 
         // Contraints for productNameLabel.
         productNameLabel.anchor(
-            top: componentBackgroundView.centerYAnchor,
-            leading: componentBackgroundView.leadingAnchor,
-            bottom: componentBackgroundView.bottomAnchor,
-            trailing: componentBackgroundView.trailingAnchor,
-            padding: UIEdgeInsets(top: 4.0, left: 16.0, bottom: 16.0, right: 16.0)
+            top: cellContentView.centerYAnchor,
+            leading: cellContentView.leadingAnchor,
+            bottom: cellContentView.bottomAnchor,
+            trailing: cellContentView.trailingAnchor,
+            padding: UIEdgeInsets(top: 4.0, left: 16.0, bottom: 8.0, right: 16.0)
         )
     }
 

@@ -9,8 +9,7 @@
 import UIKit
 
 class SaarahIconImageView: SaarahImageView {
-    override func customize() {
-        super.customize()
+    override func customize () {
         widthAnchor.constraint(equalToConstant: 24.0).isActive = true
         heightAnchor.constraint(equalToConstant: 24.0).isActive = true
     }

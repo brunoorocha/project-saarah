@@ -8,12 +8,33 @@
 
 import UIKit
 
+enum ActivityIcon: String {
+    case input = "in"
+    case output = "out"
+    
+    var image: UIImage {
+        switch (self) {
+        case .input:
+            if let image = UIImage(named: "activity-arrow-up") {
+                return image
+            }
+        case .output:
+            //TODO: - insert the arrow-down in assets and place the name here
+            if let image = UIImage(named: "activity-arrow-up") {
+                return image
+            }
+        }
+
+        return UIImage()
+    }
+}
+
 class ProductActivityTableViewCell: SaarahTableViewCell {
     var dateLabel = CaptionLabel()
     var label = ParagraphLabel()
     var activityIcon = SaarahImageView()
 
-    private var separator = TableViewSeparator()
+    private var separator = SaarahTableViewSeparator()
     private var arrowRightIcon = SaarahIconImageView(image: AppStyleGuide.Icons.chevronRight.uiImage)
 
     var labelsView: UIView = {
@@ -24,7 +45,7 @@ class ProductActivityTableViewCell: SaarahTableViewCell {
 
     override func configureCellComponents () {
         labelsView.addSubviews([dateLabel, label, separator, arrowRightIcon])
-        contentView.addSubviews([activityIcon, labelsView])
+        cellContentView.addSubviews([activityIcon, labelsView])
 
         let xSmallMargin = AppStyleGuide.Margins.xsmall.rawValue
         let mediumMargin = AppStyleGuide.Margins.medium.rawValue
@@ -33,12 +54,12 @@ class ProductActivityTableViewCell: SaarahTableViewCell {
         NSLayoutConstraint.activate([
             activityIcon.widthAnchor.constraint(equalToConstant: largeMargin),
             activityIcon.heightAnchor.constraint(equalToConstant: largeMargin),
-            activityIcon.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            activityIcon.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumMargin),
+            activityIcon.centerYAnchor.constraint(equalTo: cellContentView.centerYAnchor),
+            activityIcon.leadingAnchor.constraint(equalTo: cellContentView.leadingAnchor, constant: mediumMargin),
 
-            labelsView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            labelsView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            labelsView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            labelsView.topAnchor.constraint(equalTo: cellContentView.topAnchor),
+            labelsView.trailingAnchor.constraint(equalTo: cellContentView.trailingAnchor),
+            labelsView.bottomAnchor.constraint(equalTo: cellContentView.bottomAnchor),
             labelsView.leadingAnchor.constraint(equalTo: activityIcon.trailingAnchor, constant: mediumMargin),
 
             dateLabel.topAnchor.constraint(equalTo: labelsView.topAnchor, constant: mediumMargin),

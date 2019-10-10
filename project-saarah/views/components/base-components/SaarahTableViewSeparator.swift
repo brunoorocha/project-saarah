@@ -1,14 +1,14 @@
 //
-//  TableViewSeparator.swift
+//  SaarahTableViewSeparator.swift
 //  project-saarah
 //
-//  Created by Bruno Rocha on 25/09/19.
+//  Created by Bruno Rocha on 29/09/19.
 //  Copyright © 2019 Bruno Rocha. All rights reserved.
 //
 
 import UIKit
 
-class TableViewSeparator: UIView {
+class SaarahTableViewSeparator: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         customize()

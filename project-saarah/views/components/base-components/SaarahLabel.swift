@@ -11,7 +11,7 @@ import UIKit
 class SaarahLabel: UILabel {
     override init(frame: CGRect) {
         super.init(frame: frame)
-        defaultConfiguration()
+        defaultLabelConfiguration()
         customize()
     }
 
@@ -19,7 +19,7 @@ class SaarahLabel: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func defaultConfiguration () {
+    private func defaultLabelConfiguration () {
         translatesAutoresizingMaskIntoConstraints = false
         sizeToFit()
         numberOfLines = 0
