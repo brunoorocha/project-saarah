@@ -20,7 +20,7 @@ class ListInventoryInteractor: ListInventoryBusinessLogic, ListInventoryDataStor
 
     var presenter: ListInventoryPresentationLogic?
     var products: [Product]?
-    
+
     let productWorker = ProductWorker(productService: MockProduct())
 
 	// MARK: Fetch Products
