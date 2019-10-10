@@ -12,6 +12,7 @@ extension UIColor {
     public static var title = UIColor.colorCode(56, 56, 56)
     public static var subtitle = UIColor.colorCode(168, 168, 168)
     public static var buttonTitle = UIColor.colorCode(88, 72, 160)
+    public static var separator = UIColor.colorCode(232, 232, 232)
     
     public static func colorCode(
         _ red: Int,

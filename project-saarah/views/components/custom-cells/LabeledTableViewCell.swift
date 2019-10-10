@@ -9,8 +9,10 @@
 import UIKit
 
 class LabeledTableViewCell: SaarahTableViewCell {
-    private let productLabel = UILabel(text: "Produto")
+    private let productLabel = UILabel()
     private let productNameLabel = UILabel(textColor: .subtitle)
+    
+    private let separatorView = UIView(backgroundColor: .separator)
 
     override private init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -25,16 +27,18 @@ class LabeledTableViewCell: SaarahTableViewCell {
 		productNameLabel.text = subtitle
 	}
 
-    public func setupProductNameLabelWith(_ productName: String) {
-        productNameLabel.text = productName
-    }
-
     private func setupLayout() {
+        // This defines the margin numbers for content elements.
+        let xSmallMargin = AppStyleGuide.Margins.xsmall.rawValue
+        let smallMargin = AppStyleGuide.Margins.small.rawValue
+        let mediumMargin = AppStyleGuide.Margins.medium.rawValue
+        
         // Add subviews to cellContentView.
         cellContentView.addSubviews(
             [
                 productLabel,
-                productNameLabel
+                productNameLabel,
+                separatorView
             ]
         )
 
@@ -44,7 +48,12 @@ class LabeledTableViewCell: SaarahTableViewCell {
             leading: contentView.leadingAnchor,
             bottom: contentView.bottomAnchor,
             trailing: contentView.trailingAnchor,
-            padding: UIEdgeInsets(top: 0.0, left: 16.0, bottom: 0.0, right: 16.0)
+            padding: UIEdgeInsets(
+                top: .zero,
+                left: mediumMargin,
+                bottom: .zero,
+                right: mediumMargin
+            )
         )
 
         // Constraints for productLabel.
@@ -53,7 +62,12 @@ class LabeledTableViewCell: SaarahTableViewCell {
             leading: cellContentView.leadingAnchor,
             bottom: cellContentView.centerYAnchor,
             trailing: cellContentView.trailingAnchor,
-            padding: UIEdgeInsets(top: 8.0, left: 16.0, bottom: 4.0, right: 16.0)
+            padding: UIEdgeInsets(
+                top: smallMargin,
+                left: mediumMargin,
+                bottom: xSmallMargin,
+                right: mediumMargin
+            )
         )
 
         // Contraints for productNameLabel.
@@ -62,8 +76,23 @@ class LabeledTableViewCell: SaarahTableViewCell {
             leading: cellContentView.leadingAnchor,
             bottom: cellContentView.bottomAnchor,
             trailing: cellContentView.trailingAnchor,
-            padding: UIEdgeInsets(top: 4.0, left: 16.0, bottom: 8.0, right: 16.0)
+            padding: UIEdgeInsets(
+                top: xSmallMargin,
+                left: mediumMargin,
+                bottom: smallMargin,
+                right: mediumMargin
+            )
         )
+        
+        // Constraints for separatorView.
+        separatorView.anchor(
+            leading: productNameLabel.leadingAnchor,
+            bottom: cellContentView.bottomAnchor,
+            trailing: cellContentView.trailingAnchor
+        )
+        
+        // Constraint height for separatorView.
+        separatorView.constraintHeight(1.0)
     }
 
     required init?(coder aDecoder: NSCoder) {
