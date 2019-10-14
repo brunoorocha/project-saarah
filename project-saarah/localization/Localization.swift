@@ -23,10 +23,10 @@ struct Localization: CustomStringConvertible {
             self.message = string.pt_BR
         }
     }
-open 
+
     /// The protocol custom string convertible is required to use description (toString)
     public var description: String {
         return message
     }
-    
+
 }
