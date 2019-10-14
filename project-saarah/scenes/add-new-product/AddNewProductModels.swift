@@ -10,15 +10,18 @@ import Foundation
 
 enum AddNewProduct {
 	// MARK: Use cases
-	enum Something {
+	enum LoadDefaultStatus {
 		struct Request {
 		}
 		struct Response {
 		}
 		struct ViewModel {
-			struct SomeViewModel {
+			struct CellViewModel {
+				let title: String
+				let placeholder: String
+				let acessoryType: Int
 			}
-			var someViewModels: [SomeViewModel]
+			var cellViewModels: [CellViewModel]
 		}
 	}
 }
