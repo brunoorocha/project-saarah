@@ -11,7 +11,7 @@ import UIKit
 class LabeledTableViewCell: UITableViewCell {
     private let componentBackgroundView = UIView(cornerRadius: 8.0, backgroundColor: .white)
 
-    private let productLabel = UILabel(text: "Produto")
+    private let productLabel = UILabel(text: "\(Localization(.labeledTableViewCell(.productLabel)))")
 
     private let productNameLabel = UILabel(textColor: .lightGray)
 
