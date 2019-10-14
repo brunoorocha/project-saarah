@@ -11,10 +11,10 @@ import UIKit
 class ProductItemTableViewCell: UITableViewCell {
     private let backgroundCell = UIView(cornerRadius: 8.0, backgroundColor: .white)
 
-    private let amountLabel = UILabel(text: "Quantidade")
-    private let validityLabel = UILabel(text: "Validade")
-    private let priceLabel = UILabel(text: "Valor")
-    private let addedOnDayLabel = UILabel(text: "Adicionado no Dia")
+    private let amountLabel = UILabel(text: "\(Localization(.productItemTableViewCell(.amountLabel)))")
+    private let validityLabel = UILabel(text: "\(Localization(.productItemTableViewCell(.validityLabel)))")
+    private let priceLabel = UILabel(text: "\(Localization(.productItemTableViewCell(.priceLabel)))")
+    private let addedOnDayLabel = UILabel(text: "\(Localization(.productItemTableViewCell(.addedOnDayLabel)))")
 
     private let numericAmountLabel = UILabel(textColor: .lightGray, textAlignment: .right)
     private let numericValidityLabel = UILabel(textColor: .lightGray, textAlignment: .right)
