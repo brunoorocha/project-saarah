@@ -43,7 +43,7 @@ class HomeViewController: SaarahViewController {
 	}
 
     func defaultViewControllerConfiguration () {
-        title = "Restaurante"
+        title = "\(Localization(.homeScene(.title)))"
         view = homeView
         homeView.tableView.delegate = self
         homeView.tableView.dataSource = self
@@ -84,8 +84,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return EmptySectionHeaderView()
         case .notifications:
             let headerView = DefaultSectionHeaderView()
-            headerView.titleLabel.text = "NOTIFICAÇÕES"
-            headerView.rightButton.setTitle("VER TODAS", for: .normal)
+            headerView.titleLabel.text = "\(Localization(.homeScene(.notification)))"
+            headerView.rightButton.setTitle("\(Localization(.seeAll))", for: .normal)
             return headerView
         }
     }
