@@ -11,6 +11,8 @@ import Foundation
 extension AppStrings {
     var pt_BR: String {
         switch self {
+        case .seeAll:
+            return "Ver todos"
         case .buttonTableViewCell(let options):
             switch options {
             case .title:
@@ -61,12 +63,12 @@ extension AppStrings {
                     return "Cancelar"
                 }
             }
-        case .seeAll:
-            return "Ver todos"
         case .homeScene(let options):
             switch options {
             case .notification:
                 return "Notificações"
+            case .title:
+                return "Restaurante"
             }
         case .productDetailScene(let options):
             switch options {

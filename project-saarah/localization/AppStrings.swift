@@ -59,6 +59,7 @@ enum AppStrings {
     }
 
     enum HomeScene {
+        case title
         case notification
     }
 
