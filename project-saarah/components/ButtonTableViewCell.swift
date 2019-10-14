@@ -22,7 +22,7 @@ class ButtonTableViewCell: UITableViewCell {
         return imageView
     }()
 
-    private let buttonTitleLabel = UILabel(text: "Adicionar Mais Itens Nesse Produto", textAlignment: .center)
+    private let buttonTitleLabel = UILabel(text: "\(Localization(.buttonTableViewCell(.title)))", textAlignment: .center)
 
     override private init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
