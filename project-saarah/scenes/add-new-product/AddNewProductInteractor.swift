@@ -9,7 +9,7 @@
 import Foundation
 
 protocol AddNewProductBusinessLogic {
-	func doSomething(request: AddNewProduct.Something.Request)
+	func loadDefaultStatus(request: AddNewProduct.LoadDefaultStatus.Request)
 }
 
 protocol AddNewProductDataStore {
@@ -22,11 +22,8 @@ class AddNewProductInteractor: AddNewProductBusinessLogic, AddNewProductDataStor
 	//var name: String = ""
 
 	// MARK: Do something
-	func doSomething(request: AddNewProduct.Something.Request) {
-//		worker = Worker()
-//		worker?.doSomeWork()
-
-		let response = AddNewProduct.Something.Response()
+	func loadDefaultStatus(request: AddNewProduct.LoadDefaultStatus.Request) {
+		let response = AddNewProduct.LoadDefaultStatus.Response()
 		presenter?.presentSomething(response: response)
 	}
 }
