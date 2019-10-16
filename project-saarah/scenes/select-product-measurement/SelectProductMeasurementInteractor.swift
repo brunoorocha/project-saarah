@@ -9,24 +9,25 @@
 import Foundation
 
 protocol SelectProductMeasurementBusinessLogic {
-	func doSomething(request: SelectProductMeasurement.Something.Request)
+	func fetchMeasurements(request: SelectProductMeasurement.FetchMeasurements.Request)
 }
 
 protocol SelectProductMeasurementDataStore {
-	//var name: String { get set }
+    var measures: [Measure]? { get }
 }
 
 class SelectProductMeasurementInteractor: SelectProductMeasurementBusinessLogic, SelectProductMeasurementDataStore {
-	var presenter: SelectProductMeasurementPresentationLogic?
-//	var worker: SelectProductMeasurementWorker?
-	//var name: String = ""
 
-	// MARK: Do something
-	func doSomething(request: SelectProductMeasurement.Something.Request) {
-//		worker = Worker()
-//		worker?.doSomeWork()
+    var presenter: SelectProductMeasurementPresentationLogic?
+    var measures: [Measure]?
 
-		let response = SelectProductMeasurement.Something.Response()
-		presenter?.presentSomething(response: response)
+    let measureWorker = MeasureWorker(measureService: MockMeasure())
+
+	func fetchMeasurements(request: SelectProductMeasurement.FetchMeasurements.Request) {
+        measureWorker.fetchMeasures { (measures) in
+            self.measures = measures
+            let response = SelectProductMeasurement.FetchMeasurements.Response(measures: measures)
+            self.presenter?.presentMeasures(response: response)
+        }
 	}
 }
