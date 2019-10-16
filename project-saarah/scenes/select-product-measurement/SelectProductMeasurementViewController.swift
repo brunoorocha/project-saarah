@@ -46,7 +46,7 @@ class SelectProductMeasurementViewController: UIViewController, SelectProductMea
     }
 
     // MARK: Fetch Measurements
-    
+
     var displayMeasurements: [SelectProductMeasurement.FetchMeasurements.ViewModel.DisplayMeasurement] = []
 
     func fetchMeasurements() {
