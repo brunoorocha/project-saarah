@@ -10,15 +10,17 @@ import Foundation
 
 enum SelectProductMeasurement {
 	// MARK: Use cases
-	enum Something {
+	enum FetchMeasurements {
 		struct Request {
 		}
 		struct Response {
+            var measures: [Measure]
 		}
 		struct ViewModel {
-			struct SomeViewModel {
+			struct DisplayMeasurement {
+                var name: String
 			}
-			var someViewModels: [SomeViewModel]
+			var displayMeasurements: [DisplayMeasurement]
 		}
 	}
 }
