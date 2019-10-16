@@ -85,6 +85,11 @@ extension AppStrings {
             case .seeAllFromThisProduct:
                 return "Ver todos os itens desse produto"
             }
+        case .selectProductMeasurement(let options):
+            switch options {
+            case .title:
+                return "Escolher unidade de medida"
+            }
         }
     }
 }

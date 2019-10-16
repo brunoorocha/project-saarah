@@ -39,7 +39,7 @@ class SelectProductMeasurementViewController: UIViewController, SelectProductMea
     }
 
     func setupContentView() {
-        title = "SelectProductMeasurement"
+        title = "\(Localization(.selectProductMeasurement(.title)))"
         view = contentView
         contentView.tableView.delegate = self
         contentView.tableView.dataSource = self
