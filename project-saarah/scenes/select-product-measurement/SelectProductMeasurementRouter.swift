@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SelectProductMeasurementRoutingLogic {
-	//func routeToSomewhere()
+	func routeToNewProduct()
 }
 
 protocol SelectProductMeasurementDataPassing {
@@ -17,6 +17,12 @@ protocol SelectProductMeasurementDataPassing {
 }
 
 class SelectProductMeasurementRouter: NSObject, SelectProductMeasurementRoutingLogic, SelectProductMeasurementDataPassing {
-	weak var viewController: SelectProductMeasurementViewController?
-	var dataStore: SelectProductMeasurementDataStore?
+
+    weak var viewController: SelectProductMeasurementViewController?
+    var dataStore: SelectProductMeasurementDataStore?
+
+    // MARK: Routing
+    func routeToNewProduct() {
+        // TODO: Send back the dataStore
+    }
 }

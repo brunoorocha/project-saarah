@@ -25,7 +25,7 @@ class SelectProductMeasurementViewController: UIViewController, SelectProductMea
     override func viewDidLoad() {
         super.viewDidLoad()
         setupContentView()
-        fetchMeasurements()
+        setup()
     }
 
     // MARK: Init
@@ -38,11 +38,21 @@ class SelectProductMeasurementViewController: UIViewController, SelectProductMea
         super.init(coder: aDecoder)
     }
 
+    private func setup() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(tappedSaveButton))
+    }
+
     func setupContentView() {
         title = "\(Localization(.selectProductMeasurement(.title)))"
         view = contentView
         contentView.tableView.delegate = self
         contentView.tableView.dataSource = self
+    }
+
+    // MARK: View lifecycle
+    override func viewWillAppear(_ animated: Bool) {
+      super.viewWillAppear(animated)
+      fetchMeasurements()
     }
 
     // MARK: Fetch Measurements
@@ -57,6 +67,12 @@ class SelectProductMeasurementViewController: UIViewController, SelectProductMea
     func displayFetchedMeasurements(viewModel: SelectProductMeasurement.FetchMeasurements.ViewModel) {
         displayMeasurements = viewModel.displayMeasurements
         contentView.tableView.reloadData()
+    }
+
+    // MARK: Routes
+    @objc
+    func tappedSaveButton() {
+        router?.routeToNewProduct()
     }
 }
 
@@ -78,6 +94,10 @@ extension SelectProductMeasurementViewController: UITableViewDelegate, UITableVi
         }
         cell.isChecked = true
         self.selectedIndexPath = indexPath
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return EmptySectionHeaderView()
     }
 
 }
