@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B15E0CB2354A3530047A0B6 /* AppStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B15E0CA2354A3520047A0B6 /* AppStrings.swift */; };
+		1B15E0CF2354A3970047A0B6 /* AppStrings+pt_BR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B15E0CE2354A3970047A0B6 /* AppStrings+pt_BR.swift */; };
+		1B15E0D22354A44B0047A0B6 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B15E0D12354A44B0047A0B6 /* Localization.swift */; };
+		1B2DB9B82357AE2E00AF6D80 /* SelectProductMeasurementPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2DB9B12357AE2E00AF6D80 /* SelectProductMeasurementPresenter.swift */; };
+		1B2DB9B92357AE2E00AF6D80 /* SelectProductMeasurementRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2DB9B22357AE2E00AF6D80 /* SelectProductMeasurementRouter.swift */; };
+		1B2DB9BA2357AE2E00AF6D80 /* SelectProductMeasurementModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2DB9B32357AE2E00AF6D80 /* SelectProductMeasurementModels.swift */; };
+		1B2DB9BB2357AE2E00AF6D80 /* SelectProductMeasurementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2DB9B42357AE2E00AF6D80 /* SelectProductMeasurementViewController.swift */; };
+		1B2DB9BC2357AE2E00AF6D80 /* SelectProductMeasurementBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2DB9B52357AE2E00AF6D80 /* SelectProductMeasurementBuilder.swift */; };
+		1B2DB9BD2357AE2E00AF6D80 /* SelectProductMeasurementInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2DB9B62357AE2E00AF6D80 /* SelectProductMeasurementInteractor.swift */; };
+		1B2DB9BE2357AE2E00AF6D80 /* SelectProductMeasurementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2DB9B72357AE2E00AF6D80 /* SelectProductMeasurementView.swift */; };
+		1B2DB9C12357C7A300AF6D80 /* MockMeasure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2DB9C02357C7A300AF6D80 /* MockMeasure.swift */; };
+		1B2DB9C32357C8DB00AF6D80 /* MeasureWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2DB9C22357C8DB00AF6D80 /* MeasureWorker.swift */; };
 		1B76635123478E640069D581 /* ListInventoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B76634B23478E640069D581 /* ListInventoryPresenter.swift */; };
 		1B76635223478E640069D581 /* ListInventoryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B76634C23478E640069D581 /* ListInventoryRouter.swift */; };
 		1B76635323478E640069D581 /* ListInventoryModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B76634D23478E640069D581 /* ListInventoryModels.swift */; };
@@ -105,6 +117,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B15E0CA2354A3520047A0B6 /* AppStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStrings.swift; sourceTree = "<group>"; };
+		1B15E0CE2354A3970047A0B6 /* AppStrings+pt_BR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppStrings+pt_BR.swift"; sourceTree = "<group>"; };
+		1B15E0D12354A44B0047A0B6 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		1B2DB9B12357AE2E00AF6D80 /* SelectProductMeasurementPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectProductMeasurementPresenter.swift; sourceTree = "<group>"; };
+		1B2DB9B22357AE2E00AF6D80 /* SelectProductMeasurementRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectProductMeasurementRouter.swift; sourceTree = "<group>"; };
+		1B2DB9B32357AE2E00AF6D80 /* SelectProductMeasurementModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectProductMeasurementModels.swift; sourceTree = "<group>"; };
+		1B2DB9B42357AE2E00AF6D80 /* SelectProductMeasurementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectProductMeasurementViewController.swift; sourceTree = "<group>"; };
+		1B2DB9B52357AE2E00AF6D80 /* SelectProductMeasurementBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectProductMeasurementBuilder.swift; sourceTree = "<group>"; };
+		1B2DB9B62357AE2E00AF6D80 /* SelectProductMeasurementInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectProductMeasurementInteractor.swift; sourceTree = "<group>"; };
+		1B2DB9B72357AE2E00AF6D80 /* SelectProductMeasurementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectProductMeasurementView.swift; sourceTree = "<group>"; };
+		1B2DB9C02357C7A300AF6D80 /* MockMeasure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMeasure.swift; sourceTree = "<group>"; };
+		1B2DB9C22357C8DB00AF6D80 /* MeasureWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureWorker.swift; sourceTree = "<group>"; };
 		1B76634B23478E640069D581 /* ListInventoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInventoryPresenter.swift; sourceTree = "<group>"; };
 		1B76634C23478E640069D581 /* ListInventoryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInventoryRouter.swift; sourceTree = "<group>"; };
 		1B76634D23478E640069D581 /* ListInventoryModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInventoryModels.swift; sourceTree = "<group>"; };
@@ -216,9 +240,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B15E0C92354A2690047A0B6 /* localization */ = {
+			isa = PBXGroup;
+			children = (
+				1B15E0D12354A44B0047A0B6 /* Localization.swift */,
+				1B15E0CA2354A3520047A0B6 /* AppStrings.swift */,
+				1B15E0D02354A3AC0047A0B6 /* languages */,
+			);
+			path = localization;
+			sourceTree = "<group>";
+		};
+		1B15E0D02354A3AC0047A0B6 /* languages */ = {
+			isa = PBXGroup;
+			children = (
+				1B15E0CE2354A3970047A0B6 /* AppStrings+pt_BR.swift */,
+			);
+			path = languages;
+			sourceTree = "<group>";
+		};
+		1B2DB9B02357AE1C00AF6D80 /* select-product-measurement */ = {
+			isa = PBXGroup;
+			children = (
+				1B2DB9B12357AE2E00AF6D80 /* SelectProductMeasurementPresenter.swift */,
+				1B2DB9B22357AE2E00AF6D80 /* SelectProductMeasurementRouter.swift */,
+				1B2DB9B32357AE2E00AF6D80 /* SelectProductMeasurementModels.swift */,
+				1B2DB9B42357AE2E00AF6D80 /* SelectProductMeasurementViewController.swift */,
+				1B2DB9B52357AE2E00AF6D80 /* SelectProductMeasurementBuilder.swift */,
+				1B2DB9B62357AE2E00AF6D80 /* SelectProductMeasurementInteractor.swift */,
+				1B2DB9B72357AE2E00AF6D80 /* SelectProductMeasurementView.swift */,
+			);
+			path = "select-product-measurement";
+			sourceTree = "<group>";
+		};
+		1B2DB9BF2357C78900AF6D80 /* mocks */ = {
+			isa = PBXGroup;
+			children = (
+				1B2DB9C02357C7A300AF6D80 /* MockMeasure.swift */,
+			);
+			path = mocks;
+			sourceTree = "<group>";
+		};
 		1B4F4178231DF83400EB1F13 /* services */ = {
 			isa = PBXGroup;
 			children = (
+				1B2DB9BF2357C78900AF6D80 /* mocks */,
 				A3522D6A234124AF00DB1314 /* home-notification-service */,
 				1BFB06192331040D00E7DB70 /* README.md */,
 				1B7D018E234CD3CD003B365D /* MockProduct.swift */,
@@ -244,6 +309,7 @@
 			isa = PBXGroup;
 			children = (
 				1B7D0191234CD3F6003B365D /* ProductWorker.swift */,
+				1B2DB9C22357C8DB00AF6D80 /* MeasureWorker.swift */,
 			);
 			path = workers;
 			sourceTree = "<group>";
@@ -393,6 +459,7 @@
 			isa = PBXGroup;
 			children = (
 				A343CF5623180C3C005F2210 /* Info.plist */,
+				1B15E0C92354A2690047A0B6 /* localization */,
 				1B4F4178231DF83400EB1F13 /* services */,
 				1B7D0190234CD3DA003B365D /* workers */,
 				482922F7231D4503005DAF11 /* utils */,
@@ -469,6 +536,7 @@
 				A3D2D0D72340E91800432214 /* home */,
 				48244F50234782E4007B4AA7 /* product-detail */,
 				484848A92354EE7600A84FB0 /* add-new-product */,
+				1B2DB9B02357AE1C00AF6D80 /* select-product-measurement */,
 				A3780872233B8D63005B26E8 /* README.md */,
 			);
 			path = scenes;
@@ -641,6 +709,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48BC8069234CB1560001B1A9 /* ConfigurableController.swift in Sources */,
+				1B15E0D22354A44B0047A0B6 /* Localization.swift in Sources */,
 				489C01A1234B89FC00AEC143 /* FileManager+Image.swift in Sources */,
 				4C94BADB233BA553008D62F5 /* ProductItemTableViewCell.swift in Sources */,
 				481ECD6D2357E97600E3CA18 /* AddNewProductTableViewDataSource.swift in Sources */,
@@ -658,9 +727,12 @@
 				4C94BAEB233CFB71008D62F5 /* PickerFieldtableViewCell.swift in Sources */,
 				A3522D722341882300DB1314 /* SaarahTableViewSeparator.swift in Sources */,
 				487B9B2B23311D2100D8D6CC /* Measure.swift in Sources */,
+				1B2DB9C32357C8DB00AF6D80 /* MeasureWorker.swift in Sources */,
 				48244F5A23478303007B4AA7 /* ProductDetailViewController.swift in Sources */,
 				487B9B252331193900D8D6CC /* Product.swift in Sources */,
+				1B2DB9C12357C7A300AF6D80 /* MockMeasure.swift in Sources */,
 				4818E1372322AFC500EFF585 /* AppDelegate.swift in Sources */,
+				1B2DB9BD2357AE2E00AF6D80 /* SelectProductMeasurementInteractor.swift in Sources */,
 				A304F94D233CED4100C3B6F7 /* SaarahTextField.swift in Sources */,
 				A32D8155233F9028008DB50F /* HomeMenuModels.swift in Sources */,
 				A32D814B233F6A03008DB50F /* HomeCardCollectionViewCell.swift in Sources */,
@@ -669,12 +741,15 @@
 				487B9B2D23311DE400D8D6CC /* MenuItemProduct.swift in Sources */,
 				1B76635223478E640069D581 /* ListInventoryRouter.swift in Sources */,
 				487B9B2723311BC900D8D6CC /* ProductLog.swift in Sources */,
+				1B2DB9BA2357AE2E00AF6D80 /* SelectProductMeasurementModels.swift in Sources */,
 				487B9B2F23311E5400D8D6CC /* MenuItem.swift in Sources */,
+				1B15E0CB2354A3530047A0B6 /* AppStrings.swift in Sources */,
 				A3522D692341200A00DB1314 /* HomeNotification.swift in Sources */,
 				A3B76AD1234CB39D0010B7AF /* HomeBuilder.swift in Sources */,
 				4C94BADD233BA8ED008D62F5 /* UILabel.swift in Sources */,
 				48BC806B234CB6270001B1A9 /* ProductDetailBuilder.swift in Sources */,
 				489C019B234B626B00AEC143 /* DateFormatManager.swift in Sources */,
+				1B2DB9BE2357AE2E00AF6D80 /* SelectProductMeasurementView.swift in Sources */,
 				A304F94F233E270600C3B6F7 /* SelectableCell.swift in Sources */,
 				1B76635323478E640069D581 /* ListInventoryModels.swift in Sources */,
 				A3D2D0D12340E91100432214 /* HomeWorker.swift in Sources */,
@@ -690,6 +765,7 @@
 				A304F944233CDB3300C3B6F7 /* CaptionButton.swift in Sources */,
 				A3780875233B8ECA005B26E8 /* AppStyleGuide.swift in Sources */,
 				487B9B2923311C8F00D8D6CC /* LogType.swift in Sources */,
+				1B2DB9B92357AE2E00AF6D80 /* SelectProductMeasurementRouter.swift in Sources */,
 				A3D2D0D32340E91100432214 /* HomeModels.swift in Sources */,
 				A37808A9233BDFF4005B26E8 /* UIColor+rgbaExtension.swift in Sources */,
 				A32D814F233F7F8B008DB50F /* HomeMenuTableViewCell.swift in Sources */,
@@ -698,6 +774,7 @@
 				A304F942233CDA9800C3B6F7 /* SaarahButton.swift in Sources */,
 				1B76635523478E640069D581 /* ListInventoryInteractor.swift in Sources */,
 				A304F93C233CD90B00C3B6F7 /* DefaultSectionHeaderView.swift in Sources */,
+				1B2DB9BC2357AE2E00AF6D80 /* SelectProductMeasurementBuilder.swift in Sources */,
 				A304F948233CE74500C3B6F7 /* EmptySectionHeaderView.swift in Sources */,
 				A3780889233B988A005B26E8 /* Heading1Label.swift in Sources */,
 				A304F953233E4AD400C3B6F7 /* SaarahTableView.swift in Sources */,
@@ -717,6 +794,8 @@
 				48244F5923478303007B4AA7 /* ProductDetailModels.swift in Sources */,
 				4C94BAE6233CD7BC008D62F5 /* LabeledTableViewCell.swift in Sources */,
 				A3522D6E2341253700DB1314 /* LocalHomeNotificationStore.swift in Sources */,
+				1B15E0CF2354A3970047A0B6 /* AppStrings+pt_BR.swift in Sources */,
+				1B2DB9BB2357AE2E00AF6D80 /* SelectProductMeasurementViewController.swift in Sources */,
 				4C94BAD8233B9086008D62F5 /* UIView.swift in Sources */,
 				A3D2D0D42340E91100432214 /* HomeViewController.swift in Sources */,
 				487B9B3323311F7200D8D6CC /* MenuItemPromotion.swift in Sources */,
@@ -726,6 +805,7 @@
 				484848B22354EEA200A84FB0 /* AddNewProductRouter.swift in Sources */,
 				A3522D70234186AB00DB1314 /* HomeNotificationTableViewCell.swift in Sources */,
 				484848B32354EEA200A84FB0 /* AddNewProductModels.swift in Sources */,
+				1B2DB9B82357AE2E00AF6D80 /* SelectProductMeasurementPresenter.swift in Sources */,
 				48244F5723478303007B4AA7 /* ProductDetailPresenter.swift in Sources */,
 				1B7D0192234CD3F6003B365D /* ProductWorker.swift in Sources */,
 				48244F5B23478303007B4AA7 /* ProductDetailInteractor.swift in Sources */,
@@ -866,8 +946,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MK2CL4Y92D;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "project-saarah/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -875,6 +956,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.project.project-saarah";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -884,8 +966,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MK2CL4Y92D;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "project-saarah/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -893,6 +976,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.project.project-saarah";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

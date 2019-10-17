@@ -52,7 +52,7 @@ class ProductDetailViewController: UIViewController, ProductDetailDisplayLogic {
 	}
 
 	func setupContentView() {
-		title = "ProductDetail"
+        title = "\(Localization(.productDetailScene(.title)))"
 		view = contentView
 		contentView.tableView.delegate = self
 		contentView.tableView.dataSource = self
