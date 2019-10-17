@@ -72,7 +72,8 @@ class SelectProductMeasurementViewController: UIViewController, SelectProductMea
     // MARK: Routes
     @objc
     func tappedSaveButton() {
-        router?.routeToNewProduct()
+        guard let indexPath = selectedIndexPath else { return }
+        router?.routeToNewProduct(row: indexPath.row)
     }
 }
 
@@ -82,7 +83,7 @@ extension SelectProductMeasurementViewController: UITableViewDelegate, UITableVi
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        contentView.buildCell(indexPath: indexPath, name: displayMeasurements[indexPath.row].name)
+        return contentView.buildCell(indexPath: indexPath, name: displayMeasurements[indexPath.row].name)
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
