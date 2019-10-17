@@ -9,7 +9,8 @@
 import UIKit
 
 protocol AddNewProductRoutingLogic {
-	//func routeToSomewhere()
+	func routeToChooseMeasurement()
+	func routeToAddProductItem()
 }
 
 protocol AddNewProductDataPassing {
@@ -20,25 +21,37 @@ class AddNewProductRouter: NSObject, AddNewProductRoutingLogic, AddNewProductDat
 	weak var viewController: AddNewProductViewController?
 	var dataStore: AddNewProductDataStore?
 
+	// TODO: Remoce comments
 	// MARK: Routing
-//	func routeToSomewhere() {
-//		let destinationVC = SomewhereViewController()
+	func routeToChooseMeasurement() {
+//		let destinationVC = ChooseMeasurementViewController()
+//		guard let viewController = viewController else { return }
+//
+//		navigateToChooseMeasurement(source: viewController, destination: destinationVC)
+	}
+
+	func routeToAddProductItem() {
+//		let destinationVC = AddProductItemViewController()
 //		guard var destinationDataStore = destinationVC.router?.dataStore else { return }
 //
 //		guard let dataStore = dataStore else { return }
 //		guard let viewController = viewController else { return }
 //
-//		passDataToSomewhere(source: dataStore, destination: &destinationDataStore)
-//		navigateToSomewhere(source: viewController, destination: destinationVC)
+//		passDataToAddProductItem(source: AddNewProductDataStore, destination: destinationDataStore)
+//		navigateToAddProductItem(source: viewController, destination: destinationVC)
+	}
+
+	// MARK: Passing data
+//	func passDataToAddProductItem(source: AddNewProductDataStore, destination: inout SomewhereDataStore) {
+//		destination.product = source.product
+//	}
+
+	// MARK: Navigation
+//	func navigateToChooseMeasurement(source: AddNewProductViewController, destination: ChooseMeasurementViewController) {
+//		source.show(destination, sender: nil)
 //	}
 //
-//	// MARK: Passing data
-//	func passDataToSomewhere(source: AddNewProductDataStore, destination: inout SomewhereDataStore) {
-//		destination.name = source.name
-//	}
-//
-//	// MARK: Navigation
-//	func navigateToSomewhere(source: AddNewProductViewController, destination: SomewhereViewController) {
+//	func navigateToAddProductItem(source: AddNewProductViewController, destination: AddProductItemViewController) {
 //		source.show(destination, sender: nil)
 //	}
 }

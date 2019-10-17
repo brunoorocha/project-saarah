@@ -83,8 +83,10 @@ class ListInventoryViewController: UIViewController, ListInventoryDisplayLogic {
         let optionMenu = UIAlertController(title: nil, message: "Adicionar novo produto", preferredStyle: .actionSheet)
 
         let addWithBarcode = UIAlertAction(title: "Ler código de barras", style: .default)
-        let add = UIAlertAction(title: "Adicionar sem código de barras", style: .default)
-
+		let add = UIAlertAction(title: "Adicionar sem código de barras", style: .default) { _ in
+			let vc = AddNewProductViewController()
+			self.present(vc, animated: true, completion: nil)
+		}
         let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel)
 
         optionMenu.addAction(addWithBarcode)

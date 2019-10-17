@@ -21,4 +21,3 @@ class AddNewProductBuilder {
         router.dataStore = interactor
     }
 }
-

@@ -9,19 +9,23 @@
 import Foundation
 
 enum AddNewProduct {
+	struct ProductForm {
+		let name: String
+		let barCode: String?
+		let measure: String
+	}
 	// MARK: Use cases
-	enum LoadDefaultStatus {
+	enum SaveProduct {
 		struct Request {
+			let productForm: ProductForm
 		}
 		struct Response {
+			let apiMessage: String
 		}
-		struct ViewModel {
-			struct CellViewModel {
-				let title: String
-				let placeholder: String
-				let acessoryType: Int
-			}
-			var cellViewModels: [CellViewModel]
+		struct ResponseAPIViewModel {
+			let success: Bool
+			let title: String
+			let message: String
 		}
 	}
 }
