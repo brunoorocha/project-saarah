@@ -9,16 +9,25 @@
 import Foundation
 
 enum AddProductItem {
+	struct AddItemForm {
+		let quantity: Double
+		let price: Double
+		let expirationDate: String
+	}
 	// MARK: Use cases
-	enum Something {
+	enum AddItem {
 		struct Request {
+			let addItemForm: AddItemForm
 		}
 		struct Response {
+			let apiMessage: String
 		}
 		struct ViewModel {
-			struct SomeViewModel {
+			struct AddItemViewModel {
+				let success: Bool
+				let title: String
+				let message: String
 			}
-			var someViewModels: [SomeViewModel]
 		}
 	}
 }
