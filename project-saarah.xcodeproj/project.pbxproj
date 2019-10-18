@@ -96,6 +96,8 @@
 		A37808A6233BDD6C005B26E8 /* SaarahImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37808A5233BDD6C005B26E8 /* SaarahImageView.swift */; };
 		A37808A7233BDF6C005B26E8 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3780881233B94C6005B26E8 /* Nunito-Bold.ttf */; };
 		A37808A9233BDFF4005B26E8 /* UIColor+rgbaExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37808A8233BDFF4005B26E8 /* UIColor+rgbaExtension.swift */; };
+		A3859A552359F3FE003E4B1B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3859A542359F3FE003E4B1B /* NetworkService.swift */; };
+		A3859A572359FC8B003E4B1B /* ApiHomeNotificationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3859A562359FC8B003E4B1B /* ApiHomeNotificationStore.swift */; };
 		A3AACBC82340C946000EFB6B /* SaarahViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AACBC72340C946000EFB6B /* SaarahViewController.swift */; };
 		A3ABCE71233CCFDE00FF54FD /* SaarahIconImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ABCE70233CCFDE00FF54FD /* SaarahIconImageView.swift */; };
 		A3B76AD1234CB39D0010B7AF /* HomeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B76AD0234CB39D0010B7AF /* HomeBuilder.swift */; };
@@ -201,6 +203,8 @@
 		A378089D233BA8B8005B26E8 /* CaptionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionLabel.swift; sourceTree = "<group>"; };
 		A37808A5233BDD6C005B26E8 /* SaarahImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahImageView.swift; sourceTree = "<group>"; };
 		A37808A8233BDFF4005B26E8 /* UIColor+rgbaExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+rgbaExtension.swift"; sourceTree = "<group>"; };
+		A3859A542359F3FE003E4B1B /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		A3859A562359FC8B003E4B1B /* ApiHomeNotificationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiHomeNotificationStore.swift; sourceTree = "<group>"; };
 		A3AACBC72340C946000EFB6B /* SaarahViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahViewController.swift; sourceTree = "<group>"; };
 		A3ABCE70233CCFDE00FF54FD /* SaarahIconImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahIconImageView.swift; sourceTree = "<group>"; };
 		A3B76AD0234CB39D0010B7AF /* HomeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBuilder.swift; sourceTree = "<group>"; };
@@ -267,6 +271,7 @@
 		1B4F4178231DF83400EB1F13 /* services */ = {
 			isa = PBXGroup;
 			children = (
+				A3859A532359F3C1003E4B1B /* network */,
 				1B2DB9BF2357C78900AF6D80 /* mocks */,
 				A3522D6A234124AF00DB1314 /* home-notification-service */,
 				1BFB06192331040D00E7DB70 /* README.md */,
@@ -448,6 +453,7 @@
 			isa = PBXGroup;
 			children = (
 				A3522D6D2341253700DB1314 /* LocalHomeNotificationStore.swift */,
+				A3859A562359FC8B003E4B1B /* ApiHomeNotificationStore.swift */,
 			);
 			path = "home-notification-service";
 			sourceTree = "<group>";
@@ -563,6 +569,14 @@
 				A3522D6F234186AB00DB1314 /* HomeNotificationTableViewCell.swift */,
 			);
 			path = "custom-cells";
+			sourceTree = "<group>";
+		};
+		A3859A532359F3C1003E4B1B /* network */ = {
+			isa = PBXGroup;
+			children = (
+				A3859A542359F3FE003E4B1B /* NetworkService.swift */,
+			);
+			path = network;
 			sourceTree = "<group>";
 		};
 		A3D2D0D72340E91800432214 /* home */ = {
@@ -734,8 +748,10 @@
 				A3D2D0D32340E91100432214 /* HomeModels.swift in Sources */,
 				A37808A9233BDFF4005B26E8 /* UIColor+rgbaExtension.swift in Sources */,
 				A32D814F233F7F8B008DB50F /* HomeMenuTableViewCell.swift in Sources */,
+				A3859A572359FC8B003E4B1B /* ApiHomeNotificationStore.swift in Sources */,
 				A3ABCE71233CCFDE00FF54FD /* SaarahIconImageView.swift in Sources */,
 				487B9B37233122C400D8D6CC /* Menu.swift in Sources */,
+				A3859A552359F3FE003E4B1B /* NetworkService.swift in Sources */,
 				A304F942233CDA9800C3B6F7 /* SaarahButton.swift in Sources */,
 				1B76635523478E640069D581 /* ListInventoryInteractor.swift in Sources */,
 				A304F93C233CD90B00C3B6F7 /* DefaultSectionHeaderView.swift in Sources */,
