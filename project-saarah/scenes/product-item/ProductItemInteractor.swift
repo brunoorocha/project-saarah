@@ -15,14 +15,16 @@ protocol ProductItemBusinessLogic {
 
 protocol ProductItemDataStore {
 	var product: Product? { get set }
-    var productItems: [ProductLog] { get set }
+    var productItems: [ProductLog]? { get set }
 }
 
 class ProductItemInteractor: ProductItemBusinessLogic, ProductItemDataStore {
 
     var presenter: ProductItemPresentationLogic?
     var product: Product?
-    var productItems: [ProductLog] = []
+    var productItems: [ProductLog]?
+
+    let productItemWorker = ProductItemWorker(productItemService: MockProductItem())
 
     // MARK: Get product
     func getProduct(request: ProductItem.ReceiveProduct.Request) {
@@ -34,7 +36,10 @@ class ProductItemInteractor: ProductItemBusinessLogic, ProductItemDataStore {
 
     // MARK: Fetch product items
     func fetchProductItem(request: ProductItem.FetchProductItem.Request) {
-        let response = ProductItem.FetchProductItem.Response(ProductItems: [])
-        presenter?.presentProductItem(response: response)
+        productItemWorker.fetchProductItems { (productItems) in
+            self.productItems = productItems
+            let response = ProductItem.FetchProductItem.Response(ProductItems: productItems)
+            self.presenter?.presentProductItem(response: response)
+        }
     }
 }

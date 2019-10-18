@@ -29,13 +29,13 @@ class ProductItemPresenter: ProductItemPresentationLogic {
         for item in response.ProductItems {
             var price = "Não informado"
             var expiration = "Não informado"
-            if let hasPrice = item.price { price = "\(hasPrice)" }
-            if let hasExpiration = item.expiration { expiration = "\(hasExpiration)" }
+            if let hasPrice = item.price { price = "\(hasPrice.roundToDecimal(2))" }
+            if let hasExpiration = item.expiration { expiration = "\(hasExpiration.formatter())" }
             let displayedItem = ProductItem.FetchProductItem.ViewModel.DisplayProductItem(
                 amount: "\(item.quantity)",
                 expiration: expiration,
                 price: price,
-                created: "\(item.createdDate)")
+                created: item.createdDate.formatter())
             displayItems.append(displayedItem)
         }
         let viewModel = ProductItem.FetchProductItem.ViewModel(DisplayProductItems: displayItems)

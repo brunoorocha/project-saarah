@@ -69,7 +69,7 @@ class ProductItemViewController: UIViewController, ProductItemDisplayLogic {
     // MARK: Display Product Item
     func displayProductItem(viewModel: ProductItem.FetchProductItem.ViewModel) {
         tableViewDataSource.viewModel = viewModel
-        contentView.tableView.reloadSections(IndexSet(integer: 1), with: .automatic)
+        contentView.tableView.reloadData()
 	}
 }
 
