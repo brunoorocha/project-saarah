@@ -27,4 +27,3 @@ class ProductItemWorker: ProductItemStore {
         }
     }
 }
-

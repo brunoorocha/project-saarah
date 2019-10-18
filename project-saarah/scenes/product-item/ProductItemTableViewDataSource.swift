@@ -70,7 +70,7 @@ class ProductItemTableViewDataSource {
         guard let cell = cell as? LabeledTableViewCell else { return UITableViewCell() }
         guard let viewModel = productViewModel else { return UITableViewCell() }
 
-        cell.setupProductNameLabelWith(viewModel.product.name)
+        cell.setupProductName(withName: viewModel.product.name)
 
         return cell
     }
