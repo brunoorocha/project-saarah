@@ -27,8 +27,8 @@ class ProductItemPresenter: ProductItemPresentationLogic {
     func presentProductItem(response: ProductItem.FetchProductItem.Response) {
         var displayItems: [ProductItem.FetchProductItem.ViewModel.DisplayProductItem] = []
         for item in response.ProductItems {
-            var price = "Não informado"
-            var expiration = "Não informado"
+            var price = "\(Localization(.productItemScene(.notInformed)))"
+            var expiration = "\(Localization(.productItemScene(.notInformed)))"
             if let hasPrice = item.price { price = "\(hasPrice.roundToDecimal(2))" }
             if let hasExpiration = item.expiration { expiration = "\(hasExpiration.formatter())" }
             let displayedItem = ProductItem.FetchProductItem.ViewModel.DisplayProductItem(

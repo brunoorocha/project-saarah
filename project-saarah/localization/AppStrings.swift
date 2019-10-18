@@ -21,6 +21,7 @@ enum AppStrings {
     case homeScene(HomeScene)
     case productDetailScene(ProductDetailScene)
     case selectProductMeasurement(SelectProductMeasurement)
+    case productItemScene(ProductItemScene)
 
     // MARK: Enum's
 
@@ -75,5 +76,10 @@ enum AppStrings {
 
     enum SelectProductMeasurement {
         case title
+    }
+
+    enum ProductItemScene {
+        case title
+        case notInformed
     }
 }
