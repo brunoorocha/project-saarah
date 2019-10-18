@@ -23,7 +23,7 @@ class Product {
 		self.logs = logs
 	}
 
-    //TODO: - insert a real count quantity function
+    // TODO: - insert a real count quantity function
     func quantity() -> String {
         return "10"
     }

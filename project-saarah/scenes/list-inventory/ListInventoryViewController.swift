@@ -80,12 +80,12 @@ class ListInventoryViewController: UIViewController, ListInventoryDisplayLogic {
     @objc
     func tappedAddButton() {
 
-        let optionMenu = UIAlertController(title: nil, message: "Adicionar novo produto", preferredStyle: .actionSheet)
+        let optionMenu = UIAlertController(title: nil, message: "\(Localization(.listInventoryScene(.addAlertController(.title))))", preferredStyle: .actionSheet)
 
-        let addWithBarcode = UIAlertAction(title: "Ler código de barras", style: .default)
-        let add = UIAlertAction(title: "Adicionar sem código de barras", style: .default)
+        let addWithBarcode = UIAlertAction(title: "\(Localization(.listInventoryScene(.addAlertController(.addWithBarCode))))", style: .default)
+        let add = UIAlertAction(title: "\(Localization(.listInventoryScene(.addAlertController(.addWithoutBarCode))))", style: .default)
 
-        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel)
+        let cancelAction = UIAlertAction(title: "\(Localization(.listInventoryScene(.addAlertController(.cancel))))", style: .cancel)
 
         optionMenu.addAction(addWithBarcode)
         optionMenu.addAction(add)
@@ -100,7 +100,7 @@ extension ListInventoryViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return contentView.buildHeaderSection(
             section: section,
-            title: "Produtos no estoque"
+            title: "\(Localization(.listInventoryScene(.productInStock)))"
         )
     }
 

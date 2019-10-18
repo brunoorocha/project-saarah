@@ -20,7 +20,7 @@ class ProductDetailRouter: NSObject, ProductDetailRoutingLogic, ProductDetailDat
 	weak var viewController: ProductDetailViewController?
 	var dataStore: ProductDetailDataStore?
 
-	//TODO: - Remove coments to push to next controller
+	// TODO: - Remove coments to push to next controller
 	// MARK: Routing
 	func routeToProductItems() {
 //		let destinationVC = ProductItemsViewController()
