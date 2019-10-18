@@ -10,7 +10,7 @@ import UIKit
 
 class ProductItemTableViewDataSource {
     var viewModel: ProductItem.FetchProductItem.ViewModel?
-    var productViewModel: ProductItem.ReceiveProduct.ViewModel.Product?
+    var productViewModel: ProductItem.ReceiveProduct.ViewModel?
 
     func registerCells(for tableView: UITableView) {
         tableView.register(LabeledTableViewCell.self, forCellReuseIdentifier: "labeledTableViewCell")
@@ -32,12 +32,6 @@ class ProductItemTableViewDataSource {
     }
 
     func numberOfSections() -> Int {
-        guard let viewModel = viewModel else { return 0 }
-
-        if viewModel.DisplayProductItems.count == 0 {
-            return 2
-        }
-
         return 3
     }
 
@@ -76,7 +70,7 @@ class ProductItemTableViewDataSource {
         guard let cell = cell as? LabeledTableViewCell else { return UITableViewCell() }
         guard let viewModel = productViewModel else { return UITableViewCell() }
 
-        cell.setupProductNameLabelWith(viewModel.name)
+        cell.setupProductNameLabelWith(viewModel.product.name)
 
         return cell
     }
