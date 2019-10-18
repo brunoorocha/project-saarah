@@ -43,6 +43,7 @@ class LabeledTableViewCell: SaarahTableViewCell {
     }
 
     public func setupProductName(withName name: String) {
+        productLabel.text = "\(Localization(.labeledTableViewCell(.productLabel)))"
         productNameLabel.text = name
     }
 }
