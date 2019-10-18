@@ -47,7 +47,7 @@ class ProductItemViewController: UIViewController, ProductItemDisplayLogic {
         contentView.tableView.dataSource = self
         tableViewDataSource.registerCells(for: contentView.tableView)
 	}
-    
+
     // MARK: Get product
     func getProduct() {
         let request = ProductItem.ReceiveProduct.Request()
@@ -65,7 +65,7 @@ class ProductItemViewController: UIViewController, ProductItemDisplayLogic {
         tableViewDataSource.productViewModel = viewModel
         contentView.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
     }
-    
+
     // MARK: Display Product Item
     func displayProductItem(viewModel: ProductItem.FetchProductItem.ViewModel) {
         tableViewDataSource.viewModel = viewModel
@@ -77,7 +77,7 @@ extension ProductItemViewController: UITableViewDataSource, UITableViewDelegate 
     func numberOfSections(in tableView: UITableView) -> Int {
         return tableViewDataSource.numberOfSections()
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableViewDataSource.numberOfRows(in: section)
     }
