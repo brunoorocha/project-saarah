@@ -90,10 +90,12 @@ extension AppStrings {
             case .title:
                 return "Escolher unidade de medida"
             }
-        case .productItem(let options):
+        case .productItemScene(let options):
             switch options {
             case .title:
                 return "Itens do produto"
+            case .notInformed:
+                return "Não informado"
             }
         }
     }

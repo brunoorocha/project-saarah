@@ -41,7 +41,7 @@ class ProductItemViewController: UIViewController, ProductItemDisplayLogic {
 	}
 
 	func setupContentView() {
-        title = "\(Localization(.productItem(.title)))"
+        title = "\(Localization(.productItemScene(.title)))"
 		view = contentView
         contentView.tableView.delegate = self
         contentView.tableView.dataSource = self
