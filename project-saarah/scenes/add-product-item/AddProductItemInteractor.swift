@@ -9,24 +9,27 @@
 import Foundation
 
 protocol AddProductItemBusinessLogic {
-	func doSomething(request: AddProductItem.Something.Request)
+	func addProductItem(request: AddProductItem.AddItem.Request)
 }
 
 protocol AddProductItemDataStore {
-	//var name: String { get set }
+	var product: Product? { get set }
+	var productItem: ProductLog? { get set }
 }
 
 class AddProductItemInteractor: AddProductItemBusinessLogic, AddProductItemDataStore {
 	var presenter: AddProductItemPresentationLogic?
 //	var worker: AddProductItemWorker?
-	//var name: String = ""
+	var product: Product?
+	var productItem: ProductLog?
 
 	// MARK: Do something
-	func doSomething(request: AddProductItem.Something.Request) {
+	func addProductItem(request: AddProductItem.AddItem.Request) {
+		// TODO: Create worker
 //		worker = Worker()
 //		worker?.doSomeWork()
 
-		let response = AddProductItem.Something.Response()
-		presenter?.presentSomething(response: response)
+		let response = AddProductItem.AddItem.Response(apiMessage: "success")
+		presenter?.presentAPIResponse(response: response)
 	}
 }
