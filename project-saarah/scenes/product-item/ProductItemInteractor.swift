@@ -9,24 +9,32 @@
 import Foundation
 
 protocol ProductItemBusinessLogic {
-	func doSomething(request: ProductItem.Something.Request)
+	func getProduct(request: ProductItem.ReceiveProduct.Request)
+    func fetchProductItem(request: ProductItem.FetchProductItem.Request)
 }
 
 protocol ProductItemDataStore {
-	//var name: String { get set }
+	var product: Product? { get set }
+    var productItems: [ProductLog] { get set }
 }
 
 class ProductItemInteractor: ProductItemBusinessLogic, ProductItemDataStore {
-	var presenter: ProductItemPresentationLogic?
-//	var worker: ProductItemWorker?
-	//var name: String = ""
 
-	// MARK: Do something
-	func doSomething(request: ProductItem.Something.Request) {
-//		worker = Worker()
-//		worker?.doSomeWork()
+    var presenter: ProductItemPresentationLogic?
+    var product: Product?
+    var productItems: [ProductLog] = []
 
-		let response = ProductItem.Something.Response()
-		presenter?.presentSomething(response: response)
-	}
+    // MARK: Get product
+    func getProduct(request: ProductItem.ReceiveProduct.Request) {
+        if let product = product {
+            let response = ProductItem.ReceiveProduct.Response(product: product)
+            presenter?.presentProduct(response: response)
+        }
+    }
+
+    // MARK: Fetch product items
+    func fetchProductItem(request: ProductItem.FetchProductItem.Request) {
+        let response = ProductItem.FetchProductItem.Response(ProductItems: [])
+        presenter?.presentProductItem(response: response)
+    }
 }

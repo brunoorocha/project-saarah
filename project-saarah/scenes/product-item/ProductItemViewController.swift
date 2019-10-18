@@ -9,7 +9,8 @@
 import UIKit
 
 protocol ProductItemDisplayLogic: class {
-	func displaySomething(viewModel: ProductItem.Something.ViewModel)
+    func displayProduct(viewModel: ProductItem.ReceiveProduct.ViewModel)
+	func displayProductItem(viewModel: ProductItem.FetchProductItem.ViewModel)
 }
 
 class ProductItemViewController: UIViewController, ProductItemDisplayLogic {
@@ -19,12 +20,14 @@ class ProductItemViewController: UIViewController, ProductItemDisplayLogic {
 
 	// MARK: Controller Property
 	private var contentView = ProductItemView()
+    let tableViewDataSource = ProductItemTableViewDataSource()
 
 	// MARK: View lifecycle
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupContentView()
-		doSomething()
+        getProduct()
+        fetchProductItems()
 	}
 
 	// MARK: Init
@@ -40,14 +43,55 @@ class ProductItemViewController: UIViewController, ProductItemDisplayLogic {
 	func setupContentView() {
 		title = "ProductItem"
 		view = contentView
+        contentView.tableView.delegate = self
+        contentView.tableView.dataSource = self
+        tableViewDataSource.registerCells(for: contentView.tableView)
 	}
+    
+    // MARK: Get product
+    func getProduct() {
+        let request = ProductItem.ReceiveProduct.Request()
+        interactor?.getProduct(request: request)
+    }
 
-	// MARK: Do something
-	func doSomething() {
-		let request = ProductItem.Something.Request()
-		interactor?.doSomething(request: request)
-	}
+    // MARK: Fetch product items
+    func fetchProductItems() {
+        let request = ProductItem.FetchProductItem.Request()
+        interactor?.fetchProductItem(request: request)
+    }
 
-	func displaySomething(viewModel: ProductItem.Something.ViewModel) {
+    // MARK: Display product
+    func displayProduct(viewModel: ProductItem.ReceiveProduct.ViewModel) {
+        tableViewDataSource.productViewModel = viewModel
+        contentView.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+    }
+    
+    // MARK: Display Product Item
+    func displayProductItem(viewModel: ProductItem.FetchProductItem.ViewModel) {
+        tableViewDataSource.viewModel = viewModel
+        contentView.tableView.reloadSections(IndexSet(integer: 1), with: .automatic)
 	}
+}
+
+extension ProductItemViewController: UITableViewDataSource, UITableViewDelegate {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return tableViewDataSource.numberOfSections()
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tableViewDataSource.numberOfRows(in: section)
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let reuseIdentifier = tableViewDataSource.reuseIdentifier(for: indexPath.section)
+        let reusableCell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
+        let cell = tableViewDataSource.modify(reusableCell, for: indexPath)
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if (indexPath.section == 3) {
+            // Call router to add new
+        }
+    }
 }

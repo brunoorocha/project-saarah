@@ -9,15 +9,37 @@
 import Foundation
 
 protocol ProductItemPresentationLogic {
-	func presentSomething(response: ProductItem.Something.Response)
+    func presentProduct(response: ProductItem.ReceiveProduct.Response)
+    func presentProductItem(response: ProductItem.FetchProductItem.Response)
 }
 
 class ProductItemPresenter: ProductItemPresentationLogic {
 	weak var viewController: ProductItemDisplayLogic?
 
-	// MARK: Do something
-	func presentSomething(response: ProductItem.Something.Response) {
-//		let viewModel = ProductItem.Something.ViewModel()
-//		viewController?.displaySomething(viewModel: viewModel)
+	// MARK: Present the product
+	func presentProduct(response: ProductItem.ReceiveProduct.Response) {
+        let product = ProductItem.ReceiveProduct.ViewModel.Product(name: response.product.name)
+        let viewModel = ProductItem.ReceiveProduct.ViewModel(product: product)
+		viewController?.displayProduct(viewModel: viewModel)
 	}
+
+    // MARK: Present the product items
+    func presentProductItem(response: ProductItem.FetchProductItem.Response) {
+        var displayItems: [ProductItem.FetchProductItem.ViewModel.DisplayProductItem] = []
+        for item in response.ProductItems {
+            var price = "Não informado"
+            var expiration = "Não informado"
+            if let hasPrice = item.price { price = "\(hasPrice)" }
+            if let hasExpiration = item.expiration { expiration = "\(hasExpiration)" }
+            let displayedItem = ProductItem.FetchProductItem.ViewModel.DisplayProductItem(
+                amount: "\(item.quantity)",
+                expiration: expiration,
+                price: price,
+                created: "\(item.createdDate)")
+            displayItems.append(displayedItem)
+        }
+        let viewModel = ProductItem.FetchProductItem.ViewModel(DisplayProductItems: displayItems)
+        viewController?.displayProductItem(viewModel: viewModel)
+    }
+
 }
