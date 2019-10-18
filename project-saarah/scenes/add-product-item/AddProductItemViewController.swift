@@ -58,7 +58,7 @@ class AddProductItemViewController: UIViewController, AddProductItemDisplayLogic
 			let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
 			alert.addAction(okAction)
 		}
-		
+
 		present(alert, animated: true, completion: nil)
 	}
 }
@@ -67,7 +67,7 @@ extension AddProductItemViewController: AddProductItemViewDelegate {
 	func cancelAction() {
 		dismiss(animated: true, completion: nil)
 	}
-	
+
 	func saveAction() {
 		var indexPath = IndexPath(row: 0, section: 0)
 		guard let cell0 = contentView.tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell else { return }
@@ -81,7 +81,7 @@ extension AddProductItemViewController: AddProductItemViewDelegate {
 		indexPath.item = 1
 		guard let cell2 = contentView.tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell else { return }
 		guard let expirationDate = cell2.textField.text else { return }
-		
+
 		let itemForm = AddProductItem.AddItemForm(quantity: quantity, price: price, expirationDate: expirationDate)
 		let request = AddProductItem.AddItem.Request(addItemForm: itemForm)
 		interactor?.addProductItem(request: request)
@@ -92,19 +92,19 @@ extension AddProductItemViewController: UITableViewDelegate, UITableViewDataSour
 	func numberOfSections(in tableView: UITableView) -> Int {
 		return tableViewDataSource.numberOfSections()
 	}
-	
+
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return tableViewDataSource.numberOfRows(in: section)
 	}
-	
+
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		return tableViewDataSource.viewForHeader(in: section)
 	}
-	
+
 	func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
 		return tableViewDataSource.viewForFooter(in: section)
 	}
-	
+
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let reuseIdentifier = tableViewDataSource.reuseIdentifier(for: indexPath.section)
 		let reusableCell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)

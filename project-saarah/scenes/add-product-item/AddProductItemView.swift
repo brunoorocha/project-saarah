@@ -16,31 +16,31 @@ protocol AddProductItemViewDelegate: class {
 class AddProductItemView: UIView {
 	var navigationBar: UINavigationBar!
 	var tableView: SaarahTableView!
-	
+
 	weak var delegate: AddProductItemViewDelegate?
-	
+
 	init() {
 		super.init(frame: .zero)
-		
+
 		backgroundColor = UIColor.white
-		
+
 		instantiateViews()
 		buildViewsHierarchy()
 		setupConstraints()
 	}
-	
+
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
-	
+
 	@objc func cancelButtonAction() {
 		delegate?.cancelAction()
 	}
-	
+
 	@objc func saveButtonAction() {
 		delegate?.saveAction()
 	}
-	
+
 	func instantiateViews() {
 		navigationBar = UINavigationBar()
 		navigationBar.translatesAutoresizingMaskIntoConstraints = false
@@ -58,12 +58,12 @@ class AddProductItemView: UIView {
 		navigationBar.setItems([navigationItem], animated: false)
 		tableView = SaarahTableView()
 	}
-	
+
 	func buildViewsHierarchy() {
 		addSubview(navigationBar)
 		addSubview(tableView)
 	}
-	
+
 	func setupConstraints() {
 		NSLayoutConstraint.activate([
 			navigationBar.leadingAnchor.constraint(equalTo: leadingAnchor),
