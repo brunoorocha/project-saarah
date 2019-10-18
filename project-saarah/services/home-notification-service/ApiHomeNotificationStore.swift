@@ -10,18 +10,13 @@ import Foundation
 
 class ApiHomeNotificationStore: HomeNotificationStoreProtocol {
     func fetchNotifications(completionHandler: @escaping ([HomeNotification]) -> Void) {
-        guard let url = URL(string: "https://conehead-api.herokuapp.com/api/v1/notifications") else { return }
-
-        let endpoint = Endpoint(url: url)
         let networkService = NetworkService()
-        networkService.request(endpoint: endpoint) { (result) in
+        networkService.request(endpoint: ConeheadApiEndpoint.fetchNotifications) { (result: Result<[HomeNotification]?, NetworkServiceError>) in
             switch result {
-            case .success(let data):
-                print(String(data: data!, encoding: .utf8) ?? "")
-
+            case .success(let notifications):
+                completionHandler(notifications ?? [])
             case .failure(let error):
                 print(error)
-
             }
         }
 

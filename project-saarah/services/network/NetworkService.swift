@@ -8,40 +8,38 @@
 
 import Foundation
 
-enum HttpMethod: String {
-    case get = "GET"
-    case post = "POST"
-}
-
-struct Endpoint {
-    var url: URL
-    var httpMethod: HttpMethod = .get
-    var body: [String: Any]?
-}
-
-enum NetworkError: Error {
+enum NetworkServiceError: Error {
     case errorStatusCode(_ statusCode: Int)
     case notConnected
     case cancelled
     case unknown
+    case invalidUrl
+    case jsonDecodingError
+    case dataIsNil
 }
 
 protocol NetworkServiceProtocol {
-    func request(endpoint: Endpoint, completionHandler: @escaping (Result<Data?, NetworkError>) -> Void)
+    func request(endpoint: EndpointType, completionHandler: @escaping (Result<Data?, NetworkServiceError>) -> Void)
 }
 
 class NetworkService: NetworkServiceProtocol {
     private var task: URLSessionTask?
 
-    func request(endpoint: Endpoint, completionHandler: @escaping (Result<Data?, NetworkError>) -> Void) {
+    func request<T: Decodable>(endpoint: EndpointType, completionHandler: @escaping (Result<T?, NetworkServiceError>) -> Void) {
         let session = URLSession.shared
-        var request = URLRequest(url: endpoint.url)
+
+        guard let url = endpoint.url else {
+            completionHandler(.failure(.invalidUrl))
+            return
+        }
+
+        var request = URLRequest(url: url)
         request.httpMethod = endpoint.httpMethod.rawValue
 
         self.task = session.dataTask(with: request) { data, response, error in
 
             if let error = error {
-                var networkError: NetworkError
+                var networkError: NetworkServiceError
 
                 if let errorResponse = response as? HTTPURLResponse, (400..<600).contains(errorResponse.statusCode) {
                     networkError = .errorStatusCode(errorResponse.statusCode)
@@ -57,11 +55,30 @@ class NetworkService: NetworkServiceProtocol {
                     completionHandler(.failure(networkError))
                 }
             } else {
-                DispatchQueue.main.async {
-                    completionHandler(.success(data))
+                do {
+                    guard let data = data else {
+                        DispatchQueue.main.async {
+                            completionHandler(.failure(.dataIsNil))
+                        }
+
+                        return
+                    }
+
+                    let decodedObject = try JSONDecoder().decode(T.self, from: data)
+                    DispatchQueue.main.async {
+                        completionHandler(.success(decodedObject))
+                    }
+                } catch let error {
+                    #if DEBUG
+                    print(error)
+                    #endif
+
+                    DispatchQueue.main.async {
+                        completionHandler(.failure(.jsonDecodingError))
+                    }
                 }
             }
-            
+
         }
 
         task?.resume()
