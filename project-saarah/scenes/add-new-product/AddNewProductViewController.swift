@@ -43,7 +43,7 @@ class AddNewProductViewController: SaarahViewController, AddNewProductDisplayLog
 		contentView.delegate = self
 		contentView.tableView.delegate = self
 		contentView.tableView.dataSource = self
-		tableViewDataSource.resgisterCells(for: contentView.tableView)
+		tableViewDataSource.resgisterCell(for: contentView.tableView)
 		contentView.tableView.reloadData()
 	}
 
