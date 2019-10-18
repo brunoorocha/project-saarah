@@ -71,6 +71,7 @@ class ProductItemTableViewDataSource {
         guard let viewModel = productViewModel else { return UITableViewCell() }
 
         cell.setupProductName(withName: viewModel.product.name)
+        cell.roundCellIfNeeded(index: 0, numberOfCells: 1)
 
         return cell
     }
