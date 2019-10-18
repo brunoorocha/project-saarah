@@ -26,7 +26,7 @@ extension HomeNotification: Decodable {
         case message
         case type
     }
-    
+
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         emoji = try values.decode(String.self, forKey: .emoji)
