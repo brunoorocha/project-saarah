@@ -8,34 +8,30 @@
 
 import Foundation
 
-enum HttpMethod: String {
-    case get = "GET"
-    case post = "POST"
-}
-
-struct Endpoint {
-    var url: URL
-    var httpMethod: HttpMethod = .get
-    var body: [String: Any]?
-}
-
 enum NetworkError: Error {
     case errorStatusCode(_ statusCode: Int)
     case notConnected
     case cancelled
     case unknown
+    case invalidUrl
 }
 
 protocol NetworkServiceProtocol {
-    func request(endpoint: Endpoint, completionHandler: @escaping (Result<Data?, NetworkError>) -> Void)
+    func request(endpoint: EndpointType, completionHandler: @escaping (Result<Data?, NetworkError>) -> Void)
 }
 
 class NetworkService: NetworkServiceProtocol {
     private var task: URLSessionTask?
 
-    func request(endpoint: Endpoint, completionHandler: @escaping (Result<Data?, NetworkError>) -> Void) {
+    func request(endpoint: EndpointType, completionHandler: @escaping (Result<Data?, NetworkError>) -> Void) {
         let session = URLSession.shared
-        var request = URLRequest(url: endpoint.url)
+
+        guard let url = endpoint.url else {
+            completionHandler(.failure(.invalidUrl))
+            return
+        }
+
+        var request = URLRequest(url: url)
         request.httpMethod = endpoint.httpMethod.rawValue
 
         self.task = session.dataTask(with: request) { data, response, error in
@@ -61,7 +57,7 @@ class NetworkService: NetworkServiceProtocol {
                     completionHandler(.success(data))
                 }
             }
-            
+
         }
 
         task?.resume()

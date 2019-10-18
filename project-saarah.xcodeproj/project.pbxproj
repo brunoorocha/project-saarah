@@ -98,6 +98,8 @@
 		A37808A9233BDFF4005B26E8 /* UIColor+rgbaExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37808A8233BDFF4005B26E8 /* UIColor+rgbaExtension.swift */; };
 		A3859A552359F3FE003E4B1B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3859A542359F3FE003E4B1B /* NetworkService.swift */; };
 		A3859A572359FC8B003E4B1B /* ApiHomeNotificationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3859A562359FC8B003E4B1B /* ApiHomeNotificationStore.swift */; };
+		A3859A59235A0263003E4B1B /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3859A58235A0263003E4B1B /* Endpoint.swift */; };
+		A3859A5B235A0279003E4B1B /* ConeheadApiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3859A5A235A0279003E4B1B /* ConeheadApiEndpoint.swift */; };
 		A3AACBC82340C946000EFB6B /* SaarahViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AACBC72340C946000EFB6B /* SaarahViewController.swift */; };
 		A3ABCE71233CCFDE00FF54FD /* SaarahIconImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ABCE70233CCFDE00FF54FD /* SaarahIconImageView.swift */; };
 		A3B76AD1234CB39D0010B7AF /* HomeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B76AD0234CB39D0010B7AF /* HomeBuilder.swift */; };
@@ -205,6 +207,8 @@
 		A37808A8233BDFF4005B26E8 /* UIColor+rgbaExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+rgbaExtension.swift"; sourceTree = "<group>"; };
 		A3859A542359F3FE003E4B1B /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		A3859A562359FC8B003E4B1B /* ApiHomeNotificationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiHomeNotificationStore.swift; sourceTree = "<group>"; };
+		A3859A58235A0263003E4B1B /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		A3859A5A235A0279003E4B1B /* ConeheadApiEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConeheadApiEndpoint.swift; sourceTree = "<group>"; };
 		A3AACBC72340C946000EFB6B /* SaarahViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahViewController.swift; sourceTree = "<group>"; };
 		A3ABCE70233CCFDE00FF54FD /* SaarahIconImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahIconImageView.swift; sourceTree = "<group>"; };
 		A3B76AD0234CB39D0010B7AF /* HomeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBuilder.swift; sourceTree = "<group>"; };
@@ -575,6 +579,8 @@
 			isa = PBXGroup;
 			children = (
 				A3859A542359F3FE003E4B1B /* NetworkService.swift */,
+				A3859A58235A0263003E4B1B /* Endpoint.swift */,
+				A3859A5A235A0279003E4B1B /* ConeheadApiEndpoint.swift */,
 			);
 			path = network;
 			sourceTree = "<group>";
@@ -700,8 +706,10 @@
 				A32D814D233F6FE0008DB50F /* HomeMenuCollectionView.swift in Sources */,
 				A353D7C9231FE416004A5139 /* NavigationDrawerView.swift in Sources */,
 				48244F5E23479187007B4AA7 /* ProductDetailTableViewDataSource.swift in Sources */,
+				A3859A59235A0263003E4B1B /* Endpoint.swift in Sources */,
 				487B9B3523311FDC00D8D6CC /* Promotion.swift in Sources */,
 				A353D7CE231FE4B1004A5139 /* NavigationDrawerMenu.swift in Sources */,
+				A3859A5B235A0279003E4B1B /* ConeheadApiEndpoint.swift in Sources */,
 				A3D2D0D62340E91100432214 /* HomeView.swift in Sources */,
 				A3AACBC82340C946000EFB6B /* SaarahViewController.swift in Sources */,
 				48244F5C23478303007B4AA7 /* ProductDetailView.swift in Sources */,
