@@ -10,15 +10,33 @@ import Foundation
 
 enum ProductItem {
 	// MARK: Use cases
-	enum Something {
+    enum ReceiveProduct {
+        struct Request {
+        }
+        struct Response {
+            let product: Product
+        }
+        struct ViewModel {
+            struct Product {
+                var name: String
+            }
+            var product: Product
+        }
+    }
+	enum FetchProductItem {
 		struct Request {
 		}
 		struct Response {
+            let ProductItems: [ProductLog]
 		}
 		struct ViewModel {
-			struct SomeViewModel {
+			struct DisplayProductItem {
+                var amount: String
+                var expiration: String
+                var price: String
+                var created: String
 			}
-			var someViewModels: [SomeViewModel]
+			var DisplayProductItems: [DisplayProductItem]
 		}
 	}
 }
