@@ -93,7 +93,7 @@ extension ProductDetailViewController: UITableViewDelegate, UITableViewDataSourc
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		if (indexPath.section == 1) {
-			router?.routeToProductItems()
+			router?.routeToProductItem()
 		}
 	}
 }
