@@ -9,9 +9,9 @@
 import UIKit
 
 class ProductItemView: UIView {
-    
+
     var tableView: UITableView!
-    
+
 	init() {
 		super.init(frame: .zero)
 
