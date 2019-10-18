@@ -9,6 +9,9 @@
 import UIKit
 
 class ProductItemView: UIView {
+    
+    var tableView: UITableView!
+    
 	init() {
 		super.init(frame: .zero)
 
@@ -24,11 +27,19 @@ class ProductItemView: UIView {
 	}
 
 	func instantiateViews() {
+        tableView = SaarahTableView()
 	}
 
 	func buildViewsHierarchy() {
+        addSubview(tableView)
 	}
 
 	func setupConstraints() {
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
 	}
 }
