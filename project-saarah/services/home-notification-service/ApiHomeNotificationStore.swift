@@ -14,7 +14,12 @@ class ApiHomeNotificationStore: HomeNotificationStoreProtocol {
         networkService.request(endpoint: ConeheadApiEndpoint.fetchNotifications) { (result: Result<[HomeNotification]?, NetworkServiceError>) in
             switch result {
             case .success(let notifications):
-                completionHandler(notifications ?? [])
+                guard let notifications = notifications else {
+                    completionHandler([])
+                    return
+                }
+
+                completionHandler(notifications)
             case .failure(let error):
                 print(error)
             }

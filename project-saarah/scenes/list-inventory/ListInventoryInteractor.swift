@@ -21,7 +21,7 @@ class ListInventoryInteractor: ListInventoryBusinessLogic, ListInventoryDataStor
     var presenter: ListInventoryPresentationLogic?
     var products: [Product]?
 
-    let productWorker = ProductWorker(productService: MockProduct())
+    let productWorker = ProductWorker(productService: ApiProductStore())
 
 	// MARK: Fetch Products
     func fetchProducts(request: ListInventory.FetchProducts.Request) {

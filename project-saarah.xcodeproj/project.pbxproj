@@ -112,6 +112,8 @@
 		A3859A572359FC8B003E4B1B /* ApiHomeNotificationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3859A562359FC8B003E4B1B /* ApiHomeNotificationStore.swift */; };
 		A3859A59235A0263003E4B1B /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3859A58235A0263003E4B1B /* Endpoint.swift */; };
 		A3859A5B235A0279003E4B1B /* ConeheadApiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3859A5A235A0279003E4B1B /* ConeheadApiEndpoint.swift */; };
+		A3A79735235B3B9600B5724F /* ApiProductStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A79734235B3B9600B5724F /* ApiProductStore.swift */; };
+		A3A79737235B3BBC00B5724F /* HomeNotificationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A79736235B3BBC00B5724F /* HomeNotificationWorker.swift */; };
 		A3AACBC82340C946000EFB6B /* SaarahViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AACBC72340C946000EFB6B /* SaarahViewController.swift */; };
 		A3ABCE71233CCFDE00FF54FD /* SaarahIconImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ABCE70233CCFDE00FF54FD /* SaarahIconImageView.swift */; };
 		A3B76AD1234CB39D0010B7AF /* HomeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B76AD0234CB39D0010B7AF /* HomeBuilder.swift */; };
@@ -233,6 +235,8 @@
 		A3859A562359FC8B003E4B1B /* ApiHomeNotificationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiHomeNotificationStore.swift; sourceTree = "<group>"; };
 		A3859A58235A0263003E4B1B /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		A3859A5A235A0279003E4B1B /* ConeheadApiEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConeheadApiEndpoint.swift; sourceTree = "<group>"; };
+		A3A79734235B3B9600B5724F /* ApiProductStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiProductStore.swift; sourceTree = "<group>"; };
+		A3A79736235B3BBC00B5724F /* HomeNotificationWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNotificationWorker.swift; sourceTree = "<group>"; };
 		A3AACBC72340C946000EFB6B /* SaarahViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahViewController.swift; sourceTree = "<group>"; };
 		A3ABCE70233CCFDE00FF54FD /* SaarahIconImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahIconImageView.swift; sourceTree = "<group>"; };
 		A3B76AD0234CB39D0010B7AF /* HomeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBuilder.swift; sourceTree = "<group>"; };
@@ -315,11 +319,11 @@
 		1B4F4178231DF83400EB1F13 /* services */ = {
 			isa = PBXGroup;
 			children = (
+				A3A79733235B3AE300B5724F /* product-service */,
 				A3859A532359F3C1003E4B1B /* network */,
 				1B2DB9BF2357C78900AF6D80 /* mocks */,
 				A3522D6A234124AF00DB1314 /* home-notification-service */,
 				1BFB06192331040D00E7DB70 /* README.md */,
-				1B7D018E234CD3CD003B365D /* MockProduct.swift */,
 			);
 			path = services;
 			sourceTree = "<group>";
@@ -344,6 +348,7 @@
 				1B7D0191234CD3F6003B365D /* ProductWorker.swift */,
 				1B2DB9C22357C8DB00AF6D80 /* MeasureWorker.swift */,
 				1B4DFA81235981A9002C2B55 /* ProductItemWorker.swift */,
+				A3A79736235B3BBC00B5724F /* HomeNotificationWorker.swift */,
 			);
 			path = workers;
 			sourceTree = "<group>";
@@ -629,6 +634,15 @@
 			path = network;
 			sourceTree = "<group>";
 		};
+		A3A79733235B3AE300B5724F /* product-service */ = {
+			isa = PBXGroup;
+			children = (
+				1B7D018E234CD3CD003B365D /* MockProduct.swift */,
+				A3A79734235B3B9600B5724F /* ApiProductStore.swift */,
+			);
+			path = "product-service";
+			sourceTree = "<group>";
+		};
 		A3D2D0D72340E91800432214 /* home */ = {
 			isa = PBXGroup;
 			children = (
@@ -762,6 +776,7 @@
 				A3522D722341882300DB1314 /* SaarahTableViewSeparator.swift in Sources */,
 				1B537887235A224A007C819D /* LabeledTableViewCell.swift in Sources */,
 				487B9B2B23311D2100D8D6CC /* Measure.swift in Sources */,
+				A3A79737235B3BBC00B5724F /* HomeNotificationWorker.swift in Sources */,
 				1B4DFA7B23595B6E002C2B55 /* ProductItemViewController.swift in Sources */,
 				1B2DB9C32357C8DB00AF6D80 /* MeasureWorker.swift in Sources */,
 				48244F5A23478303007B4AA7 /* ProductDetailViewController.swift in Sources */,
@@ -810,6 +825,7 @@
 				A37808A9233BDFF4005B26E8 /* UIColor+rgbaExtension.swift in Sources */,
 				A32D814F233F7F8B008DB50F /* HomeMenuTableViewCell.swift in Sources */,
 				A3859A572359FC8B003E4B1B /* ApiHomeNotificationStore.swift in Sources */,
+				A3A79735235B3B9600B5724F /* ApiProductStore.swift in Sources */,
 				A3ABCE71233CCFDE00FF54FD /* SaarahIconImageView.swift in Sources */,
 				487B9B37233122C400D8D6CC /* Menu.swift in Sources */,
 				A3859A552359F3FE003E4B1B /* NetworkService.swift in Sources */,

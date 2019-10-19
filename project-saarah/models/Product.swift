@@ -22,7 +22,7 @@ class Product: Decodable {
 		self.barCode = barCode
 		self.logs = logs
 	}
-    
+
     required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         id = try values.decode(String.self, forKey: .id)

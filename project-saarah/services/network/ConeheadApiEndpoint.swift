@@ -10,6 +10,7 @@ import Foundation
 
 enum ConeheadApiEndpoint {
     case fetchNotifications
+    case fetchProducts
 }
 
 extension ConeheadApiEndpoint: EndpointType {
@@ -25,6 +26,8 @@ extension ConeheadApiEndpoint: EndpointType {
         switch self {
         case .fetchNotifications:
             return .get
+        case .fetchProducts:
+            return .get
         }
     }
 
@@ -32,6 +35,8 @@ extension ConeheadApiEndpoint: EndpointType {
         switch self {
         case .fetchNotifications:
             return apiAddress + "notifications"
+        case .fetchProducts:
+            return apiAddress + "products"
         }
     }
 
