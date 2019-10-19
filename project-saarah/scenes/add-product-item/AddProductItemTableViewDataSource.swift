@@ -9,7 +9,7 @@
 import UIKit
 
 class AddProductItemTableViewDataSource {
-	func resgisterCells(for tableView: UITableView) {
+	func resgisterCell(for tableView: UITableView) {
 		tableView.register(TextFieldTableViewCell.self, forCellReuseIdentifier: "TextFieldTableViewCell")
 	}
 
@@ -36,12 +36,12 @@ class AddProductItemTableViewDataSource {
 		switch (section) {
 		case 0:
 			let headerView = DefaultSectionHeaderView()
-			headerView.titleLabel.text = "\(Localization(.productDetailScene(.basicInformation)))"
+			headerView.titleLabel.text = "\(Localization(.addProductItemScene(.basicInformation)))"
 			headerView.rightButton.isHidden = true
 			return headerView
 		case 1:
 			let headerView = DefaultSectionHeaderView()
-			headerView.titleLabel.text = "INFORMAÇÕES COMPLEMENTARES (OPCIONAL)"
+			headerView.titleLabel.text = "\(Localization(.addProductItemScene(.complementaryInformation)))"
 			headerView.rightButton.isHidden = true
 			return headerView
 		default:
@@ -49,17 +49,10 @@ class AddProductItemTableViewDataSource {
 		}
 	}
 
-	func viewForFooter(in section: Int) -> UIView? {
-		if (section == 1) {
-			// TODO: Create footer view
-		}
-		return nil
-	}
-
 	func modify(_ cell: UITableViewCell, for indexPath: IndexPath) -> UITableViewCell {
 		switch (indexPath.section) {
 		case 0:
-			return firsSection(cell, for: indexPath.row)
+			return firstSection(cell, for: indexPath.row)
 		case 1:
 			return secondSection(cell)
 		default:
@@ -67,19 +60,19 @@ class AddProductItemTableViewDataSource {
 		}
 	}
 
-	func firsSection(_ cell: UITableViewCell, for row: Int) -> UITableViewCell {
+	func firstSection(_ cell: UITableViewCell, for row: Int) -> UITableViewCell {
 		guard let cell = cell as? TextFieldTableViewCell else { return UITableViewCell() }
 		cell.roundCellIfNeeded(index: row, numberOfCells: 2)
 
 		switch (row) {
 		case 0:
-			cell.fieldLabel.text = "Quantidade"
-			// TODO: get the measure name
-			cell.textField.placeholder = "0 kg"
+			cell.fieldLabel.text = "\(Localization(.addProductItemScene(.quantity)))"
+			// TODO: get the measure name o add in the end of placeholder
+			cell.textField.placeholder = "\(Localization(.addProductItemScene(.quantityPlaceholder)))"
 			cell.textField.keyboardType = .numberPad
 		case 1:
-			cell.fieldLabel.text = "Preço"
-			cell.textField.placeholder = "R$ 0,00"
+			cell.fieldLabel.text = "\(Localization(.addProductItemScene(.price)))"
+			cell.textField.placeholder = "\(Localization(.addProductItemScene(.pricePlaceholder)))"
 			cell.textField.keyboardType = .numberPad
 		default:
 			break
@@ -92,8 +85,8 @@ class AddProductItemTableViewDataSource {
 		guard let cell = cell as? TextFieldTableViewCell else { return UITableViewCell() }
 		cell.roundCellIfNeeded(index: 0, numberOfCells: 1)
 
-		cell.fieldLabel.text = "Validade"
-		cell.textField.placeholder = "Toque para inserir a validade"
+		cell.fieldLabel.text = "\(Localization(.addProductItemScene(.expirationDate)))"
+		cell.textField.placeholder = "\(Localization(.addProductItemScene(.expirationDatePlaceholder)))"
 
 		return cell
 	}

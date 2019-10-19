@@ -42,7 +42,7 @@ class AddProductItemViewController: UIViewController, AddProductItemDisplayLogic
 		contentView.delegate = self
 		contentView.tableView.delegate = self
 		contentView.tableView.dataSource = self
-		tableViewDataSource.resgisterCells(for: contentView.tableView)
+		tableViewDataSource.resgisterCell(for: contentView.tableView)
 		contentView.tableView.reloadData()
 	}
 
@@ -50,12 +50,12 @@ class AddProductItemViewController: UIViewController, AddProductItemDisplayLogic
 	func displayAPIResponse(viewModel: AddProductItem.AddItem.ViewModel.AddItemViewModel) {
 		let alert = UIAlertController(title: viewModel.title, message: viewModel.message, preferredStyle: .alert)
 		if (viewModel.success) {
-			let okAction = UIAlertAction(title: "Ok", style: .default) { _ in
+			let okAction = UIAlertAction(title: "\(Localization(.addProductItemScene(.alertActionTitle)))", style: .default) { _ in
 				self.dismiss(animated: true, completion: nil)
 			}
 			alert.addAction(okAction)
 		} else {
-			let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+			let okAction = UIAlertAction(title: "\(Localization(.addProductItemScene(.alertActionTitle)))", style: .default, handler: nil)
 			alert.addAction(okAction)
 		}
 
@@ -99,10 +99,6 @@ extension AddProductItemViewController: UITableViewDelegate, UITableViewDataSour
 
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		return tableViewDataSource.viewForHeader(in: section)
-	}
-
-	func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-		return tableViewDataSource.viewForFooter(in: section)
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

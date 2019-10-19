@@ -90,6 +90,44 @@ extension AppStrings {
             case .title:
                 return "Escolher unidade de medida"
             }
-        }
+        case .productItemScene(let options):
+            switch options {
+            case .title:
+                return "Itens do produto"
+            case .notInformed:
+                return "Não informado"
+            }
+		case .addProductItemScene(let options):
+			switch options {
+			case .title:
+				return "Adicionar item do produto"
+			case .cancelBarButton:
+				return "Cancelar"
+			case .saveBarButton:
+				return "Salvar"
+			case .alertActionTitle:
+				return "Ok"
+			case .basicInformation:
+				return "INFORMAÇÕES BÁSICAS"
+			case .quantity:
+				return "Quantidade"
+			case .quantityPlaceholder:
+				return "0 "
+			case .price:
+				return "Preço"
+			case .pricePlaceholder:
+				return "R$ 0,00"
+			case .complementaryInformation:
+				return "INFORMAÇÕES COMPLEMENTARES (OPCIONAL)"
+			case .expirationDate:
+				return "Validade"
+			case .expirationDatePlaceholder:
+				return "Toque para inserir a validade"
+			case .successResponseTitle:
+				return "Sucesso"
+			case .successResponseMessage:
+				return "O novo item do seu produto foi salvo na nuvem."
+			}
+		}
     }
 }

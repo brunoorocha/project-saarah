@@ -50,9 +50,9 @@ class AddProductItemView: UIView {
 			NSAttributedString.Key.foregroundColor: AppStyleGuide.Colors.textColor.uiColor
 		]
 		navigationBar.titleTextAttributes = navbarTitleAttributes
-		let navigationItem = UINavigationItem(title: "Adicionar item do produto")
-		let leftButton = UIBarButtonItem(title: "Cancelar", style: .plain, target: self, action: #selector(cancelButtonAction))
-		let rightButton = UIBarButtonItem(title: "Salvar", style: .done, target: self, action: #selector(saveButtonAction))
+		let navigationItem = UINavigationItem(title: "\(Localization(.addProductItemScene(.title)))")
+		let leftButton = UIBarButtonItem(title: "\(Localization(.addProductItemScene(.cancelBarButton)))", style: .plain, target: self, action: #selector(cancelButtonAction))
+		let rightButton = UIBarButtonItem(title: "\(Localization(.addProductItemScene(.saveBarButton)))", style: .done, target: self, action: #selector(saveButtonAction))
 		navigationItem.leftBarButtonItem = leftButton
 		navigationItem.rightBarButtonItem = rightButton
 		navigationBar.setItems([navigationItem], animated: false)

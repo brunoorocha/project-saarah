@@ -19,7 +19,7 @@ class AddProductItemPresenter: AddProductItemPresentationLogic {
 	func presentAPIResponse(response: AddProductItem.AddItem.Response) {
 		switch (response.apiMessage) {
 		case "success":
-			let viewModel = AddProductItem.AddItem.ViewModel.AddItemViewModel(success: true, title: "Sucesso", message: "O novo item do seu produto foi salvo na nuvem.")
+			let viewModel = AddProductItem.AddItem.ViewModel.AddItemViewModel(success: true, title: "\(Localization(.addProductItemScene(.successResponseTitle)))", message: "\(Localization(.addProductItemScene(.successResponseMessage)))")
 			viewController?.displayAPIResponse(viewModel: viewModel)
 		default:
 			break
