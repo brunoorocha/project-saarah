@@ -38,7 +38,7 @@ class AddNewProductViewController: SaarahViewController, AddNewProductDisplayLog
 	}
 
 	func setupContentView() {
-		title = "Criar novo produto"
+		title = "\(Localization(.addNewProductScene(.title)))"
 		view = contentView
 		contentView.delegate = self
 		contentView.tableView.delegate = self
@@ -51,12 +51,12 @@ class AddNewProductViewController: SaarahViewController, AddNewProductDisplayLog
 	func displayAPIResponse(viewModel: AddNewProduct.SaveProduct.ResponseAPIViewModel) {
 		let alert = UIAlertController(title: viewModel.title, message: viewModel.message, preferredStyle: .alert)
 		if (viewModel.success) {
-			let okAction = UIAlertAction(title: "Ok", style: .default) { _ in
+			let okAction = UIAlertAction(title: "\(Localization(.addNewProductScene(.alertAction)))", style: .default) { _ in
 				self.router?.routeToAddProductItem()
 			}
 			alert.addAction(okAction)
 		} else {
-			let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+			let okAction = UIAlertAction(title: "\(Localization(.addNewProductScene(.alertAction)))", style: .default, handler: nil)
 			alert.addAction(okAction)
 		}
 

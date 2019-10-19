@@ -14,12 +14,7 @@ class AddNewProductTableViewDataSource {
 	}
 
 	func reuseIdentifier(for section: Int) -> String {
-		switch (section) {
-		case 0:
-			return "TextFieldTableViewCell"
-		default:
-			return ""
-		}
+		return "TextFieldTableViewCell"
 	}
 
 	func numberOfSections() -> Int {
@@ -34,7 +29,7 @@ class AddNewProductTableViewDataSource {
 		switch (section) {
 		case 0:
 			let headerView = DefaultSectionHeaderView()
-			headerView.titleLabel.text = "INFORMAÇÕES BÁSICAS"
+			headerView.titleLabel.text = "\(Localization(.addNewProductScene(.basicInformation)))"
 			headerView.rightButton.isHidden = true
 			return headerView
 		default:
@@ -43,28 +38,23 @@ class AddNewProductTableViewDataSource {
 	}
 
 	func modify(_ cell: UITableViewCell, for indexPath: IndexPath) -> UITableViewCell {
-		switch (indexPath.section) {
-		case 0:
-			return firsSection(cell, for: indexPath.row)
-		default:
-			return UITableViewCell()
-		}
+		return firstSection(cell, for: indexPath.row)
 	}
 
-	func firsSection(_ cell: UITableViewCell, for row: Int) -> UITableViewCell {
+	func firstSection(_ cell: UITableViewCell, for row: Int) -> UITableViewCell {
 		guard let cell = cell as? TextFieldTableViewCell else { return UITableViewCell() }
 		cell.roundCellIfNeeded(index: row, numberOfCells: 3)
 
 		switch (row) {
 		case 0:
-			cell.fieldLabel.text = "Nome do produto"
-			cell.textField.placeholder = "Toque para digitar o nome do produto"
+			cell.fieldLabel.text = "\(Localization(.addNewProductScene(.productName)))"
+			cell.textField.placeholder = "\(Localization(.addNewProductScene(.productNamePlaceholder)))"
 		case 1:
-			cell.fieldLabel.text = "Código de barras (opcional)"
-			cell.textField.placeholder = "Toque para inserir o código de barras"
+			cell.fieldLabel.text = "\(Localization(.addNewProductScene(.barCode)))"
+			cell.textField.placeholder = "\(Localization(.addNewProductScene(.barCodePlacehoder)))"
 		case 2:
-			cell.fieldLabel.text = "Unidade de medidas"
-			cell.textField.placeholder = "Quilos, gramas, litros..."
+			cell.fieldLabel.text = "\(Localization(.addNewProductScene(.measure)))"
+			cell.textField.placeholder = "\(Localization(.addNewProductScene(.measurePlaceholder)))"
 			cell.textField.isUserInteractionEnabled = false
 		default:
 			break
