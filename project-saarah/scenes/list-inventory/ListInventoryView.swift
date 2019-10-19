@@ -48,7 +48,7 @@ class ListInventoryView: UIView {
 
     func buildHeaderSection(section: Int, title: String) -> UIView {
         let header = DefaultSectionHeaderView()
-        header.titleLabel.text = title.uppercased()
+        header.titleLabelText = title
         return header
     }
 

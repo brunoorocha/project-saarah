@@ -84,8 +84,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return EmptySectionHeaderView()
         case .notifications:
             let headerView = DefaultSectionHeaderView()
-            headerView.titleLabel.text = "\(Localization(.homeScene(.notification)))"
-            headerView.rightButton.setTitle("\(Localization(.seeAll))", for: .normal)
+            headerView.titleLabelText = Localization(.homeScene(.notification)).description
+            headerView.rightButtonText = Localization(.seeAll).description
             return headerView
         }
     }
