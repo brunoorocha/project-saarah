@@ -32,6 +32,7 @@
 		1B5378832359881B007C819D /* Double+RoundToDecimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5378822359881B007C819D /* Double+RoundToDecimal.swift */; };
 		1B537885235988A8007C819D /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B537884235988A8007C819D /* Date+Formatter.swift */; };
 		1B537887235A224A007C819D /* LabeledTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B537886235A224A007C819D /* LabeledTableViewCell.swift */; };
+		1B716459235CB70D000ABC08 /* ProductItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B716458235CB70D000ABC08 /* ProductItemTableViewCell.swift */; };
 		1B76635123478E640069D581 /* ListInventoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B76634B23478E640069D581 /* ListInventoryPresenter.swift */; };
 		1B76635223478E640069D581 /* ListInventoryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B76634C23478E640069D581 /* ListInventoryRouter.swift */; };
 		1B76635323478E640069D581 /* ListInventoryModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B76634D23478E640069D581 /* ListInventoryModels.swift */; };
@@ -64,7 +65,6 @@
 		48BC8069234CB1560001B1A9 /* ConfigurableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482922F5231D42B2005DAF11 /* ConfigurableController.swift */; };
 		48BC806B234CB6270001B1A9 /* ProductDetailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BC806A234CB6270001B1A9 /* ProductDetailBuilder.swift */; };
 		4C94BAD8233B9086008D62F5 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94BAD7233B9086008D62F5 /* UIView.swift */; };
-		4C94BADB233BA553008D62F5 /* ProductItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94BADA233BA552008D62F5 /* ProductItemTableViewCell.swift */; };
 		4C94BADD233BA8ED008D62F5 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94BADC233BA8ED008D62F5 /* UILabel.swift */; };
 		4C94BAE2233BE19A008D62F5 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94BAE1233BE19A008D62F5 /* TableViewController.swift */; };
 		4C94BAE4233BEE05008D62F5 /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94BAE3233BEE05008D62F5 /* ButtonTableViewCell.swift */; };
@@ -150,6 +150,7 @@
 		1B5378822359881B007C819D /* Double+RoundToDecimal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+RoundToDecimal.swift"; sourceTree = "<group>"; };
 		1B537884235988A8007C819D /* Date+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Formatter.swift"; sourceTree = "<group>"; };
 		1B537886235A224A007C819D /* LabeledTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabeledTableViewCell.swift; sourceTree = "<group>"; };
+		1B716458235CB70D000ABC08 /* ProductItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductItemTableViewCell.swift; sourceTree = "<group>"; };
 		1B76634B23478E640069D581 /* ListInventoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInventoryPresenter.swift; sourceTree = "<group>"; };
 		1B76634C23478E640069D581 /* ListInventoryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInventoryRouter.swift; sourceTree = "<group>"; };
 		1B76634D23478E640069D581 /* ListInventoryModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInventoryModels.swift; sourceTree = "<group>"; };
@@ -181,7 +182,6 @@
 		489C019A234B626B00AEC143 /* DateFormatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatManager.swift; sourceTree = "<group>"; };
 		48BC806A234CB6270001B1A9 /* ProductDetailBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailBuilder.swift; sourceTree = "<group>"; };
 		4C94BAD7233B9086008D62F5 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		4C94BADA233BA552008D62F5 /* ProductItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductItemTableViewCell.swift; sourceTree = "<group>"; };
 		4C94BADC233BA8ED008D62F5 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		4C94BAE1233BE19A008D62F5 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		4C94BAE3233BEE05008D62F5 /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
@@ -418,7 +418,6 @@
 			isa = PBXGroup;
 			children = (
 				4C94BAE3233BEE05008D62F5 /* ButtonTableViewCell.swift */,
-				4C94BADA233BA552008D62F5 /* ProductItemTableViewCell.swift */,
 				4C94BAE7233CE4FA008D62F5 /* ProductTableViewCell.swift */,
 			);
 			path = components;
@@ -615,6 +614,7 @@
 				A304F94E233E270600C3B6F7 /* SelectableCell.swift */,
 				A3522D6F234186AB00DB1314 /* HomeNotificationTableViewCell.swift */,
 				1B537886235A224A007C819D /* LabeledTableViewCell.swift */,
+				1B716458235CB70D000ABC08 /* ProductItemTableViewCell.swift */,
 			);
 			path = "custom-cells";
 			sourceTree = "<group>";
@@ -743,7 +743,6 @@
 				48BC8069234CB1560001B1A9 /* ConfigurableController.swift in Sources */,
 				1B15E0D22354A44B0047A0B6 /* Localization.swift in Sources */,
 				489C01A1234B89FC00AEC143 /* FileManager+Image.swift in Sources */,
-				4C94BADB233BA553008D62F5 /* ProductItemTableViewCell.swift in Sources */,
 				A3D2D0D52340E91100432214 /* HomeInteractor.swift in Sources */,
 				4C94BAE4233BEE05008D62F5 /* ButtonTableViewCell.swift in Sources */,
 				A3D2D0D22340E91100432214 /* HomeRouter.swift in Sources */,
@@ -782,6 +781,7 @@
 				487B9B2723311BC900D8D6CC /* ProductLog.swift in Sources */,
 				1B2DB9BA2357AE2E00AF6D80 /* SelectProductMeasurementModels.swift in Sources */,
 				487B9B2F23311E5400D8D6CC /* MenuItem.swift in Sources */,
+				1B716459235CB70D000ABC08 /* ProductItemTableViewCell.swift in Sources */,
 				1B15E0CB2354A3530047A0B6 /* AppStrings.swift in Sources */,
 				A3522D692341200A00DB1314 /* HomeNotification.swift in Sources */,
 				A3B76AD1234CB39D0010B7AF /* HomeBuilder.swift in Sources */,
