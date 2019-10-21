@@ -69,7 +69,7 @@ class HomeTableViewDataSource: NSObject {
     }
 
     func firstSectionCell (for tableView: UITableView, in indexPath: IndexPath) -> UITableViewCell {
-        guard let homeMenuTableViewCell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewSections.menu.reuseIdentifier, for: indexPath) as? HomeMenuTableViewCell else { return UITableViewCell() }
+        guard let homeMenuTableViewCell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewSections.menu.reuseIdentifier, for: indexPath) as? HomeMenuTableViewCell else { return UITableViewCell() } // swiftlint:disable:this line_length
         homeMenuTableViewCell.homeMenuCollectionView.delegate = homeMenuCollectionViewDelegate
         homeMenuTableViewCell.homeMenuCollectionView.dataSource = homeMenuCollectionViewDataSource
         return homeMenuTableViewCell

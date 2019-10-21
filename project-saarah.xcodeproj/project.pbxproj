@@ -119,6 +119,7 @@
 		A3B76AD1234CB39D0010B7AF /* HomeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B76AD0234CB39D0010B7AF /* HomeBuilder.swift */; };
 		A3C63041235CE6FF0024F683 /* HomeNotificationSkelectonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C63040235CE6FF0024F683 /* HomeNotificationSkelectonTableViewCell.swift */; };
 		A3C63043235DCEB30024F683 /* HomeTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C63042235DCEB30024F683 /* HomeTableViewDataSource.swift */; };
+		A3C63047235DF6110024F683 /* HomeMenuCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C63046235DF6110024F683 /* HomeMenuCollectionViewDataSource.swift */; };
 		A3D2D0D02340E91100432214 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D2D0C92340E91100432214 /* HomePresenter.swift */; };
 		A3D2D0D22340E91100432214 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D2D0CB2340E91100432214 /* HomeRouter.swift */; };
 		A3D2D0D32340E91100432214 /* HomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D2D0CC2340E91100432214 /* HomeModels.swift */; };
@@ -243,6 +244,7 @@
 		A3B76AD0234CB39D0010B7AF /* HomeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBuilder.swift; sourceTree = "<group>"; };
 		A3C63040235CE6FF0024F683 /* HomeNotificationSkelectonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNotificationSkelectonTableViewCell.swift; sourceTree = "<group>"; };
 		A3C63042235DCEB30024F683 /* HomeTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewDataSource.swift; sourceTree = "<group>"; };
+		A3C63046235DF6110024F683 /* HomeMenuCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		A3D2D0C92340E91100432214 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		A3D2D0CB2340E91100432214 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		A3D2D0CC2340E91100432214 /* HomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModels.swift; sourceTree = "<group>"; };
@@ -657,6 +659,7 @@
 				A3D2D0CF2340E91100432214 /* HomeView.swift */,
 				A3B76AD0234CB39D0010B7AF /* HomeBuilder.swift */,
 				A3C63042235DCEB30024F683 /* HomeTableViewDataSource.swift */,
+				A3C63046235DF6110024F683 /* HomeMenuCollectionViewDataSource.swift */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -791,6 +794,7 @@
 				A3C63043235DCEB30024F683 /* HomeTableViewDataSource.swift in Sources */,
 				1B4DFA7823595B6E002C2B55 /* ProductItemPresenter.swift in Sources */,
 				1B2DB9BD2357AE2E00AF6D80 /* SelectProductMeasurementInteractor.swift in Sources */,
+				A3C63047235DF6110024F683 /* HomeMenuCollectionViewDataSource.swift in Sources */,
 				1B4DFA7C23595B6E002C2B55 /* ProductItemBuilder.swift in Sources */,
 				A304F94D233CED4100C3B6F7 /* SaarahTextField.swift in Sources */,
 				A32D8155233F9028008DB50F /* HomeMenuModels.swift in Sources */,

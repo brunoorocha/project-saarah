@@ -20,10 +20,10 @@ class HomeViewController: SaarahViewController {
 	// MARK: Property
 	var interactor: HomeBusinessLogic?
 	var router: (NSObjectProtocol & HomeRoutingLogic & HomeDataPassing)?
-    var homeTableViewDataSource = HomeTableViewDataSource()
+    private var homeTableViewDataSource = HomeTableViewDataSource()
+    private var homeMenuCollectionViewDataSource = HomeMenuCollectionViewDataSource()
 
     private var homeView = HomeView()
-    private var homeMenuOptions = HomeMenuOption.allCases
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -43,11 +43,11 @@ class HomeViewController: SaarahViewController {
 	}
 
     func defaultViewControllerConfiguration () {
-        title = "\(Localization(.homeScene(.title)))"
+        title = Localization(.homeScene(.title)).description
         view = homeView
         homeView.tableView.delegate = self
         homeTableViewDataSource.registerCells(for: homeView.tableView)
-        homeTableViewDataSource.homeMenuCollectionViewDataSource = self
+        homeTableViewDataSource.homeMenuCollectionViewDataSource = homeMenuCollectionViewDataSource
         homeTableViewDataSource.homeMenuCollectionViewDelegate = self
         homeView.tableView.dataSource = homeTableViewDataSource
     }
@@ -80,26 +80,9 @@ extension HomeViewController: UITableViewDelegate {
     }
 }
 
-extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return homeMenuOptions.count
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let collectionView = collectionView as? HomeMenuCollectionView,
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: collectionView.cellIdentifier, for: indexPath) as? HomeCardCollectionViewCell else {
-            return UICollectionViewCell()
-        }
-
-        let homeMenuOption = homeMenuOptions[indexPath.row]
-        cell.cardTitle.text = homeMenuOption.title
-        cell.cardIcon.image = homeMenuOption.icon.uiImage
-        cell.highlightedColor = homeMenuOption.highlightedColor
-        return cell
-    }
-
+extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedHomeMenuOption = homeMenuOptions[indexPath.item]
+        guard let selectedHomeMenuOption = HomeMenuOption(rawValue: indexPath.section) else { return }
         switch selectedHomeMenuOption {
         case .inventory:
             router?.navigateToInventory()
