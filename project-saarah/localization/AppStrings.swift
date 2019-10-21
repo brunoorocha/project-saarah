@@ -77,7 +77,7 @@ enum AppStrings {
     enum SelectProductMeasurement {
         case title
     }
-	
+
 	enum AddNewProductScene {
 		case title
 		case cancelBarButton

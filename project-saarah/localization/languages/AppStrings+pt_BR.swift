@@ -90,35 +90,35 @@ extension AppStrings {
             case .title:
                 return "Escolher unidade de medida"
             }
-		case .addNewProductScene(let options):
-			switch (options) {
-			case .title:
-				return "Criar novo produto"
-			case .cancelBarButton:
-				return "Cancelar"
-			case .saveBarButton:
-				return "Salvar"
-			case .basicInformation:
-				return "INFORMAÇÕES BÁSICAS"
-			case .productName:
-				return "Nome do produto"
-			case .productNamePlaceholder:
-				return "Toque para digitar o nome do produto"
-			case .barCode:
-				return "Código de barras (opcional)"
-			case .barCodePlacehoder:
-				return "Toque para inserir o código de barras"
-			case .measure:
-				return "Unidade de medida"
-			case .measurePlaceholder:
-				return "Quilos, gramas, litros"
-			case .successResponseTitle:
-				return "Sucesso"
-			case .successResponseMessage:
-				return "Seu novo produto foi salvo na nuvem!"
-			case .alertAction:
-				return "Ok"
-			}
+        case .addNewProductScene(let options):
+            switch (options) {
+            case .title:
+                return "Criar novo produto"
+            case .cancelBarButton:
+                return "Cancelar"
+            case .saveBarButton:
+                return "Salvar"
+            case .basicInformation:
+                return "INFORMAÇÕES BÁSICAS"
+            case .productName:
+                return "Nome do produto"
+            case .productNamePlaceholder:
+                return "Toque para digitar o nome do produto"
+            case .barCode:
+                return "Código de barras (opcional)"
+            case .barCodePlacehoder:
+                return "Toque para inserir o código de barras"
+            case .measure:
+                return "Unidade de medida"
+            case .measurePlaceholder:
+                return "Quilos, gramas, litros"
+            case .successResponseTitle:
+                return "Sucesso"
+            case .successResponseMessage:
+                return "Seu novo produto foi salvo na nuvem!"
+            case .alertAction:
+                return "Ok"
+            }
         }
     }
 }
