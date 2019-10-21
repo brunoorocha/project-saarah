@@ -9,7 +9,7 @@
 import UIKit
 
 class AddNewProductTableViewDataSource {
-	func resgisterCell(for tableView: UITableView) {
+	func registerCell(for tableView: UITableView) {
 		tableView.register(TextFieldTableViewCell.self, forCellReuseIdentifier: "TextFieldTableViewCell")
 	}
 
