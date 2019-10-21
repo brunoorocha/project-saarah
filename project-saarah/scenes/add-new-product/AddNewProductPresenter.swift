@@ -19,7 +19,10 @@ class AddNewProductPresenter: AddNewProductPresentationLogic {
 	func presentAPIResponse(response: AddNewProduct.SaveProduct.Response) {
 		switch (response.apiMessage) {
 		case "success":
-			let viewModel = AddNewProduct.SaveProduct.ResponseAPIViewModel(success: true, title: "\(Localization(.addNewProductScene(.successResponseTitle)))", message: "\(Localization(.addNewProductScene(.successResponseMessage)))")
+			let viewModel = AddNewProduct
+                .SaveProduct.ResponseAPIViewModel(success: true,
+                                                  title: "\(Localization(.addNewProductScene(.successResponseTitle)))",
+                                                  message: "\(Localization(.addNewProductScene(.successResponseMessage)))")
 			viewController?.displayAPIResponse(viewModel: viewModel)
 		default:
 			break
