@@ -22,6 +22,12 @@ class HomeViewController: SaarahViewController {
 	var router: (NSObjectProtocol & HomeRoutingLogic & HomeDataPassing)?
     private var homeTableViewDataSource = HomeTableViewDataSource()
     private var homeMenuCollectionViewDataSource = HomeMenuCollectionViewDataSource()
+    private var isLoadingHomeNotifications = false {
+        didSet {
+            homeTableViewDataSource.isShowingNotificationSkelectonCells = self.isLoadingHomeNotifications
+            homeView.tableView.reloadData()
+        }
+    }
 
     private var homeView = HomeView()
 
@@ -55,13 +61,14 @@ class HomeViewController: SaarahViewController {
     func requestHomeNotifications () {
         let request = Home.FetchHomeNotifications.Request()
         interactor?.fetchHomeNotifications(request: request)
+        isLoadingHomeNotifications = true
     }
 }
 
 extension HomeViewController: HomeDisplayLogic {
     func displayHomeNotifications (viewModel: Home.FetchHomeNotifications.ViewModel) {
         homeTableViewDataSource.notificationsViewModels = viewModel.displayedHomeNotifications
-        homeView.tableView.reloadData()
+        isLoadingHomeNotifications = false
     }
 }
 

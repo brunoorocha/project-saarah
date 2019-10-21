@@ -10,6 +10,7 @@ import UIKit
 
 class HomeTableViewDataSource: NSObject {
     var notificationsViewModels: [Home.FetchHomeNotifications.ViewModel.DisplayedHomeNotification] = []
+    var isShowingNotificationSkelectonCells = false
     weak var homeMenuCollectionViewDelegate: UICollectionViewDelegate?
     weak var homeMenuCollectionViewDataSource: UICollectionViewDataSource?
 
@@ -38,9 +39,7 @@ class HomeTableViewDataSource: NSObject {
 
     var tableViewSections = HomeTableViewSections.allCases
 
-    var skelectonCellsCount: Int {
-        return 3
-    }
+    var skelectonCellsCount = 3
 
     func registerCells (for tableView: UITableView) {
         tableView.register(HomeMenuTableViewCell.self, forCellReuseIdentifier: HomeTableViewSections.menu.reuseIdentifier)
@@ -76,13 +75,18 @@ class HomeTableViewDataSource: NSObject {
     }
 
     func secondSectionCell (for tableView: UITableView, in indexPath: IndexPath) -> UITableViewCell {
-        let notificationCell = HomeNotificationTableViewCell()
+        guard let notificationCell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewSections.notifications.reuseIdentifier, for: indexPath) as? HomeNotificationTableViewCell else { return UITableViewCell() } // swiftlint:disable:this line_length
         let displayedHomeNotification = notificationsViewModels[indexPath.row]
         notificationCell.messageLabel.text = displayedHomeNotification.message
         notificationCell.emojiLabel.text = displayedHomeNotification.emoji
         notificationCell.type = displayedHomeNotification.type
         notificationCell.roundCellIfNeeded(index: indexPath.row, numberOfCells: notificationsViewModels.count)
         return notificationCell
+    }
+
+    func notificationSkelectonCell (for tableView: UITableView, in indexPath: IndexPath) -> UITableViewCell {
+        guard let notificationSkelectonCell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewSections.notifications.skelectonReuseIdentifier, for: indexPath) as? HomeNotificationSkelectonTableViewCell else { return UITableViewCell() } // swiftlint:disable:this line_length
+        return notificationSkelectonCell
     }
 
     func viewForHeader(in section: Int) -> UIView? {
@@ -105,10 +109,10 @@ extension HomeTableViewDataSource: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return numberOfRows(in: section)
+        return isShowingNotificationSkelectonCells ? skelectonCellsCount : numberOfRows(in: section)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        cell(for: tableView, in: indexPath)
+        return isShowingNotificationSkelectonCells ? notificationSkelectonCell(for: tableView, in: indexPath) : cell(for: tableView, in: indexPath)
     }
 }
