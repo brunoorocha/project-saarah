@@ -53,7 +53,7 @@ class HomeTableViewDataSource: NSObject {
         case .menu:
             return 1
         case .notifications:
-            return notificationsViewModels.count
+            return isShowingNotificationSkelectonCells ? skelectonCellsCount : notificationsViewModels.count
         }
     }
 
@@ -75,6 +75,10 @@ class HomeTableViewDataSource: NSObject {
     }
 
     func secondSectionCell (for tableView: UITableView, in indexPath: IndexPath) -> UITableViewCell {
+        if isShowingNotificationSkelectonCells {
+            return notificationSkelectonCell(for: tableView, in: indexPath)
+        }
+
         guard let notificationCell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewSections.notifications.reuseIdentifier, for: indexPath) as? HomeNotificationTableViewCell else { return UITableViewCell() } // swiftlint:disable:this line_length
         let displayedHomeNotification = notificationsViewModels[indexPath.row]
         notificationCell.messageLabel.text = displayedHomeNotification.message
@@ -109,10 +113,10 @@ extension HomeTableViewDataSource: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return isShowingNotificationSkelectonCells ? skelectonCellsCount : numberOfRows(in: section)
+        return numberOfRows(in: section)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return isShowingNotificationSkelectonCells ? notificationSkelectonCell(for: tableView, in: indexPath) : cell(for: tableView, in: indexPath)
+        return cell(for: tableView, in: indexPath)
     }
 }
