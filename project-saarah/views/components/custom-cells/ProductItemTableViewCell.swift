@@ -24,19 +24,19 @@ class ProductItemTableViewCell: SaarahTableViewCell {
     let smallMargin = AppStyleGuide.Margins.small.rawValue
     let mediumMargin = AppStyleGuide.Margins.medium.rawValue
 
+    override var insets: UIEdgeInsets {
+        return UIEdgeInsets(top: AppStyleGuide.Margins.medium.rawValue,
+                            left: AppStyleGuide.Margins.medium.rawValue,
+                            bottom: 0,
+                            right: AppStyleGuide.Margins.medium.rawValue)
+    }
+
     var subViewConstraints: [NSLayoutConstraint] = []
 
     override func configureCellComponents() {
         cellContentView.addSubviews([amountLabel, validityLabel, priceLabel, addedOnDayLabel,
             numericAmountLabel, numericValidityLabel,
             numericPriceLabel, numericAddedOnDayLabel])
-
-        // MARK: Configure constraints to view
-        NSLayoutConstraint.activate([
-            cellContentView.heightAnchor.constraint(equalToConstant: 170),
-            cellContentView.topAnchor.constraint(equalTo: topAnchor, constant: smallMargin),
-            cellContentView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -smallMargin)
-        ])
 
         // MARK: Setup rounded
         let corners: CACornerMask = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner, .layerMinXMinYCorner, .layerMaxXMinYCorner]
@@ -56,10 +56,14 @@ class ProductItemTableViewCell: SaarahTableViewCell {
         numericPriceLabel.textAlignment = .right
         numericAddedOnDayLabel.textAlignment = .right
 
+        subViewConstraints.append(amountLabel.topAnchor.constraint(equalTo: cellContentView.topAnchor, constant: mediumMargin))
+        subViewConstraints.append(numericAmountLabel.topAnchor.constraint(equalTo: cellContentView.topAnchor, constant: mediumMargin))
         setupConstraints(withLeftLabel: amountLabel, andRightLabel: numericAmountLabel, andTopView: nil)
         setupConstraints(withLeftLabel: validityLabel, andRightLabel: numericValidityLabel, andTopView: amountLabel)
         setupConstraints(withLeftLabel: priceLabel, andRightLabel: numericPriceLabel, andTopView: validityLabel)
         setupConstraints(withLeftLabel: addedOnDayLabel, andRightLabel: numericAddedOnDayLabel, andTopView: priceLabel)
+        subViewConstraints.append(addedOnDayLabel.bottomAnchor.constraint(equalTo: cellContentView.bottomAnchor, constant: -mediumMargin))
+        subViewConstraints.append(numericAddedOnDayLabel.bottomAnchor.constraint(equalTo: cellContentView.bottomAnchor, constant: -mediumMargin))
         NSLayoutConstraint.activate(subViewConstraints)
     }
 
@@ -67,12 +71,9 @@ class ProductItemTableViewCell: SaarahTableViewCell {
         if let topView = topView {
             subViewConstraints.append(leftLabel.topAnchor.constraint(equalTo: topView.bottomAnchor, constant: mediumMargin))
             subViewConstraints.append(rightLabel.topAnchor.constraint(equalTo: topView.bottomAnchor, constant: mediumMargin))
-        } else {
-            subViewConstraints.append(leftLabel.topAnchor.constraint(equalTo: cellContentView.topAnchor, constant: mediumMargin))
-            subViewConstraints.append(rightLabel.topAnchor.constraint(equalTo: cellContentView.topAnchor, constant: mediumMargin))
         }
         subViewConstraints.append(leftLabel.leftAnchor.constraint(equalTo: cellContentView.leftAnchor, constant: mediumMargin))
-        subViewConstraints.append(rightLabel.leftAnchor.constraint(equalTo: leftLabel.leftAnchor, constant: xSmallMargin))
+        subViewConstraints.append(rightLabel.leftAnchor.constraint(equalTo: leftLabel.rightAnchor, constant: xSmallMargin))
         subViewConstraints.append(rightLabel.rightAnchor.constraint(equalTo: cellContentView.rightAnchor, constant: -mediumMargin))
     }
 
