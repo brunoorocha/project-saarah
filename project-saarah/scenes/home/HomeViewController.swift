@@ -20,10 +20,10 @@ class HomeViewController: SaarahViewController {
 	// MARK: Property
 	var interactor: HomeBusinessLogic?
 	var router: (NSObjectProtocol & HomeRoutingLogic & HomeDataPassing)?
+    var homeTableViewDataSource = HomeTableViewDataSource()
 
     private var homeView = HomeView()
     private var homeMenuOptions = HomeMenuOption.allCases
-    private var displayedHomeNotifications = [Home.FetchHomeNotifications.ViewModel.DisplayedHomeNotification]()
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -46,7 +46,10 @@ class HomeViewController: SaarahViewController {
         title = "\(Localization(.homeScene(.title)))"
         view = homeView
         homeView.tableView.delegate = self
-        homeView.tableView.dataSource = self
+        homeTableViewDataSource.registerCells(for: homeView.tableView)
+        homeTableViewDataSource.homeMenuCollectionViewDataSource = self
+        homeTableViewDataSource.homeMenuCollectionViewDelegate = self
+        homeView.tableView.dataSource = homeTableViewDataSource
     }
 
     func requestHomeNotifications () {
@@ -57,26 +60,12 @@ class HomeViewController: SaarahViewController {
 
 extension HomeViewController: HomeDisplayLogic {
     func displayHomeNotifications (viewModel: Home.FetchHomeNotifications.ViewModel) {
-        displayedHomeNotifications = viewModel.displayedHomeNotifications
+        homeTableViewDataSource.notificationsViewModels = viewModel.displayedHomeNotifications
         homeView.tableView.reloadData()
     }
 }
 
-extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return homeView.tableViewSections.count
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let homeSection = HomeView.HomeTableViewSections(rawValue: section) else { return 0 }
-        switch homeSection {
-        case .menu:
-            return 1
-        case .notifications:
-            return displayedHomeNotifications.count
-        }
-    }
-
+extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let homeSection = HomeView.HomeTableViewSections(rawValue: section) else { return nil }
         switch homeSection {
@@ -87,25 +76,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             headerView.titleLabelText = Localization(.homeScene(.notification)).description
             headerView.rightButtonText = Localization(.seeAll).description
             return headerView
-        }
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let homeSection = HomeView.HomeTableViewSections(rawValue: indexPath.section) else { return UITableViewCell() }
-        switch homeSection {
-        case .menu:
-            let homeMenuTableViewCell = HomeMenuTableViewCell()
-            homeMenuTableViewCell.homeMenuCollectionView.delegate = self
-            homeMenuTableViewCell.homeMenuCollectionView.dataSource = self
-            return homeMenuTableViewCell
-        case .notifications:
-            let notificationCell = HomeNotificationTableViewCell()
-            let displayedHomeNotification = displayedHomeNotifications[indexPath.row]
-            notificationCell.messageLabel.text = displayedHomeNotification.message
-            notificationCell.emojiLabel.text = displayedHomeNotification.emoji
-            notificationCell.type = displayedHomeNotification.type
-            notificationCell.roundCellIfNeeded(index: indexPath.row, numberOfCells: displayedHomeNotifications.count)
-            return notificationCell
         }
     }
 }

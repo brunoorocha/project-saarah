@@ -11,13 +11,13 @@ import UIKit
 class DefaultSectionHeaderView: UIView {
     var titleLabel = CaptionBoldLabel()
     var rightButton = CaptionButton()
-    
+
     var titleLabelText = "" {
         didSet {
             self.titleLabel.text = self.titleLabelText.uppercased()
         }
     }
-    
+
     var rightButtonText = "" {
         didSet {
             self.rightButton.setTitle(self.rightButtonText.uppercased(), for: .normal)

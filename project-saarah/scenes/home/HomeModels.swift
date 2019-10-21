@@ -34,6 +34,7 @@ enum Home {
 
         struct ViewModel {
             var displayedHomeNotifications: [DisplayedHomeNotification]
+            var skelectonCellsCount = 3
 
             struct DisplayedHomeNotification {
                 var emoji: String

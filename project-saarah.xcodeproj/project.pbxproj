@@ -117,8 +117,9 @@
 		A3AACBC82340C946000EFB6B /* SaarahViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AACBC72340C946000EFB6B /* SaarahViewController.swift */; };
 		A3ABCE71233CCFDE00FF54FD /* SaarahIconImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ABCE70233CCFDE00FF54FD /* SaarahIconImageView.swift */; };
 		A3B76AD1234CB39D0010B7AF /* HomeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B76AD0234CB39D0010B7AF /* HomeBuilder.swift */; };
+		A3C63041235CE6FF0024F683 /* HomeNotificationSkelectonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C63040235CE6FF0024F683 /* HomeNotificationSkelectonTableViewCell.swift */; };
+		A3C63043235DCEB30024F683 /* HomeTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C63042235DCEB30024F683 /* HomeTableViewDataSource.swift */; };
 		A3D2D0D02340E91100432214 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D2D0C92340E91100432214 /* HomePresenter.swift */; };
-		A3D2D0D12340E91100432214 /* HomeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D2D0CA2340E91100432214 /* HomeWorker.swift */; };
 		A3D2D0D22340E91100432214 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D2D0CB2340E91100432214 /* HomeRouter.swift */; };
 		A3D2D0D32340E91100432214 /* HomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D2D0CC2340E91100432214 /* HomeModels.swift */; };
 		A3D2D0D42340E91100432214 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D2D0CD2340E91100432214 /* HomeViewController.swift */; };
@@ -240,8 +241,9 @@
 		A3AACBC72340C946000EFB6B /* SaarahViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahViewController.swift; sourceTree = "<group>"; };
 		A3ABCE70233CCFDE00FF54FD /* SaarahIconImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahIconImageView.swift; sourceTree = "<group>"; };
 		A3B76AD0234CB39D0010B7AF /* HomeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBuilder.swift; sourceTree = "<group>"; };
+		A3C63040235CE6FF0024F683 /* HomeNotificationSkelectonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNotificationSkelectonTableViewCell.swift; sourceTree = "<group>"; };
+		A3C63042235DCEB30024F683 /* HomeTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewDataSource.swift; sourceTree = "<group>"; };
 		A3D2D0C92340E91100432214 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
-		A3D2D0CA2340E91100432214 /* HomeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWorker.swift; sourceTree = "<group>"; };
 		A3D2D0CB2340E91100432214 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		A3D2D0CC2340E91100432214 /* HomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModels.swift; sourceTree = "<group>"; };
 		A3D2D0CD2340E91100432214 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -620,6 +622,7 @@
 				A304F94E233E270600C3B6F7 /* SelectableCell.swift */,
 				A3522D6F234186AB00DB1314 /* HomeNotificationTableViewCell.swift */,
 				1B537886235A224A007C819D /* LabeledTableViewCell.swift */,
+				A3C63040235CE6FF0024F683 /* HomeNotificationSkelectonTableViewCell.swift */,
 			);
 			path = "custom-cells";
 			sourceTree = "<group>";
@@ -647,13 +650,13 @@
 			isa = PBXGroup;
 			children = (
 				A3D2D0C92340E91100432214 /* HomePresenter.swift */,
-				A3D2D0CA2340E91100432214 /* HomeWorker.swift */,
 				A3D2D0CB2340E91100432214 /* HomeRouter.swift */,
 				A3D2D0CC2340E91100432214 /* HomeModels.swift */,
 				A3D2D0CD2340E91100432214 /* HomeViewController.swift */,
 				A3D2D0CE2340E91100432214 /* HomeInteractor.swift */,
 				A3D2D0CF2340E91100432214 /* HomeView.swift */,
 				A3B76AD0234CB39D0010B7AF /* HomeBuilder.swift */,
+				A3C63042235DCEB30024F683 /* HomeTableViewDataSource.swift */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -785,6 +788,7 @@
 				1B4DFA842359824A002C2B55 /* MockProductItem.swift in Sources */,
 				1B4DFA82235981A9002C2B55 /* ProductItemWorker.swift in Sources */,
 				4818E1372322AFC500EFF585 /* AppDelegate.swift in Sources */,
+				A3C63043235DCEB30024F683 /* HomeTableViewDataSource.swift in Sources */,
 				1B4DFA7823595B6E002C2B55 /* ProductItemPresenter.swift in Sources */,
 				1B2DB9BD2357AE2E00AF6D80 /* SelectProductMeasurementInteractor.swift in Sources */,
 				1B4DFA7C23595B6E002C2B55 /* ProductItemBuilder.swift in Sources */,
@@ -804,10 +808,10 @@
 				1B4DFA7A23595B6E002C2B55 /* ProductItemModels.swift in Sources */,
 				48BC806B234CB6270001B1A9 /* ProductDetailBuilder.swift in Sources */,
 				489C019B234B626B00AEC143 /* DateFormatManager.swift in Sources */,
+				A3C63041235CE6FF0024F683 /* HomeNotificationSkelectonTableViewCell.swift in Sources */,
 				1B2DB9BE2357AE2E00AF6D80 /* SelectProductMeasurementView.swift in Sources */,
 				A304F94F233E270600C3B6F7 /* SelectableCell.swift in Sources */,
 				1B76635323478E640069D581 /* ListInventoryModels.swift in Sources */,
-				A3D2D0D12340E91100432214 /* HomeWorker.swift in Sources */,
 				A378089C233BA853005B26E8 /* ParagraphLabel.swift in Sources */,
 				1B76635123478E640069D581 /* ListInventoryPresenter.swift in Sources */,
 				A353D7D3231FE55B004A5139 /* NavigationDrawerViewController.swift in Sources */,
