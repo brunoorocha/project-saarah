@@ -17,13 +17,13 @@ class AddNewProductPresenter: AddNewProductPresentationLogic {
 
 	// MARK: Do something
 	func presentAPIResponse(response: AddNewProduct.SaveProduct.Response) {
-		switch (response.apiMessage) {
+		switch (response.message) {
 		case "success":
 			let viewModel = AddNewProduct
-                .SaveProduct.ResponseAPIViewModel(success: true,
-                                                  title: "\(Localization(.addNewProductScene(.successResponseTitle)))",
-                                                  message: "\(Localization(.addNewProductScene(.successResponseMessage)))")
-			viewController?.displayAPIResponse(viewModel: viewModel)
+                .SaveProduct.ResponseViewModel(success: true,
+                                               title: "\(Localization(.addNewProductScene(.successResponseTitle)))",
+                                               message: "\(Localization(.addNewProductScene(.successResponseMessage)))")
+			viewController?.displayResponse(viewModel: viewModel)
 		default:
 			break
 		}

@@ -20,9 +20,9 @@ enum AddNewProduct {
 			let productForm: ProductForm
 		}
 		struct Response {
-			let apiMessage: String
+			let message: String
 		}
-		struct ResponseAPIViewModel {
+		struct ResponseViewModel {
 			let success: Bool
 			let title: String
 			let message: String
