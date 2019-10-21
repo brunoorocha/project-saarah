@@ -49,10 +49,6 @@ class ProductItemTableViewDataSource {
         }
     }
 
-    func viewForHeader(in section: Int) -> UIView {
-        return EmptySectionHeaderView()
-    }
-
     func modify(_ cell: UITableViewCell, for indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
