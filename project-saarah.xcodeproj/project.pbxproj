@@ -80,6 +80,7 @@
 		A304F94D233CED4100C3B6F7 /* SaarahTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304F94C233CED4100C3B6F7 /* SaarahTextField.swift */; };
 		A304F94F233E270600C3B6F7 /* SelectableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304F94E233E270600C3B6F7 /* SelectableCell.swift */; };
 		A304F953233E4AD400C3B6F7 /* SaarahTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304F952233E4AD400C3B6F7 /* SaarahTableView.swift */; };
+		A32244F4235E8AE700375793 /* UnderConstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32244F3235E8AE700375793 /* UnderConstructionViewController.swift */; };
 		A32D814B233F6A03008DB50F /* HomeCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32D814A233F6A03008DB50F /* HomeCardCollectionViewCell.swift */; };
 		A32D814D233F6FE0008DB50F /* HomeMenuCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32D814C233F6FE0008DB50F /* HomeMenuCollectionView.swift */; };
 		A32D814F233F7F8B008DB50F /* HomeMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32D814E233F7F8B008DB50F /* HomeMenuTableViewCell.swift */; };
@@ -201,6 +202,7 @@
 		A304F94C233CED4100C3B6F7 /* SaarahTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahTextField.swift; sourceTree = "<group>"; };
 		A304F94E233E270600C3B6F7 /* SelectableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableCell.swift; sourceTree = "<group>"; };
 		A304F952233E4AD400C3B6F7 /* SaarahTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahTableView.swift; sourceTree = "<group>"; };
+		A32244F3235E8AE700375793 /* UnderConstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderConstructionViewController.swift; sourceTree = "<group>"; };
 		A32D814A233F6A03008DB50F /* HomeCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		A32D814C233F6FE0008DB50F /* HomeMenuCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuCollectionView.swift; sourceTree = "<group>"; };
 		A32D814E233F7F8B008DB50F /* HomeMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuTableViewCell.swift; sourceTree = "<group>"; };
@@ -608,6 +610,7 @@
 				A304F952233E4AD400C3B6F7 /* SaarahTableView.swift */,
 				A3AACBC72340C946000EFB6B /* SaarahViewController.swift */,
 				A3522D712341882300DB1314 /* SaarahTableViewSeparator.swift */,
+				A32244F3235E8AE700375793 /* UnderConstructionViewController.swift */,
 			);
 			path = "base-components";
 			sourceTree = "<group>";
@@ -822,6 +825,7 @@
 				A37808A6233BDD6C005B26E8 /* SaarahImageView.swift in Sources */,
 				A3780890233B9CEE005B26E8 /* SaarahTableViewCell.swift in Sources */,
 				1B766361234B86740069D581 /* ListInventoryBuilder.swift in Sources */,
+				A32244F4235E8AE700375793 /* UnderConstructionViewController.swift in Sources */,
 				A304F940233CD9EA00C3B6F7 /* CaptionBoldLabel.swift in Sources */,
 				1B4DFA7E23595B6E002C2B55 /* ProductItemView.swift in Sources */,
 				A353D7DC231FE61C004A5139 /* AppSplitViewController.swift in Sources */,

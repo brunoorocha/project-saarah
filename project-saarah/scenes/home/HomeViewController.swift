@@ -89,7 +89,7 @@ extension HomeViewController: UITableViewDelegate {
 
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let selectedHomeMenuOption = HomeMenuOption(rawValue: indexPath.section) else { return }
+        guard let selectedHomeMenuOption = HomeMenuOption(rawValue: indexPath.row) else { return }
         switch selectedHomeMenuOption {
         case .inventory:
             router?.navigateToInventory()
