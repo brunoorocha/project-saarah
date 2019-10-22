@@ -24,7 +24,7 @@ class AddNewProductInteractor: AddNewProductBusinessLogic, AddNewProductDataStor
 	// MARK: Do something
 	func saveNewProduct(request: AddNewProduct.SaveProduct.Request) {
 		// TODO: Create worker for api
-		let response = AddNewProduct.SaveProduct.Response(message: "success")
-		presenter?.presentAPIResponse(response: response)
+		let response = AddNewProduct.SaveProduct.Response(success: true)
+		presenter?.presentResponse(response: response)
 	}
 }

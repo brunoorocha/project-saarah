@@ -9,23 +9,20 @@
 import Foundation
 
 protocol AddNewProductPresentationLogic {
-	func presentAPIResponse(response: AddNewProduct.SaveProduct.Response)
+    func presentResponse(response: AddNewProduct.SaveProduct.Response)
 }
 
 class AddNewProductPresenter: AddNewProductPresentationLogic {
 	weak var viewController: AddNewProductDisplayLogic?
 
 	// MARK: Do something
-	func presentAPIResponse(response: AddNewProduct.SaveProduct.Response) {
-		switch (response.message) {
-		case "success":
+	func presentResponse(response: AddNewProduct.SaveProduct.Response) {
+        if response.success {
 			let viewModel = AddNewProduct
-                .SaveProduct.ResponseViewModel(success: true,
-                                               title: "\(Localization(.addNewProductScene(.successResponseTitle)))",
-                                               message: "\(Localization(.addNewProductScene(.successResponseMessage)))")
+                .SaveProduct.ViewModel.Response(success: true,
+												title: "\(Localization(.addNewProductScene(.successResponseTitle)))",
+												message: "\(Localization(.addNewProductScene(.successResponseMessage)))")
 			viewController?.displayResponse(viewModel: viewModel)
-		default:
-			break
 		}
 	}
 }

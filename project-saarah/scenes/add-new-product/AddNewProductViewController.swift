@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AddNewProductDisplayLogic: class {
-	func displayResponse(viewModel: AddNewProduct.SaveProduct.ResponseViewModel)
+	func displayResponse(viewModel: AddNewProduct.SaveProduct.ViewModel.Response)
 }
 
 class AddNewProductViewController: SaarahViewController, AddNewProductDisplayLogic {
@@ -48,7 +48,7 @@ class AddNewProductViewController: SaarahViewController, AddNewProductDisplayLog
 	}
 
 	// MARK: Do something
-	func displayResponse(viewModel: AddNewProduct.SaveProduct.ResponseViewModel) {
+	func displayResponse(viewModel: AddNewProduct.SaveProduct.ViewModel.Response) {
 		let alert = UIAlertController(title: viewModel.title, message: viewModel.message, preferredStyle: .alert)
         var okAction: UIAlertAction
 		if (viewModel.success) {

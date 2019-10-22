@@ -20,12 +20,14 @@ enum AddNewProduct {
 			let productForm: ProductForm
 		}
 		struct Response {
-			let message: String
-		}
-		struct ResponseViewModel {
 			let success: Bool
-			let title: String
-			let message: String
 		}
+		struct ViewModel {
+			struct Response {
+				var success: Bool
+				var title: String
+				var message: String
+            }
+        }
 	}
 }
