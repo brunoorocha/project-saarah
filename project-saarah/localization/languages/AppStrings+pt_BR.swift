@@ -68,7 +68,7 @@ extension AppStrings {
             case .notification:
                 return "Notificações"
             case .title:
-                return "Restaurante"
+                return "Estorage"
             }
         case .productDetailScene(let options):
             switch options {
@@ -96,6 +96,13 @@ extension AppStrings {
                 return "Itens do produto"
             case .notInformed:
                 return "Não informado"
+            }
+        case .underConstruction(let options):
+            switch options {
+            case .title:
+                return "Sentimos muito"
+            case .paragraph:
+                return "mas nós ainda estamos em \nconstrução"
             }
         }
     }

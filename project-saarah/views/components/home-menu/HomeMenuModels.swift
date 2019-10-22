@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum HomeMenuOption: CaseIterable {
+enum HomeMenuOption: Int, CaseIterable {
     case inventory
     case menu
     case measurers

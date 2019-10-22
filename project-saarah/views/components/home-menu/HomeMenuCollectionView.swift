@@ -49,7 +49,8 @@ class HomeMenuCollectionView: UICollectionView {
 
     private func defaultCollectionViewConfiguration () {
         translatesAutoresizingMaskIntoConstraints = false
-        heightAnchor.constraint(equalToConstant: 208).isActive = true
+//        heightAnchor.constraint(equalToConstant: 208).isActive = true
+        heightAnchor.constraint(equalToConstant: 96).isActive = true
         backgroundColor = .none
         allowsMultipleSelection = false
         setFlowLayoutItemSize()

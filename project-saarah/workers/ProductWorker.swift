@@ -8,14 +8,14 @@
 
 import Foundation
 
-protocol MockProductStore {
+protocol ProductStoreProtocol {
     func fetchProducts(_ completion: @escaping ([Product]) -> Void)
 }
 
 class ProductWorker {
-    let productService: MockProductStore
+    let productService: ProductStoreProtocol
 
-    init(productService: MockProductStore) {
+    init(productService: ProductStoreProtocol) {
         self.productService = productService
     }
 

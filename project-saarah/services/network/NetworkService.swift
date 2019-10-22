@@ -19,7 +19,7 @@ enum NetworkServiceError: Error {
 }
 
 protocol NetworkServiceProtocol {
-    func request(endpoint: EndpointType, completionHandler: @escaping (Result<Data?, NetworkServiceError>) -> Void)
+    func request<T: Decodable>(endpoint: EndpointType, completionHandler: @escaping (Result<T?, NetworkServiceError>) -> Void)
 }
 
 class NetworkService: NetworkServiceProtocol {

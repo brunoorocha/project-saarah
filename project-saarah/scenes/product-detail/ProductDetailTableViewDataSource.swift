@@ -60,15 +60,15 @@ class ProductDetailTableViewDataSource {
 		switch (section) {
 		case 0:
 			let headerView = DefaultSectionHeaderView()
-			headerView.titleLabel.text = "\(Localization(.productDetailScene(.basicInformation)))"
+            headerView.titleLabelText = Localization(.productDetailScene(.basicInformation)).description
 			headerView.rightButton.isHidden = true
 			return headerView
 		case 1:
 			return EmptySectionHeaderView()
 		case 2:
 			let headerView = DefaultSectionHeaderView()
-			headerView.titleLabel.text = "\(Localization(.productDetailScene(.activity)))"
-			headerView.rightButton.setTitle("\(Localization(.seeAll))", for: .normal)
+            headerView.titleLabelText = Localization(.productDetailScene(.activity)).description
+            headerView.rightButtonText = Localization(.seeAll).description
 			return headerView
 		default:
 			return UIView()
