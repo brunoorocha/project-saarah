@@ -9,15 +9,15 @@
 import Foundation
 
 protocol AddProductItemPresentationLogic {
-	func presentAPIResponse(response: AddProductItem.AddItem.Response)
+	func presentResponse(response: AddProductItem.AddItem.Response)
 }
 
 class AddProductItemPresenter: AddProductItemPresentationLogic {
 	weak var viewController: AddProductItemDisplayLogic?
 
 	// MARK: Do something
-	func presentAPIResponse(response: AddProductItem.AddItem.Response) {
-		switch (response.apiMessage) {
+	func presentResponse(response: AddProductItem.AddItem.Response) {
+		switch (response.message) {
 		case "success":
 			let viewModel = AddProductItem.AddItem.ViewModel.AddItemViewModel(success: true, title: "\(Localization(.addProductItemScene(.successResponseTitle)))", message: "\(Localization(.addProductItemScene(.successResponseMessage)))")
 			viewController?.displayAPIResponse(viewModel: viewModel)

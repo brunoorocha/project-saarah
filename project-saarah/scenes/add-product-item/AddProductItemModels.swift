@@ -20,7 +20,7 @@ enum AddProductItem {
 			let addItemForm: AddItemForm
 		}
 		struct Response {
-			let apiMessage: String
+			let message: String
 		}
 		struct ViewModel {
 			struct AddItemViewModel {

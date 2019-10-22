@@ -29,7 +29,7 @@ class AddProductItemInteractor: AddProductItemBusinessLogic, AddProductItemDataS
 //		worker = Worker()
 //		worker?.doSomeWork()
 
-		let response = AddProductItem.AddItem.Response(apiMessage: "success")
-		presenter?.presentAPIResponse(response: response)
+		let response = AddProductItem.AddItem.Response(message: "success")
+		presenter?.presentResponse(response: response)
 	}
 }
