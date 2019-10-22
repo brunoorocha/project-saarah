@@ -24,10 +24,10 @@ class AddNewProductRouter: NSObject, AddNewProductRoutingLogic, AddNewProductDat
 	// TODO: Remoce comments
 	// MARK: Routing
 	func routeToChooseMeasurement() {
-//		let destinationVC = ChooseMeasurementViewController()
-//		guard let viewController = viewController else { return }
-//
-//		navigateToChooseMeasurement(source: viewController, destination: destinationVC)
+		let destinationVC = SelectProductMeasurementViewController()
+		guard let viewController = viewController else { return }
+
+		navigateToChooseMeasurement(source: viewController, destination: destinationVC)
 	}
 
 	func routeToAddProductItem() {
@@ -47,10 +47,10 @@ class AddNewProductRouter: NSObject, AddNewProductRoutingLogic, AddNewProductDat
 //	}
 
 	// MARK: Navigation
-//	func navigateToChooseMeasurement(source: AddNewProductViewController, destination: ChooseMeasurementViewController) {
-//		source.show(destination, sender: nil)
-//	}
-//
+	func navigateToChooseMeasurement(source: AddNewProductViewController, destination: SelectProductMeasurementViewController) {
+		source.show(destination, sender: nil)
+	}
+
 //	func navigateToAddProductItem(source: AddNewProductViewController, destination: AddProductItemViewController) {
 //		source.show(destination, sender: nil)
 //	}
