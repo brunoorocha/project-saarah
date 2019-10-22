@@ -20,6 +20,7 @@ class SaarahButton: UIButton {
     }
 
     private func defaultButtonConfiguration () {
+        setTitleColor(AppStyleGuide.Colors.primary.uiColor, for: .normal)
         translatesAutoresizingMaskIntoConstraints = false
     }
 
