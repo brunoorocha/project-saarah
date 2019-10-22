@@ -83,7 +83,7 @@ enum AppStrings {
         case title
         case notInformed
     }
-    
+
     enum UnderConstruction {
         case title
         case paragraph
