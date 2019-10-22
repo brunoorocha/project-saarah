@@ -90,6 +90,7 @@ class HomeTableViewDataSource: NSObject {
 
     func notificationSkelectonCell (for tableView: UITableView, in indexPath: IndexPath) -> UITableViewCell {
         guard let notificationSkelectonCell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewSections.notifications.skelectonReuseIdentifier, for: indexPath) as? HomeNotificationSkelectonTableViewCell else { return UITableViewCell() } // swiftlint:disable:this line_length
+        notificationSkelectonCell.roundCellIfNeeded(index: indexPath.row, numberOfCells: skelectonCellsCount)
         return notificationSkelectonCell
     }
 
