@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AddProductItemDisplayLogic: class {
-	func displayAPIResponse(viewModel: AddProductItem.AddItem.ViewModel.AddItemViewModel)
+	func displayResponse(viewModel: AddProductItem.AddItem.ViewModel.AddItemViewModel)
 }
 
 class AddProductItemViewController: UIViewController, AddProductItemDisplayLogic {
@@ -47,7 +47,7 @@ class AddProductItemViewController: UIViewController, AddProductItemDisplayLogic
 	}
 
 	// MARK: Do something
-	func displayAPIResponse(viewModel: AddProductItem.AddItem.ViewModel.AddItemViewModel) {
+	func displayResponse(viewModel: AddProductItem.AddItem.ViewModel.AddItemViewModel) {
 		let alert = UIAlertController(title: viewModel.title, message: viewModel.message, preferredStyle: .alert)
 		if (viewModel.success) {
 			let okAction = UIAlertAction(title: "\(Localization(.addProductItemScene(.alertActionTitle)))", style: .default) { _ in

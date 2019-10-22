@@ -10,6 +10,7 @@ import Foundation
 
 protocol ProductItemStore {
     func fetchProductItems(_ completion: @escaping ([ProductLog]) -> Void)
+	func addProductItem(_ completion: @escaping (Response) -> Void)
 }
 
 class ProductItemWorker: ProductItemStore {
@@ -26,4 +27,12 @@ class ProductItemWorker: ProductItemStore {
             }
         }
     }
+
+	func addProductItem(_ completion: @escaping (Response) -> Void) {
+		productItemService.addProductItem { (response) in
+			DispatchQueue.main.async {
+				completion(response)
+			}
+		}
+	}
 }

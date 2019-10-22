@@ -17,4 +17,11 @@ class MockProductItem: ProductItemStore {
             completion([productItem1, productItem2, productItem3])
         }
     }
+
+	func addProductItem(_ completion: @escaping (Response) -> Void) {
+		let response = Response(code: "100", message: "success")
+		DispatchQueue.main.async {
+			completion(response)
+		}
+	}
 }

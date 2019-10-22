@@ -17,10 +17,24 @@ class AddProductItemPresenter: AddProductItemPresentationLogic {
 
 	// MARK: Do something
 	func presentResponse(response: AddProductItem.AddItem.Response) {
-		switch (response.message) {
-		case "success":
-			let viewModel = AddProductItem.AddItem.ViewModel.AddItemViewModel(success: true, title: "\(Localization(.addProductItemScene(.successResponseTitle)))", message: "\(Localization(.addProductItemScene(.successResponseMessage)))")
-			viewController?.displayAPIResponse(viewModel: viewModel)
+		switch (response.code) {
+		case "999":
+			let success = false
+			let title = "\(Localization(.addProductItemScene(.response(.inputErrorTitle))))"
+			var message = ""
+
+			switch (response.message) {
+			case "expirationDate":
+				message = "\(Localization(.addProductItemScene(.response(.expirationDateMessage))))"
+			default:
+				break
+			}
+
+			let viewModel = AddProductItem.AddItem.ViewModel.AddItemViewModel(success: success, title: title, message: message)
+			viewController?.displayResponse(viewModel: viewModel)
+		case "100":
+			let viewModel = AddProductItem.AddItem.ViewModel.AddItemViewModel(success: true, title: "\(Localization(.addProductItemScene(.response(.successTitle))))", message: "\(Localization(.addProductItemScene(.response(.suceessMessage))))")
+			viewController?.displayResponse(viewModel: viewModel)
 		default:
 			break
 		}

@@ -123,10 +123,17 @@ extension AppStrings {
 				return "Validade"
 			case .expirationDatePlaceholder:
 				return "Toque para inserir a validade"
-			case .successResponseTitle:
-				return "Sucesso"
-			case .successResponseMessage:
-				return "O novo item do seu produto foi salvo na nuvem."
+			case .response(let options):
+				switch (options) {
+				case .successTitle:
+					return "Sucesso"
+				case .suceessMessage:
+					return "Item foi salvo com sucesso."
+				case .inputErrorTitle:
+					return "Erro ao preencher campos"
+				case .expirationDateMessage:
+					return "A data de validade não foi preenchida corretamente."
+				}
 			}
 		}
     }
