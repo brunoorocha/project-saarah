@@ -74,16 +74,7 @@ extension HomeViewController: HomeDisplayLogic {
 
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let homeSection = HomeView.HomeTableViewSections(rawValue: section) else { return nil }
-        switch homeSection {
-        case .menu:
-            return EmptySectionHeaderView()
-        case .notifications:
-            let headerView = DefaultSectionHeaderView()
-            headerView.titleLabelText = Localization(.homeScene(.notification)).description
-            headerView.rightButtonText = Localization(.seeAll).description
-            return headerView
-        }
+        return homeTableViewDataSource.viewForHeader(in: section)
     }
 }
 

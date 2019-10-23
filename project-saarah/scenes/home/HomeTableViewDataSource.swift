@@ -11,6 +11,9 @@ import UIKit
 class HomeTableViewDataSource: NSObject {
     var notificationsViewModels: [Home.FetchHomeNotifications.ViewModel.DisplayedHomeNotification] = []
     var isShowingNotificationSkelectonCells = false
+    var tableViewSections = HomeTableViewSections.allCases
+    var skelectonCellsCount = 3
+
     weak var homeMenuCollectionViewDelegate: UICollectionViewDelegate?
     weak var homeMenuCollectionViewDataSource: UICollectionViewDataSource?
 
@@ -37,10 +40,6 @@ class HomeTableViewDataSource: NSObject {
         }
     }
 
-    var tableViewSections = HomeTableViewSections.allCases
-
-    var skelectonCellsCount = 3
-
     func registerCells (for tableView: UITableView) {
         tableView.register(HomeMenuTableViewCell.self, forCellReuseIdentifier: HomeTableViewSections.menu.reuseIdentifier)
         tableView.register(HomeNotificationSkelectonTableViewCell.self, forCellReuseIdentifier: HomeTableViewSections.notifications.skelectonReuseIdentifier)
@@ -57,7 +56,7 @@ class HomeTableViewDataSource: NSObject {
         }
     }
 
-    func cell(for tableView: UITableView, in indexPath: IndexPath) -> UITableViewCell {
+    func cell (for tableView: UITableView, in indexPath: IndexPath) -> UITableViewCell {
         guard let section = HomeTableViewSections(rawValue: indexPath.section) else { return UITableViewCell() }
         switch section {
         case .menu:
@@ -94,7 +93,7 @@ class HomeTableViewDataSource: NSObject {
         return notificationSkelectonCell
     }
 
-    func viewForHeader(in section: Int) -> UIView? {
+    func viewForHeader (in section: Int) -> UIView? {
         guard let section = HomeTableViewSections(rawValue: section) else { return nil }
         switch section {
         case .menu:
@@ -109,15 +108,15 @@ class HomeTableViewDataSource: NSObject {
 }
 
 extension HomeTableViewDataSource: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections (in tableView: UITableView) -> Int {
         return tableViewSections.count
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView (_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return numberOfRows(in: section)
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView (_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return cell(for: tableView, in: indexPath)
     }
 }
