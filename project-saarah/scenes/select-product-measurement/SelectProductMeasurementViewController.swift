@@ -17,7 +17,7 @@ protocol addNewViewControllerReference {
 }
 
 class SelectProductMeasurementViewController: UIViewController, SelectProductMeasurementDisplayLogic, addNewViewControllerReference {
-    
+
     // MARK: Architeture Property
     var interactor: SelectProductMeasurementBusinessLogic?
     var router: (NSObjectProtocol & SelectProductMeasurementRoutingLogic & SelectProductMeasurementDataPassing)?
@@ -27,8 +27,8 @@ class SelectProductMeasurementViewController: UIViewController, SelectProductMea
     var selectedIndexPath: IndexPath?
 
     // MARK: Delegate
-    var delegate: AddNewProductViewController?
-    
+    weak var delegate: AddNewProductViewController?
+
     // MARK: View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,7 +92,12 @@ extension SelectProductMeasurementViewController: UITableViewDelegate, UITableVi
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return contentView.buildCell(indexPath: indexPath, name: displayMeasurements[indexPath.row].name)
+        let name = displayMeasurements[indexPath.row].name
+        let selected = displayMeasurements[indexPath.row].selected
+        if selected {
+            selectedIndexPath = indexPath
+        }
+        return contentView.buildCell(winthIndexPath: indexPath, andName: name, isSelected: selected)
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

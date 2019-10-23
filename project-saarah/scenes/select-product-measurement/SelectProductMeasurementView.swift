@@ -75,10 +75,13 @@ class SelectProductMeasurementView: UIView {
         ])
     }
 
-    func buildCell(indexPath: IndexPath, name: String) -> UITableViewCell {
+    func buildCell(winthIndexPath indexPath: IndexPath, andName name: String, isSelected selected: Bool) -> UITableViewCell {
         let cell = SelectableCell()
         cell.roundCellIfNeeded(index: indexPath.row, numberOfCells: tableView.numberOfRows(inSection: indexPath.section))
         cell.label.text = name
+        if selected {
+            cell.isChecked = true
+        }
 
         return cell
     }

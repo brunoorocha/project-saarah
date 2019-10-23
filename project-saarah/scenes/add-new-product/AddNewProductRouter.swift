@@ -21,7 +21,6 @@ class AddNewProductRouter: NSObject, AddNewProductRoutingLogic, AddNewProductDat
 	weak var viewController: AddNewProductViewController?
 	var dataStore: AddNewProductDataStore?
 
-	// TODO: Remoce comments
 	// MARK: Routing
 	func routeToChooseMeasurement() {
 		let destinationVC = SelectProductMeasurementViewController()
@@ -49,7 +48,11 @@ class AddNewProductRouter: NSObject, AddNewProductRoutingLogic, AddNewProductDat
 	// MARK: Navigation
 	func navigateToChooseMeasurement(source: AddNewProductViewController, destination: SelectProductMeasurementViewController) {
         guard let viewController = viewController else { return }
+        guard let dataStore = dataStore else { return }
         destination.delegate = viewController
+        if let measureName = dataStore.measure?.name {
+            destination.interactor?.selectMeasure(withName: measureName)
+        }
 		source.show(destination, sender: nil)
 	}
 
