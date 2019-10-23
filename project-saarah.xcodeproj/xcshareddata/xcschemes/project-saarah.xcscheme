@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A343CF4323180C31005F2210"
-               BuildableName = "project-saarah.app"
+               BuildableName = "eStorage.app"
                BlueprintName = "project-saarah"
                ReferencedContainer = "container:project-saarah.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A343CF4323180C31005F2210"
-            BuildableName = "project-saarah.app"
+            BuildableName = "eStorage.app"
             BlueprintName = "project-saarah"
             ReferencedContainer = "container:project-saarah.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A343CF4323180C31005F2210"
-            BuildableName = "project-saarah.app"
+            BuildableName = "eStorage.app"
             BlueprintName = "project-saarah"
             ReferencedContainer = "container:project-saarah.xcodeproj">
          </BuildableReference>
