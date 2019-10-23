@@ -83,7 +83,7 @@ class ListInventoryViewController: UIViewController, ListInventoryDisplayLogic {
 
 	func displayFetchedProducts(viewModel: ListInventory.FetchProducts.ViewModel) {
         listInventoryTableViewDataSource.viewModels = viewModel.displayProducts
-        isLoadingProducts = false   
+        isLoadingProducts = false
 	}
 
     // MARK: Routes

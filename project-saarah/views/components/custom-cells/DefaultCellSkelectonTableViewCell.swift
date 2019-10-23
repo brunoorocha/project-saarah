@@ -10,6 +10,7 @@ import UIKit
 
 class DefaultCellSkelectonTableViewCell: SaarahTableViewCell {
     override func configureCellComponents() {
+        isUserInteractionEnabled = false
         let labelSkelectonView1 = SkelectonLoadingView(size: CGSize(width: 0, height: 16))
         let labelSkelectonView2 = SkelectonLoadingView(size: CGSize(width: 32, height: 16))
         let separator = SaarahTableViewSeparator()
