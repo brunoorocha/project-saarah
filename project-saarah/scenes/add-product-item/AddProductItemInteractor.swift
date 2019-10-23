@@ -23,13 +23,15 @@ class AddProductItemInteractor: AddProductItemBusinessLogic, AddProductItemDataS
 	var product: Product?
 	var productItem: ProductLog?
 
-	let productItemWorker = ProductItemWorker(productItemService: MockProductItem())
+	let productItemWorker = ProductItemWorker(productItemService: ApiAddProductItemStore())
 
 	// MARK: Do something
 	func addProductItem(request: AddProductItem.AddItem.Request) {
-		productItemWorker.addProductItem { (response) in
-			let response = AddProductItem.AddItem.Response(code: response.code, message: response.message)
-			self.presenter?.presentResponse(response: response)
+		guard let product = product else { return }
+		productItemWorker.addProductItem(productId: product.id, price: request.addItemForm.price, quantity: request.addItemForm.quantity, expirationDate: request.addItemForm.expirationDate) { (result) in
+			DispatchQueue.main.async {
+				
+			}
 		}
 	}
 }

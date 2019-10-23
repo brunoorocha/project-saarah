@@ -35,6 +35,13 @@ class NetworkService: NetworkServiceProtocol {
 
         var request = URLRequest(url: url)
         request.httpMethod = endpoint.httpMethod.rawValue
+		
+		if let bodyString = endpoint.body{
+			if let bodyData = bodyString.data(using: String.Encoding.utf8) {
+				request.httpBody = bodyData
+				request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+			}
+		}
 
         self.task = session.dataTask(with: request) { data, response, error in
 

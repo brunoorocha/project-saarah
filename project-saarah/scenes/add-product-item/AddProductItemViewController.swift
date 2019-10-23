@@ -82,7 +82,7 @@ extension AddProductItemViewController: AddProductItemViewDelegate {
 		guard let cell2 = contentView.tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell else { return }
 		guard let expirationDate = cell2.textField.text else { return }
 
-		let itemForm = AddProductItem.AddItemForm(quantity: quantity, price: price, expirationDate: expirationDate)
+		let itemForm = AddProductItem.AddItemForm(productId: "", quantity: quantity, price: price, expirationDate: expirationDate)
 		let request = AddProductItem.AddItem.Request(addItemForm: itemForm)
 		interactor?.addProductItem(request: request)
 	}

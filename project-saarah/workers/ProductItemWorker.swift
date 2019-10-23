@@ -10,10 +10,11 @@ import Foundation
 
 protocol ProductItemStore {
     func fetchProductItems(_ completion: @escaping ([ProductLog]) -> Void)
-	func addProductItem(_ completion: @escaping (Response) -> Void)
+	func addProductItem(productId: String, price: Double, quantity: Double, expirationDate: String, _ completion: @escaping (Result<ProductLog?, NetworkServiceError>) -> Void)
 }
 
 class ProductItemWorker: ProductItemStore {
+	
     let productItemService: ProductItemStore
 
     init(productItemService: ProductItemStore) {
@@ -28,10 +29,10 @@ class ProductItemWorker: ProductItemStore {
         }
     }
 
-	func addProductItem(_ completion: @escaping (Response) -> Void) {
-		productItemService.addProductItem { (response) in
+	func addProductItem(productId: String, price: Double, quantity: Double, expirationDate: String, _ completion: @escaping (Result<ProductLog?, NetworkServiceError>) -> Void) {
+		productItemService.addProductItem(productId: productId, price: price, quantity: quantity, expirationDate: expirationDate) { (result) in
 			DispatchQueue.main.async {
-				completion(response)
+				completion(result)
 			}
 		}
 	}

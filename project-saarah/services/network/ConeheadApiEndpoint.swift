@@ -10,9 +10,16 @@ import Foundation
 
 enum ConeheadApiEndpoint {
     case fetchNotifications
+	case addProductItem(productId: String, price: Double, quantity: Double, expirationDate: String)
 }
 
 extension ConeheadApiEndpoint: EndpointType {
+	var body: String? {
+		get {
+			return caseBody
+		}
+	}
+	
     var apiAddress: String {
         return "https://conehead-api.herokuapp.com/api/v1/"
     }
@@ -25,20 +32,26 @@ extension ConeheadApiEndpoint: EndpointType {
         switch self {
         case .fetchNotifications:
             return .get
-        }
+		case .addProductItem:
+			return .post
+		}
     }
 
     var path: String {
         switch self {
         case .fetchNotifications:
             return apiAddress + "notifications"
+		case .addProductItem(let productItem):
+			return apiAddress + "products/" + productItem.productId + "/items"
         }
     }
-
-    var body: [String: Any]? {
-        get { return nil }
-        set {
-            // do something
-        }
-    }
+	
+	var caseBody: String? {
+		switch self {
+		case .fetchNotifications:
+			return nil
+		case .addProductItem(let productItem):
+			return "quantity=\(productItem.quantity)&price=\(productItem.price)&expiration=\(productItem.expirationDate)"
+		}
+	}
 }
