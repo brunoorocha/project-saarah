@@ -96,12 +96,12 @@ extension ProductItemViewController: UITableViewDataSource, UITableViewDelegate 
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if (section == 2) { return 16 }
+        if (section == 2) { return AppStyleGuide.Margins.medium.rawValue }
         return 0.01
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if (section == 2) { return 16 }
+        if (section == 2) { return AppStyleGuide.Margins.medium.rawValue }
         return 0.01
     }
 
