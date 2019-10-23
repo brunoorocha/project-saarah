@@ -24,7 +24,6 @@ class HomeInteractor: HomeBusinessLogic, HomeDataStore {
     var homeNotifications: [HomeNotification]?
 
 	var presenter: HomePresentationLogic?
-	var worker: HomeWorker?
     var homeNotificationWorker = HomeNotificationsWorker(notificationStore: ApiHomeNotificationStore())
 
     func fetchHomeNotifications (request: Home.FetchHomeNotifications.Request) {

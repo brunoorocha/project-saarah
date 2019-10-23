@@ -23,6 +23,7 @@ enum AppStrings {
     case selectProductMeasurement(SelectProductMeasurement)
 	case addNewProductScene(AddNewProductScene)
     case productItemScene(ProductItemScene)
+    case underConstruction(UnderConstruction)
 
     // MARK: Enum's
 
@@ -98,5 +99,10 @@ enum AppStrings {
     enum ProductItemScene {
         case title
         case notInformed
+    }
+
+    enum UnderConstruction {
+        case title
+        case paragraph
     }
 }
