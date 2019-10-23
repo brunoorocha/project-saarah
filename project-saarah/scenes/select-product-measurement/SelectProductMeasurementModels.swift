@@ -23,4 +23,10 @@ enum SelectProductMeasurement {
 			var displayMeasurements: [DisplayMeasurement]
 		}
 	}
+    
+    enum ChoosedMeasure {
+        struct Request {
+            var row: Int
+        }
+    }
 }

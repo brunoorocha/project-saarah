@@ -48,6 +48,8 @@ class AddNewProductRouter: NSObject, AddNewProductRoutingLogic, AddNewProductDat
 
 	// MARK: Navigation
 	func navigateToChooseMeasurement(source: AddNewProductViewController, destination: SelectProductMeasurementViewController) {
+        guard let viewController = viewController else { return }
+        destination.delegate = viewController
 		source.show(destination, sender: nil)
 	}
 

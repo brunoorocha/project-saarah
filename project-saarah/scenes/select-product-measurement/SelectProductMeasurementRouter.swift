@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SelectProductMeasurementRoutingLogic {
-    func routeToNewProduct(row: Int)
+    func routeToNewProduct()
 }
 
 protocol SelectProductMeasurementDataPassing {
@@ -22,10 +22,24 @@ class SelectProductMeasurementRouter: NSObject, SelectProductMeasurementRoutingL
     var dataStore: SelectProductMeasurementDataStore?
 
     // MARK: Routing
-    func routeToNewProduct(row: Int) {
-        // TODO: Send back the dataStore
+    func routeToNewProduct() {
         guard let dataStore = dataStore else { return }
-        guard let measures = dataStore.measures else { return }
-        print(measures[row])
+        guard let viewController = viewController else { return }
+
+        guard let destinationVC = viewController.delegate else { return }
+        guard var destinationDataStore = destinationVC.router?.dataStore else {
+            return
+        }
+
+        passDataToAddNewProduct(source: dataStore, destination: &destinationDataStore)
+    }
+
+    // MARK: Passing data
+    func passDataToAddNewProduct(source: SelectProductMeasurementDataStore, destination: inout AddNewProductDataStore) {
+        guard let viewController = viewController else { return }
+        guard let measure = source.selectedMeasure else { return }
+
+        destination.measure = measure
+        viewController.dismiss(animated: true)
     }
 }

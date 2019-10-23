@@ -12,7 +12,12 @@ protocol SelectProductMeasurementDisplayLogic: class {
     func displayFetchedMeasurements(viewModel: SelectProductMeasurement.FetchMeasurements.ViewModel)
 }
 
-class SelectProductMeasurementViewController: UIViewController, SelectProductMeasurementDisplayLogic {
+protocol addNewViewControllerReference {
+    var delegate: AddNewProductViewController? { get set }
+}
+
+class SelectProductMeasurementViewController: UIViewController, SelectProductMeasurementDisplayLogic, addNewViewControllerReference {
+    
     // MARK: Architeture Property
     var interactor: SelectProductMeasurementBusinessLogic?
     var router: (NSObjectProtocol & SelectProductMeasurementRoutingLogic & SelectProductMeasurementDataPassing)?
@@ -21,11 +26,13 @@ class SelectProductMeasurementViewController: UIViewController, SelectProductMea
     private var contentView = SelectProductMeasurementView()
     var selectedIndexPath: IndexPath?
 
+    // MARK: Delegate
+    var delegate: AddNewProductViewController?
+    
     // MARK: View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupContentView()
-        setup()
     }
 
     // MARK: Init
@@ -38,13 +45,9 @@ class SelectProductMeasurementViewController: UIViewController, SelectProductMea
         super.init(coder: aDecoder)
     }
 
-    private func setup() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(tappedSaveButton))
-    }
-
     func setupContentView() {
-        title = "\(Localization(.selectProductMeasurement(.title)))"
         view = contentView
+        contentView.delegate = self
         contentView.tableView.delegate = self
         contentView.tableView.dataSource = self
     }
@@ -68,12 +71,18 @@ class SelectProductMeasurementViewController: UIViewController, SelectProductMea
         displayMeasurements = viewModel.displayMeasurements
         contentView.tableView.reloadData()
     }
+}
 
-    // MARK: Routes
-    @objc
-    func tappedSaveButton() {
+extension SelectProductMeasurementViewController: SelectProductMeasurementViewDelegate {
+    func cancelAction() {
+        dismiss(animated: true, completion: nil)
+    }
+
+    func doneAction() {
         guard let indexPath = selectedIndexPath else { return }
-        router?.routeToNewProduct(row: indexPath.row)
+        let request = SelectProductMeasurement.ChoosedMeasure.Request(row: indexPath.row)
+        interactor?.selectedMeasure(request: request)
+        router?.routeToNewProduct()
     }
 }
 
