@@ -27,12 +27,11 @@ class ButtonTableViewCell: SaarahTableViewCell {
         NSLayoutConstraint.activate([
             addIconImageView.topAnchor.constraint(equalTo: cellContentView.topAnchor, constant: mediumMargin),
             addIconImageView.bottomAnchor.constraint(equalTo: cellContentView.bottomAnchor, constant: -mediumMargin),
-            addIconImageView.leftAnchor.constraint(equalTo: cellContentView.leftAnchor, constant: mediumMargin),
+            addIconImageView.trailingAnchor.constraint(equalTo: buttonLabel.leadingAnchor, constant: -smallMargin),
 
             buttonLabel.topAnchor.constraint(equalTo: cellContentView.topAnchor, constant: mediumMargin),
             buttonLabel.bottomAnchor.constraint(equalTo: cellContentView.bottomAnchor, constant: -mediumMargin),
-            buttonLabel.leftAnchor.constraint(equalTo: addIconImageView.rightAnchor, constant: smallMargin),
-            buttonLabel.rightAnchor.constraint(equalTo: cellContentView.rightAnchor, constant: -mediumMargin)
+            buttonLabel.centerXAnchor.constraint(equalTo: cellContentView.centerXAnchor, constant: (addIconImageView.frame.width - mediumMargin))
         ])
 
     }
