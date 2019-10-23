@@ -56,7 +56,7 @@ class ProductItemTableViewDataSource {
         case 1:
             return secondSection(cell, for: indexPath.row)
         case 2:
-            return thirdSection(cell)
+            return thirdSection(cell, for: indexPath.row)
         default:
             return UITableViewCell()
         }
@@ -82,9 +82,9 @@ class ProductItemTableViewDataSource {
         return cell
     }
 
-    func thirdSection(_ cell: UITableViewCell) -> UITableViewCell {
+    func thirdSection(_ cell: UITableViewCell, for row: Int) -> UITableViewCell {
         guard let cell = cell as? ButtonTableViewCell else { return UITableViewCell() }
-
+        cell.roundCellIfNeeded(index: row, numberOfCells: 1)
         return cell
     }
 }

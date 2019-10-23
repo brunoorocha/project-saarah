@@ -55,7 +55,7 @@ class ListInventoryViewController: UIViewController, ListInventoryDisplayLogic {
 	}
 
     private func setup() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(tappedAddButton))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: AppStyleGuide.Icons.plus.uiImage, style: .plain, target: self, action: #selector(tappedAddButton))
     }
 
 	func setupContentView() {
