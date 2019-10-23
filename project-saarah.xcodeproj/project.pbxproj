@@ -335,7 +335,7 @@
 		1B4F4178231DF83400EB1F13 /* services */ = {
 			isa = PBXGroup;
 			children = (
-				48F28F21235F2B20005CCF56 /* product-service */,
+				48F28F28236076B1005CCF56 /* product-item-service */,
 				A3859A532359F3C1003E4B1B /* network */,
 				1B2DB9BF2357C78900AF6D80 /* mocks */,
 				A3522D6A234124AF00DB1314 /* home-notification-service */,
@@ -439,12 +439,12 @@
 			path = "add-product-item";
 			sourceTree = "<group>";
 		};
-		48F28F21235F2B20005CCF56 /* product-service */ = {
+		48F28F28236076B1005CCF56 /* product-item-service */ = {
 			isa = PBXGroup;
 			children = (
 				48F28F22235F2D23005CCF56 /* ApiAddProductItemStore.swift */,
 			);
-			path = "product-service";
+			path = "product-item-service";
 			sourceTree = "<group>";
 		};
 		4C94BAD6233B9060008D62F5 /* extensions */ = {
