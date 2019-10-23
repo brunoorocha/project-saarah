@@ -108,6 +108,7 @@
 		A3859A572359FC8B003E4B1B /* ApiHomeNotificationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3859A562359FC8B003E4B1B /* ApiHomeNotificationStore.swift */; };
 		A3859A59235A0263003E4B1B /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3859A58235A0263003E4B1B /* Endpoint.swift */; };
 		A3859A5B235A0279003E4B1B /* ConeheadApiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3859A5A235A0279003E4B1B /* ConeheadApiEndpoint.swift */; };
+		A3A4599023606B9D000A765F /* SkelectonLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A4598F23606B9D000A765F /* SkelectonLoadingView.swift */; };
 		A3A79735235B3B9600B5724F /* ApiProductStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A79734235B3B9600B5724F /* ApiProductStore.swift */; };
 		A3A79737235B3BBC00B5724F /* HomeNotificationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A79736235B3BBC00B5724F /* HomeNotificationWorker.swift */; };
 		A3AACBC82340C946000EFB6B /* SaarahViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AACBC72340C946000EFB6B /* SaarahViewController.swift */; };
@@ -229,6 +230,7 @@
 		A3859A562359FC8B003E4B1B /* ApiHomeNotificationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiHomeNotificationStore.swift; sourceTree = "<group>"; };
 		A3859A58235A0263003E4B1B /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		A3859A5A235A0279003E4B1B /* ConeheadApiEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConeheadApiEndpoint.swift; sourceTree = "<group>"; };
+		A3A4598F23606B9D000A765F /* SkelectonLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkelectonLoadingView.swift; sourceTree = "<group>"; };
 		A3A79734235B3B9600B5724F /* ApiProductStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiProductStore.swift; sourceTree = "<group>"; };
 		A3A79736235B3BBC00B5724F /* HomeNotificationWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNotificationWorker.swift; sourceTree = "<group>"; };
 		A3AACBC72340C946000EFB6B /* SaarahViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahViewController.swift; sourceTree = "<group>"; };
@@ -546,6 +548,7 @@
 				A3AACBC72340C946000EFB6B /* SaarahViewController.swift */,
 				A3522D712341882300DB1314 /* SaarahTableViewSeparator.swift */,
 				A32244F3235E8AE700375793 /* UnderConstructionViewController.swift */,
+				A3A4598F23606B9D000A765F /* SkelectonLoadingView.swift */,
 			);
 			path = "base-components";
 			sourceTree = "<group>";
@@ -734,6 +737,7 @@
 				1B4DFA7C23595B6E002C2B55 /* ProductItemBuilder.swift in Sources */,
 				A304F94D233CED4100C3B6F7 /* SaarahTextField.swift in Sources */,
 				A32D8155233F9028008DB50F /* HomeMenuModels.swift in Sources */,
+				A3A4599023606B9D000A765F /* SkelectonLoadingView.swift in Sources */,
 				A32D814B233F6A03008DB50F /* HomeCardCollectionViewCell.swift in Sources */,
 				1B7D018F234CD3CD003B365D /* MockProduct.swift in Sources */,
 				487B9B2D23311DE400D8D6CC /* MenuItemProduct.swift in Sources */,
