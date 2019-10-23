@@ -10,10 +10,15 @@ import Foundation
 
 protocol AddNewProductBusinessLogic {
 	func saveNewProduct(request: AddNewProduct.SaveProduct.Request)
+    func getProductMeasure(request: AddNewProduct.GetMeasure.Request)
 }
 
 protocol AddNewProductDataStore {
 	var product: Product? { get set }
+}
+
+protocol AddNewProductGetMeasureDataStore {
+    var measure: Measure? { get set }
 }
 
 class AddNewProductInteractor: AddNewProductBusinessLogic, AddNewProductDataStore {
@@ -21,10 +26,16 @@ class AddNewProductInteractor: AddNewProductBusinessLogic, AddNewProductDataStor
 //	var worker: AddNewProductWorker?
 	var product: Product?
 
-	// MARK: Do something
+	// MARK: Save new product
 	func saveNewProduct(request: AddNewProduct.SaveProduct.Request) {
 		// TODO: Create worker for api
 		let response = AddNewProduct.SaveProduct.Response(success: true)
-		presenter?.presentResponse(response: response)
+		presenter?.presentSaveProductResponse(response: response)
 	}
+
+    // MARK: Get product measure
+    func getProductMeasure(request: AddNewProduct.GetMeasure.Request) {
+        let response = AddNewProduct.GetMeasure.Response(measure: request.measure)
+        presenter?.presentGetMeasureResponse(response: response)
+    }
 }

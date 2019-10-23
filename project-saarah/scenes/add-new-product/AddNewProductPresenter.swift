@@ -9,14 +9,16 @@
 import Foundation
 
 protocol AddNewProductPresentationLogic {
-    func presentResponse(response: AddNewProduct.SaveProduct.Response)
+    func presentSaveProductResponse(response: AddNewProduct.SaveProduct.Response)
+    func presentGetMeasureResponse(response: AddNewProduct.GetMeasure.Response)
 }
 
 class AddNewProductPresenter: AddNewProductPresentationLogic {
+
 	weak var viewController: AddNewProductDisplayLogic?
 
-	// MARK: Do something
-	func presentResponse(response: AddNewProduct.SaveProduct.Response) {
+	// MARK: Present save product
+	func presentSaveProductResponse(response: AddNewProduct.SaveProduct.Response) {
         if response.success {
 			let viewModel = AddNewProduct
                 .SaveProduct.ViewModel.Response(success: true,
@@ -25,4 +27,10 @@ class AddNewProductPresenter: AddNewProductPresentationLogic {
 			viewController?.displayResponse(viewModel: viewModel)
 		}
 	}
+
+    // MARK: Present measure
+    func presentGetMeasureResponse(response: AddNewProduct.GetMeasure.Response) {
+        let viewModel = AddNewProduct.GetMeasure.ViewModel.Measure(name: response.measure.name)
+        viewController?.displayMeasureResponse(viewModel: viewModel)
+    }
 }

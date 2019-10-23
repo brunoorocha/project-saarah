@@ -14,7 +14,7 @@ enum AddNewProduct {
 		let barCode: String?
 		let measure: String
 	}
-	// MARK: Use cases
+	// MARK: Save product
 	enum SaveProduct {
 		struct Request {
 			let productForm: ProductForm
@@ -30,4 +30,18 @@ enum AddNewProduct {
             }
         }
 	}
+    // MARK: Product measure
+    enum GetMeasure {
+        struct Request {
+            let measure: Measure
+        }
+        struct Response {
+            let measure: Measure
+        }
+        struct ViewModel {
+            struct Measure {
+                var name: String
+            }
+        }
+    }
 }

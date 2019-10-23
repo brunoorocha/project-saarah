@@ -10,9 +10,11 @@ import UIKit
 
 protocol AddNewProductDisplayLogic: class {
 	func displayResponse(viewModel: AddNewProduct.SaveProduct.ViewModel.Response)
+    func displayMeasureResponse(viewModel: AddNewProduct.GetMeasure.ViewModel.Measure)
 }
 
 class AddNewProductViewController: SaarahViewController, AddNewProductDisplayLogic {
+
 	// MARK: Architeture Property
 	var interactor: AddNewProductBusinessLogic?
 	var router: (NSObjectProtocol & AddNewProductRoutingLogic & AddNewProductDataPassing)?
@@ -47,7 +49,7 @@ class AddNewProductViewController: SaarahViewController, AddNewProductDisplayLog
 		contentView.tableView.reloadData()
 	}
 
-	// MARK: Do something
+	// MARK: Display new product response
 	func displayResponse(viewModel: AddNewProduct.SaveProduct.ViewModel.Response) {
 		let alert = UIAlertController(title: viewModel.title, message: viewModel.message, preferredStyle: .alert)
         var okAction: UIAlertAction
@@ -62,6 +64,13 @@ class AddNewProductViewController: SaarahViewController, AddNewProductDisplayLog
 
 		present(alert, animated: true, completion: nil)
 	}
+
+    // MARK: Display measure response
+    func displayMeasureResponse(viewModel: AddNewProduct.GetMeasure.ViewModel.Measure) {
+        let indexPath = IndexPath(row: 2, section: 0)
+        guard let cell = contentView.tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell else { return }
+        cell.textField.text = viewModel.name
+    }
 }
 
 extension AddNewProductViewController: AddNewProductViewDelegate {
