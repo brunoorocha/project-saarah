@@ -67,9 +67,7 @@
 		48BC806B234CB6270001B1A9 /* ProductDetailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BC806A234CB6270001B1A9 /* ProductDetailBuilder.swift */; };
 		4C94BAD8233B9086008D62F5 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94BAD7233B9086008D62F5 /* UIView.swift */; };
 		4C94BADD233BA8ED008D62F5 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94BADC233BA8ED008D62F5 /* UILabel.swift */; };
-		4C94BAE2233BE19A008D62F5 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94BAE1233BE19A008D62F5 /* TableViewController.swift */; };
 		4C94BAE8233CE4FA008D62F5 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94BAE7233CE4FA008D62F5 /* ProductTableViewCell.swift */; };
-		4C94BAEB233CFB71008D62F5 /* PickerFieldtableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94BAEA233CFB71008D62F5 /* PickerFieldtableViewCell.swift */; };
 		A304F93C233CD90B00C3B6F7 /* DefaultSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304F93B233CD90B00C3B6F7 /* DefaultSectionHeaderView.swift */; };
 		A304F940233CD9EA00C3B6F7 /* CaptionBoldLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304F93F233CD9EA00C3B6F7 /* CaptionBoldLabel.swift */; };
 		A304F942233CDA9800C3B6F7 /* SaarahButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304F941233CDA9800C3B6F7 /* SaarahButton.swift */; };
@@ -91,10 +89,7 @@
 		A3522D6E2341253700DB1314 /* LocalHomeNotificationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3522D6D2341253700DB1314 /* LocalHomeNotificationStore.swift */; };
 		A3522D70234186AB00DB1314 /* HomeNotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3522D6F234186AB00DB1314 /* HomeNotificationTableViewCell.swift */; };
 		A3522D722341882300DB1314 /* SaarahTableViewSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3522D712341882300DB1314 /* SaarahTableViewSeparator.swift */; };
-		A353D7C9231FE416004A5139 /* NavigationDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A353D7C8231FE416004A5139 /* NavigationDrawerView.swift */; };
 		A353D7CE231FE4B1004A5139 /* NavigationDrawerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A353D7CD231FE4B1004A5139 /* NavigationDrawerMenu.swift */; };
-		A353D7D3231FE55B004A5139 /* NavigationDrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A353D7D2231FE55B004A5139 /* NavigationDrawerViewController.swift */; };
-		A353D7DC231FE61C004A5139 /* AppSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A353D7DB231FE61C004A5139 /* AppSplitViewController.swift */; };
 		A3780875233B8ECA005B26E8 /* AppStyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3780874233B8ECA005B26E8 /* AppStyleGuide.swift */; };
 		A3780885233B9555005B26E8 /* Nunito-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A378087E233B94C6005B26E8 /* Nunito-Black.ttf */; };
 		A3780886233B9555005B26E8 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A378087A233B94C6005B26E8 /* Nunito-Regular.ttf */; };
@@ -189,9 +184,7 @@
 		48BC806A234CB6270001B1A9 /* ProductDetailBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailBuilder.swift; sourceTree = "<group>"; };
 		4C94BAD7233B9086008D62F5 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		4C94BADC233BA8ED008D62F5 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
-		4C94BAE1233BE19A008D62F5 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		4C94BAE7233CE4FA008D62F5 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
-		4C94BAEA233CFB71008D62F5 /* PickerFieldtableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerFieldtableViewCell.swift; sourceTree = "<group>"; };
 		A304F93B233CD90B00C3B6F7 /* DefaultSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSectionHeaderView.swift; sourceTree = "<group>"; };
 		A304F93F233CD9EA00C3B6F7 /* CaptionBoldLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionBoldLabel.swift; sourceTree = "<group>"; };
 		A304F941233CDA9800C3B6F7 /* SaarahButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahButton.swift; sourceTree = "<group>"; };
@@ -216,10 +209,7 @@
 		A3522D6D2341253700DB1314 /* LocalHomeNotificationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalHomeNotificationStore.swift; sourceTree = "<group>"; };
 		A3522D6F234186AB00DB1314 /* HomeNotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNotificationTableViewCell.swift; sourceTree = "<group>"; };
 		A3522D712341882300DB1314 /* SaarahTableViewSeparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahTableViewSeparator.swift; sourceTree = "<group>"; };
-		A353D7C8231FE416004A5139 /* NavigationDrawerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDrawerView.swift; sourceTree = "<group>"; };
 		A353D7CD231FE4B1004A5139 /* NavigationDrawerMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDrawerMenu.swift; sourceTree = "<group>"; };
-		A353D7D2231FE55B004A5139 /* NavigationDrawerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDrawerViewController.swift; sourceTree = "<group>"; };
-		A353D7DB231FE61C004A5139 /* AppSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSplitViewController.swift; sourceTree = "<group>"; };
 		A3780872233B8D63005B26E8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A3780874233B8ECA005B26E8 /* AppStyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyleGuide.swift; sourceTree = "<group>"; };
 		A378087A233B94C6005B26E8 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
@@ -387,15 +377,6 @@
 			path = utils;
 			sourceTree = "<group>";
 		};
-		48ED6BCE231D3D7300A792DF /* controllers */ = {
-			isa = PBXGroup;
-			children = (
-				A353D7DA231FE605004A5139 /* split-view */,
-				A353D7D1231FE525004A5139 /* navigation-drawer */,
-			);
-			path = controllers;
-			sourceTree = "<group>";
-		};
 		48ED6BD2231D3D9C00A792DF /* views */ = {
 			isa = PBXGroup;
 			children = (
@@ -423,30 +404,6 @@
 				1B537884235988A8007C819D /* Date+Formatter.swift */,
 			);
 			path = extensions;
-			sourceTree = "<group>";
-		};
-		4C94BAD9233BA515008D62F5 /* components */ = {
-			isa = PBXGroup;
-			children = (
-				4C94BAE7233CE4FA008D62F5 /* ProductTableViewCell.swift */,
-			);
-			path = components;
-			sourceTree = "<group>";
-		};
-		4C94BAE0233BE149008D62F5 /* helpers */ = {
-			isa = PBXGroup;
-			children = (
-				4C94BAE1233BE19A008D62F5 /* TableViewController.swift */,
-			);
-			path = helpers;
-			sourceTree = "<group>";
-		};
-		4C94BAE9233CFAF9008D62F5 /* forms */ = {
-			isa = PBXGroup;
-			children = (
-				4C94BAEA233CFB71008D62F5 /* PickerFieldtableViewCell.swift */,
-			);
-			path = forms;
 			sourceTree = "<group>";
 		};
 		A304F949233CEC9E00C3B6F7 /* form-cells */ = {
@@ -492,14 +449,10 @@
 				1B4F4178231DF83400EB1F13 /* services */,
 				1B7D0190234CD3DA003B365D /* workers */,
 				482922F7231D4503005DAF11 /* utils */,
-				4C94BAD9233BA515008D62F5 /* components */,
-				4C94BAE9233CFAF9008D62F5 /* forms */,
-				4C94BAE0233BE149008D62F5 /* helpers */,
 				48ED6BDB231D3DF700A792DF /* applications */,
 				A353D7CA231FE44A004A5139 /* models */,
 				48ED6BD2231D3D9C00A792DF /* views */,
 				A3780871233B8CF9005B26E8 /* scenes */,
-				48ED6BCE231D3D7300A792DF /* controllers */,
 			);
 			path = "project-saarah";
 			sourceTree = "<group>";
@@ -520,7 +473,6 @@
 				A304F949233CEC9E00C3B6F7 /* form-cells */,
 				A378088A233B9BDB005B26E8 /* custom-cells */,
 				A3780887233B9865005B26E8 /* base-components */,
-				A353D7C8231FE416004A5139 /* NavigationDrawerView.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -541,22 +493,6 @@
 				A3522D682341200A00DB1314 /* HomeNotification.swift */,
 			);
 			path = models;
-			sourceTree = "<group>";
-		};
-		A353D7D1231FE525004A5139 /* navigation-drawer */ = {
-			isa = PBXGroup;
-			children = (
-				A353D7D2231FE55B004A5139 /* NavigationDrawerViewController.swift */,
-			);
-			path = "navigation-drawer";
-			sourceTree = "<group>";
-		};
-		A353D7DA231FE605004A5139 /* split-view */ = {
-			isa = PBXGroup;
-			children = (
-				A353D7DB231FE61C004A5139 /* AppSplitViewController.swift */,
-			);
-			path = "split-view";
 			sourceTree = "<group>";
 		};
 		A3780871233B8CF9005B26E8 /* scenes */ = {
@@ -617,6 +553,7 @@
 		A378088A233B9BDB005B26E8 /* custom-cells */ = {
 			isa = PBXGroup;
 			children = (
+				4C94BAE7233CE4FA008D62F5 /* ProductTableViewCell.swift */,
 				A378088B233B9C1D005B26E8 /* ProductActivityTableViewCell.swift */,
 				A378088F233B9CEE005B26E8 /* SaarahTableViewCell.swift */,
 				A304F93B233CD90B00C3B6F7 /* DefaultSectionHeaderView.swift */,
@@ -769,7 +706,6 @@
 				A3D2D0D52340E91100432214 /* HomeInteractor.swift in Sources */,
 				A3D2D0D22340E91100432214 /* HomeRouter.swift in Sources */,
 				A32D814D233F6FE0008DB50F /* HomeMenuCollectionView.swift in Sources */,
-				A353D7C9231FE416004A5139 /* NavigationDrawerView.swift in Sources */,
 				48244F5E23479187007B4AA7 /* ProductDetailTableViewDataSource.swift in Sources */,
 				A3859A59235A0263003E4B1B /* Endpoint.swift in Sources */,
 				487B9B3523311FDC00D8D6CC /* Promotion.swift in Sources */,
@@ -779,7 +715,6 @@
 				A3D2D0D62340E91100432214 /* HomeView.swift in Sources */,
 				A3AACBC82340C946000EFB6B /* SaarahViewController.swift in Sources */,
 				48244F5C23478303007B4AA7 /* ProductDetailView.swift in Sources */,
-				4C94BAEB233CFB71008D62F5 /* PickerFieldtableViewCell.swift in Sources */,
 				A3522D722341882300DB1314 /* SaarahTableViewSeparator.swift in Sources */,
 				1B537887235A224A007C819D /* LabeledTableViewCell.swift in Sources */,
 				487B9B2B23311D2100D8D6CC /* Measure.swift in Sources */,
@@ -820,14 +755,12 @@
 				1B76635323478E640069D581 /* ListInventoryModels.swift in Sources */,
 				A378089C233BA853005B26E8 /* ParagraphLabel.swift in Sources */,
 				1B76635123478E640069D581 /* ListInventoryPresenter.swift in Sources */,
-				A353D7D3231FE55B004A5139 /* NavigationDrawerViewController.swift in Sources */,
 				A37808A6233BDD6C005B26E8 /* SaarahImageView.swift in Sources */,
 				A3780890233B9CEE005B26E8 /* SaarahTableViewCell.swift in Sources */,
 				1B766361234B86740069D581 /* ListInventoryBuilder.swift in Sources */,
 				A32244F4235E8AE700375793 /* UnderConstructionViewController.swift in Sources */,
 				A304F940233CD9EA00C3B6F7 /* CaptionBoldLabel.swift in Sources */,
 				1B4DFA7E23595B6E002C2B55 /* ProductItemView.swift in Sources */,
-				A353D7DC231FE61C004A5139 /* AppSplitViewController.swift in Sources */,
 				A304F944233CDB3300C3B6F7 /* CaptionButton.swift in Sources */,
 				A3780875233B8ECA005B26E8 /* AppStyleGuide.swift in Sources */,
 				487B9B2923311C8F00D8D6CC /* LogType.swift in Sources */,
@@ -860,7 +793,6 @@
 				A304F946233CE21300C3B6F7 /* DefaultCellTableViewCell.swift in Sources */,
 				4C94BAE8233CE4FA008D62F5 /* ProductTableViewCell.swift in Sources */,
 				1B5378832359881B007C819D /* Double+RoundToDecimal.swift in Sources */,
-				4C94BAE2233BE19A008D62F5 /* TableViewController.swift in Sources */,
 				48244F5923478303007B4AA7 /* ProductDetailModels.swift in Sources */,
 				A3522D6E2341253700DB1314 /* LocalHomeNotificationStore.swift in Sources */,
 				1B15E0CF2354A3970047A0B6 /* AppStrings+pt_BR.swift in Sources */,
