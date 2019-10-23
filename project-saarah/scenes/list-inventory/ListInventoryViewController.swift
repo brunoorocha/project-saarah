@@ -20,6 +20,14 @@ class ListInventoryViewController: UIViewController, ListInventoryDisplayLogic {
 
 	// MARK: Controller Property
 	private var contentView = ListInventoryView()
+    private var listInventoryTableViewDataSource = ListInventoryTableViewDataSource()
+
+    private var isLoadingProducts = false {
+        didSet {
+            self.listInventoryTableViewDataSource.isShowingSkelectonCells = self.isLoadingProducts
+            contentView.tableView.reloadData()
+        }
+    }
 
     var selectedRow: Int? {
         guard let indexPath = self.contentView.tableView.indexPathForSelectedRow else {
@@ -53,7 +61,8 @@ class ListInventoryViewController: UIViewController, ListInventoryDisplayLogic {
         title = "Estoque"
         view = contentView
         contentView.tableView.delegate = self
-        contentView.tableView.dataSource = self
+        listInventoryTableViewDataSource.registerCell(for: contentView.tableView)
+        contentView.tableView.dataSource = listInventoryTableViewDataSource
 	}
 
     // MARK: View lifecycle
@@ -69,11 +78,12 @@ class ListInventoryViewController: UIViewController, ListInventoryDisplayLogic {
     func fetchProducts() {
         let request = ListInventory.FetchProducts.Request()
         interactor?.fetchProducts(request: request)
+        isLoadingProducts = true
     }
 
 	func displayFetchedProducts(viewModel: ListInventory.FetchProducts.ViewModel) {
-        displayProducts = viewModel.displayProducts
-        contentView.tableView.reloadData()
+        listInventoryTableViewDataSource.viewModels = viewModel.displayProducts
+        isLoadingProducts = false
 	}
 
     // MARK: Routes
@@ -96,25 +106,9 @@ class ListInventoryViewController: UIViewController, ListInventoryDisplayLogic {
 
 }
 
-extension ListInventoryViewController: UITableViewDelegate, UITableViewDataSource {
+extension ListInventoryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return contentView.buildHeaderSection(
-            section: section,
-            title: "\(Localization(.listInventoryScene(.productInStock)))"
-        )
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return displayProducts.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let product = displayProducts[indexPath.row]
-        return contentView.buildCell(
-            indexPath: indexPath,
-            name: product.name,
-            quantity: product.quantity
-        )
+        return listInventoryTableViewDataSource.viewForHeader(in: section)
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
