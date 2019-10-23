@@ -21,6 +21,7 @@ class SaarahButton: UIButton {
 
     private func defaultButtonConfiguration () {
         setTitleColor(AppStyleGuide.Colors.primary.uiColor, for: .normal)
+        titleLabel?.font = AppStyleGuide.Typography.heading3.uiFont
         translatesAutoresizingMaskIntoConstraints = false
     }
 
