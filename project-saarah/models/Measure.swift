@@ -8,12 +8,19 @@
 
 import Foundation
 
-class Measure {
-	let id: Int
+class Measure: Decodable {
+	let id: String
 	let name: String
 
-	init(id: Int, name: String) {
+	init(id: String, name: String) {
 		self.id = id
 		self.name = name
 	}
+}
+
+extension Measure {
+    enum CodingKeys: CodingKey {
+        case id
+        case name
+    }
 }

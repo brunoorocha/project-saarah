@@ -9,9 +9,9 @@
 import Foundation
 
 enum HomeNotificationType: String {
-    case alert = "alert"
-    case warning = "warning"
-    case normal = "normal"
+    case alert
+    case warning
+    case normal
 }
 
 struct HomeNotification {

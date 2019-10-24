@@ -11,6 +11,7 @@ import Foundation
 enum ConeheadApiEndpoint {
     case fetchNotifications
 	case addProductItem(productId: String, price: Double, quantity: Double, expirationDate: String)
+    case fetchProducts
 }
 
 extension ConeheadApiEndpoint: EndpointType {
@@ -34,7 +35,9 @@ extension ConeheadApiEndpoint: EndpointType {
             return .get
 		case .addProductItem:
 			return .post
-		}
+        case .fetchProducts:
+            return .get
+        }
     }
 
     var path: String {
@@ -43,6 +46,8 @@ extension ConeheadApiEndpoint: EndpointType {
             return apiAddress + "notifications"
 		case .addProductItem(let productItem):
 			return apiAddress + "products/" + productItem.productId + "/items"
+        case .fetchProducts:
+            return apiAddress + "products"
         }
     }
 	
@@ -52,6 +57,8 @@ extension ConeheadApiEndpoint: EndpointType {
 			return nil
 		case .addProductItem(let productItem):
 			return "quantity=\(productItem.quantity)&price=\(productItem.price)&expiration=\(productItem.expirationDate)"
+		case .fetchProducts:
+			return nil
 		}
 	}
 }

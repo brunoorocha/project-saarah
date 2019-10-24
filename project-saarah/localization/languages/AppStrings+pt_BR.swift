@@ -68,7 +68,7 @@ extension AppStrings {
             case .notification:
                 return "Notificações"
             case .title:
-                return "Restaurante"
+                return "Estorage"
             }
         case .productDetailScene(let options):
             switch options {
@@ -123,6 +123,10 @@ extension AppStrings {
 				return "Validade"
 			case .expirationDatePlaceholder:
 				return "Toque para inserir a validade"
+			case .erroFormTitle:
+				return "Erro"
+			case .erroFormMessage:
+				return "Preencha os campos corretamente."
 			case .response(let options):
 				switch (options) {
 				case .successTitle:
@@ -135,6 +139,13 @@ extension AppStrings {
 					return "A data de validade não foi preenchida corretamente."
 				}
 			}
-		}
+        case .underConstruction(let options):
+            switch options {
+            case .title:
+                return "Sentimos muito"
+            case .paragraph:
+                return "mas nós ainda estamos em \nconstrução"
+            }
+        }
     }
 }

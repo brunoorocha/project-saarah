@@ -23,6 +23,7 @@ enum AppStrings {
     case selectProductMeasurement(SelectProductMeasurement)
     case productItemScene(ProductItemScene)
 	case addProductItemScene(AddProductItemScene)
+    case underConstruction(UnderConstruction)
 
     // MARK: Enum's
 
@@ -97,6 +98,8 @@ enum AppStrings {
 		case complementaryInformation
 		case expirationDate
 		case expirationDatePlaceholder
+		case erroFormTitle
+		case erroFormMessage
 		case response(Response)
 
 		enum Response {
@@ -106,5 +109,9 @@ enum AppStrings {
 			case expirationDateMessage
 		}
 	}
-
+	
+    enum UnderConstruction {
+        case title
+        case paragraph
+    }
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 protocol ProductItemStore {
-    func fetchProductItems(_ completion: @escaping ([ProductLog]) -> Void)
+	func fetchProductItems(_ completion: @escaping ([ProductLog]) -> Void)
 	func addProductItem(productId: String, price: Double, quantity: Double, expirationDate: String, _ completion: @escaping (Result<ProductLog?, NetworkServiceError>) -> Void)
 }
 

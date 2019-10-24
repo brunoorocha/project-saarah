@@ -10,7 +10,6 @@ import Foundation
 
 enum AddProductItem {
 	struct AddItemForm {
-		var productId: String
 		let quantity: Double
 		let price: Double
 		let expirationDate: String
@@ -21,7 +20,8 @@ enum AddProductItem {
 			let addItemForm: AddItemForm
 		}
 		struct Response {
-			let result: Result<ProductItem?, NetworkServiceError>
+			let productLog: ProductLog?
+			// TODO: Add var to error handler
 		}
 		struct ViewModel {
 			struct AddItemViewModel {
@@ -29,6 +29,7 @@ enum AddProductItem {
 				let title: String
 				let message: String
 			}
+			// TODO: Add struct to error handler
 		}
 	}
 }

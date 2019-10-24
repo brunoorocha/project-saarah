@@ -38,7 +38,7 @@ enum AppStyleGuide {
             case .heading1:
                 return UIFont(name: "Nunito-Black", size: 32.0) ?? UIFont.systemFont(ofSize: 32.0)
             case .heading2:
-                return UIFont(name: "Nunito-Bold", size: 24.0) ?? UIFont.systemFont(ofSize: 24.0)
+                return UIFont(name: "Nunito-Black", size: 24.0) ?? UIFont.systemFont(ofSize: 24.0)
             case .heading3:
                 return UIFont(name: "Nunito-Bold", size: 16.0) ?? UIFont.systemFont(ofSize: 16.0)
             case .paragraph:
@@ -71,7 +71,7 @@ enum AppStyleGuide {
             case .primary:
                 return UIColor.rgba(88, 72, 160)
             case .background:
-                return UIColor.rgba(248, 248, 248)
+                return UIColor.rgba(245, 245, 245)
             case .foreground:
                 return UIColor.white
             case .textColor:
@@ -105,6 +105,7 @@ enum AppStyleGuide {
         case menu
         case barchart
         case settings
+        case cone
 
         var uiImage: UIImage? {
             switch self {
@@ -122,6 +123,8 @@ enum AppStyleGuide {
                 return UIImage(named: "barchart-icon")
             case .settings:
                 return UIImage(named: "settings-icon")
+            case .cone:
+                return UIImage(named: "traffic-cone")
             }
         }
     }

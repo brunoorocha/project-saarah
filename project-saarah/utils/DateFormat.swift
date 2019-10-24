@@ -15,4 +15,21 @@ struct DateFormat {
 		
 		return dateFormatter.date(from: string)
 	}
+	
+	static func withSlash(from date: Date) -> String {
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = "dd/MM/yyyy"
+		
+		return dateFormatter.string(from: date)
+	}
+	
+	static func convertToCommaFromSlash(_ string: String) -> String? {
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = "dd/MM/yyyy"
+		if let date = dateFormatter.date(from: string) {
+			dateFormatter.dateFormat = "yyyy-MM-dd"
+			return  dateFormatter.string(from: date)
+		}
+		return nil
+	}
 }

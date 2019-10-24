@@ -17,26 +17,11 @@ class AddProductItemPresenter: AddProductItemPresentationLogic {
 
 	// MARK: Do something
 	func presentResponse(response: AddProductItem.AddItem.Response) {
-		switch (response.code) {
-		case "999":
-			let success = false
-			let title = "\(Localization(.addProductItemScene(.response(.inputErrorTitle))))"
-			var message = ""
-
-			switch (response.message) {
-			case "expirationDate":
-				message = "\(Localization(.addProductItemScene(.response(.expirationDateMessage))))"
-			default:
-				break
-			}
-
-			let viewModel = AddProductItem.AddItem.ViewModel.AddItemViewModel(success: success, title: title, message: message)
-			viewController?.displayResponse(viewModel: viewModel)
-		case "100":
+		if (response.productLog != nil) {
 			let viewModel = AddProductItem.AddItem.ViewModel.AddItemViewModel(success: true, title: "\(Localization(.addProductItemScene(.response(.successTitle))))", message: "\(Localization(.addProductItemScene(.response(.suceessMessage))))")
 			viewController?.displayResponse(viewModel: viewModel)
-		default:
-			break
+		} else {
+			// TODO: create a vm to show the error returned by api
 		}
 	}
 }

@@ -19,5 +19,8 @@ class AddProductItemBuilder {
         presenter.viewController = viewController
         router.viewController = viewController
         router.dataStore = interactor
+		
+		let product = Product(id: "5dab0dd88971bd0017eb80cd", name: "foda-se", measure: Measure(id: "foda-se", name: "foda-se"), barCode: "foda-se", logs: [])
+		interactor.product = product
     }
 }

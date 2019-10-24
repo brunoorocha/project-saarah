@@ -8,7 +8,28 @@
 
 import UIKit
 
+protocol AddProductItemTableViewDataSourceDelegate: class {
+	func dismissDatePicker()
+}
+
 class AddProductItemTableViewDataSource {
+	lazy var datePicker: UIDatePicker = {
+		let picker = UIDatePicker()
+		picker.datePickerMode = .date
+		return picker
+	}()
+	lazy var toolBar: UIToolbar = {
+		let toolbar = UIToolbar()
+		toolbar.sizeToFit()
+		let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(donePickAction))
+		doneButton.tintColor = AppStyleGuide.Colors.primary.uiColor
+		let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+		toolbar.setItems([spaceButton, doneButton], animated: false)
+		return toolbar
+	}()
+	
+	weak var delegate: AddProductItemTableViewDataSourceDelegate?
+	
 	func resgisterCell(for tableView: UITableView) {
 		tableView.register(TextFieldTableViewCell.self, forCellReuseIdentifier: "TextFieldTableViewCell")
 	}
@@ -69,11 +90,11 @@ class AddProductItemTableViewDataSource {
 			cell.fieldLabel.text = "\(Localization(.addProductItemScene(.quantity)))"
 			// TODO: get the measure name o add in the end of placeholder
 			cell.textField.placeholder = "\(Localization(.addProductItemScene(.quantityPlaceholder)))"
-			cell.textField.keyboardType = .numberPad
+			cell.textField.keyboardType = .decimalPad
 		case 1:
 			cell.fieldLabel.text = "\(Localization(.addProductItemScene(.price)))"
 			cell.textField.placeholder = "\(Localization(.addProductItemScene(.pricePlaceholder)))"
-			cell.textField.keyboardType = .numberPad
+			cell.textField.keyboardType = .decimalPad
 		default:
 			break
 		}
@@ -87,7 +108,13 @@ class AddProductItemTableViewDataSource {
 
 		cell.fieldLabel.text = "\(Localization(.addProductItemScene(.expirationDate)))"
 		cell.textField.placeholder = "\(Localization(.addProductItemScene(.expirationDatePlaceholder)))"
+		cell.textField.inputAccessoryView = toolBar
+		cell.textField.inputView = datePicker
 
 		return cell
+	}
+	
+	@objc func donePickAction() {
+		delegate?.dismissDatePicker()
 	}
 }
