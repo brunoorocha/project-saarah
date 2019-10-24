@@ -30,20 +30,20 @@ class AddNewProductRouter: NSObject, AddNewProductRoutingLogic, AddNewProductDat
 	}
 
 	func routeToAddProductItem() {
-//		let destinationVC = AddProductItemViewController()
-//		guard var destinationDataStore = destinationVC.router?.dataStore else { return }
-//
-//		guard let dataStore = dataStore else { return }
-//		guard let viewController = viewController else { return }
-//
-//		passDataToAddProductItem(source: AddNewProductDataStore, destination: destinationDataStore)
-//		navigateToAddProductItem(source: viewController, destination: destinationVC)
+		let destinationVC = AddProductItemViewController()
+		guard var destinationDataStore = destinationVC.router?.dataStore else { return }
+
+		guard let dataStore = dataStore else { return }
+		guard let viewController = viewController else { return }
+
+		passDataToAddProductItem(source: dataStore, destination: &destinationDataStore)
+		navigateToAddProductItem(source: viewController, destination: destinationVC)
 	}
 
 	// MARK: Passing data
-//	func passDataToAddProductItem(source: AddNewProductDataStore, destination: inout SomewhereDataStore) {
-//		destination.product = source.product
-//	}
+	func passDataToAddProductItem(source: AddNewProductDataStore, destination: inout AddProductItemDataStore) {
+		destination.product = source.product
+	}
 
 	// MARK: Navigation
 	func navigateToChooseMeasurement(source: AddNewProductViewController, destination: SelectProductMeasurementViewController) {
@@ -56,7 +56,7 @@ class AddNewProductRouter: NSObject, AddNewProductRoutingLogic, AddNewProductDat
 		source.show(destination, sender: nil)
 	}
 
-//	func navigateToAddProductItem(source: AddNewProductViewController, destination: AddProductItemViewController) {
-//		source.show(destination, sender: nil)
-//	}
+	func navigateToAddProductItem(source: AddNewProductViewController, destination: AddProductItemViewController) {
+		source.show(destination, sender: nil)
+	}
 }

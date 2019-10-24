@@ -22,7 +22,7 @@ class ProductDetailPresenter: ProductDetailPresentationLogic {
 		var logsViewModels: [ProductDetail.GetProduct.ViewModel.LogViewModel] = []
 
 		response.product.logs.forEach { (log) in
-			let dateString = DateFormatManager.withSlash(from: log.createdDate)
+			let dateString = DateFormat.withSlash(from: log.createdDate)
 			var message = "\(response.product.measure.name) de \(response.product.name)"
 			var quantityString = ""
 
