@@ -24,7 +24,7 @@ class SelectProductMeasurementPresenter: SelectProductMeasurementPresentationLog
                 selected = (measure === selectedMeasure)
             }
             let displayedMeasure = SelectProductMeasurement.FetchMeasurements.ViewModel.DisplayMeasurement(
-                name: "\(measure.name)",
+                name: "\(measure.name.capitalized) (\(measure.abbreviation))",
                 selected: selected)
             displayMeasures.append(displayedMeasure)
         }
