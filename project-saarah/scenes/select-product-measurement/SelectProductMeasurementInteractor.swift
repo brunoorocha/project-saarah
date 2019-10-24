@@ -25,7 +25,7 @@ class SelectProductMeasurementInteractor: SelectProductMeasurementBusinessLogic,
     var measures: [Measure]?
     var selectedMeasure: Measure?
 
-    let measureWorker = MeasureWorker(measureService: MockMeasure())
+    let measureWorker = MeasureWorker(measureService: ApiMeasureStore())
 
     // Used to check in controller
     private var selectedByName: String?

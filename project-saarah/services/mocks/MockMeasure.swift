@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MockMeasure: MeasureStore {
+class MockMeasure: MeasureStoreProtocol {
     func fetchMeasures(_ completion: @escaping ([Measure]) -> Void) {
         let measure1 = Measure(id: "1", name: "Unidades")
         let measure2 = Measure(id: "2", name: "Quilos")

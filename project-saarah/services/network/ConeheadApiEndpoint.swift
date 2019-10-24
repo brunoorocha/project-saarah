@@ -11,6 +11,7 @@ import Foundation
 enum ConeheadApiEndpoint {
     case fetchNotifications
     case fetchProducts
+    case fetchMeasures
 }
 
 extension ConeheadApiEndpoint: EndpointType {
@@ -28,6 +29,8 @@ extension ConeheadApiEndpoint: EndpointType {
             return .get
         case .fetchProducts:
             return .get
+        case .fetchMeasures:
+            return .get
         }
     }
 
@@ -37,6 +40,8 @@ extension ConeheadApiEndpoint: EndpointType {
             return apiAddress + "notifications"
         case .fetchProducts:
             return apiAddress + "products"
+        case .fetchMeasures:
+            return apiAddress + "measurements"
         }
     }
 

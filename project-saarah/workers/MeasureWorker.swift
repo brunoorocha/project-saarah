@@ -8,14 +8,14 @@
 
 import Foundation
 
-protocol MeasureStore {
+protocol MeasureStoreProtocol {
     func fetchMeasures(_ completion: @escaping ([Measure]) -> Void)
 }
 
 class MeasureWorker {
-    let measureService: MeasureStore
+    let measureService: MeasureStoreProtocol
 
-    init(measureService: MeasureStore) {
+    init(measureService: MeasureStoreProtocol) {
         self.measureService = measureService
     }
 
