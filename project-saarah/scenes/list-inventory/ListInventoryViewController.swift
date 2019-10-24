@@ -91,7 +91,8 @@ class ListInventoryViewController: UIViewController, ListInventoryDisplayLogic {
     func tappedAddButton() {
 
         let optionMenu = UIAlertController(title: nil, message: "\(Localization(.listInventoryScene(.addAlertController(.title))))", preferredStyle: .actionSheet)
-        let addWithBarcode = UIAlertAction(title: "\(Localization(.listInventoryScene(.addAlertController(.addWithBarCode))))", style: .default)
+        // TODO: Add barcode reader
+//        let addWithBarcode = UIAlertAction(title: "\(Localization(.listInventoryScene(.addAlertController(.addWithBarCode))))", style: .default)
         let add = UIAlertAction(title: "\(Localization(.listInventoryScene(.addAlertController(.addWithoutBarCode))))", style: .default) { _ in
 			let vc = AddNewProductViewController()
 			self.present(vc, animated: true, completion: nil)
@@ -99,7 +100,7 @@ class ListInventoryViewController: UIViewController, ListInventoryDisplayLogic {
 
         let cancelAction = UIAlertAction(title: "\(Localization(.listInventoryScene(.addAlertController(.cancel))))", style: .cancel)
 
-        optionMenu.addAction(addWithBarcode)
+//        optionMenu.addAction(addWithBarcode)
         optionMenu.addAction(add)
         optionMenu.addAction(cancelAction)
 
