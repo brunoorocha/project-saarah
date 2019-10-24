@@ -30,7 +30,7 @@ class AddNewProductPresenter: AddNewProductPresentationLogic {
 
     // MARK: Present measure
     func presentGetMeasureResponse(response: AddNewProduct.GetMeasure.Response) {
-        let viewModel = AddNewProduct.GetMeasure.ViewModel.Measure(name: response.measure.name)
+        let viewModel = AddNewProduct.GetMeasure.ViewModel.Measure(name: response.measure.name.capitalized)
         viewController?.displayMeasureResponse(viewModel: viewModel)
     }
 }
