@@ -41,6 +41,7 @@ class ListInventoryViewController: UIViewController, ListInventoryDisplayLogic {
 		super.viewDidLoad()
 		setupContentView()
         setup()
+        fetchProducts()
 	}
 
 	// MARK: Init
@@ -54,7 +55,7 @@ class ListInventoryViewController: UIViewController, ListInventoryDisplayLogic {
 	}
 
     private func setup() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(tappedAddButton))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: AppStyleGuide.Icons.plus.uiImage, style: .plain, target: self, action: #selector(tappedAddButton))
     }
 
 	func setupContentView() {
@@ -68,7 +69,6 @@ class ListInventoryViewController: UIViewController, ListInventoryDisplayLogic {
     // MARK: View lifecycle
     override func viewWillAppear(_ animated: Bool) {
       super.viewWillAppear(animated)
-      fetchProducts()
     }
 
     // MARK: - Fetch products

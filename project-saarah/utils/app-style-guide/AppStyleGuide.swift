@@ -106,6 +106,7 @@ enum AppStyleGuide {
         case barchart
         case settings
         case cone
+        case plus
 
         var uiImage: UIImage? {
             switch self {
@@ -125,6 +126,8 @@ enum AppStyleGuide {
                 return UIImage(named: "settings-icon")
             case .cone:
                 return UIImage(named: "traffic-cone")
+            case .plus:
+                return UIImage(named: "plus")
             }
         }
     }

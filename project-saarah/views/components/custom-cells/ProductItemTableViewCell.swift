@@ -10,10 +10,10 @@ import UIKit
 
 class ProductItemTableViewCell: SaarahTableViewCell {
 
-    var amountLabel = SaarahLabel()
-    var validityLabel = SaarahLabel()
-    var priceLabel = SaarahLabel()
-    var addedOnDayLabel = SaarahLabel()
+    var amountLabel = ParagraphLabel()
+    var validityLabel = ParagraphLabel()
+    var priceLabel = ParagraphLabel()
+    var addedOnDayLabel = ParagraphLabel()
 
     var numericAmountLabel = ParagraphLabel()
     var numericValidityLabel = ParagraphLabel()
@@ -55,6 +55,11 @@ class ProductItemTableViewCell: SaarahTableViewCell {
         numericValidityLabel.textAlignment = .right
         numericPriceLabel.textAlignment = .right
         numericAddedOnDayLabel.textAlignment = .right
+
+        numericAmountLabel.textColor = AppStyleGuide.Colors.mediumGray.uiColor
+        numericValidityLabel.textColor = AppStyleGuide.Colors.mediumGray.uiColor
+        numericPriceLabel.textColor = AppStyleGuide.Colors.mediumGray.uiColor
+        numericAddedOnDayLabel.textColor = AppStyleGuide.Colors.mediumGray.uiColor
 
         subViewConstraints.append(amountLabel.topAnchor.constraint(equalTo: cellContentView.topAnchor, constant: mediumMargin))
         subViewConstraints.append(numericAmountLabel.topAnchor.constraint(equalTo: cellContentView.topAnchor, constant: mediumMargin))
