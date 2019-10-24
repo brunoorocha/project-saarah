@@ -69,7 +69,7 @@ class AddNewProductViewController: SaarahViewController, AddNewProductDisplayLog
     func displayMeasureResponse(viewModel: AddNewProduct.GetMeasure.ViewModel.Measure) {
         let indexPath = IndexPath(row: 2, section: 0)
         guard let cell = contentView.tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell else { return }
-        cell.textField.text = viewModel.name
+        cell.textField.text = viewModel.name.capitalized
     }
 }
 
