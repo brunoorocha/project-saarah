@@ -98,6 +98,7 @@ class ProductDetailTableViewDataSource {
 			cell.setContent(title: "\(Localization(.productDetailScene(.quantityInStock)))", subtitle: viewModel.productViewModel.quantity)
 		}
 
+        cell.roundCellIfNeeded(index: row, numberOfCells: 2)
 		return cell
 	}
 
