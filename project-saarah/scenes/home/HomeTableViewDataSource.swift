@@ -101,7 +101,8 @@ class HomeTableViewDataSource: NSObject {
         case .notifications:
             let headerView = DefaultSectionHeaderView()
             headerView.titleLabelText = Localization(.homeScene(.notification)).description
-            headerView.rightButtonText = Localization(.seeAll).description
+            // TODO: Add see all to notifications
+//            headerView.rightButtonText = Localization(.seeAll).description
             return headerView
         }
     }
