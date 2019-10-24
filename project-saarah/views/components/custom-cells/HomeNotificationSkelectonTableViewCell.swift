@@ -11,18 +11,15 @@ import UIKit
 class HomeNotificationSkelectonTableViewCell: SaarahTableViewCell {
     private var separator = SaarahTableViewSeparator()
     private var emojiView: UIView = {
-        let view = UIView(cornerRadius: 16.0, backgroundColor: AppStyleGuide.Colors.lightGray.uiColor)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.widthAnchor.constraint(equalToConstant: 32).isActive = true
-        view.heightAnchor.constraint(equalToConstant: 32).isActive = true
+        let view = SkelectonLoadingView(size: CGSize(width: 32, height: 32))
+        view.layer.cornerRadius = 16
         return view
     }()
 
     override func configureCellComponents() {
-        let labelSkelectonView1 = UIView()
-        labelSkelectonView1.backgroundColor = AppStyleGuide.Colors.lightGray.uiColor
-        let labelSkelectonView2 = UIView()
-        labelSkelectonView2.backgroundColor = AppStyleGuide.Colors.lightGray.uiColor
+        isUserInteractionEnabled = false
+        let labelSkelectonView1 = SkelectonLoadingView(size: CGSize(width: 0, height: 16))
+        let labelSkelectonView2 = SkelectonLoadingView(size: CGSize(width: 0, height: 16))
 
         let mediumMargin = AppStyleGuide.Margins.medium.rawValue
         let xsmallMargin = AppStyleGuide.Margins.xsmall.rawValue
@@ -42,10 +39,7 @@ class HomeNotificationSkelectonTableViewCell: SaarahTableViewCell {
         )
 
         labelSkelectonView1.widthAnchor.constraint(equalTo: cellContentView.widthAnchor, multiplier: 0.7).isActive = true
-        labelSkelectonView1.heightAnchor.constraint(equalToConstant: 16).isActive = true
-
         labelSkelectonView2.widthAnchor.constraint(equalTo: cellContentView.widthAnchor, multiplier: 0.4).isActive = true
-        labelSkelectonView2.heightAnchor.constraint(equalToConstant: 16).isActive = true
 
         emojiView.anchor(
             leading: cellContentView.leadingAnchor,

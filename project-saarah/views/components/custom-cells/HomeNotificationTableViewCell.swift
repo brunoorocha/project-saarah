@@ -29,7 +29,7 @@ class HomeNotificationTableViewCell: SaarahTableViewCell {
     }
 
     private var separator = SaarahTableViewSeparator()
-    private var arrowRightIcon = SaarahIconImageView(image: AppStyleGuide.Icons.chevronRight.uiImage)
+//    private var arrowRightIcon = SaarahIconImageView(image: AppStyleGuide.Icons.chevronRight.uiImage)
     private var emojiView: UIView = {
         let view = UIView(cornerRadius: 16.0, backgroundColor: AppStyleGuide.Colors.lightGray.uiColor)
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -44,15 +44,16 @@ class HomeNotificationTableViewCell: SaarahTableViewCell {
         emojiLabel.centerYAnchor.constraint(equalTo: emojiView.centerYAnchor).isActive = true
 
         let mediumMargin = AppStyleGuide.Margins.medium.rawValue
-        cellContentView.addSubviews([messageLabel, emojiView, separator, arrowRightIcon])
+        cellContentView.addSubviews([messageLabel, emojiView, separator])
 
         messageLabel.anchor(
             top: cellContentView.topAnchor,
             leading: emojiView.trailingAnchor,
             bottom: cellContentView.bottomAnchor,
-            trailing: arrowRightIcon.leadingAnchor,
+//            trailing: arrowRightIcon.leadingAnchor,
             padding: UIEdgeInsets(top: mediumMargin, left: mediumMargin, bottom: mediumMargin, right: mediumMargin)
         )
+        messageLabel.trailingAnchor.constraint(equalTo: cellContentView.trailingAnchor, constant: -mediumMargin).isActive = true
         messageLabel.heightAnchor.constraint(lessThanOrEqualToConstant: 44).isActive = true
 
         emojiView.anchor(
@@ -68,7 +69,7 @@ class HomeNotificationTableViewCell: SaarahTableViewCell {
             trailing: cellContentView.trailingAnchor
         )
 
-        arrowRightIcon.trailingAnchor.constraint(equalTo: cellContentView.trailingAnchor, constant: -mediumMargin).isActive = true
-        arrowRightIcon.centerYAnchor.constraint(equalTo: cellContentView.centerYAnchor).isActive = true
+//        arrowRightIcon.trailingAnchor.constraint(equalTo: cellContentView.trailingAnchor, constant: -mediumMargin).isActive = true
+//        arrowRightIcon.centerYAnchor.constraint(equalTo: cellContentView.centerYAnchor).isActive = true
     }
 }

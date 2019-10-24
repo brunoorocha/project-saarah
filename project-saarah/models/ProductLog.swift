@@ -24,7 +24,7 @@ class ProductLog: Decodable {
         self.createdDate = createdDate
 		self.expiration = expiration
 	}
-	
+
 	private enum CodingKeys: String, CodingKey {
 		case id
 		case price
@@ -32,24 +32,23 @@ class ProductLog: Decodable {
 		case expiration
 		case createdDate = "createdAt"
 	}
-	
+
 	required init(from decoder: Decoder) throws {
 		// TODO: receive logtype from api
 		self.type = LogType.input
-		
+
 		let values = try decoder.container(keyedBy: CodingKeys.self)
 		self.id = try values.decode(String.self, forKey: .id)
 		self.price = try values.decode(Double?.self, forKey: .price)
 		self.quantity = try values.decode(Double.self, forKey: .quantity)
-		
+
 		let createdDateString = try values.decode(String.self, forKey: .createdDate)
 		if let date = DateFormat.dateFromTimeZone(createdDateString) {
 			self.createdDate = date
-		}
-		else {
+		} else {
 			throw NSError(domain: "Invalide date from server", code: 999, userInfo: nil)
 		}
-		
+
 		let expirationString = try values.decode(String.self, forKey: .expiration)
 		self.expiration = DateFormat.dateFromTimeZone(expirationString)
 	}

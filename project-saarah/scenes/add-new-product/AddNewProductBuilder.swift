@@ -1,18 +1,18 @@
 //
-//  AddProductItemBuilder.swift
+//  AddNewProductBuilder.swift
 //  project-saarah
 //
-//  Created by Guilherme Colombini on 17/10/19.
+//  Created by Guilherme Colombini on 14/10/19.
 //  Copyright (c) 2019 Bruno Rocha. All rights reserved.
 //
 
 import UIKit
 
-class AddProductItemBuilder {
-    static func build(aroundViewController viewController: AddProductItemViewController) {
-        let interactor = AddProductItemInteractor()
-        let presenter = AddProductItemPresenter()
-        let router = AddProductItemRouter()
+class AddNewProductBuilder {
+    static func build(aroundViewController viewController: AddNewProductViewController) {
+        let interactor = AddNewProductInteractor()
+        let presenter = AddNewProductPresenter()
+        let router = AddNewProductRouter()
         viewController.interactor = interactor
         viewController.router = router
         interactor.presenter = presenter

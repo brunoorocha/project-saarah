@@ -27,9 +27,9 @@ class AddProductItemTableViewDataSource {
 		toolbar.setItems([spaceButton, doneButton], animated: false)
 		return toolbar
 	}()
-	
+
 	weak var delegate: AddProductItemTableViewDataSourceDelegate?
-	
+
 	func resgisterCell(for tableView: UITableView) {
 		tableView.register(TextFieldTableViewCell.self, forCellReuseIdentifier: "TextFieldTableViewCell")
 	}
@@ -113,7 +113,7 @@ class AddProductItemTableViewDataSource {
 
 		return cell
 	}
-	
+
 	@objc func donePickAction() {
 		delegate?.dismissDatePicker()
 	}

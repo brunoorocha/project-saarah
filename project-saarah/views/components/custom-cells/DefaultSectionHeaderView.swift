@@ -48,7 +48,7 @@ class DefaultSectionHeaderView: UIView {
             rightButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -smallMargin),
             rightButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -mediumMargin),
 
-            heightAnchor.constraint(equalToConstant: 48)
+            heightAnchor.constraint(equalToConstant: 40)
         ])
     }
 }

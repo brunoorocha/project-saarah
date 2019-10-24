@@ -21,6 +21,7 @@ enum AppStrings {
     case homeScene(HomeScene)
     case productDetailScene(ProductDetailScene)
     case selectProductMeasurement(SelectProductMeasurement)
+	case addNewProductScene(AddNewProductScene)
     case productItemScene(ProductItemScene)
 	case addProductItemScene(AddProductItemScene)
     case underConstruction(UnderConstruction)
@@ -80,6 +81,22 @@ enum AppStrings {
         case title
     }
 
+	enum AddNewProductScene {
+		case title
+		case cancelBarButton
+		case saveBarButton
+		case basicInformation
+		case productName
+		case productNamePlaceholder
+		case barCode
+		case barCodePlacehoder
+		case measure
+		case measurePlaceholder
+		case successResponseTitle
+		case successResponseMessage
+		case alertAction
+	}
+
     enum ProductItemScene {
         case title
         case notInformed
@@ -109,7 +126,7 @@ enum AppStrings {
 			case expirationDateMessage
 		}
 	}
-	
+
     enum UnderConstruction {
         case title
         case paragraph

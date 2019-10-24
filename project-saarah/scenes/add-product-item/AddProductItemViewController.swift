@@ -62,7 +62,7 @@ class AddProductItemViewController: UIViewController, AddProductItemDisplayLogic
 
 		present(alert, animated: true, completion: nil)
 	}
-	
+
 	func validadeForm() -> Bool {
 		var indexPath = IndexPath(row: 0, section: 0)
 		guard let cell0 = contentView.tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell else { return false }
@@ -77,12 +77,12 @@ class AddProductItemViewController: UIViewController, AddProductItemDisplayLogic
 		guard let cell2 = contentView.tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell else { return false }
 		guard let expirationText = cell2.textField.text else { return false }
 		guard let expirationDate = DateFormat.convertToCommaFromSlash(expirationText) else { return false }
-		
-		return true
 
 		let itemForm = AddProductItem.AddItemForm(quantity: quantity, price: price, expirationDate: expirationDate)
 		let request = AddProductItem.AddItem.Request(addItemForm: itemForm)
 		interactor?.addProductItem(request: request)
+
+		return true
 	}
 }
 
@@ -90,11 +90,11 @@ extension AddProductItemViewController: AddProductItemTableViewDataSourceDelegat
 	func dismissDatePicker() {
 		let date = tableViewDataSource.datePicker.date
 		let dateString = DateFormat.withSlash(from: date)
-		
+
 		let indexPath = IndexPath(row: 0, section: 1)
 		guard let cell2 = contentView.tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell else { return }
 		cell2.textField.text = dateString
-		
+
 		view.endEditing(true)
 	}
 }
@@ -109,7 +109,7 @@ extension AddProductItemViewController: AddProductItemViewDelegate {
 			let alert = UIAlertController(title: "\(Localization(.addProductItemScene(.erroFormTitle)))", message: "\(Localization(.addProductItemScene(.erroFormMessage)))", preferredStyle: .alert)
 			let okAction = UIAlertAction(title: "\(Localization(.addProductItemScene(.alertActionTitle)))", style: .default, handler: nil)
 			alert.addAction(okAction)
-			
+
 			present(alert, animated: true, completion: nil)
 		}
 	}

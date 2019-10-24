@@ -19,8 +19,13 @@ class SelectProductMeasurementPresenter: SelectProductMeasurementPresentationLog
     func presentMeasures(response: SelectProductMeasurement.FetchMeasurements.Response) {
         var displayMeasures: [SelectProductMeasurement.FetchMeasurements.ViewModel.DisplayMeasurement] = []
         for measure in response.measures {
+            var selected: Bool = false
+            if let selectedMeasure = response.selectedMeasure {
+                selected = (measure === selectedMeasure)
+            }
             let displayedMeasure = SelectProductMeasurement.FetchMeasurements.ViewModel.DisplayMeasurement(
-                name: "\(measure.name)")
+                name: "\(measure.name)",
+                selected: selected)
             displayMeasures.append(displayedMeasure)
         }
         let viewModel = SelectProductMeasurement.FetchMeasurements.ViewModel(displayMeasurements: displayMeasures)

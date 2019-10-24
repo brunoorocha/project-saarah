@@ -20,7 +20,7 @@ extension ConeheadApiEndpoint: EndpointType {
 			return caseBody
 		}
 	}
-	
+
     var apiAddress: String {
         return "https://conehead-api.herokuapp.com/api/v1/"
     }
@@ -50,7 +50,7 @@ extension ConeheadApiEndpoint: EndpointType {
             return apiAddress + "products"
         }
     }
-	
+
 	var caseBody: String? {
 		switch self {
 		case .fetchNotifications:
