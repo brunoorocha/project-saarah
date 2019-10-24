@@ -152,9 +152,9 @@ extension AppStrings {
 				return "Validade"
 			case .expirationDatePlaceholder:
 				return "Toque para inserir a validade"
-			case .erroFormTitle:
+			case .errorFormTitle:
 				return "Erro"
-			case .erroFormMessage:
+			case .errorFormMessage:
 				return "Preencha os campos corretamente."
 			case .response(let options):
 				switch (options) {

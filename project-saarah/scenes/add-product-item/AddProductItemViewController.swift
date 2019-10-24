@@ -106,7 +106,7 @@ extension AddProductItemViewController: AddProductItemViewDelegate {
 
 	func saveAction() {
 		if (!validadeForm()) {
-			let alert = UIAlertController(title: "\(Localization(.addProductItemScene(.erroFormTitle)))", message: "\(Localization(.addProductItemScene(.erroFormMessage)))", preferredStyle: .alert)
+			let alert = UIAlertController(title: "\(Localization(.addProductItemScene(.errorFormTitle)))", message: "\(Localization(.addProductItemScene(.errorFormMessage)))", preferredStyle: .alert)
 			let okAction = UIAlertAction(title: "\(Localization(.addProductItemScene(.alertActionTitle)))", style: .default, handler: nil)
 			alert.addAction(okAction)
 

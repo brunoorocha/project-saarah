@@ -115,8 +115,8 @@ enum AppStrings {
 		case complementaryInformation
 		case expirationDate
 		case expirationDatePlaceholder
-		case erroFormTitle
-		case erroFormMessage
+		case errorFormTitle
+		case errorFormMessage
 		case response(Response)
 
 		enum Response {
