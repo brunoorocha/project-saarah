@@ -90,8 +90,8 @@ extension ProductItemViewController: UITableViewDataSource, UITableViewDelegate 
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if (indexPath.section == 3) {
-            // Call router to add new
+        if (indexPath.section == 2) {
+            router?.routeToAddProductItem()
         }
     }
 

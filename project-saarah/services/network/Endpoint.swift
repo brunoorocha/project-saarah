@@ -16,5 +16,5 @@ enum HttpMethod: String {
 protocol EndpointType {
     var url: URL? { get }
     var httpMethod: HttpMethod { get }
-    var body: [String: Any]? { get set }
+    var body: String? { get }
 }

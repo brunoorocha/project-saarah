@@ -23,6 +23,7 @@ enum AppStrings {
     case selectProductMeasurement(SelectProductMeasurement)
 	case addNewProductScene(AddNewProductScene)
     case productItemScene(ProductItemScene)
+	case addProductItemScene(AddProductItemScene)
     case underConstruction(UnderConstruction)
 
     // MARK: Enum's
@@ -100,6 +101,34 @@ enum AppStrings {
         case title
         case notInformed
     }
+
+	enum AddProductItemScene {
+		case title
+		case cancelBarButton
+		case saveBarButton
+		case alertActionTitle
+		case basicInformation
+		case quantity
+		case quantityPlaceholder
+		case price
+		case pricePlaceholder
+		case complementaryInformation
+		case expirationDate
+		case expirationDatePlaceholder
+		case errorFormAlertTitle
+		case errorFormActionAlertTitle
+		case errorFormQuantityAlertMessage
+		case errorFormPriceAlertMessage
+		case errorFormExpirationAlertMessage
+		case response(Response)
+
+		enum Response {
+			case successTitle
+			case suceessMessage
+			case inputErrorTitle
+			case expirationDateMessage
+		}
+	}
 
     enum UnderConstruction {
         case title
