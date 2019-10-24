@@ -63,26 +63,46 @@ class AddProductItemViewController: UIViewController, AddProductItemDisplayLogic
 		present(alert, animated: true, completion: nil)
 	}
 
-	func validadeForm() -> Bool {
-		var indexPath = IndexPath(row: 0, section: 0)
-		guard let cell0 = contentView.tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell else { return false }
-		guard let quantityString = cell0.textField.text else { return false }
-		guard let quantity = Double(quantityString) else { return false }
-		indexPath.row = 1
-		guard let cell1 = contentView.tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell else { return false }
-		guard let priceString = cell1.textField.text else { return false }
-		guard let price = Double(priceString) else { return false }
-		indexPath.row = 0
-		indexPath.section = 1
-		guard let cell2 = contentView.tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell else { return false }
-		guard let expirationText = cell2.textField.text else { return false }
-		guard let expirationDate = DateFormat.convertToCommaFromSlash(expirationText) else { return false }
+	func saveProductItem() {
+		guard let quantity = validateQuantity() else {
+			presentAlertModal("\(Localization(.addProductItemScene(.errorFormAlertTitle)))", "\(Localization(.addProductItemScene(.errorFormQuantityAlertMessage)))", "\(Localization(.addProductItemScene(.errorFormActionAlertTitle)))")
+			return
+		}
 
-		let itemForm = AddProductItem.AddItemForm(quantity: quantity, price: price, expirationDate: expirationDate)
+		guard let price = validatePrice() else {
+			presentAlertModal("\(Localization(.addProductItemScene(.errorFormAlertTitle)))", "\(Localization(.addProductItemScene(.errorFormPriceAlertMessage)))", "\(Localization(.addProductItemScene(.errorFormActionAlertTitle)))")
+			return
+		}
+
+		guard let expiration = validateExpiration() else {
+			presentAlertModal("\(Localization(.addProductItemScene(.errorFormAlertTitle)))", "\(Localization(.addProductItemScene(.errorFormExpirationAlertMessage)))", "\(Localization(.addProductItemScene(.errorFormActionAlertTitle)))")
+			return
+		}
+
+		let itemForm = AddProductItem.AddItemForm(quantity: quantity, price: price, expirationDate: expiration)
 		let request = AddProductItem.AddItem.Request(addItemForm: itemForm)
 		interactor?.addProductItem(request: request)
+	}
 
-		return true
+	func validateQuantity() -> Double? {
+		let indexPath = IndexPath(row: 0, section: 0)
+		guard let cell0 = contentView.tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell else { return nil }
+		guard let quantityString = cell0.textField.text else { return nil }
+		return Double(quantityString)
+	}
+
+	func validatePrice() -> Double? {
+		let indexPath = IndexPath(row: 1, section: 0)
+		guard let cell = contentView.tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell else { return nil }
+		guard let priceString = cell.textField.text else { return nil }
+		return Double(priceString)
+	}
+
+	func validateExpiration() -> String? {
+		let indexPath = IndexPath(row: 0, section: 1)
+		guard let cell2 = contentView.tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell else { return nil }
+		guard let expirationText = cell2.textField.text else { return nil }
+		return DateFormat.convertToCommaFromSlash(expirationText)
 	}
 }
 
@@ -105,13 +125,7 @@ extension AddProductItemViewController: AddProductItemViewDelegate {
 	}
 
 	func saveAction() {
-		if (!validadeForm()) {
-			let alert = UIAlertController(title: "\(Localization(.addProductItemScene(.errorFormTitle)))", message: "\(Localization(.addProductItemScene(.errorFormMessage)))", preferredStyle: .alert)
-			let okAction = UIAlertAction(title: "\(Localization(.addProductItemScene(.alertActionTitle)))", style: .default, handler: nil)
-			alert.addAction(okAction)
-
-			present(alert, animated: true, completion: nil)
-		}
+		saveProductItem()
 	}
 }
 

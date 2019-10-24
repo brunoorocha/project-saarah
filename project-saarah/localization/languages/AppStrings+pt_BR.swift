@@ -152,10 +152,16 @@ extension AppStrings {
 				return "Validade"
 			case .expirationDatePlaceholder:
 				return "Toque para inserir a validade"
-			case .errorFormTitle:
+			case .errorFormAlertTitle:
 				return "Erro"
-			case .errorFormMessage:
-				return "Preencha os campos corretamente."
+			case .errorFormActionAlertTitle:
+				return "Ok"
+			case .errorFormQuantityAlertMessage:
+				return "O campo quantidade só aceita números."
+			case .errorFormPriceAlertMessage:
+				return "O campo preço só aceita números."
+			case .errorFormExpirationAlertMessage:
+				return "O campo data de validade deve ser preenchido com dia/mês/ano."
 			case .response(let options):
 				switch (options) {
 				case .successTitle:
