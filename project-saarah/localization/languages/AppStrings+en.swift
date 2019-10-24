@@ -1,137 +1,137 @@
 //
-//  AppStrings+pt_BR.swift
+//  AppStrings+en.swift
 //  project-saarah
 //
-//  Created by Thiago Valente on 14/10/19.
+//  Created by Marcus Vinícius on 24/10/19.
 //  Copyright © 2019 Bruno Rocha. All rights reserved.
 //
 
 import Foundation
 
 extension AppStrings {
-    var pt_BR: String {
+    var en: String? {
         switch self {
         case .seeAll:
-            return "Ver todos"
+            return "See All"
         case .buttonTableViewCell(let options):
             switch options {
             case .title:
-                return "Adicionar mais itens nesse produto"
+                return "Add more items to this Product"
             }
         case .labeledTableViewCell(let options):
             switch options {
             case .productLabel:
-                return "Produto"
+                return "Product"
             }
         case .productItemTableViewCell(let options):
             switch options {
             case .amountLabel:
-                return "Quantidade"
+                return "Quantity"
             case .validityLabel:
-                return "Validade"
+                return "Validity"
             case .priceLabel:
-                return "Valor"
+                return "Price"
             case .addedOnDayLabel:
-                return "Adicionado no dia"
+                return "Added on Day"
             }
         case .homeMenuOptionTitle(let options):
             switch options {
             case .inventory:
-                return "Estoque"
+                return "Inventory"
             case .menu:
-                return "Cardápio"
+                return "Menu"
             case .measurers:
-                return "Medidores"
+                return "Meters"
             case .settings:
-                return "Configurações"
+                return "Settings"
             }
         case .listInventoryScene(let options):
             switch options {
             case .title:
-                return "Estoque"
+                return "Inventory"
             case .productInStock:
-                return "Produtos no estoque"
+                return "Products in Inventory"
             case .addAlertController(let alertOptions):
                 switch alertOptions {
                 case .title:
-                    return "Adicionar novo produto"
+                    return "Add new Product"
                 case .addWithBarCode:
-                    return "Ler código de barras"
+                    return "with Barcode"
                 case .addWithoutBarCode:
-                    return "Adicionar sem código de barras"
+                    return "without Barcode"
                 case .cancel:
-                    return "Cancelar"
+                    return "Cancel"
                 }
             }
         case .homeScene(let options):
             switch options {
             case .notification:
-                return "Notificações"
+                return "Notifications"
             case .title:
                 return "eStorage"
             }
         case .productDetailScene(let options):
             switch options {
             case .title:
-                return "Detalhes do produto"
+                return "Product Details"
             case .basicInformation:
-                return "Informações básicas"
+                return "Basic Infos"
             case .activity:
-                return "Atividade"
+                return "Activity"
             case .productName:
-                return "Nome do produto"
+                return "Product Name"
             case .quantityInStock:
-                return "Quantidade em estoque"
+                return "Quantity in Inventory"
             case .seeAllFromThisProduct:
-                return "Ver todos os itens desse produto"
+                return "View All items for this Product"
             }
         case .selectProductMeasurement(let options):
             switch options {
             case .title:
-                return "Escolher unidade de medida"
+                return "Select Measurement Unit"
             }
         case .addNewProductScene(let options):
             switch (options) {
             case .title:
-                return "Criar novo produto"
+                return "Create New Product"
             case .cancelBarButton:
-                return "Cancelar"
+                return "Cancel"
             case .saveBarButton:
-                return "Salvar"
+                return "Save"
             case .basicInformation:
-                return "INFORMAÇÕES BÁSICAS"
+                return "BASIC INFOS"
             case .productName:
-                return "Nome do produto"
+                return "Product Name"
             case .productNamePlaceholder:
-                return "Toque para digitar o nome do produto"
+                return "Tap to type the Product Name"
             case .barCode:
-                return "Código de barras (opcional)"
+                return "Barcode (Optional)"
             case .barCodePlacehoder:
-                return "Toque para inserir o código de barras"
+                return "Tap to insert the Barcode"
             case .measure:
-                return "Unidade de medida"
+                return "Measurement Unit"
             case .measurePlaceholder:
-                return "Quilos, gramas, litros"
+                return "Pounds, Onces, Gallons..."
             case .successResponseTitle:
-                return "Sucesso"
+                return "Success"
             case .successResponseMessage:
-                return "Seu novo produto foi salvo na nuvem!"
+                return "Success to save your Product in Server Cloud"
             case .alertAction:
-                return "Ok"
+                return "OK"
             }
         case .productItemScene(let options):
             switch options {
             case .title:
-                return "Itens do produto"
+                return "Product Items"
             case .notInformed:
-                return "Não informado"
+                return "Uninformed"
             }
         case .underConstruction(let options):
             switch options {
             case .title:
-                return "Sentimos muito"
+                return "We are Apologize"
             case .paragraph:
-                return "mas nós ainda estamos em \nconstrução"
+                return ", however, we are still in Development"
             }
         }
     }

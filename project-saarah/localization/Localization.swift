@@ -19,6 +19,8 @@ struct Localization: CustomStringConvertible {
     /// - Parameter string: enum case message
     init(_ string: AppStrings) {
         switch NSLocale.preferredLanguages[0] {
+        case "en":
+            self.message = string.en ?? string.pt_BR
         default:
             self.message = string.pt_BR
         }
