@@ -93,10 +93,17 @@ extension SelectProductMeasurementViewController: UITableViewDelegate, UITableVi
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let name = displayMeasurements[indexPath.row].name
-        let selected = displayMeasurements[indexPath.row].selected
-        if selected {
+        var selected: Bool = false
+        // Add mark to exists selected
+        if let selectedIndexPath = selectedIndexPath {
+            if selectedIndexPath == indexPath {
+                selected = true
+            }
+        } else if displayMeasurements[indexPath.row].selected {
+            selected = true
             selectedIndexPath = indexPath
         }
+
         return contentView.buildCell(winthIndexPath: indexPath, andName: name, isSelected: selected)
     }
 
