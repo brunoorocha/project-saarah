@@ -86,6 +86,7 @@
 		4C94BAD8233B9086008D62F5 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94BAD7233B9086008D62F5 /* UIView.swift */; };
 		4C94BADD233BA8ED008D62F5 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94BADC233BA8ED008D62F5 /* UILabel.swift */; };
 		4C94BAE8233CE4FA008D62F5 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94BAE7233CE4FA008D62F5 /* ProductTableViewCell.swift */; };
+		4CEDEA4E2361E7390029BB85 /* AppStrings+en.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEDEA4D2361E7390029BB85 /* AppStrings+en.swift */; };
 		A304F93C233CD90B00C3B6F7 /* DefaultSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304F93B233CD90B00C3B6F7 /* DefaultSectionHeaderView.swift */; };
 		A304F940233CD9EA00C3B6F7 /* CaptionBoldLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304F93F233CD9EA00C3B6F7 /* CaptionBoldLabel.swift */; };
 		A304F942233CDA9800C3B6F7 /* SaarahButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304F941233CDA9800C3B6F7 /* SaarahButton.swift */; };
@@ -225,6 +226,7 @@
 		4C94BAD7233B9086008D62F5 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		4C94BADC233BA8ED008D62F5 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		4C94BAE7233CE4FA008D62F5 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
+		4CEDEA4D2361E7390029BB85 /* AppStrings+en.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppStrings+en.swift"; sourceTree = "<group>"; };
 		A304F93B233CD90B00C3B6F7 /* DefaultSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSectionHeaderView.swift; sourceTree = "<group>"; };
 		A304F93F233CD9EA00C3B6F7 /* CaptionBoldLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionBoldLabel.swift; sourceTree = "<group>"; };
 		A304F941233CDA9800C3B6F7 /* SaarahButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahButton.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				1B15E0CE2354A3970047A0B6 /* AppStrings+pt_BR.swift */,
+				4CEDEA4D2361E7390029BB85 /* AppStrings+en.swift */,
 			);
 			path = languages;
 			sourceTree = "<group>";
@@ -819,6 +822,7 @@
 				487B9B2B23311D2100D8D6CC /* Measure.swift in Sources */,
 				A3A79737235B3BBC00B5724F /* HomeNotificationWorker.swift in Sources */,
 				1B4DFA7B23595B6E002C2B55 /* ProductItemViewController.swift in Sources */,
+				4CEDEA4E2361E7390029BB85 /* AppStrings+en.swift in Sources */,
 				1B2DB9C32357C8DB00AF6D80 /* MeasureWorker.swift in Sources */,
 				48244F5A23478303007B4AA7 /* ProductDetailViewController.swift in Sources */,
 				487B9B252331193900D8D6CC /* Product.swift in Sources */,
