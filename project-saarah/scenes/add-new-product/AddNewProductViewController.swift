@@ -84,12 +84,10 @@ extension AddNewProductViewController: AddNewProductViewDelegate {
 		guard let productName = cell0.textField.text else { return }
 		indexPath.row = 1
 		guard let cell1 = contentView.tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell else { return }
-		let barCode = cell1.textField.text
-		indexPath.row = 2
-		guard let cell2 = contentView.tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell else { return }
-		guard let measure = cell2.textField.text else { return }
-
-		let productForm = AddNewProduct.ProductForm(name: productName, barCode: barCode, measure: measure)
+		var barCode = cell1.textField.text
+        barCode = barCode == "" ? nil : barCode
+        
+		let productForm = AddNewProduct.ProductForm(name: productName, barCode: barCode)
 		let request = AddNewProduct.SaveProduct.Request(productForm: productForm)
 		interactor?.saveNewProduct(request: request)
 	}
