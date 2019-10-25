@@ -59,7 +59,7 @@ class ListInventoryViewController: UIViewController, ListInventoryDisplayLogic {
     }
 
 	func setupContentView() {
-        title = "Estoque"
+        title = Localization(.listInventoryScene(.title)).description
         view = contentView
         contentView.tableView.delegate = self
         listInventoryTableViewDataSource.registerCell(for: contentView.tableView)
