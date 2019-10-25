@@ -133,6 +133,8 @@ extension AppStrings {
             case .paragraph:
                 return ", however, we are still in Development"
             }
+        default:
+            return nil
         }
     }
 }
