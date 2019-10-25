@@ -12,7 +12,7 @@ class MockProduct: ProductStoreProtocol {
     func addProduct(name: String, barcode: String?, measureId: String, _ completion: @escaping (Result<Product?, NetworkServiceError>) -> Void) {
         //
     }
-    
+
     func fetchProducts(_ completion: @escaping ([Product]) -> Void) {
         let measure = Measure(id: "1", name: "Quilo", abbreviation: "kg")
         let productLog1 = ProductLog(id: "1", type: .input, price: 20.0, quantity: 2.0, createdDate: Date(), expiration: Date())
