@@ -13,6 +13,7 @@ enum ConeheadApiEndpoint {
 	case addProductItem(productId: String, price: Double, quantity: Double, expirationDate: String)
     case fetchProducts
     case fetchMeasures
+	case fetchProductItems(productId: String)
 }
 
 extension ConeheadApiEndpoint: EndpointType {
@@ -40,6 +41,8 @@ extension ConeheadApiEndpoint: EndpointType {
             return .get
         case .fetchMeasures:
             return .get
+		case .fetchProductItems:
+			return .get
         }
     }
 
@@ -53,6 +56,8 @@ extension ConeheadApiEndpoint: EndpointType {
             return apiAddress + "products"
         case .fetchMeasures:
             return apiAddress + "measurements"
+		case .fetchProductItems(let productId):
+			return apiAddress + "/products/" + productId + "/items"
         }
     }
 
@@ -66,6 +71,8 @@ extension ConeheadApiEndpoint: EndpointType {
             return nil
         case .fetchMeasures:
             return nil
+		case .fetchProductItems:
+			return nil
         }
     }
-    }
+}
