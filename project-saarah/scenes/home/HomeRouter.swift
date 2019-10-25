@@ -41,21 +41,21 @@ class HomeRouter: NSObject, HomeRoutingLogic, HomeDataPassing {
     func navigateToDishesMenu () {
         // TODO: Change the instance of the dishes menu view controller to an instance of Dishes Menu Scene view controller
         let dishesMenuViewController = SaarahViewController()
-        dishesMenuViewController.title = "Cardápio"
-        viewController?.navigationController?.pushViewController(dishesMenuViewController, animated: true)
+        dishesMenuViewController.title = "\(Localization(.homeMenuOptionTitle(.menu)))"
+//        viewController?.navigationController?.pushViewController(underConstructionViewController, animated: true)
     }
 
     func navigateToMeasurers () {
         // TODO: Change the instance of the meassurers view controller to an instance of Measurers Scene view controller
         let measurersViewController = SaarahViewController()
-        measurersViewController.title = "Medidores"
-        viewController?.navigationController?.pushViewController(measurersViewController, animated: true)
+        measurersViewController.title = "\(Localization(.homeMenuOptionTitle(.measurers)))"
+//        viewController?.navigationController?.pushViewController(measurersViewController, animated: true)
     }
 
     func navigateToSettings () {
         // TODO: Change the instance of the settings view controller to an instance of Settings Scene view controller
         let settingsViewController = SaarahViewController()
-        settingsViewController.title = "Configurações"
-        viewController?.navigationController?.pushViewController(settingsViewController, animated: true)
+        settingsViewController.title = "\(Localization(.homeMenuOptionTitle(.settings)))"
+//        viewController?.navigationController?.pushViewController(settingsViewController, animated: true)
     }
 }

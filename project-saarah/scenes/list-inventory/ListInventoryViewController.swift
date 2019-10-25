@@ -20,6 +20,14 @@ class ListInventoryViewController: UIViewController, ListInventoryDisplayLogic {
 
 	// MARK: Controller Property
 	private var contentView = ListInventoryView()
+    private var listInventoryTableViewDataSource = ListInventoryTableViewDataSource()
+
+    private var isLoadingProducts = false {
+        didSet {
+            self.listInventoryTableViewDataSource.isShowingSkelectonCells = self.isLoadingProducts
+            contentView.tableView.reloadData()
+        }
+    }
 
     var selectedRow: Int? {
         guard let indexPath = self.contentView.tableView.indexPathForSelectedRow else {
@@ -33,6 +41,7 @@ class ListInventoryViewController: UIViewController, ListInventoryDisplayLogic {
 		super.viewDidLoad()
 		setupContentView()
         setup()
+        fetchProducts()
 	}
 
 	// MARK: Init
@@ -46,20 +55,20 @@ class ListInventoryViewController: UIViewController, ListInventoryDisplayLogic {
 	}
 
     private func setup() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(tappedAddButton))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: AppStyleGuide.Icons.plus.uiImage, style: .plain, target: self, action: #selector(tappedAddButton))
     }
 
 	func setupContentView() {
-        title = "Estoque"
+        title = Localization(.listInventoryScene(.title)).description
         view = contentView
         contentView.tableView.delegate = self
-        contentView.tableView.dataSource = self
+        listInventoryTableViewDataSource.registerCell(for: contentView.tableView)
+        contentView.tableView.dataSource = listInventoryTableViewDataSource
 	}
 
     // MARK: View lifecycle
     override func viewWillAppear(_ animated: Bool) {
       super.viewWillAppear(animated)
-      fetchProducts()
     }
 
     // MARK: - Fetch products
@@ -69,25 +78,33 @@ class ListInventoryViewController: UIViewController, ListInventoryDisplayLogic {
     func fetchProducts() {
         let request = ListInventory.FetchProducts.Request()
         interactor?.fetchProducts(request: request)
+        isLoadingProducts = true
     }
 
 	func displayFetchedProducts(viewModel: ListInventory.FetchProducts.ViewModel) {
-        displayProducts = viewModel.displayProducts
-        contentView.tableView.reloadData()
+        listInventoryTableViewDataSource.viewModels = viewModel.displayProducts
+        isLoadingProducts = false
 	}
 
     // MARK: Routes
     @objc
-    func tappedAddButton() {
+    func tappedAddButton(_ sender: AnyObject) {
 
-        let optionMenu = UIAlertController(title: nil, message: "Adicionar novo produto", preferredStyle: .actionSheet)
+        let optionMenu = UIAlertController(title: nil, message: "\(Localization(.listInventoryScene(.addAlertController(.title))))", preferredStyle: .actionSheet)
+        // TODO: Add barcode reader
+//        let addWithBarcode = UIAlertAction(title: "\(Localization(.listInventoryScene(.addAlertController(.addWithBarCode))))", style: .default)
+        let add = UIAlertAction(title: "\(Localization(.listInventoryScene(.addAlertController(.addWithoutBarCode))))", style: .default) { _ in
+			let vc = AddNewProductViewController()
+			self.present(vc, animated: true, completion: nil)
+		}
 
-        let addWithBarcode = UIAlertAction(title: "Ler código de barras", style: .default)
-        let add = UIAlertAction(title: "Adicionar sem código de barras", style: .default)
+        let cancelAction = UIAlertAction(title: "\(Localization(.listInventoryScene(.addAlertController(.cancel))))", style: .cancel)
 
-        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel)
+        if let popoverController = optionMenu.popoverPresentationController {
+            popoverController.barButtonItem = sender as? UIBarButtonItem
+        }
 
-        optionMenu.addAction(addWithBarcode)
+//        optionMenu.addAction(addWithBarcode)
         optionMenu.addAction(add)
         optionMenu.addAction(cancelAction)
 
@@ -96,25 +113,9 @@ class ListInventoryViewController: UIViewController, ListInventoryDisplayLogic {
 
 }
 
-extension ListInventoryViewController: UITableViewDelegate, UITableViewDataSource {
+extension ListInventoryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return contentView.buildHeaderSection(
-            section: section,
-            title: "Produtos no estoque"
-        )
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return displayProducts.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let product = displayProducts[indexPath.row]
-        return contentView.buildCell(
-            indexPath: indexPath,
-            name: product.name,
-            quantity: product.quantity
-        )
+        return listInventoryTableViewDataSource.viewForHeader(in: section)
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

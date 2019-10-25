@@ -52,7 +52,7 @@ class ProductDetailViewController: UIViewController, ProductDetailDisplayLogic {
 	}
 
 	func setupContentView() {
-		title = "ProductDetail"
+        title = "\(Localization(.productDetailScene(.title)))"
 		view = contentView
 		contentView.tableView.delegate = self
 		contentView.tableView.dataSource = self
@@ -84,6 +84,14 @@ extension ProductDetailViewController: UITableViewDelegate, UITableViewDataSourc
 		return tableViewDataSource.viewForHeader(in: section)
 	}
 
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
+    }
+
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.01
+    }
+
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let reuseIdentifier = tableViewDataSource.reuseIdentifier(for: indexPath.section)
 		let reusableCell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
@@ -93,7 +101,7 @@ extension ProductDetailViewController: UITableViewDelegate, UITableViewDataSourc
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		if (indexPath.section == 1) {
-			router?.routeToProductItems()
+			router?.routeToProductItem()
 		}
 	}
 }

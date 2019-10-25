@@ -10,7 +10,9 @@ import UIKit
 
 class ListInventoryView: UIView {
 
-    let tableView = UITableView()
+    let tableView = SaarahTableView()
+    var isShowingSkelectonCells = false
+    var skelectonCellsCount = 3
 
     init() {
         super.init(frame: .zero)
@@ -44,20 +46,5 @@ class ListInventoryView: UIView {
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
-    }
-
-    func buildHeaderSection(section: Int, title: String) -> UIView {
-        let header = DefaultSectionHeaderView()
-        header.titleLabel.text = title.uppercased()
-        return header
-    }
-
-    func buildCell(indexPath: IndexPath, name: String, quantity: String) -> UITableViewCell {
-        let cell = DefaultCellTableViewCell()
-        cell.roundCellIfNeeded(index: indexPath.row, numberOfCells: 3)
-        cell.label.text = name
-        cell.detailLabel.text = quantity
-
-        return cell
     }
 }

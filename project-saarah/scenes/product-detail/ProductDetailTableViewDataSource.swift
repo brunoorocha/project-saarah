@@ -60,15 +60,15 @@ class ProductDetailTableViewDataSource {
 		switch (section) {
 		case 0:
 			let headerView = DefaultSectionHeaderView()
-			headerView.titleLabel.text = "INFORMAÇÕES BÁSICAS"
+            headerView.titleLabelText = Localization(.productDetailScene(.basicInformation)).description
 			headerView.rightButton.isHidden = true
 			return headerView
 		case 1:
 			return EmptySectionHeaderView()
 		case 2:
 			let headerView = DefaultSectionHeaderView()
-			headerView.titleLabel.text = "ATIVIDADE"
-			headerView.rightButton.setTitle("VER TODAS", for: .normal)
+            headerView.titleLabelText = Localization(.productDetailScene(.activity)).description
+            headerView.rightButtonText = Localization(.seeAll).description
 			return headerView
 		default:
 			return UIView()
@@ -93,11 +93,12 @@ class ProductDetailTableViewDataSource {
 		guard let viewModel = viewModel else { return UITableViewCell() }
 
 		if (row == 0) {
-			cell.setContent(title: "Nome do produto", subtitle: viewModel.productViewModel.name)
+			cell.setContent(title: "\(Localization(.productDetailScene(.productName)))", subtitle: viewModel.productViewModel.name)
 		} else {
-			cell.setContent(title: "Quantidade em estoque", subtitle: viewModel.productViewModel.quantity)
+			cell.setContent(title: "\(Localization(.productDetailScene(.quantityInStock)))", subtitle: viewModel.productViewModel.quantity)
 		}
 
+        cell.roundCellIfNeeded(index: row, numberOfCells: 2)
 		return cell
 	}
 
@@ -105,7 +106,7 @@ class ProductDetailTableViewDataSource {
 		guard let cell = cell as? DefaultCellTableViewCell else { return UITableViewCell() }
 		cell.roundCellIfNeeded(index: 0, numberOfCells: 1)
 
-		cell.label.text = "Ver todos os itens desse produto"
+		cell.label.text = "\(Localization(.productDetailScene(.seeAllFromThisProduct)))"
 		cell.detailLabel.text = ""
 
 		return cell
