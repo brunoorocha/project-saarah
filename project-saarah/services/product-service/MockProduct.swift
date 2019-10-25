@@ -9,6 +9,10 @@
 import Foundation
 
 class MockProduct: ProductStoreProtocol {
+    func addProduct(withName name: String, andBarcode barcode: String?, andMeasureId measureId: String, _ completion: @escaping (Result<Product?, NetworkServiceError>) -> Void) {
+        //
+    }
+    
     func fetchProducts(_ completion: @escaping ([Product]) -> Void) {
         let measure = Measure(id: "1", name: "Quilo", abbreviation: "kg")
         let productLog1 = ProductLog(id: "1", type: .input, price: 20.0, quantity: 2.0, createdDate: Date(), expiration: Date())

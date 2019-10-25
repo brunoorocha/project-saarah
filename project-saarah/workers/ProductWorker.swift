@@ -10,6 +10,7 @@ import Foundation
 
 protocol ProductStoreProtocol {
     func fetchProducts(_ completion: @escaping ([Product]) -> Void)
+    func addProduct(withName name: String, andBarcode barcode: String?, andMeasureId measureId: String, _ completion: @escaping (Result<Product?, NetworkServiceError>) -> Void)
 }
 
 class ProductWorker {
