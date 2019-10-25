@@ -71,11 +71,11 @@ enum AppStyleGuide {
             case .primary:
                 return UIColor.rgba(88, 72, 160)
             case .background:
-                return UIColor.rgba(245, 245, 245)
+                return UIColor.setupColorFor(.lightBackground, .darkBackground)
             case .foreground:
-                return UIColor.white
+                return UIColor.setupColorFor(.lightForeground, .darkForeground)
             case .textColor:
-                return UIColor.rgba(56, 56, 56)
+                return UIColor.setupColorFor(.lightTextColor, .darkTextColor)
             case .lightGray:
                 return UIColor.rgba(244, 244, 244)
             case .mediumGray:
