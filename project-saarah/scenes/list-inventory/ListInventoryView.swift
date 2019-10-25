@@ -10,7 +10,7 @@ import UIKit
 
 class ListInventoryView: UIView {
 
-    let tableView = UITableView()
+    let tableView = SaarahTableView()
     var isShowingSkelectonCells = false
     var skelectonCellsCount = 3
 
