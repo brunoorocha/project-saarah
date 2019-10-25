@@ -88,7 +88,7 @@ class ListInventoryViewController: UIViewController, ListInventoryDisplayLogic {
 
     // MARK: Routes
     @objc
-    func tappedAddButton() {
+    func tappedAddButton(_ sender: AnyObject) {
 
         let optionMenu = UIAlertController(title: nil, message: "\(Localization(.listInventoryScene(.addAlertController(.title))))", preferredStyle: .actionSheet)
         // TODO: Add barcode reader
@@ -99,6 +99,10 @@ class ListInventoryViewController: UIViewController, ListInventoryDisplayLogic {
 		}
 
         let cancelAction = UIAlertAction(title: "\(Localization(.listInventoryScene(.addAlertController(.cancel))))", style: .cancel)
+
+        if let popoverController = optionMenu.popoverPresentationController {
+            popoverController.barButtonItem = sender as? UIBarButtonItem
+        }
 
 //        optionMenu.addAction(addWithBarcode)
         optionMenu.addAction(add)

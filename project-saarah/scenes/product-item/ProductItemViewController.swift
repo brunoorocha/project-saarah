@@ -25,6 +25,7 @@ class ProductItemViewController: UIViewController, ProductItemDisplayLogic {
 	// MARK: View lifecycle
 	override func viewDidLoad() {
 		super.viewDidLoad()
+        configureViewController()
 		setupContentView()
         getProduct()
         fetchProductItems()
@@ -40,13 +41,21 @@ class ProductItemViewController: UIViewController, ProductItemDisplayLogic {
 		super.init(coder: aDecoder)
 	}
 
-	func setupContentView() {
+    func configureViewController () {
         title = "\(Localization(.productItemScene(.title)))"
-		view = contentView
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: AppStyleGuide.Icons.plus.uiImage, style: .plain, target: self, action: #selector(didTapOnAddNavigationBarButton))
+    }
+
+    func setupContentView() {
+        view = contentView
         contentView.tableView.delegate = self
         contentView.tableView.dataSource = self
         tableViewDataSource.registerCells(for: contentView.tableView)
 	}
+
+    @objc func didTapOnAddNavigationBarButton () {
+        router?.routeToAddProductItem()
+    }
 
     // MARK: Get product
     func getProduct() {
@@ -89,11 +98,7 @@ extension ProductItemViewController: UITableViewDataSource, UITableViewDelegate 
         return cell
     }
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if (indexPath.section == 2) {
-            router?.routeToAddProductItem()
-        }
-    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {}
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if (section == 2) { return AppStyleGuide.Margins.medium.rawValue }
