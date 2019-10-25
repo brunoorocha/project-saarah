@@ -17,7 +17,7 @@ class MockProductItem: ProductItemStore {
 //			completion([productItem1, productItem2, productItem3])
 //		}
 	}
-	
+
 	func addProductItem(productId: String, price: Double, quantity: Double, expirationDate: String, _ completion: @escaping (Result<ProductLog?, NetworkServiceError>) -> Void) {
 		// nao vou fazer isso pq nao to usando o mock
 	}

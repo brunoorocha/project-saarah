@@ -37,7 +37,7 @@ class ProductItemInteractor: ProductItemBusinessLogic, ProductItemDataStore {
     // MARK: Fetch product items
     func fetchProductItem(request: ProductItem.FetchProductItem.Request) {
 		guard let product = product else { return }
-		
+
 		productItemWorker.fetchProductItems(productId: product.id) { (result) in
 			switch result {
 			case .success(let productLogs):
@@ -50,7 +50,7 @@ class ProductItemInteractor: ProductItemBusinessLogic, ProductItemDataStore {
 				// TODO: add property in response struct
 				print(error)
 			}
-			
+
         }
     }
 }
