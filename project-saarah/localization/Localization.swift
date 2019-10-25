@@ -18,11 +18,12 @@ struct Localization: CustomStringConvertible {
     /// If the the message in user language doesn't exists will get in primary language
     /// - Parameter string: enum case message
     init(_ string: AppStrings) {
+        let mainLanguage = string.pt_BR
         switch NSLocale.preferredLanguages[0] {
         case let en where en.contains("en"):
-            self.message = string.en ?? string.pt_BR
+            self.message = string.en ?? mainLanguage
         default:
-            self.message = string.pt_BR
+            self.message = mainLanguage
         }
     }
 

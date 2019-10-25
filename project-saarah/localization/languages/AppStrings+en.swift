@@ -126,12 +126,53 @@ extension AppStrings {
             case .notInformed:
                 return "Uninformed"
             }
-        case .underConstruction(let options):
+        case .addProductItemScene(let options):
             switch options {
             case .title:
-                return "We are Apologize"
-            case .paragraph:
-                return ", however, we are still in Development"
+                return "Add product item"
+            case .cancelBarButton:
+                return "Cancel"
+            case .saveBarButton:
+                return "Save"
+            case .alertActionTitle:
+                return "Ok"
+            case .basicInformation:
+                return "BASIC INFORMATION"
+            case .quantity:
+                return "QUANTITY"
+            case .quantityPlaceholder:
+                return "0"
+            case .price:
+                return "Price"
+            case .pricePlaceholder:
+                return "$ 0,00"
+            case .complementaryInformation:
+                return "ADDITIONAL INFORMATION (OPTIONAL)"
+            case .expirationDate:
+                return "Expiration"
+            case .expirationDatePlaceholder:
+                return "Tap to enter expiration date"
+            case .errorFormAlertTitle:
+                return "Error"
+            case .errorFormActionAlertTitle:
+                return "Ok"
+            case .errorFormQuantityAlertMessage:
+                return "The field quantity only accept numbers."
+            case .errorFormPriceAlertMessage:
+                return "The field price only accept numbers."
+            case .errorFormExpirationAlertMessage:
+                return "The field date of expiration date need be filled with day/month/year."
+            case .response(let options):
+                switch (options) {
+                case .successTitle:
+                    return "Success"
+                case .suceessMessage:
+                    return "Item saved with success."
+                case .inputErrorTitle:
+                    return "Error to fill the field"
+                case .expirationDateMessage:
+                    return "The expiration date aren't filled correctly."
+                }
             }
         default:
             return nil
