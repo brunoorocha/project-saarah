@@ -24,7 +24,7 @@ class ProductItemInteractor: ProductItemBusinessLogic, ProductItemDataStore {
     var product: Product?
     var productItems: [ProductLog]?
 
-    let productItemWorker = ProductItemWorker(productItemService: MockProductItem())
+    let productItemWorker = ProductItemWorker(productItemService: ApiProductItemStore())
 
     // MARK: Get product
     func getProduct(request: ProductItem.ReceiveProduct.Request) {
@@ -36,10 +36,21 @@ class ProductItemInteractor: ProductItemBusinessLogic, ProductItemDataStore {
 
     // MARK: Fetch product items
     func fetchProductItem(request: ProductItem.FetchProductItem.Request) {
-        productItemWorker.fetchProductItems { (productItems) in
-            self.productItems = productItems
-            let response = ProductItem.FetchProductItem.Response(ProductItems: productItems)
-            self.presenter?.presentProductItem(response: response)
+		guard let product = product else { return }
+
+		productItemWorker.fetchProductItems(productId: product.id) { (result) in
+			switch result {
+			case .success(let productLogs):
+				if let productItems = productLogs {
+					self.productItems = productLogs
+					let response = ProductItem.FetchProductItem.Response(ProductItems: productItems)
+					self.presenter?.presentProductItem(response: response)
+				}
+			case .failure(let error):
+				// TODO: add property in response struct
+				print(error)
+			}
+
         }
     }
 }

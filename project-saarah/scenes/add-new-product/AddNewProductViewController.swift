@@ -86,7 +86,7 @@ extension AddNewProductViewController: AddNewProductViewDelegate {
 		guard let cell1 = contentView.tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell else { return }
 		var barCode = cell1.textField.text
         barCode = barCode == "" ? nil : barCode
-        
+
 		let productForm = AddNewProduct.ProductForm(name: productName, barCode: barCode)
 		let request = AddNewProduct.SaveProduct.Request(productForm: productForm)
 		interactor?.saveNewProduct(request: request)

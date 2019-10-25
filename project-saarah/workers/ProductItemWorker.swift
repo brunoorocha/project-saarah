@@ -9,7 +9,7 @@
 import Foundation
 
 protocol ProductItemStore {
-	func fetchProductItems(_ completion: @escaping ([ProductLog]) -> Void)
+	func fetchProductItems(productId: String, _ completion: @escaping (Result<[ProductLog]?, NetworkServiceError>) -> Void)
 	func addProductItem(productId: String, price: Double, quantity: Double, expirationDate: String, _ completion: @escaping (Result<ProductLog?, NetworkServiceError>) -> Void)
 }
 
@@ -21,13 +21,13 @@ class ProductItemWorker: ProductItemStore {
         self.productItemService = productItemService
     }
 
-    func fetchProductItems(_ completion: @escaping ([ProductLog]) -> Void) {
-        productItemService.fetchProductItems { (productItems) in
-            DispatchQueue.main.async {
-                completion(productItems)
-            }
-        }
-    }
+	func fetchProductItems(productId: String, _ completion: @escaping (Result<[ProductLog]?, NetworkServiceError>) -> Void) {
+		productItemService.fetchProductItems(productId: productId) { (result) in
+			DispatchQueue.main.async {
+				completion(result)
+			}
+		}
+	}
 
 	func addProductItem(productId: String, price: Double, quantity: Double, expirationDate: String, _ completion: @escaping (Result<ProductLog?, NetworkServiceError>) -> Void) {
 		productItemService.addProductItem(productId: productId, price: price, quantity: quantity, expirationDate: expirationDate) { (result) in
