@@ -9,7 +9,7 @@
 import Foundation
 
 class MockProduct: ProductStoreProtocol {
-    func addProduct(withName name: String, andBarcode barcode: String?, andMeasureId measureId: String, _ completion: @escaping (Result<Product?, NetworkServiceError>) -> Void) {
+    func addProduct(name: String, barcode: String?, measureId: String, _ completion: @escaping (Result<Product?, NetworkServiceError>) -> Void) {
         //
     }
     
