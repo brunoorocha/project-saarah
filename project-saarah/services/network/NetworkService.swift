@@ -72,7 +72,6 @@ class NetworkService: NetworkServiceProtocol {
                     }
 
                     let decodedObject = try JSONDecoder().decode(T.self, from: data)
-					print("teste")
                     DispatchQueue.main.async {
                         completionHandler(.success(decodedObject))
                     }

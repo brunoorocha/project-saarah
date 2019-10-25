@@ -9,6 +9,13 @@
 import Foundation
 
 class ApiProductStore: ProductStoreProtocol {
+    func addProduct(name: String, barcode: String?, measureId: String, _ completion: @escaping (Result<Product?, NetworkServiceError>) -> Void) {
+        let networkService = NetworkService()
+        networkService.request(endpoint: ConeheadApiEndpoint.addProduct(name: name, barcode: barcode, measureId: measureId)) { (result: Result<Product?, NetworkServiceError>) in
+            completion(result)
+        }
+    }
+
     func fetchProducts(_ completion: @escaping ([Product]) -> Void) {
         let networkService = NetworkService()
         networkService.request(endpoint: ConeheadApiEndpoint.fetchProducts) { (result: Result<[Product]?, NetworkServiceError>) in
