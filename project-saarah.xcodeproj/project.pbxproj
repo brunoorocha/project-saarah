@@ -108,6 +108,8 @@
 		A3522D70234186AB00DB1314 /* HomeNotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3522D6F234186AB00DB1314 /* HomeNotificationTableViewCell.swift */; };
 		A3522D722341882300DB1314 /* SaarahTableViewSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3522D712341882300DB1314 /* SaarahTableViewSeparator.swift */; };
 		A353D7CE231FE4B1004A5139 /* NavigationDrawerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A353D7CD231FE4B1004A5139 /* NavigationDrawerMenu.swift */; };
+		A359957D2363240600161844 /* HomePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A359957C2363240600161844 /* HomePresenterTests.swift */; };
+		A359957F2363257E00161844 /* HomeInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A359957E2363257E00161844 /* HomeInteractorTests.swift */; };
 		A3780875233B8ECA005B26E8 /* AppStyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3780874233B8ECA005B26E8 /* AppStyleGuide.swift */; };
 		A3780885233B9555005B26E8 /* Nunito-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A378087E233B94C6005B26E8 /* Nunito-Black.ttf */; };
 		A3780886233B9555005B26E8 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A378087A233B94C6005B26E8 /* Nunito-Regular.ttf */; };
@@ -145,6 +147,16 @@
 		A3D2D0D62340E91100432214 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D2D0CF2340E91100432214 /* HomeView.swift */; };
 		A3DBCF262361CCFE0044D43F /* ApiMeasureStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DBCF252361CCFE0044D43F /* ApiMeasureStore.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A35995772363238900161844 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A343CF3C23180C31005F2210 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A343CF4323180C31005F2210;
+			remoteInfo = "project-saarah";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1B15E0CA2354A3520047A0B6 /* AppStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStrings.swift; sourceTree = "<group>"; };
@@ -250,6 +262,10 @@
 		A3522D6F234186AB00DB1314 /* HomeNotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNotificationTableViewCell.swift; sourceTree = "<group>"; };
 		A3522D712341882300DB1314 /* SaarahTableViewSeparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahTableViewSeparator.swift; sourceTree = "<group>"; };
 		A353D7CD231FE4B1004A5139 /* NavigationDrawerMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDrawerMenu.swift; sourceTree = "<group>"; };
+		A35995722363238900161844 /* eStorageTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = eStorageTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A35995762363238900161844 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A359957C2363240600161844 /* HomePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenterTests.swift; sourceTree = "<group>"; };
+		A359957E2363257E00161844 /* HomeInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractorTests.swift; sourceTree = "<group>"; };
 		A3780874233B8ECA005B26E8 /* AppStyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyleGuide.swift; sourceTree = "<group>"; };
 		A378087A233B94C6005B26E8 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
 		A378087E233B94C6005B26E8 /* Nunito-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Black.ttf"; sourceTree = "<group>"; };
@@ -290,6 +306,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		A343CF4123180C31005F2210 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A359956F2363238900161844 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -513,6 +536,7 @@
 			isa = PBXGroup;
 			children = (
 				A343CF4623180C31005F2210 /* project-saarah */,
+				A35995732363238900161844 /* eStorageTests */,
 				A343CF4523180C31005F2210 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -521,6 +545,7 @@
 			isa = PBXGroup;
 			children = (
 				A343CF4423180C31005F2210 /* eStorage.app */,
+				A35995722363238900161844 /* eStorageTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -578,6 +603,16 @@
 				48F28F1F235E974A005CCF56 /* Response.swift */,
 			);
 			path = models;
+			sourceTree = "<group>";
+		};
+		A35995732363238900161844 /* eStorageTests */ = {
+			isa = PBXGroup;
+			children = (
+				A35995762363238900161844 /* Info.plist */,
+				A359957C2363240600161844 /* HomePresenterTests.swift */,
+				A359957E2363257E00161844 /* HomeInteractorTests.swift */,
+			);
+			path = eStorageTests;
 			sourceTree = "<group>";
 		};
 		A3780871233B8CF9005B26E8 /* scenes */ = {
@@ -721,18 +756,41 @@
 			productReference = A343CF4423180C31005F2210 /* eStorage.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A35995712363238900161844 /* eStorageTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A359957B2363238900161844 /* Build configuration list for PBXNativeTarget "eStorageTests" */;
+			buildPhases = (
+				A359956E2363238900161844 /* Sources */,
+				A359956F2363238900161844 /* Frameworks */,
+				A35995702363238900161844 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A35995782363238900161844 /* PBXTargetDependency */,
+			);
+			name = eStorageTests;
+			productName = eStorageTests;
+			productReference = A35995722363238900161844 /* eStorageTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		A343CF3C23180C31005F2210 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1020;
+				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = "Bruno Rocha";
 				TargetAttributes = {
 					A343CF4323180C31005F2210 = {
 						CreatedOnToolsVersion = 10.2.1;
+					};
+					A35995712363238900161844 = {
+						CreatedOnToolsVersion = 11.0;
+						LastSwiftMigration = 1100;
+						TestTargetID = A343CF4323180C31005F2210;
 					};
 				};
 			};
@@ -750,6 +808,7 @@
 			projectRoot = "";
 			targets = (
 				A343CF4323180C31005F2210 /* project-saarah */,
+				A35995712363238900161844 /* eStorageTests */,
 			);
 		};
 /* End PBXProject section */
@@ -764,6 +823,13 @@
 				A3780886233B9555005B26E8 /* Nunito-Regular.ttf in Resources */,
 				A343CF5523180C3C005F2210 /* LaunchScreen.storyboard in Resources */,
 				A343CF5223180C3C005F2210 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A35995702363238900161844 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -930,7 +996,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A359956E2363238900161844 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A359957D2363240600161844 /* HomePresenterTests.swift in Sources */,
+				A359957F2363257E00161844 /* HomeInteractorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A35995782363238900161844 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A343CF4323180C31005F2210 /* project-saarah */;
+			targetProxy = A35995772363238900161844 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A343CF5323180C3C005F2210 /* LaunchScreen.storyboard */ = {
@@ -1100,6 +1183,51 @@
 			};
 			name = Release;
 		};
+		A35995792363238900161844 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MK2CL4Y92D;
+				INFOPLIST_FILE = eStorageTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.project.eStorageTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/eStorage.app/eStorage";
+			};
+			name = Debug;
+		};
+		A359957A2363238900161844 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MK2CL4Y92D;
+				INFOPLIST_FILE = eStorageTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.project.eStorageTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/eStorage.app/eStorage";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1117,6 +1245,15 @@
 			buildConfigurations = (
 				A343CF5A23180C3C005F2210 /* Debug */,
 				A343CF5B23180C3C005F2210 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A359957B2363238900161844 /* Build configuration list for PBXNativeTarget "eStorageTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A35995792363238900161844 /* Debug */,
+				A359957A2363238900161844 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
