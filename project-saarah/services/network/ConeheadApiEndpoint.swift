@@ -16,11 +16,11 @@ enum ConeheadApiEndpoint {
 }
 
 extension ConeheadApiEndpoint: EndpointType {
-	var body: String? {
-		get {
-			return caseBody
-		}
-	}
+    var body: String? {
+        get {
+            return caseBody
+        }
+    }
 
     var apiAddress: String {
         return "https://conehead-api.herokuapp.com/api/v1/"
@@ -34,8 +34,8 @@ extension ConeheadApiEndpoint: EndpointType {
         switch self {
         case .fetchNotifications:
             return .get
-		case .addProductItem:
-			return .post
+        case .addProductItem:
+            return .post
         case .fetchProducts:
             return .get
         case .fetchMeasures:
@@ -47,8 +47,8 @@ extension ConeheadApiEndpoint: EndpointType {
         switch self {
         case .fetchNotifications:
             return apiAddress + "notifications"
-		case .addProductItem(let productItem):
-			return apiAddress + "products/" + productItem.productId + "/items"
+        case .addProductItem(let productItem):
+            return apiAddress + "products/" + productItem.productId + "/items"
         case .fetchProducts:
             return apiAddress + "products"
         case .fetchMeasures:
@@ -56,16 +56,16 @@ extension ConeheadApiEndpoint: EndpointType {
         }
     }
 
-	var caseBody: String? {
-		switch self {
-		case .fetchNotifications:
-			return nil
-		case .addProductItem(let productItem):
-			return "quantity=\(productItem.quantity)&price=\(productItem.price)&expiration=\(productItem.expirationDate)"
-		case .fetchProducts:
-			return nil
-		case .fetchMeasures:
-			return nil
-		}
-	}
-}
+    var caseBody: String? {
+        switch self {
+        case .fetchNotifications:
+            return nil
+        case .addProductItem(let productItem):
+            return "quantity=\(productItem.quantity)&price=\(productItem.price)&expiration=\(productItem.expirationDate)"
+        case .fetchProducts:
+            return nil
+        case .fetchMeasures:
+            return nil
+        }
+    }
+    }
