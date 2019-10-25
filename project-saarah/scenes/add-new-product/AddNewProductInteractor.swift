@@ -20,7 +20,7 @@ protocol AddNewProductDataStore {
 class AddNewProductInteractor: AddNewProductBusinessLogic, AddNewProductDataStore {
 
     var presenter: AddNewProductPresentationLogic?
-//    var worker: AddNewProductWorker?
+
     var product: Product?
     var measure: Measure? {
         didSet {
@@ -30,10 +30,26 @@ class AddNewProductInteractor: AddNewProductBusinessLogic, AddNewProductDataStor
         }
     }
 
+    let productWorker = ProductWorker(productService: ApiProductStore())
+
 	// MARK: Save new product
 	func saveNewProduct(request: AddNewProduct.SaveProduct.Request) {
-		// TODO: Create worker for api
-		let response = AddNewProduct.SaveProduct.Response(success: true)
-		presenter?.presentSaveProductResponse(response: response)
+        guard let measure = measure else { return }
+        productWorker.addProduct(withName: request.productForm.name, andBarcode: request.productForm.barCode, andMeasureId: measure.id) { (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let product):
+                    if product != nil {
+                        self.product = product
+                        let response = AddNewProduct.SaveProduct.Response(success: true)
+                        self.presenter?.presentSaveProductResponse(response: response)
+                    }
+                case .failure(let error):
+                    print(error)
+                    let response = AddNewProduct.SaveProduct.Response(success: false)
+                    self.presenter?.presentSaveProductResponse(response: response)
+                }
+            }
+        }
 	}
 }

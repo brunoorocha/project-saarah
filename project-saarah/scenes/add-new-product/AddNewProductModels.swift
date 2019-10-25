@@ -12,7 +12,6 @@ enum AddNewProduct {
 	struct ProductForm {
 		let name: String
 		let barCode: String?
-		let measure: String
 	}
 	// MARK: Save product
 	enum SaveProduct {
