@@ -23,6 +23,7 @@ class ButtonTableViewCell: SaarahTableViewCell {
 
     override func configureCellComponents() {
         cellContentView.addSubviews([addIconImageView, buttonLabel])
+        buttonLabel.isUserInteractionEnabled = false
 
         NSLayoutConstraint.activate([
             addIconImageView.topAnchor.constraint(equalTo: cellContentView.topAnchor, constant: mediumMargin),
