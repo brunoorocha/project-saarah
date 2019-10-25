@@ -139,7 +139,7 @@ extension AppStrings {
             case .basicInformation:
                 return "BASIC INFORMATION"
             case .quantity:
-                return "QUANTITY"
+                return "Quantity"
             case .quantityPlaceholder:
                 return "0"
             case .price:
