@@ -31,17 +31,15 @@ extension UIColor {
 
     static func setupColorFor(_ lightMode: UIColor, _ darkMode: UIColor) -> UIColor {
         if #available(iOS 13, *) {
-            let travis_incompetente = UIColor { (trait) -> UIColor in
-                let isDarkMode = trait.userInterfaceStyle
+            return UIColor(dynamicProvider: { (trait) -> UIColor in
+                let interfaceStyle = trait.userInterfaceStyle
 
-                if isDarkMode == .dark {
+                if interfaceStyle == .dark {
                     return darkMode
                 } else {
                     return lightMode
                 }
-            }
-
-            return travis_incompetente
+            })
         } else {
             return lightMode
         }
