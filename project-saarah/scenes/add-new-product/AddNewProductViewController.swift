@@ -57,8 +57,12 @@ class AddNewProductViewController: SaarahViewController, AddNewProductDisplayLog
 			okAction = UIAlertAction(title: "\(Localization(.addNewProductScene(.alertAction)))", style: .default) { _ in
 				self.router?.routeToAddProductItem()
 			}
+
+            okAction.setValue(AppStyleGuide.Colors.primary.uiColor, forKey: "titleTextColor")
 		} else {
             okAction = UIAlertAction(title: "\(Localization(.addNewProductScene(.alertAction)))", style: .default, handler: nil)
+
+            okAction.setValue(AppStyleGuide.Colors.primary.uiColor, forKey: "titleTextColor")
         }
         alert.addAction(okAction)
 

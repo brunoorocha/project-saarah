@@ -35,6 +35,7 @@ class SaarahImageView: UIImageView {
         translatesAutoresizingMaskIntoConstraints = false
         clipsToBounds = true
         contentMode = .scaleAspectFill
+        tintColor = AppStyleGuide.Colors.primary.uiColor
     }
 
     func customize () {}

@@ -9,18 +9,26 @@
 import UIKit
 
 extension UIColor {
+    //Colors for setup the primary color of the main project.
+    static let lightModePrimary = rgba(88, 72, 160)
+    static let darkModePrimary = rgba(200, 192, 248)
+
     // Colors for setup the background color of the main project.
-    static var lightBackground = rgba(240, 240, 240)
-    static var darkBackground = rgba(56, 56, 56)
-    
+    static let lightModeBackground = rgba(240, 240, 240)
+    static let darkModeBackground = UIColor.black
+
     // Colors for setup the foreground color of the main project.
-    static var lightForeground = UIColor.white
-    static var darkForeground = rgba(72, 72, 72)
-    
+    static let lightModeForeground = UIColor.white
+    static let darkModeForeground = rgba(48, 48, 48)
+
     // Colors for setup the text color of the main project.
-    static var lightTextColor = rgba(56, 56, 56)
-    static var darkTextColor = rgba(240, 240, 240)
-    
+    static let lightModeTextColor = rgba(56, 56, 56)
+    static let darkModeTextColor = UIColor.white
+
+    // Colors for setup the lightGray color of the main project.
+    static let lightModeLightGray = rgba(248, 248, 248)
+    static let darkModeLightGray = rgba(72, 72, 72)
+
     static func setupColorFor(_ lightMode: UIColor, _ darkMode: UIColor) -> UIColor {
         if #available(iOS 13, *) {
             return UIColor.init { (trait) -> UIColor in
