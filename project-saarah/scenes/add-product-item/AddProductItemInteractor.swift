@@ -23,7 +23,7 @@ class AddProductItemInteractor: AddProductItemBusinessLogic, AddProductItemDataS
 	var product: Product?
 	var productItem: ProductLog?
 
-	let productItemWorker = ProductItemWorker(productItemService: ApiAddProductItemStore())
+	let productItemWorker = ProductItemWorker(productItemService: ApiProductItemStore())
 
 	// MARK: Do something
 	func addProductItem(request: AddProductItem.AddItem.Request) {
