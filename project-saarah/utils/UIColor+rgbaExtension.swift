@@ -32,7 +32,13 @@ extension UIColor {
     static func setupColorFor(_ lightMode: UIColor, _ darkMode: UIColor) -> UIColor {
         if #available(iOS 13, *) {
             return UIColor.init { (trait) -> UIColor in
-                return trait.userInterfaceStyle == .dark ? darkMode : lightMode
+                let isDarkMode = trait.userInterfaceStyle
+
+                if isDarkMode == .dark {
+                    return darkMode
+                } else {
+                    return lightMode
+                }
             }
         } else {
             return lightMode
