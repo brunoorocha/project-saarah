@@ -54,9 +54,15 @@ class AddProductItemViewController: UIViewController, AddProductItemDisplayLogic
 			let okAction = UIAlertAction(title: "\(Localization(.addProductItemScene(.alertActionTitle)))", style: .default) { _ in
 				self.dismiss(animated: true, completion: nil)
 			}
+
+            okAction.setValue(AppStyleGuide.Colors.primary.uiColor, forKey: "titleTextColor")
+
 			alert.addAction(okAction)
 		} else {
 			let okAction = UIAlertAction(title: "\(Localization(.addProductItemScene(.alertActionTitle)))", style: .default, handler: nil)
+
+            okAction.setValue(AppStyleGuide.Colors.primary.uiColor, forKey: "titleTextColor")
+
 			alert.addAction(okAction)
 		}
 

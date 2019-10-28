@@ -69,15 +69,20 @@ enum AppStyleGuide {
         var uiColor: UIColor {
             switch self {
             case .primary:
-                return UIColor.rgba(88, 72, 160)
+                return UIColor.setupColorFor(.lightModePrimary, .darkModePrimary)
+
             case .background:
-                return UIColor.rgba(245, 245, 245)
+                return UIColor.setupColorFor(.lightModeBackground, .darkModeBackground)
+
             case .foreground:
-                return UIColor.white
+                return UIColor.setupColorFor(.lightModeForeground, .darkModeForeground)
+
             case .textColor:
-                return UIColor.rgba(56, 56, 56)
+                return UIColor.setupColorFor(.lightModeTextColor, .darkModeTextColor)
+
             case .lightGray:
-                return UIColor.rgba(244, 244, 244)
+                return UIColor.setupColorFor(.lightModeLightGray, .darkModeLightGray)
+
             case .mediumGray:
                 return UIColor.rgba(168, 168, 168)
             case .darkCyan:
@@ -115,7 +120,7 @@ enum AppStyleGuide {
             case .chevronRight:
                 return UIImage(named: "chevron-right")
             case .check:
-                return UIImage(named: "check")
+                return UIImage(named: "check")?.withRenderingMode(.alwaysTemplate)
             case .inventory:
                 return UIImage(named: "inventory-icon")
             case .menu:

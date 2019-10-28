@@ -15,6 +15,8 @@ extension UIViewController {
 		let action = UIAlertAction(title: actionTitle, style: .default, handler: nil)
 		alert.addAction(action)
 
+        action.setValue(AppStyleGuide.Colors.primary.uiColor, forKey: "titleTextColor")
+
 		present(alert, animated: true, completion: nil)
 	}
 }
