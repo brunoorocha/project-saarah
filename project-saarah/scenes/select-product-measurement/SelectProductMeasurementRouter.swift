@@ -32,14 +32,17 @@ class SelectProductMeasurementRouter: NSObject, SelectProductMeasurementRoutingL
         }
 
         passDataToAddNewProduct(source: dataStore, destination: &destinationDataStore)
+        navigateBack()
     }
 
     // MARK: Passing data
     func passDataToAddNewProduct(source: SelectProductMeasurementDataStore, destination: inout AddNewProductDataStore) {
-        guard let viewController = viewController else { return }
         guard let measure = source.selectedMeasure else { return }
-
         destination.measure = measure
+    }
+
+    func navigateBack() {
+        guard let viewController = viewController else { return }
         viewController.dismiss(animated: true)
     }
 }
