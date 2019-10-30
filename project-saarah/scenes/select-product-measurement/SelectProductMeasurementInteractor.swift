@@ -11,7 +11,7 @@ import Foundation
 protocol SelectProductMeasurementBusinessLogic {
 	func fetchMeasurements(request: SelectProductMeasurement.FetchMeasurements.Request)
     func selectedMeasure(request: SelectProductMeasurement.ChoosedMeasure.Request)
-    func selectMeasure(withName name: String)
+    func selectMeasure(request: SelectProductMeasurement.SelectMeasure.Request)
 }
 
 protocol SelectProductMeasurementDataStore {
@@ -47,8 +47,8 @@ class SelectProductMeasurementInteractor: SelectProductMeasurementBusinessLogic,
 
     /// Storage the selected measure to select after fetch
     /// - Parameter name: name of the measure
-    func selectMeasure(withName name: String) {
-        selectedByName = name
+    func selectMeasure(request: SelectProductMeasurement.SelectMeasure.Request) {
+        selectedByName = request.name
     }
 
     /// Select the measure by the selectedByName

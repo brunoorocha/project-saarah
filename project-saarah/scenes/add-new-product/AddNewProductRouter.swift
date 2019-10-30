@@ -51,7 +51,8 @@ class AddNewProductRouter: NSObject, AddNewProductRoutingLogic, AddNewProductDat
         guard let dataStore = dataStore else { return }
         destination.delegate = viewController
         if let measureName = dataStore.measure?.name {
-            destination.interactor?.selectMeasure(withName: measureName)
+            let request = SelectProductMeasurement.SelectMeasure.Request(name: measureName)
+            destination.interactor?.selectMeasure(request: request)
         }
 		source.show(destination, sender: nil)
 	}
