@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AddProductItemRoutingLogic {
-	//func routeToSomewhere()
+	func routeToProductItem()
 }
 
 protocol AddProductItemDataPassing {
@@ -21,24 +21,22 @@ class AddProductItemRouter: NSObject, AddProductItemRoutingLogic, AddProductItem
 	var dataStore: AddProductItemDataStore?
 
 	// MARK: Routing
-//	func routeToSomewhere() {
-//		let destinationVC = SomewhereViewController()
-//		guard var destinationDataStore = destinationVC.router?.dataStore else { return }
-//
-//		guard let dataStore = dataStore else { return }
-//		guard let viewController = viewController else { return }
-//
-//		passDataToSomewhere(source: dataStore, destination: &destinationDataStore)
-//		navigateToSomewhere(source: viewController, destination: destinationVC)
-//	}
-//
+	func routeToProductItem() {
+		guard let dataStore = dataStore else { return }
+		guard let viewController = viewController else { return }
+
+		passDataToProductItem(source: dataStore, destinationDelegate: viewController.delegate)
+		navigateBackProductItem(source: viewController)
+	}
+	
 //	// MARK: Passing data
-//	func passDataToSomewhere(source: AddProductItemDataStore, destination: inout SomewhereDataStore) {
-//		destination.name = source.name
-//	}
-//
-//	// MARK: Navigation
-//	func navigateToSomewhere(source: AddProductItemViewController, destination: SomewhereViewController) {
-//		source.show(destination, sender: nil)
-//	}
+	func passDataToProductItem(source: AddProductItemDataStore, destinationDelegate: AddProductItemViewControllerDelegate?) {
+		guard let productItem = source.productItem else { return }
+		destinationDelegate?.pass(productItem: productItem)
+	}
+
+	// MARK: Navigation
+	func navigateBackProductItem(source: AddProductItemViewController) {
+		source.dismiss(animated: true, completion: nil)
+	}
 }

@@ -32,6 +32,7 @@ class AddProductItemInteractor: AddProductItemBusinessLogic, AddProductItemDataS
 			DispatchQueue.main.async {
 				switch result {
 				case .success(let productLog):
+					self.productItem = productLog
 					self.presenter?.presentResponse(response: AddProductItem.AddItem.Response(productLog: productLog))
 				case .failure(let error):
 					// TODO: add property in response struct

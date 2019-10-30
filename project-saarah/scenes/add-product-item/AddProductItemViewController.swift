@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol AddProductItemViewControllerDelegate: class {
+	func pass(productItem: ProductLog)
+}
+
 protocol AddProductItemDisplayLogic: class {
 	func displayResponse(viewModel: AddProductItem.AddItem.ViewModel.AddItemViewModel)
 }
@@ -20,6 +24,8 @@ class AddProductItemViewController: UIViewController, AddProductItemDisplayLogic
 	// MARK: Controller Property
 	private var contentView = AddProductItemView()
 	let tableViewDataSource = AddProductItemTableViewDataSource()
+	
+	weak var delegate: AddProductItemViewControllerDelegate?
 
 	// MARK: View lifecycle
 	override func viewDidLoad() {
@@ -52,7 +58,12 @@ class AddProductItemViewController: UIViewController, AddProductItemDisplayLogic
 		let alert = UIAlertController(title: viewModel.title, message: viewModel.message, preferredStyle: .alert)
 		if (viewModel.success) {
 			let okAction = UIAlertAction(title: "\(Localization(.addProductItemScene(.alertActionTitle)))", style: .default) { _ in
-				self.dismiss(animated: true, completion: nil)
+				if (self.delegate != nil) {
+					self.router?.routeToProductItem()
+				}
+				else {
+					self.dismiss(animated: true, completion: nil)
+				}
 			}
 
             okAction.setValue(AppStyleGuide.Colors.primary.uiColor, forKey: "titleTextColor")
