@@ -29,15 +29,13 @@ class AddProductItemInteractor: AddProductItemBusinessLogic, AddProductItemDataS
 	func addProductItem(request: AddProductItem.AddItem.Request) {
 		guard let product = product else { return }
 		productItemWorker.addProductItem(productId: product.id, price: request.addItemForm.price, quantity: request.addItemForm.quantity, expirationDate: request.addItemForm.expirationDate) { (result) in
-			DispatchQueue.main.async {
-				switch result {
-				case .success(let productLog):
-					self.productItem = productLog
-					self.presenter?.presentResponse(response: AddProductItem.AddItem.Response(productLog: productLog))
-				case .failure(let error):
-					// TODO: add property in response struct
-					print(error)
-				}
+			switch result {
+			case .success(let productLog):
+				self.productItem = productLog
+				self.presenter?.presentResponse(response: AddProductItem.AddItem.Response(productLog: productLog))
+			case .failure(let error):
+				// TODO: add property in response struct
+				print(error)
 			}
 		}
 	}
