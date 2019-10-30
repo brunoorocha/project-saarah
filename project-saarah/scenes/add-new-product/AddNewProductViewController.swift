@@ -22,6 +22,8 @@ class AddNewProductViewController: SaarahViewController, AddNewProductDisplayLog
 	// MARK: Controller Property
 	private var contentView = AddNewProductView()
 	let tableViewDataSource = AddNewProductTableViewDataSource()
+	
+	var listInventortReceptor: NewProductReceptor?
 
 	// MARK: View lifecycle
 	override func viewDidLoad() {
