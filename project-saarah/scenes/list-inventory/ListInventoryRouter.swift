@@ -10,6 +10,7 @@ import UIKit
 
 protocol ListInventoryRoutingLogic {
 	func routeToDetail()
+	func routeToAddNewProduct()
 }
 
 protocol ListInventoryDataPassing {
@@ -34,6 +35,16 @@ class ListInventoryRouter: NSObject, ListInventoryRoutingLogic, ListInventoryDat
 		passDataToDetail(source: dataStore, destination: &destinationDataStore)
 		navigateToDetail(source: viewController, destination: destinationVC)
 	}
+	
+	func routeToAddNewProduct() {
+		let destinationVC = AddNewProductViewController()
+		
+		guard let viewController = viewController else { return }
+		guard let dataStore = dataStore else { return }
+		destinationVC.listInventortReceptor = dataStore
+		
+		navigateToAddNewProduct(source: viewController, destination: destinationVC)
+	}
 
 	// MARK: Passing data
 	func passDataToDetail(source: ListInventoryDataStore, destination: inout ProductDetailDataStore) {
@@ -44,9 +55,12 @@ class ListInventoryRouter: NSObject, ListInventoryRoutingLogic, ListInventoryDat
 		destination.product = products[index]
 	}
 
-//	// MARK: Navigation
+	// MARK: Navigation
 	func navigateToDetail(source: ListInventoryViewController, destination: ProductDetailViewController) {
 		source.show(destination, sender: nil)
 	}
 
+	func navigateToAddNewProduct(source: ListInventoryViewController, destination: AddNewProductViewController) {
+		source.present(destination, animated: true, completion: nil)
+	}
 }
