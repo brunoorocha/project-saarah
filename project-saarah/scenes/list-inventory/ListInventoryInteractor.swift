@@ -10,16 +10,25 @@ import UIKit
 
 protocol ListInventoryBusinessLogic {
     func fetchProducts(request: ListInventory.FetchProducts.Request)
+	func insertProduct(request: ListInventory.InsertProduct.Request)
 }
 
 protocol ListInventoryDataStore {
     var products: [Product]? { get }
+	var toInsertProduct: Product? { get set }
 }
 
 class ListInventoryInteractor: ListInventoryBusinessLogic, ListInventoryDataStore {
 
     var presenter: ListInventoryPresentationLogic?
     var products: [Product]?
+	var toInsertProduct: Product? {
+		didSet {
+			guard let product = toInsertProduct else { return }
+			let request = ListInventory.InsertProduct.Request(product: product)
+			self.insertProduct(request: request)
+		}
+	}
 
     let productWorker = ProductWorker(productService: ApiProductStore())
 
@@ -30,5 +39,10 @@ class ListInventoryInteractor: ListInventoryBusinessLogic, ListInventoryDataStor
             let response = ListInventory.FetchProducts.Response(products: products)
             self.presenter?.presentProducts(response: response)
         }
+	}
+	
+	func insertProduct(request: ListInventory.InsertProduct.Request) {
+		let response = ListInventory.InsertProduct.Response(product: request.product)
+		presenter?.presentInsertedProduct(response: response)
 	}
 }
