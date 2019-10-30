@@ -49,7 +49,7 @@ class AddNewProductRouter: NSObject, AddNewProductRoutingLogic, AddNewProductDat
 		guard let dataStore = dataStore else { return }
 		guard let viewController = viewController else { return }
 
-		passDataToListInventory(source: dataStore, destinationReceptor: &viewController.listInventortReceptor)
+		passDataToListInventory(source: dataStore, destinationReceptor: &viewController.listInventoryReceptor)
 		navigateBack(source: viewController)
 	}
 

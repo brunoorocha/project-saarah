@@ -41,7 +41,7 @@ class ListInventoryRouter: NSObject, ListInventoryRoutingLogic, ListInventoryDat
 		
 		guard let viewController = viewController else { return }
 		guard let dataStore = dataStore else { return }
-		destinationVC.listInventortReceptor = dataStore
+		destinationVC.listInventoryReceptor = dataStore
 		
 		navigateToAddNewProduct(source: viewController, destination: destinationVC)
 	}

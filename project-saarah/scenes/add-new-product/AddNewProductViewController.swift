@@ -23,7 +23,7 @@ class AddNewProductViewController: SaarahViewController, AddNewProductDisplayLog
 	private var contentView = AddNewProductView()
 	let tableViewDataSource = AddNewProductTableViewDataSource()
 	
-	var listInventortReceptor: NewProductReceptor?
+	var listInventoryReceptor: NewProductReceptor?
 
 	// MARK: View lifecycle
 	override func viewDidLoad() {
