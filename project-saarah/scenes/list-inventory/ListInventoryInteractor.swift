@@ -13,18 +13,17 @@ protocol ListInventoryBusinessLogic {
 	func insertProduct(request: ListInventory.InsertProduct.Request)
 }
 
-protocol ListInventoryDataStore {
+protocol ListInventoryDataStore: NewProductReceptor {
     var products: [Product]? { get }
-	var toInsertProduct: Product? { get set }
 }
 
 class ListInventoryInteractor: ListInventoryBusinessLogic, ListInventoryDataStore {
 
     var presenter: ListInventoryPresentationLogic?
     var products: [Product]?
-	var toInsertProduct: Product? {
+	var product: Product? {
 		didSet {
-			guard let product = toInsertProduct else { return }
+			guard let product = product else { return }
 			let request = ListInventory.InsertProduct.Request(product: product)
 			self.insertProduct(request: request)
 		}
