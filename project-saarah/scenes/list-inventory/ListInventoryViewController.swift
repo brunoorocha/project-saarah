@@ -10,6 +10,7 @@ import UIKit
 
 protocol ListInventoryDisplayLogic: class {
     func displayFetchedProducts(viewModel: ListInventory.FetchProducts.ViewModel)
+	func displayInsertedProduct(viewModel: ListInventory.InsertProduct.ViewModel)
 }
 
 class ListInventoryViewController: UIViewController, ListInventoryDisplayLogic {
@@ -84,6 +85,16 @@ class ListInventoryViewController: UIViewController, ListInventoryDisplayLogic {
 	func displayFetchedProducts(viewModel: ListInventory.FetchProducts.ViewModel) {
         listInventoryTableViewDataSource.viewModels = viewModel.displayProducts
         isLoadingProducts = false
+	}
+	
+	func displayInsertedProduct(viewModel: ListInventory.InsertProduct.ViewModel) {
+		listInventoryTableViewDataSource.viewModels.append(viewModel.displayProduct)
+		let row = listInventoryTableViewDataSource.viewModels.count - 1
+ 		let indexPath = IndexPath(row: (row - 1), section: 0)
+ 		contentView.tableView.beginUpdates()
+ 		contentView.tableView.insertRows(at: [indexPath], with: .automatic)
+ 		contentView.tableView.endUpdates()
+ 		contentView.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
 	}
 
     // MARK: Routes
