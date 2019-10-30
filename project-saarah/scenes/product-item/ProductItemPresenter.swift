@@ -54,7 +54,7 @@ class ProductItemPresenter: ProductItemPresentationLogic {
 			expiration: expiration,
 			price: price,
 			created: response.productItem.createdDate.formatter())
-		
+
 		viewController?.displayInsertedProductItem(viewModel: ProductItem.InsertProductItem.ViewModel(displayProductItem: displayedItem))
 	}
 }

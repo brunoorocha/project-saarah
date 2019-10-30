@@ -24,7 +24,7 @@ class AddProductItemViewController: UIViewController, AddProductItemDisplayLogic
 	// MARK: Controller Property
 	private var contentView = AddProductItemView()
 	let tableViewDataSource = AddProductItemTableViewDataSource()
-	
+
 	weak var delegate: AddProductItemViewControllerDelegate?
 
 	// MARK: View lifecycle
@@ -60,8 +60,7 @@ class AddProductItemViewController: UIViewController, AddProductItemDisplayLogic
 			let okAction = UIAlertAction(title: "\(Localization(.addProductItemScene(.alertActionTitle)))", style: .default) { _ in
 				if (self.delegate != nil) {
 					self.router?.routeToProductItem()
-				}
-				else {
+				} else {
 					self.dismiss(animated: true, completion: nil)
 				}
 			}

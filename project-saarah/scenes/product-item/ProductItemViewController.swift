@@ -81,7 +81,7 @@ class ProductItemViewController: UIViewController, ProductItemDisplayLogic {
         tableViewDataSource.viewModel = viewModel
         contentView.tableView.reloadData()
 	}
-	
+
 	// MARK: Display inserted product item
 	func displayInsertedProductItem(viewModel: ProductItem.InsertProductItem.ViewModel) {
 		tableViewDataSource.viewModel?.displayProductItems.append(viewModel.displayProductItem)

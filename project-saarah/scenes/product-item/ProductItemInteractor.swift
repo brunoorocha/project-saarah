@@ -54,12 +54,12 @@ class ProductItemInteractor: ProductItemBusinessLogic, ProductItemDataStore {
 
         }
     }
-	
+
 	// MARK: Insert product item
 	func insertProductItem(request: ProductItem.InsertProductItem.Request) {
 		guard var productItems = productItems else { return }
 		productItems.append(request.productItem)
-		
+
 		let response = ProductItem.InsertProductItem.Response(productItem: request.productItem)
 		presenter?.presentInsertedProductItem(response: response)
 	}

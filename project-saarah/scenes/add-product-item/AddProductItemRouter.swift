@@ -28,7 +28,7 @@ class AddProductItemRouter: NSObject, AddProductItemRoutingLogic, AddProductItem
 		passDataToProductItem(source: dataStore, destinationDelegate: viewController.delegate)
 		navigateBackProductItem(source: viewController)
 	}
-	
+
 //	// MARK: Passing data
 	func passDataToProductItem(source: AddProductItemDataStore, destinationDelegate: AddProductItemViewControllerDelegate?) {
 		guard let productItem = source.productItem else { return }
