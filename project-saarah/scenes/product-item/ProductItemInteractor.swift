@@ -14,9 +14,10 @@ protocol ProductItemBusinessLogic {
 	func insertProductItem(request: ProductItem.InsertProductItem.Request)
 }
 
-protocol ProductItemDataStore {
+protocol ProductItemDataStore: class {
 	var product: Product? { get set }
     var productItems: [ProductLog]? { get set }
+	var toInsertProductItem: ProductLog? { get set }
 }
 
 class ProductItemInteractor: ProductItemBusinessLogic, ProductItemDataStore {
@@ -24,6 +25,13 @@ class ProductItemInteractor: ProductItemBusinessLogic, ProductItemDataStore {
     var presenter: ProductItemPresentationLogic?
     var product: Product?
     var productItems: [ProductLog]?
+	var toInsertProductItem: ProductLog? {
+		didSet {
+			guard let insertedProductItem = toInsertProductItem else { return }
+            let request = ProductItem.InsertProductItem.Request(productItem: insertedProductItem)
+			self.insertProductItem(request: request)
+		}
+	}
 
     let productItemWorker = ProductItemWorker(productItemService: ApiProductItemStore())
 

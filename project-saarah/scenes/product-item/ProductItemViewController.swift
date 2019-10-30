@@ -90,13 +90,7 @@ class ProductItemViewController: UIViewController, ProductItemDisplayLogic {
 		contentView.tableView.beginUpdates()
 		contentView.tableView.insertRows(at: [indexPath], with: .automatic)
 		contentView.tableView.endUpdates()
-	}
-}
-
-extension ProductItemViewController: AddProductItemViewControllerDelegate {
-	func pass(productItem: ProductLog) {
-		let request = ProductItem.InsertProductItem.Request(productItem: productItem)
-		interactor?.insertProductItem(request: request)
+		contentView.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
 	}
 }
 

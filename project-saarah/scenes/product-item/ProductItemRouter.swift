@@ -27,7 +27,7 @@ class ProductItemRouter: NSObject, ProductItemRoutingLogic, ProductItemDataPassi
 
 		guard let dataStore = dataStore else { return }
 		guard let viewController = viewController else { return }
-		destinationVC.delegate = viewController
+		destinationVC.productItemDataStore = dataStore
 
 		passDataToAddProductItem(source: dataStore, destination: &destinationDataStore)
 		navigateToAddProductItem(source: viewController, destination: destinationVC)

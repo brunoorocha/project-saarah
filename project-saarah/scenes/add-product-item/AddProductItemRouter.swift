@@ -25,14 +25,13 @@ class AddProductItemRouter: NSObject, AddProductItemRoutingLogic, AddProductItem
 		guard let dataStore = dataStore else { return }
 		guard let viewController = viewController else { return }
 
-		passDataToProductItem(source: dataStore, destinationDelegate: viewController.delegate)
+		passDataToProductItem(source: dataStore, destinationDataStore: viewController.productItemDataStore)
 		navigateBackProductItem(source: viewController)
 	}
 
 //	// MARK: Passing data
-	func passDataToProductItem(source: AddProductItemDataStore, destinationDelegate: AddProductItemViewControllerDelegate?) {
-		guard let productItem = source.productItem else { return }
-		destinationDelegate?.pass(productItem: productItem)
+	func passDataToProductItem(source: AddProductItemDataStore, destinationDataStore: ProductItemDataStore?) {
+		destinationDataStore?.toInsertProductItem = source.productItem
 	}
 
 	// MARK: Navigation

@@ -25,7 +25,7 @@ class AddProductItemViewController: UIViewController, AddProductItemDisplayLogic
 	private var contentView = AddProductItemView()
 	let tableViewDataSource = AddProductItemTableViewDataSource()
 
-	weak var delegate: AddProductItemViewControllerDelegate?
+	weak var productItemDataStore: ProductItemDataStore?
 
 	// MARK: View lifecycle
 	override func viewDidLoad() {
@@ -58,7 +58,7 @@ class AddProductItemViewController: UIViewController, AddProductItemDisplayLogic
 		let alert = UIAlertController(title: viewModel.title, message: viewModel.message, preferredStyle: .alert)
 		if (viewModel.success) {
 			let okAction = UIAlertAction(title: "\(Localization(.addProductItemScene(.alertActionTitle)))", style: .default) { _ in
-				if (self.delegate != nil) {
+				if (self.productItemDataStore != nil) {
 					self.router?.routeToProductItem()
 				} else {
 					self.dismiss(animated: true, completion: nil)
