@@ -24,8 +24,11 @@ class AddNewProductRouter: NSObject, AddNewProductRoutingLogic, AddNewProductDat
 	// MARK: Routing
 	func routeToChooseMeasurement() {
 		let destinationVC = SelectProductMeasurementViewController()
+
+        guard let dataStore = dataStore else { return }
 		guard let viewController = viewController else { return }
 
+        destinationVC.router?.selectMeasureDataStore = dataStore
 		navigateToChooseMeasurement(source: viewController, destination: destinationVC)
 	}
 
@@ -47,9 +50,8 @@ class AddNewProductRouter: NSObject, AddNewProductRoutingLogic, AddNewProductDat
 
 	// MARK: Navigation
 	func navigateToChooseMeasurement(source: AddNewProductViewController, destination: SelectProductMeasurementViewController) {
-        guard let viewController = viewController else { return }
         guard let dataStore = dataStore else { return }
-        destination.delegate = viewController
+
         if let measureName = dataStore.measure?.name {
             let request = SelectProductMeasurement.SelectMeasure.Request(name: measureName)
             destination.interactor?.selectMeasure(request: request)

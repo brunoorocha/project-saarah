@@ -12,7 +12,7 @@ protocol AddNewProductBusinessLogic {
 	func saveNewProduct(request: AddNewProduct.SaveProduct.Request)
 }
 
-protocol AddNewProductDataStore {
+protocol AddNewProductDataStore: SelectedMeasureReceptor {
 	var product: Product? { get set }
     var measure: Measure? { get set }
 }
