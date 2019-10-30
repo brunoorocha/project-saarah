@@ -16,6 +16,10 @@ protocol AddProductItemDataPassing {
 	var dataStore: AddProductItemDataStore? { get }
 }
 
+protocol ProductItemReceptor: class {
+	var productItem: ProductLog? { get set }
+}
+
 class AddProductItemRouter: NSObject, AddProductItemRoutingLogic, AddProductItemDataPassing {
 	weak var viewController: AddProductItemViewController?
 	var dataStore: AddProductItemDataStore?
@@ -25,13 +29,13 @@ class AddProductItemRouter: NSObject, AddProductItemRoutingLogic, AddProductItem
 		guard let dataStore = dataStore else { return }
 		guard let viewController = viewController else { return }
 
-		passDataToProductItem(source: dataStore, destinationDataStore: viewController.productItemDataStore)
+		passDataToProductItem(source: dataStore, destinationReceptor: viewController.productItemReceptor)
 		navigateBackProductItem(source: viewController)
 	}
 
 //	// MARK: Passing data
-	func passDataToProductItem(source: AddProductItemDataStore, destinationDataStore: ProductItemDataStore?) {
-		destinationDataStore?.toInsertProductItem = source.productItem
+	func passDataToProductItem(source: AddProductItemDataStore, destinationReceptor: ProductItemReceptor?) {
+		destinationReceptor?.productItem = source.productItem
 	}
 
 	// MARK: Navigation
