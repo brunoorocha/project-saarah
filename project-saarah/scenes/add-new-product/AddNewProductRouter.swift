@@ -11,10 +11,15 @@ import UIKit
 protocol AddNewProductRoutingLogic {
 	func routeToChooseMeasurement()
 	func routeToAddProductItem()
+	func routeToListInventory()
 }
 
 protocol AddNewProductDataPassing {
 	var dataStore: AddNewProductDataStore? { get }
+}
+
+protocol NewProductReceptor {
+	var product: Product? { get set }
 }
 
 class AddNewProductRouter: NSObject, AddNewProductRoutingLogic, AddNewProductDataPassing {
@@ -39,10 +44,22 @@ class AddNewProductRouter: NSObject, AddNewProductRoutingLogic, AddNewProductDat
 		passDataToAddProductItem(source: dataStore, destination: &destinationDataStore)
 		navigateToAddProductItem(source: viewController, destination: destinationVC)
 	}
+	
+	func routeToListInventory() {
+		guard let dataStore = dataStore else { return }
+		guard let viewController = viewController else { return }
+
+		passDataToListInventory(source: dataStore, destinationReceptor: &viewController.listInventortReceptor)
+		navigateBack(source: viewController)
+	}
 
 	// MARK: Passing data
 	func passDataToAddProductItem(source: AddNewProductDataStore, destination: inout AddProductItemDataStore) {
 		destination.product = source.product
+	}
+	
+	func passDataToListInventory(source: AddNewProductDataStore, destinationReceptor: inout NewProductReceptor?) {
+		destinationReceptor?.product = source.product
 	}
 
 	// MARK: Navigation
@@ -58,5 +75,9 @@ class AddNewProductRouter: NSObject, AddNewProductRoutingLogic, AddNewProductDat
 
 	func navigateToAddProductItem(source: AddNewProductViewController, destination: AddProductItemViewController) {
 		source.show(destination, sender: nil)
+	}
+	
+	func navigateBack(source: AddNewProductViewController) {
+		source.dismiss(animated: true, completion: nil)
 	}
 }
