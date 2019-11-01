@@ -41,7 +41,6 @@ enum ProductItem {
 	}
 	enum InsertProductItem {
 		struct Request {
-			let productItem: ProductLog
 		}
 		struct Response {
 			let productItem: ProductLog

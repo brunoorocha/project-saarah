@@ -11,7 +11,6 @@ import Foundation
 protocol ProductItemBusinessLogic {
 	func getProduct(request: ProductItem.ReceiveProduct.Request)
     func fetchProductItem(request: ProductItem.FetchProductItem.Request)
-	func insertProductItem(request: ProductItem.InsertProductItem.Request)
 }
 
 protocol ProductItemDataStore: ProductItemReceptor {
@@ -26,10 +25,7 @@ class ProductItemInteractor: ProductItemBusinessLogic, ProductItemDataStore {
     var productItems: [ProductLog]?
 	var productItem: ProductLog? {
 		didSet {
-			guard let insertedProductItem = productItem else { return }
-			self.productItems?.append(insertedProductItem)
-            let request = ProductItem.InsertProductItem.Request(productItem: insertedProductItem)
-			self.insertProductItem(request: request)
+			self.insertProductItem()
 		}
 	}
 
@@ -64,11 +60,12 @@ class ProductItemInteractor: ProductItemBusinessLogic, ProductItemDataStore {
     }
 
 	// MARK: Insert product item
-	func insertProductItem(request: ProductItem.InsertProductItem.Request) {
+	private func insertProductItem() {
 		guard var productItems = productItems else { return }
-		productItems.append(request.productItem)
+		guard let productItem = productItem else { return }
+		productItems.append(productItem)
 
-		let response = ProductItem.InsertProductItem.Response(productItem: request.productItem)
+		let response = ProductItem.InsertProductItem.Response(productItem: productItem)
 		presenter?.presentInsertedProductItem(response: response)
 	}
 }
