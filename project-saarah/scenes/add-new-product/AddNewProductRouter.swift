@@ -24,8 +24,13 @@ class AddNewProductRouter: NSObject, AddNewProductRoutingLogic, AddNewProductDat
 	// MARK: Routing
 	func routeToChooseMeasurement() {
 		let destinationVC = SelectProductMeasurementViewController()
+        guard var destinationDataStore = destinationVC.router?.dataStore else { return }
+        destinationVC.router?.selectMeasureDataStore = dataStore
+
+        guard let dataStore = dataStore else { return }
 		guard let viewController = viewController else { return }
 
+        passDataToChooseMeasurement(source: dataStore, destination: &destinationDataStore)
 		navigateToChooseMeasurement(source: viewController, destination: destinationVC)
 	}
 
@@ -41,18 +46,16 @@ class AddNewProductRouter: NSObject, AddNewProductRoutingLogic, AddNewProductDat
 	}
 
 	// MARK: Passing data
+    func passDataToChooseMeasurement(source: AddNewProductDataStore, destination: inout SelectProductMeasurementDataStore) {
+        destination.selectedMeasure = source.measureReceptor
+    }
+
 	func passDataToAddProductItem(source: AddNewProductDataStore, destination: inout AddProductItemDataStore) {
 		destination.product = source.product
 	}
 
 	// MARK: Navigation
 	func navigateToChooseMeasurement(source: AddNewProductViewController, destination: SelectProductMeasurementViewController) {
-        guard let viewController = viewController else { return }
-        guard let dataStore = dataStore else { return }
-        destination.delegate = viewController
-        if let measureName = dataStore.measure?.name {
-            destination.interactor?.selectMeasure(withName: measureName)
-        }
 		source.show(destination, sender: nil)
 	}
 
