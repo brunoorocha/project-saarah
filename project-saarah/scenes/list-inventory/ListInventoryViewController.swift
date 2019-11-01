@@ -10,6 +10,7 @@ import UIKit
 
 protocol ListInventoryDisplayLogic: class {
     func displayFetchedProducts(viewModel: ListInventory.FetchProducts.ViewModel)
+	func displayInsertedProduct(viewModel: ListInventory.InsertProduct.ViewModel)
 }
 
 class ListInventoryViewController: UIViewController, ListInventoryDisplayLogic {
@@ -85,6 +86,17 @@ class ListInventoryViewController: UIViewController, ListInventoryDisplayLogic {
         listInventoryTableViewDataSource.viewModels = viewModel.displayProducts
         isLoadingProducts = false
 	}
+	
+	func displayInsertedProduct(viewModel: ListInventory.InsertProduct.ViewModel) {
+ 		listInventoryTableViewDataSource.viewModels.append(viewModel.displayProduct)
+ 		let row = listInventoryTableViewDataSource.viewModels.count - 1
+  		var indexPath = IndexPath(row: (row - 1), section: 0)
+  		contentView.tableView.beginUpdates()
+  		contentView.tableView.insertRows(at: [indexPath], with: .automatic)
+  		contentView.tableView.endUpdates()
+ 		indexPath.row += 1
+  		contentView.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+ 	}
 
     // MARK: Routes
     @objc
@@ -95,8 +107,7 @@ class ListInventoryViewController: UIViewController, ListInventoryDisplayLogic {
 //        let addWithBarcode = UIAlertAction(title: "\(Localization(.listInventoryScene(.addAlertController(.addWithBarCode))))", style: .default)
 
         let addWithoutBarCode = UIAlertAction(title: "\(Localization(.listInventoryScene(.addAlertController(.addWithoutBarCode))))", style: .default) { _ in
-			let vc = AddNewProductViewController()
-			self.present(vc, animated: true, completion: nil)
+			self.router?.routeToAddNewProduct()
 		}
 
         addWithoutBarCode.setValue(AppStyleGuide.Colors.primary.uiColor, forKey: "titleTextColor")
