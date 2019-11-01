@@ -25,8 +25,6 @@ class AddProductItemViewController: UIViewController, AddProductItemDisplayLogic
 	private var contentView = AddProductItemView()
 	let tableViewDataSource = AddProductItemTableViewDataSource()
 
-	weak var productItemReceptor: ProductItemReceptor?
-
 	// MARK: View lifecycle
 	override func viewDidLoad() {
 		super.viewDidLoad()

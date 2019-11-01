@@ -23,13 +23,15 @@ protocol ProductItemReceptor: class {
 class AddProductItemRouter: NSObject, AddProductItemRoutingLogic, AddProductItemDataPassing {
 	weak var viewController: AddProductItemViewController?
 	var dataStore: AddProductItemDataStore?
+	
+	weak var productItemReceptor: ProductItemReceptor?
 
 	// MARK: Routing
 	func routeToProductItem() {
 		guard let dataStore = dataStore else { return }
 		guard let viewController = viewController else { return }
 
-		passDataToProductItem(source: dataStore, destinationReceptor: viewController.productItemReceptor)
+		passDataToProductItem(source: dataStore, destinationReceptor: productItemReceptor)
 		navigateBackProductItem(source: viewController)
 	}
 
