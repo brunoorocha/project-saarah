@@ -24,7 +24,7 @@ protocol ProductItemReceptor: class {
 class AddProductItemRouter: NSObject, AddProductItemRoutingLogic, AddProductItemDataPassing {
 	weak var viewController: AddProductItemViewController?
 	var dataStore: AddProductItemDataStore?
-	
+
 	var productItemReceptor: ProductItemReceptor?
 
 	// MARK: Routing
