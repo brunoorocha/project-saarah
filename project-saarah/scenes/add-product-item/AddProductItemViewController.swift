@@ -56,7 +56,7 @@ class AddProductItemViewController: UIViewController, AddProductItemDisplayLogic
 		let alert = UIAlertController(title: viewModel.title, message: viewModel.message, preferredStyle: .alert)
 		if (viewModel.success) {
 			let okAction = UIAlertAction(title: "\(Localization(.addProductItemScene(.alertActionTitle)))", style: .default) { _ in
-				if (self.productItemReceptor != nil) {
+				if (self.router?.addProductReceptor != nil) {
 					self.router?.routeToProductItem()
 				} else {
 					self.dismiss(animated: true, completion: nil)
