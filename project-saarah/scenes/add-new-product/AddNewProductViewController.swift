@@ -11,6 +11,7 @@ import UIKit
 protocol AddNewProductDisplayLogic: class {
 	func displayResponse(viewModel: AddNewProduct.SaveProduct.ViewModel.Response)
     func displayMeasureResponse(viewModel: AddNewProduct.GetMeasure.ViewModel.Measure)
+	func dismissAfterAddProductItem()
 }
 
 class AddNewProductViewController: SaarahViewController, AddNewProductDisplayLogic {
@@ -75,6 +76,10 @@ class AddNewProductViewController: SaarahViewController, AddNewProductDisplayLog
         guard let cell = contentView.tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell else { return }
         cell.textField.text = viewModel.name
     }
+	
+	func dismissAfterAddProductItem() {
+		router?.routeToListInventory()
+	}
 }
 
 extension AddNewProductViewController: AddNewProductViewDelegate {
