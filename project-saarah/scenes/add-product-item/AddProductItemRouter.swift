@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AddProductItemRoutingLogic {
-	func routeToProductItem()
+	func routeBack()
 }
 
 protocol AddProductItemDataPassing {
@@ -28,7 +28,7 @@ class AddProductItemRouter: NSObject, AddProductItemRoutingLogic, AddProductItem
 	var productItemReceptor: ProductItemReceptor?
 
 	// MARK: Routing
-	func routeToProductItem() {
+	func routeBack() {
 		guard let dataStore = dataStore else { return }
 		guard let viewController = viewController else { return }
 
