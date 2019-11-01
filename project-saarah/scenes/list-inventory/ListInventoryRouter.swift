@@ -45,7 +45,7 @@ class ListInventoryRouter: NSObject, ListInventoryRoutingLogic, ListInventoryDat
 
  		navigateToAddNewProduct(source: viewController, destination: destinationVC)
  	}
-	
+
 	// MARK: Passing data
 	func passDataToDetail(source: ListInventoryDataStore, destination: inout ProductDetailDataStore) {
         guard let viewController = viewController else { return }

@@ -86,7 +86,7 @@ class ListInventoryViewController: UIViewController, ListInventoryDisplayLogic {
         listInventoryTableViewDataSource.viewModels = viewModel.displayProducts
         isLoadingProducts = false
 	}
-	
+
 	func displayInsertedProduct(viewModel: ListInventory.InsertProduct.ViewModel) {
  		listInventoryTableViewDataSource.viewModels.append(viewModel.displayProduct)
  		let row = listInventoryTableViewDataSource.viewModels.count - 1

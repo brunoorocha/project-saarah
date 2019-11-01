@@ -34,7 +34,7 @@ class AddNewProductPresenter: AddNewProductPresentationLogic {
         let viewModel = AddNewProduct.GetMeasure.ViewModel.Measure(name: response.measure.name.capitalized)
         viewController?.displayMeasureResponse(viewModel: viewModel)
     }
-	
+
 	func dismissAfterAddProductItem() {
 		viewController?.dismissAfterAddProductItem()
 	}

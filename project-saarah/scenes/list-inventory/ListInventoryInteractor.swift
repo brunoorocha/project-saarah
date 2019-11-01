@@ -25,7 +25,7 @@ class ListInventoryInteractor: ListInventoryBusinessLogic, ListInventoryDataStor
 			guard var products = products else { return }
 			guard let product = product else { return }
 			products.append(product)
-			
+
 			let response = ListInventory.InsertProduct.Response(product: product)
 			self.presenter?.presentInsertedProduct(response: response)
 		}

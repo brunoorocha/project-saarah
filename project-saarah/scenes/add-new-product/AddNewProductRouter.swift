@@ -26,7 +26,7 @@ protocol ProductReceptor {
 class AddNewProductRouter: NSObject, AddNewProductRoutingLogic, AddNewProductDataPassing {
 	weak var viewController: AddNewProductViewController?
 	var dataStore: AddNewProductDataStore?
-	
+
 	var listInventoryReceptor: ProductReceptor?
 
 	// MARK: Routing
@@ -53,7 +53,7 @@ class AddNewProductRouter: NSObject, AddNewProductRoutingLogic, AddNewProductDat
 		passDataToAddProductItem(source: dataStore, destination: &destinationDataStore)
 		navigateToAddProductItem(source: viewController, destination: destinationVC)
 	}
-	
+
 	func routeToListInventory() {
 		guard let dataStore = dataStore else { return }
  		guard let viewController = viewController else { return }
@@ -70,7 +70,7 @@ class AddNewProductRouter: NSObject, AddNewProductRoutingLogic, AddNewProductDat
 	func passDataToAddProductItem(source: AddNewProductDataStore, destination: inout AddProductItemDataStore) {
 		destination.product = source.product
 	}
-	
+
 	func passDataToListInventory(source: AddNewProductDataStore, destinationReceptor: inout ProductReceptor?) {
  		destinationReceptor?.product = source.product
  	}
@@ -83,7 +83,7 @@ class AddNewProductRouter: NSObject, AddNewProductRoutingLogic, AddNewProductDat
 	func navigateToAddProductItem(source: AddNewProductViewController, destination: AddProductItemViewController) {
 		source.show(destination, sender: nil)
 	}
-	
+
 	func navigateBack(source: AddNewProductViewController) {
  		source.dismiss(animated: true, completion: nil)
  	}

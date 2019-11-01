@@ -24,7 +24,7 @@ enum ListInventory {
 			var displayProducts: [DisplayProduct]
 		}
 	}
-	
+
 	enum InsertProduct {
  		struct Request {
  		}

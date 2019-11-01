@@ -76,7 +76,7 @@ class AddNewProductViewController: SaarahViewController, AddNewProductDisplayLog
         guard let cell = contentView.tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell else { return }
         cell.textField.text = viewModel.name
     }
-	
+
 	func dismissAfterAddProductItem() {
 		router?.routeToListInventory()
 	}

@@ -29,7 +29,7 @@ class ListInventoryPresenter: ListInventoryPresentationLogic {
 		let viewModel = ListInventory.FetchProducts.ViewModel(displayProducts: displayProducts)
 		viewController?.displayFetchedProducts(viewModel: viewModel)
 	}
-	
+
 	func presentInsertedProduct(response: ListInventory.InsertProduct.Response) {
  		let viewModel = ListInventory.FetchProducts.ViewModel.DisplayProduct(
  			name: response.product.name,
