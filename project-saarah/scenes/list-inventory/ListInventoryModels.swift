@@ -24,4 +24,15 @@ enum ListInventory {
 			var displayProducts: [DisplayProduct]
 		}
 	}
+	
+	enum InsertProduct {
+ 		struct Request {
+ 		}
+ 		struct Response {
+ 			let product: Product
+ 		}
+ 		struct ViewModel {
+ 			let displayProduct: ListInventory.FetchProducts.ViewModel.DisplayProduct
+ 		}
+ 	}
 }
