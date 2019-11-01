@@ -14,7 +14,7 @@ protocol AddNewProductBusinessLogic {
 
 protocol AddNewProductDataStore: SelectedMeasureReceptor {
 	var product: Product? { get set }
-    var measure: Measure? { get set }
+    var selectedMeasure: Measure? { get set }
 }
 
 class AddNewProductInteractor: AddNewProductBusinessLogic, AddNewProductDataStore {
@@ -22,9 +22,9 @@ class AddNewProductInteractor: AddNewProductBusinessLogic, AddNewProductDataStor
     var presenter: AddNewProductPresentationLogic?
 
     var product: Product?
-    var measure: Measure? {
+    var selectedMeasure: Measure? {
         didSet {
-            guard let measure = self.measure else { return }
+            guard let measure = self.selectedMeasure else { return }
             let response = AddNewProduct.GetMeasure.Response(measure: measure)
             presenter?.presentGetMeasureResponse(response: response)
         }
@@ -34,7 +34,7 @@ class AddNewProductInteractor: AddNewProductBusinessLogic, AddNewProductDataStor
 
 	// MARK: Save new product
 	func saveNewProduct(request: AddNewProduct.SaveProduct.Request) {
-        guard let measure = measure else { return }
+        guard let measure = selectedMeasure else { return }
         productWorker.addProduct(withName: request.productForm.name, andBarcode: request.productForm.barCode, andMeasureId: measure.id) { (result) in
             DispatchQueue.main.async {
                 switch result {

@@ -14,7 +14,7 @@ protocol SelectProductMeasurementBusinessLogic {
     func selectMeasure(request: SelectProductMeasurement.SelectMeasure.Request)
 }
 
-protocol SelectProductMeasurementDataStore {
+protocol SelectProductMeasurementDataStore: SelectedMeasureReceptor {
     var measures: [Measure]? { get }
     var selectedMeasure: Measure? { get set }
 }
@@ -46,6 +46,7 @@ class SelectProductMeasurementInteractor: SelectProductMeasurementBusinessLogic,
     }
 
     /// Storage the selected measure to select after fetch
+    /// This name has passed by the viewController
     /// - Parameter name: name of the measure
     func selectMeasure(request: SelectProductMeasurement.SelectMeasure.Request) {
         selectedByName = request.name
@@ -53,6 +54,10 @@ class SelectProductMeasurementInteractor: SelectProductMeasurementBusinessLogic,
 
     /// Select the measure by the selectedByName
     private func selectMeasure() {
-        selectedMeasure = measures?.first(where: { $0.name == selectedByName })
+        if let measure = selectedMeasure {
+            selectedMeasure = measures?.first(where: { $0.name == measure.name })
+        } else {
+            selectedMeasure = measures?.first(where: { $0.name == selectedByName })
+        }
     }
 }

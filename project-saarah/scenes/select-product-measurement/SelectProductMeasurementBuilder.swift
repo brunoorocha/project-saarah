@@ -19,5 +19,6 @@ class SelectProductMeasurementBuilder {
         presenter.viewController = viewController
         router.viewController = viewController
         router.dataStore = interactor
+        router.selectMeasureDataStore = interactor
     }
 }
