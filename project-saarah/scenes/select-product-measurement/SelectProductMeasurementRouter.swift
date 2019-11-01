@@ -18,7 +18,7 @@ protocol SelectProductMeasurementDataPassing {
 }
 
 protocol SelectedMeasureReceptor {
-    var selectedMeasure: Measure? { get set }
+    var measureReceptor: Measure? { get set }
 }
 
 class SelectProductMeasurementRouter: NSObject, SelectProductMeasurementRoutingLogic, SelectProductMeasurementDataPassing {
@@ -40,7 +40,7 @@ class SelectProductMeasurementRouter: NSObject, SelectProductMeasurementRoutingL
     // MARK: Passing data
     func passDataToAddNewProduct(source: SelectProductMeasurementDataStore, destination: inout SelectedMeasureReceptor) {
         guard let measure = source.selectedMeasure else { return }
-        destination.selectedMeasure = measure
+        destination.measureReceptor = measure
     }
 
     func navigateBack() {

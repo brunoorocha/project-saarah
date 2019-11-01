@@ -14,7 +14,7 @@ protocol SelectProductMeasurementBusinessLogic {
     func selectMeasure(request: SelectProductMeasurement.SelectMeasure.Request)
 }
 
-protocol SelectProductMeasurementDataStore: SelectedMeasureReceptor {
+protocol SelectProductMeasurementDataStore {
     var measures: [Measure]? { get }
     var selectedMeasure: Measure? { get set }
 }
