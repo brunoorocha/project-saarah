@@ -36,7 +36,17 @@ enum ProductItem {
                 var price: String
                 var created: String
 			}
-			var DisplayProductItems: [DisplayProductItem]
+			var displayProductItems: [DisplayProductItem]
+		}
+	}
+	enum InsertProductItem {
+		struct Request {
+		}
+		struct Response {
+			let productItem: ProductLog
+		}
+		struct ViewModel {
+			let displayProductItem: ProductItem.FetchProductItem.ViewModel.DisplayProductItem
 		}
 	}
 }
