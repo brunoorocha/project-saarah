@@ -25,6 +25,7 @@ enum AppStrings {
     case productItemScene(ProductItemScene)
 	case addProductItemScene(AddProductItemScene)
     case underConstruction(UnderConstruction)
+    case greetingHeaderView(GreetingHeaderView)
 
     // MARK: Enum's
 
@@ -131,6 +132,11 @@ enum AppStrings {
 	}
 
     enum UnderConstruction {
+        case title
+        case paragraph
+    }
+
+    enum GreetingHeaderView {
         case title
         case paragraph
     }

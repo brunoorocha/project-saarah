@@ -9,19 +9,15 @@
 import UIKit
 
 class GreetingSectionHeaderView: UIView {
-    var titleLabel: UILabel = {
-        var label = UILabel()
-        label.text = "Olá de novo!"
-        label.textAlignment = .left
-        label.textColor = AppStyleGuide.Colors.primary.uiColor
-        label.font = AppStyleGuide.Typography.heading2.uiFont
-        label.translatesAutoresizingMaskIntoConstraints = false
+    var titleLabel: Heading2Label = {
+        var label = Heading2Label()
+        label.text = "\(Localization(.greetingHeaderView(.title)))"
         return label
     }()
 
     var descriptionLabel: ParagraphLabel = {
         var label = ParagraphLabel()
-        label.text = "Entre na sua conta para continuar."
+        label.text = "\(Localization(.greetingHeaderView(.paragraph)))"
         return label
     }()
 
