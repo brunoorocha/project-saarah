@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B0D66EF2369B5830018DF25 /* GreetingSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0D66EE2369B5830018DF25 /* GreetingSectionHeaderView.swift */; };
 		1B15E0CB2354A3530047A0B6 /* AppStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B15E0CA2354A3520047A0B6 /* AppStrings.swift */; };
 		1B15E0CF2354A3970047A0B6 /* AppStrings+pt_BR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B15E0CE2354A3970047A0B6 /* AppStrings+pt_BR.swift */; };
 		1B15E0D22354A44B0047A0B6 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B15E0D12354A44B0047A0B6 /* Localization.swift */; };
@@ -148,6 +149,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B0D66EE2369B5830018DF25 /* GreetingSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingSectionHeaderView.swift; sourceTree = "<group>"; };
 		1B15E0CA2354A3520047A0B6 /* AppStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStrings.swift; sourceTree = "<group>"; };
 		1B15E0CE2354A3970047A0B6 /* AppStrings+pt_BR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppStrings+pt_BR.swift"; sourceTree = "<group>"; };
 		1B15E0D12354A44B0047A0B6 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
@@ -656,6 +658,7 @@
 				1B32219F235DE7F60042B251 /* ButtonTableViewCell.swift */,
 				1B716458235CB70D000ABC08 /* ProductItemTableViewCell.swift */,
 				A3A4599123607100000A765F /* DefaultCellSkelectonTableViewCell.swift */,
+				1B0D66EE2369B5830018DF25 /* GreetingSectionHeaderView.swift */,
 			);
 			path = "custom-cells";
 			sourceTree = "<group>";
@@ -900,6 +903,7 @@
 				A3780898233BA771005B26E8 /* Heading3Label.swift in Sources */,
 				A3D2D0D02340E91100432214 /* HomePresenter.swift in Sources */,
 				48F28F2723606C23005CCF56 /* DateFormat.swift in Sources */,
+				1B0D66EF2369B5830018DF25 /* GreetingSectionHeaderView.swift in Sources */,
 				48F28F05235932EE005CCF56 /* AddProductItemBuilder.swift in Sources */,
 				1B4DFA7923595B6E002C2B55 /* ProductItemRouter.swift in Sources */,
 				A378089A233BA791005B26E8 /* SaarahLabel.swift in Sources */,
@@ -1070,7 +1074,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MK2CL4Y92D;
+				DEVELOPMENT_TEAM = 8UG5N7U4RW;
 				INFOPLIST_FILE = "project-saarah/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1090,7 +1094,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MK2CL4Y92D;
+				DEVELOPMENT_TEAM = 8UG5N7U4RW;
 				INFOPLIST_FILE = "project-saarah/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
