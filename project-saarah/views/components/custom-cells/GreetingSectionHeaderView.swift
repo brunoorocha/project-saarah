@@ -13,19 +13,18 @@ class GreetingSectionHeaderView: UIView {
         var label = UILabel()
         label.text = "Olá de novo!"
         label.textAlignment = .left
-        label.font = AppStyleGuide.Typography.heading2.uiFont
-        return label
-    }()
-    
-    var descriptionLabel: UILabel = {
-        var label = UILabel()
-        label.text = "Entre na sua conta para continuar"
-        label.textAlignment = .left
-        label.font = AppStyleGuide.Typography.heading3.uiFont
         label.textColor = AppStyleGuide.Colors.primary.uiColor
+        label.font = AppStyleGuide.Typography.heading2.uiFont
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+
+    var descriptionLabel: ParagraphLabel = {
+        var label = ParagraphLabel()
+        label.text = "Entre na sua conta para continuar."
+        return label
+    }()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         configurateViewComponents()
@@ -38,17 +37,16 @@ class GreetingSectionHeaderView: UIView {
     private func configurateViewComponents () {
         addSubviews([titleLabel, descriptionLabel])
 
-        let smallMargin = AppStyleGuide.Margins.small.rawValue
         let mediumMargin = AppStyleGuide.Margins.medium.rawValue
 
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: mediumMargin),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: mediumMargin),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -mediumMargin),
-            descriptionLabel.topAnchor.constraint(equalTo: bottomAnchor, constant: smallMargin),
+            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
             descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: mediumMargin),
             descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -mediumMargin),
-            descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
+            descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -mediumMargin)
         ])
     }
 }
