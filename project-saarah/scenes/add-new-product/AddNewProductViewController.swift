@@ -60,10 +60,10 @@ class AddNewProductViewController: SaarahViewController, AddNewProductDisplayLog
 			}
 			addProductItemAction.setValue(AppStyleGuide.Colors.primary.uiColor, forKey: "titleTextColor")
 			alert.addAction(addProductItemAction)
-			
+
 			okAction = UIAlertAction(title: "\(Localization(.addNewProductScene(.alertCancelAction)))", style: .cancel) { _ in
 				self.router?.routeToListInventory()
-				
+
 			}
 			okAction.setValue(AppStyleGuide.Colors.primary.uiColor, forKey: "titleTextColor")
 			alert.addAction(okAction)
