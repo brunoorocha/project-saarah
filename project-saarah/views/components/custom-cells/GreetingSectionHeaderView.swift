@@ -9,17 +9,9 @@
 import UIKit
 
 class GreetingSectionHeaderView: UIView {
-    var titleLabel: Heading2Label = {
-        var label = Heading2Label()
-        label.text = "\(Localization(.greetingHeaderView(.title)))"
-        return label
-    }()
 
-    var descriptionLabel: ParagraphLabel = {
-        var label = ParagraphLabel()
-        label.text = "\(Localization(.greetingHeaderView(.paragraph)))"
-        return label
-    }()
+    var titleLabel = Heading2Label()
+    var descriptionLabel = ParagraphLabel()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,6 +25,8 @@ class GreetingSectionHeaderView: UIView {
     private func configurateViewComponents () {
         addSubviews([titleLabel, descriptionLabel])
 
+        titleLabel.textColor = AppStyleGuide.Colors.primary.uiColor
+
         let mediumMargin = AppStyleGuide.Margins.medium.rawValue
 
         NSLayoutConstraint.activate([
@@ -44,5 +38,10 @@ class GreetingSectionHeaderView: UIView {
             descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -mediumMargin),
             descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -mediumMargin)
         ])
+    }
+
+    func setTitle(with title: String, andDescription description: String) {
+        titleLabel.text = title
+        descriptionLabel.text = description
     }
 }
