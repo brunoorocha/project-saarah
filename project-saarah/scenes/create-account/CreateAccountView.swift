@@ -9,9 +9,12 @@
 import UIKit
 
 class CreateAccountView: UIView {
+	var tableView: SaarahTableView!
+	
 	init() {
 		super.init(frame: .zero)
 
+		translatesAutoresizingMaskIntoConstraints = false
 		backgroundColor = UIColor.white
 
 		instantiateViews()
@@ -24,11 +27,19 @@ class CreateAccountView: UIView {
 	}
 
 	func instantiateViews() {
+		tableView = SaarahTableView()
 	}
 
 	func buildViewsHierarchy() {
+		addSubview(tableView)
 	}
 
 	func setupConstraints() {
+		NSLayoutConstraint.activate([
+			tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
+			tableView.topAnchor.constraint(equalTo: topAnchor),
+			tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
+			tableView.bottomAnchor.constraint(equalTo: bottomAnchor)
+		])
 	}
 }
