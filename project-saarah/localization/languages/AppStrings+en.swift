@@ -113,11 +113,15 @@ extension AppStrings {
             case .measurePlaceholder:
                 return "Pounds, Onces, Gallons..."
             case .successResponseTitle:
-                return "Success"
+                return "Product created"
             case .successResponseMessage:
-                return "Success to save your Product in Server Cloud"
-            case .alertAction:
+                return "Do you want to create a product item?"
+            case .alertOkAction:
                 return "OK"
+			case .alertAddProductItemAction:
+				return "Now"
+			case .alertCancelAction:
+				return "Later"
             }
         case .productItemScene(let options):
             switch options {

@@ -94,7 +94,9 @@ enum AppStrings {
 		case measurePlaceholder
 		case successResponseTitle
 		case successResponseMessage
-		case alertAction
+		case alertOkAction
+		case alertCancelAction
+		case alertAddProductItemAction
 	}
 
     enum ProductItemScene {
