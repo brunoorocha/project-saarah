@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1B0D66EF2369B5830018DF25 /* GreetingSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0D66EE2369B5830018DF25 /* GreetingSectionHeaderView.swift */; };
+		1B0D66F5237043AC0018DF25 /* ButtonPurpleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0D66F4237043AC0018DF25 /* ButtonPurpleTableViewCell.swift */; };
 		1B15E0CB2354A3530047A0B6 /* AppStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B15E0CA2354A3520047A0B6 /* AppStrings.swift */; };
 		1B15E0CF2354A3970047A0B6 /* AppStrings+pt_BR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B15E0CE2354A3970047A0B6 /* AppStrings+pt_BR.swift */; };
 		1B15E0D22354A44B0047A0B6 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B15E0D12354A44B0047A0B6 /* Localization.swift */; };
@@ -150,6 +151,7 @@
 
 /* Begin PBXFileReference section */
 		1B0D66EE2369B5830018DF25 /* GreetingSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingSectionHeaderView.swift; sourceTree = "<group>"; };
+		1B0D66F4237043AC0018DF25 /* ButtonPurpleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPurpleTableViewCell.swift; sourceTree = "<group>"; };
 		1B15E0CA2354A3520047A0B6 /* AppStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStrings.swift; sourceTree = "<group>"; };
 		1B15E0CE2354A3970047A0B6 /* AppStrings+pt_BR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppStrings+pt_BR.swift"; sourceTree = "<group>"; };
 		1B15E0D12354A44B0047A0B6 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
@@ -659,6 +661,7 @@
 				1B716458235CB70D000ABC08 /* ProductItemTableViewCell.swift */,
 				A3A4599123607100000A765F /* DefaultCellSkelectonTableViewCell.swift */,
 				1B0D66EE2369B5830018DF25 /* GreetingSectionHeaderView.swift */,
+				1B0D66F4237043AC0018DF25 /* ButtonPurpleTableViewCell.swift */,
 			);
 			path = "custom-cells";
 			sourceTree = "<group>";
@@ -884,6 +887,7 @@
 				48F28F04235932EE005CCF56 /* AddProductItemViewController.swift in Sources */,
 				A32D814F233F7F8B008DB50F /* HomeMenuTableViewCell.swift in Sources */,
 				A3DBCF262361CCFE0044D43F /* ApiMeasureStore.swift in Sources */,
+				1B0D66F5237043AC0018DF25 /* ButtonPurpleTableViewCell.swift in Sources */,
 				A3859A572359FC8B003E4B1B /* ApiHomeNotificationStore.swift in Sources */,
 				A3A79735235B3B9600B5724F /* ApiProductStore.swift in Sources */,
 				A3ABCE71233CCFDE00FF54FD /* SaarahIconImageView.swift in Sources */,
