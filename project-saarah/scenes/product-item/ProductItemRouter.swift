@@ -10,6 +10,7 @@ import UIKit
 
 protocol ProductItemRoutingLogic {
 	func routeToAddProductItem()
+	func dismissPresentedViewController(_ completion: @escaping () -> ())
 }
 
 protocol ProductItemDataPassing {
@@ -33,6 +34,13 @@ class ProductItemRouter: NSObject, ProductItemRoutingLogic, ProductItemDataPassi
 		navigateToAddProductItem(source: viewController, destination: destinationVC)
 	}
 
+	func dismissPresentedViewController(_ completion: @escaping () -> ()) {
+		guard let viewController = viewController else { return }
+		viewController.presentedViewController?.dismiss(animated: true, completion: {
+			completion()
+		})
+	}
+	
 	// MARK: Passing data
 	func passDataToAddProductItem(source: ProductItemDataStore, destination: inout AddProductItemDataStore) {
 		destination.product = source.product
