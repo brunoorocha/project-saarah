@@ -55,17 +55,23 @@ class AddNewProductViewController: SaarahViewController, AddNewProductDisplayLog
 		let alert = UIAlertController(title: viewModel.title, message: viewModel.message, preferredStyle: .alert)
         var okAction: UIAlertAction
 		if (viewModel.success) {
-			okAction = UIAlertAction(title: "\(Localization(.addNewProductScene(.alertAction)))", style: .default) { _ in
+			let addProductItemAction = UIAlertAction(title: "\(Localization(.addNewProductScene(.alertAddProductItemAction)))", style: .default) { (_) in
 				self.router?.routeToAddProductItem()
 			}
-
-            okAction.setValue(AppStyleGuide.Colors.primary.uiColor, forKey: "titleTextColor")
+			addProductItemAction.setValue(AppStyleGuide.Colors.primary.uiColor, forKey: "titleTextColor")
+			alert.addAction(addProductItemAction)
+			
+			okAction = UIAlertAction(title: "\(Localization(.addNewProductScene(.alertCancelAction)))", style: .cancel) { _ in
+				self.router?.routeToListInventory()
+				
+			}
+			okAction.setValue(AppStyleGuide.Colors.primary.uiColor, forKey: "titleTextColor")
+			alert.addAction(okAction)
 		} else {
-            okAction = UIAlertAction(title: "\(Localization(.addNewProductScene(.alertAction)))", style: .default, handler: nil)
-
-            okAction.setValue(AppStyleGuide.Colors.primary.uiColor, forKey: "titleTextColor")
+            okAction = UIAlertAction(title: "\(Localization(.addNewProductScene(.alertOkAction)))", style: .default, handler: nil)
+			okAction.setValue(AppStyleGuide.Colors.primary.uiColor, forKey: "titleTextColor")
+			alert.addAction(okAction)
         }
-        alert.addAction(okAction)
 
 		present(alert, animated: true, completion: nil)
 	}
