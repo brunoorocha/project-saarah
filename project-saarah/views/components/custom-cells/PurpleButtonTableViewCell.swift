@@ -8,9 +8,9 @@
 
 import UIKit
 
-class ButtonPurpleTableViewCell: SaarahTableViewCell {
+class PurpleButtonTableViewCell: SaarahTableViewCell {
 
-    var buttonLabel: SaarahButton = {
+    var button: SaarahButton = {
         var button = SaarahButton()
         button.setTitleColor(AppStyleGuide.Colors.lightGray.uiColor, for: .normal)
         button.backgroundColor = .none
@@ -25,19 +25,19 @@ class ButtonPurpleTableViewCell: SaarahTableViewCell {
     override func configureCellComponents() {
         cellContentView.backgroundColor = AppStyleGuide.Colors.primary.uiColor
         cellContentView.layer.cornerRadius = 8
-        cellContentView.addSubviews([buttonLabel])
+        cellContentView.addSubviews([button])
 
         NSLayoutConstraint.activate([
-            buttonLabel.topAnchor.constraint(equalTo: cellContentView.topAnchor),
-            buttonLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: mediumMargin),
-            buttonLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -mediumMargin),
-            buttonLabel.bottomAnchor.constraint(equalTo: cellContentView.bottomAnchor),
+            button.topAnchor.constraint(equalTo: cellContentView.topAnchor),
+            button.leadingAnchor.constraint(equalTo: leadingAnchor, constant: mediumMargin),
+            button.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -mediumMargin),
+            button.bottomAnchor.constraint(equalTo: cellContentView.bottomAnchor),
 
-            buttonLabel.heightAnchor.constraint(equalToConstant: 56)
+            button.heightAnchor.constraint(equalToConstant: 56)
         ])
     }
 
     func setTitle(with title: String) {
-        buttonLabel.setTitle(title, for: .normal)
+        button.setTitle(title, for: .normal)
     }
 }
