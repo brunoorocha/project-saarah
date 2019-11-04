@@ -61,6 +61,14 @@
 		484848B52354EEA200A84FB0 /* AddNewProductBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484848AE2354EEA200A84FB0 /* AddNewProductBuilder.swift */; };
 		484848B62354EEA200A84FB0 /* AddNewProductInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484848AF2354EEA200A84FB0 /* AddNewProductInteractor.swift */; };
 		484848B72354EEA200A84FB0 /* AddNewProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484848B02354EEA200A84FB0 /* AddNewProductView.swift */; };
+		486CD3BF237069C300FB0610 /* CreateAccountPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CD3B8237069C300FB0610 /* CreateAccountPresenter.swift */; };
+		486CD3C0237069C300FB0610 /* CreateAccountRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CD3B9237069C300FB0610 /* CreateAccountRouter.swift */; };
+		486CD3C1237069C300FB0610 /* CreateAccountModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CD3BA237069C300FB0610 /* CreateAccountModels.swift */; };
+		486CD3C2237069C300FB0610 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CD3BB237069C300FB0610 /* CreateAccountViewController.swift */; };
+		486CD3C3237069C300FB0610 /* CreateAccountBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CD3BC237069C300FB0610 /* CreateAccountBuilder.swift */; };
+		486CD3C4237069C300FB0610 /* CreateAccountInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CD3BD237069C300FB0610 /* CreateAccountInteractor.swift */; };
+		486CD3C5237069C300FB0610 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CD3BE237069C300FB0610 /* CreateAccountView.swift */; };
+		486CD3C723706A0200FB0610 /* CreateAccountTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CD3C623706A0200FB0610 /* CreateAccountTableViewDataSource.swift */; };
 		487B9B252331193900D8D6CC /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487B9B242331193900D8D6CC /* Product.swift */; };
 		487B9B2723311BC900D8D6CC /* ProductLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487B9B2623311BC900D8D6CC /* ProductLog.swift */; };
 		487B9B2923311C8F00D8D6CC /* LogType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487B9B2823311C8F00D8D6CC /* LogType.swift */; };
@@ -205,6 +213,14 @@
 		484848AE2354EEA200A84FB0 /* AddNewProductBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewProductBuilder.swift; sourceTree = "<group>"; };
 		484848AF2354EEA200A84FB0 /* AddNewProductInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewProductInteractor.swift; sourceTree = "<group>"; };
 		484848B02354EEA200A84FB0 /* AddNewProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewProductView.swift; sourceTree = "<group>"; };
+		486CD3B8237069C300FB0610 /* CreateAccountPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountPresenter.swift; sourceTree = "<group>"; };
+		486CD3B9237069C300FB0610 /* CreateAccountRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountRouter.swift; sourceTree = "<group>"; };
+		486CD3BA237069C300FB0610 /* CreateAccountModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountModels.swift; sourceTree = "<group>"; };
+		486CD3BB237069C300FB0610 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		486CD3BC237069C300FB0610 /* CreateAccountBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountBuilder.swift; sourceTree = "<group>"; };
+		486CD3BD237069C300FB0610 /* CreateAccountInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountInteractor.swift; sourceTree = "<group>"; };
+		486CD3BE237069C300FB0610 /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
+		486CD3C623706A0200FB0610 /* CreateAccountTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountTableViewDataSource.swift; sourceTree = "<group>"; };
 		487B9B242331193900D8D6CC /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		487B9B2623311BC900D8D6CC /* ProductLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductLog.swift; sourceTree = "<group>"; };
 		487B9B2823311C8F00D8D6CC /* LogType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogType.swift; sourceTree = "<group>"; };
@@ -444,6 +460,21 @@
 			path = "add-new-product";
 			sourceTree = "<group>";
 		};
+		486CD3B72370697F00FB0610 /* create-account */ = {
+			isa = PBXGroup;
+			children = (
+				486CD3BB237069C300FB0610 /* CreateAccountViewController.swift */,
+				486CD3BC237069C300FB0610 /* CreateAccountBuilder.swift */,
+				486CD3BE237069C300FB0610 /* CreateAccountView.swift */,
+				486CD3BD237069C300FB0610 /* CreateAccountInteractor.swift */,
+				486CD3B8237069C300FB0610 /* CreateAccountPresenter.swift */,
+				486CD3BA237069C300FB0610 /* CreateAccountModels.swift */,
+				486CD3B9237069C300FB0610 /* CreateAccountRouter.swift */,
+				486CD3C623706A0200FB0610 /* CreateAccountTableViewDataSource.swift */,
+			);
+			path = "create-account";
+			sourceTree = "<group>";
+		};
 		48ED6BD2231D3D9C00A792DF /* views */ = {
 			isa = PBXGroup;
 			children = (
@@ -597,6 +628,7 @@
 				1B4DFA7023595B47002C2B55 /* product-item */,
 				1B2DB9B02357AE1C00AF6D80 /* select-product-measurement */,
 				48F28EF9235932CE005CCF56 /* add-product-item */,
+				486CD3B72370697F00FB0610 /* create-account */,
 			);
 			path = scenes;
 			sourceTree = "<group>";
@@ -823,6 +855,7 @@
 				A3AACBC82340C946000EFB6B /* SaarahViewController.swift in Sources */,
 				48244F5C23478303007B4AA7 /* ProductDetailView.swift in Sources */,
 				A3522D722341882300DB1314 /* SaarahTableViewSeparator.swift in Sources */,
+				486CD3C1237069C300FB0610 /* CreateAccountModels.swift in Sources */,
 				48F28F03235932EE005CCF56 /* AddProductItemModels.swift in Sources */,
 				1B537887235A224A007C819D /* LabeledTableViewCell.swift in Sources */,
 				487B9B2B23311D2100D8D6CC /* Measure.swift in Sources */,
@@ -832,6 +865,8 @@
 				1B2DB9C32357C8DB00AF6D80 /* MeasureWorker.swift in Sources */,
 				48244F5A23478303007B4AA7 /* ProductDetailViewController.swift in Sources */,
 				487B9B252331193900D8D6CC /* Product.swift in Sources */,
+				486CD3C3237069C300FB0610 /* CreateAccountBuilder.swift in Sources */,
+				486CD3C0237069C300FB0610 /* CreateAccountRouter.swift in Sources */,
 				1B2DB9C12357C7A300AF6D80 /* MockMeasure.swift in Sources */,
 				1B4DFA842359824A002C2B55 /* MockProductItem.swift in Sources */,
 				A3A459942360746C000A765F /* ListInventoryTableViewDataSource.swift in Sources */,
@@ -839,6 +874,7 @@
 				1B4DFA82235981A9002C2B55 /* ProductItemWorker.swift in Sources */,
 				4818E1372322AFC500EFF585 /* AppDelegate.swift in Sources */,
 				A3C63043235DCEB30024F683 /* HomeTableViewDataSource.swift in Sources */,
+				486CD3C5237069C300FB0610 /* CreateAccountView.swift in Sources */,
 				1B4DFA7823595B6E002C2B55 /* ProductItemPresenter.swift in Sources */,
 				1B2DB9BD2357AE2E00AF6D80 /* SelectProductMeasurementInteractor.swift in Sources */,
 				A3C63047235DF6110024F683 /* HomeMenuCollectionViewDataSource.swift in Sources */,
@@ -869,6 +905,7 @@
 				A378089C233BA853005B26E8 /* ParagraphLabel.swift in Sources */,
 				1B76635123478E640069D581 /* ListInventoryPresenter.swift in Sources */,
 				A37808A6233BDD6C005B26E8 /* SaarahImageView.swift in Sources */,
+				486CD3C4237069C300FB0610 /* CreateAccountInteractor.swift in Sources */,
 				484848B72354EEA200A84FB0 /* AddNewProductView.swift in Sources */,
 				A3780890233B9CEE005B26E8 /* SaarahTableViewCell.swift in Sources */,
 				1B766361234B86740069D581 /* ListInventoryBuilder.swift in Sources */,
@@ -898,6 +935,8 @@
 				1B76635523478E640069D581 /* ListInventoryInteractor.swift in Sources */,
 				A304F93C233CD90B00C3B6F7 /* DefaultSectionHeaderView.swift in Sources */,
 				1B2DB9BC2357AE2E00AF6D80 /* SelectProductMeasurementBuilder.swift in Sources */,
+				486CD3C2237069C300FB0610 /* CreateAccountViewController.swift in Sources */,
+				486CD3C723706A0200FB0610 /* CreateAccountTableViewDataSource.swift in Sources */,
 				A304F948233CE74500C3B6F7 /* EmptySectionHeaderView.swift in Sources */,
 				A3780889233B988A005B26E8 /* Heading1Label.swift in Sources */,
 				A304F953233E4AD400C3B6F7 /* SaarahTableView.swift in Sources */,
@@ -924,6 +963,7 @@
 				1B15E0CF2354A3970047A0B6 /* AppStrings+pt_BR.swift in Sources */,
 				1B2DB9BB2357AE2E00AF6D80 /* SelectProductMeasurementViewController.swift in Sources */,
 				48F28F06235932EE005CCF56 /* AddProductItemInteractor.swift in Sources */,
+				486CD3BF237069C300FB0610 /* CreateAccountPresenter.swift in Sources */,
 				4C94BAD8233B9086008D62F5 /* UIView.swift in Sources */,
 				1B4DFA8023596056002C2B55 /* ProductItemTableViewDataSource.swift in Sources */,
 				A3D2D0D42340E91100432214 /* HomeViewController.swift in Sources */,
