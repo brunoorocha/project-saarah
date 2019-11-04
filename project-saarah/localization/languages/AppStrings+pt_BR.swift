@@ -181,13 +181,6 @@ extension AppStrings {
             case .paragraph:
                 return "mas nós ainda estamos em \nconstrução"
             }
-        case .greetingHeaderView(let options):
-            switch options {
-            case .title:
-                return "Olá de novo!"
-            case .paragraph:
-                return "Entre na sua conta para continuar."
-            }
         }
     }
 }
