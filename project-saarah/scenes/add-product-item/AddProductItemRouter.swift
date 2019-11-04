@@ -30,10 +30,9 @@ class AddProductItemRouter: NSObject, AddProductItemRoutingLogic, AddProductItem
 	// MARK: Routing
 	func routeBack() {
 		guard let dataStore = dataStore else { return }
-		guard let viewController = viewController else { return }
 
 		passDataToProductItem(source: dataStore, destinationReceptor: productItemReceptor)
-		navigateBackProductItem(source: viewController)
+		// the dismiss is made in the parent view controller, after pass the product item
 	}
 
 	// MARK: Passing data
@@ -42,7 +41,4 @@ class AddProductItemRouter: NSObject, AddProductItemRoutingLogic, AddProductItem
 	}
 
 	// MARK: Navigation
-	func navigateBackProductItem(source: AddProductItemViewController) {
-		source.dismiss(animated: true, completion: nil)
-	}
 }
