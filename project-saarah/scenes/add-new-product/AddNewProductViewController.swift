@@ -78,7 +78,7 @@ class AddNewProductViewController: SaarahViewController, AddNewProductDisplayLog
     }
 
 	func dismissAfterAddProductItem() {
-		router?.routeToListInventory()
+		router?.dismissParentViewController()
 	}
 }
 

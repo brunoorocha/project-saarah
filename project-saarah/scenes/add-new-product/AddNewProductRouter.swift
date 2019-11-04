@@ -12,6 +12,7 @@ protocol AddNewProductRoutingLogic {
 	func routeToChooseMeasurement()
 	func routeToAddProductItem()
 	func routeToListInventory()
+	func dismissParentViewController()
 }
 
 protocol AddNewProductDataPassing {
@@ -62,6 +63,13 @@ class AddNewProductRouter: NSObject, AddNewProductRoutingLogic, AddNewProductDat
  		navigateBack(source: viewController)
 	}
 
+	func dismissParentViewController() {
+		guard let viewController = viewController else { return }
+		viewController.presentedViewController?.dismiss(animated: true, completion:  {
+			self.routeToListInventory()
+		})
+	}
+	
 	// MARK: Passing data
     func passDataToChooseMeasurement(source: AddNewProductDataStore, destination: inout SelectProductMeasurementDataStore) {
         destination.selectedMeasure = source.measureReceptor
