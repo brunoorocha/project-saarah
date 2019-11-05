@@ -181,6 +181,31 @@ extension AppStrings {
             case .paragraph:
                 return "mas nós ainda estamos em \nconstrução"
             }
-        }
+		case .createAccountScene(let options):
+			switch options {
+			case .headerTitle:
+				return "Não possui uma conta?"
+			case .headerSubtitle:
+				return "Sem problemas. Você pode criar uma rapidinho."
+			case .nameCellTitle:
+				return "Nome"
+			case .nameCellPlaceholder:
+				return "Toque para digitar seu nome"
+			case .emailCellTitle:
+				return "Email"
+			case .emailCellPlaceholder:
+				return "Toque para digitar seu email"
+			case .passwordCellTitle:
+				return "Senha"
+			case .passwordCellPlaceholder:
+				return "Toque para digitar sua senha"
+			case .confirmPasswordCellTitle:
+				return "Confirme a senha"
+			case .confirmPasswordCellPlaceholder:
+				return "Toque para digitar sua senha novamente"
+			case .createAccountButtonTitlle:
+				return "Criar conta"
+			}
+		}
     }
 }

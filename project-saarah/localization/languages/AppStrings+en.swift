@@ -174,6 +174,31 @@ extension AppStrings {
                     return "The expiration date aren't filled correctly."
                 }
             }
+		case .createAccountScene(let options):
+			switch options {
+			case .headerTitle:
+				return "Don't have a account?"
+			case .headerSubtitle:
+				return "No problem. You can create one account here."
+			case .nameCellTitle:
+				return "Name"
+			case .nameCellPlaceholder:
+				return "Tap to type your name"
+			case .emailCellTitle:
+				return "Email"
+			case .emailCellPlaceholder:
+				return "Tap to type your email"
+			case .passwordCellTitle:
+				return "Password"
+			case .passwordCellPlaceholder:
+				return "Tap to type your password"
+			case .confirmPasswordCellTitle:
+				return "Confirm password"
+			case .confirmPasswordCellPlaceholder:
+				return "Tap to type your password again"
+			case .createAccountButtonTitlle:
+				return "Create account"
+			}
         default:
             return nil
         }
