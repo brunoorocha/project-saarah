@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CreateAccountDisplayLogic: class {
-	func displaySomething(viewModel: CreateAccount.Something.ViewModel)
+	func displaySignUpResponse(viewModel: CreateAccount.SignUp.ViewModel.SignUpViewModel)
 }
 
 class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
@@ -25,7 +25,6 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupContentView()
-		doSomething()
 	}
 
 	// MARK: Init
@@ -55,12 +54,12 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 	}
 
 	// MARK: Do something
-	func doSomething() {
-		let request = CreateAccount.Something.Request()
-		interactor?.doSomething(request: request)
-	}
-
-	func displaySomething(viewModel: CreateAccount.Something.ViewModel) {
+	func displaySignUpResponse(viewModel: CreateAccount.SignUp.ViewModel.SignUpViewModel) {
+		if (viewModel.success) {
+			router?.routeToOnboarding()
+		} else {
+			presentAlertModal("\(Localization(.createAccountScene(.errorSignUpTitle)))", "\(Localization(.createAccountScene(.errorSignUpMessage)))", "\(Localization(.createAccountScene(.errorFormActionTitle)))")
+		}
 	}
 	
 	func createAccount() {
