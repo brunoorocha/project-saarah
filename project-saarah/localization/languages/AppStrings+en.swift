@@ -174,7 +174,7 @@ extension AppStrings {
                     return "The expiration date aren't filled correctly."
                 }
             }
-		case .createAccountScene(let options):
+        case .createAccountScene(let options):
 			switch options {
 			case .headerTitle:
 				return "Don't have a account?"
@@ -198,6 +198,20 @@ extension AppStrings {
 				return "Tap to type your password again"
 			case .createAccountButtonTitlle:
 				return "Create account"
+			case .errorFormAlertTitle:
+				return "Error"
+			case .errorFormActionTitle:
+				return "Ok"
+			case .errorFormNameMessage:
+				return "The name field must be filled out!"
+			case .errorFormEmailMessage:
+				return "The Email field must be filled out!"
+			case .errorFormPasswordMessage:
+				return "The password field must be filled out!"
+			case .errorFormConfirmPasswordMessage:
+				return "The confirm password field must be filled out!"
+			case .errorFormPasswordsDontMatchMessage:
+				return "The passwords dont match!"
 			}
         default:
             return nil

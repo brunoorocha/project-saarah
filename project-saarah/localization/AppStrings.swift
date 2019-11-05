@@ -135,7 +135,7 @@ enum AppStrings {
         case title
         case paragraph
     }
-	
+
 	enum CreateAccountScene {
 		case headerTitle
 		case headerSubtitle
@@ -148,5 +148,12 @@ enum AppStrings {
 		case confirmPasswordCellTitle
 		case confirmPasswordCellPlaceholder
 		case createAccountButtonTitlle
+		case errorFormAlertTitle
+		case errorFormActionTitle
+		case errorFormNameMessage
+		case errorFormEmailMessage
+		case errorFormPasswordMessage
+		case errorFormConfirmPasswordMessage
+		case errorFormPasswordsDontMatchMessage
 	}
 }

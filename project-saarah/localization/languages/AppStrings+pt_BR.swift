@@ -181,7 +181,7 @@ extension AppStrings {
             case .paragraph:
                 return "mas nós ainda estamos em \nconstrução"
             }
-		case .createAccountScene(let options):
+        case .createAccountScene(let options):
 			switch options {
 			case .headerTitle:
 				return "Não possui uma conta?"
@@ -205,6 +205,20 @@ extension AppStrings {
 				return "Toque para digitar sua senha novamente"
 			case .createAccountButtonTitlle:
 				return "Criar conta"
+			case .errorFormAlertTitle:
+				return "Erro"
+			case .errorFormActionTitle:
+				return "Ok"
+			case .errorFormNameMessage:
+				return "O campo nome é obrigatório!"
+			case .errorFormEmailMessage:
+				return "O campo Email é obrigatório!"
+			case .errorFormPasswordMessage:
+				return "O campo senha é obrigatório!"
+			case .errorFormConfirmPasswordMessage:
+				return "O campo confirmar senha é obrigatório"
+			case .errorFormPasswordsDontMatchMessage:
+				return "As senhas devem ser iguais!"
 			}
 		}
     }
