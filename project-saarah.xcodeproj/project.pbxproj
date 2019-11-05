@@ -62,6 +62,7 @@
 		484848B62354EEA200A84FB0 /* AddNewProductInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484848AF2354EEA200A84FB0 /* AddNewProductInteractor.swift */; };
 		484848B72354EEA200A84FB0 /* AddNewProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484848B02354EEA200A84FB0 /* AddNewProductView.swift */; };
 		484912172371A2E600AF0779 /* String+ValidEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484912162371A2E600AF0779 /* String+ValidEmail.swift */; };
+		484912192371B55300AF0779 /* AccountWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484912182371B55200AF0779 /* AccountWorker.swift */; };
 		486CD3BF237069C300FB0610 /* CreateAccountPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CD3B8237069C300FB0610 /* CreateAccountPresenter.swift */; };
 		486CD3C0237069C300FB0610 /* CreateAccountRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CD3B9237069C300FB0610 /* CreateAccountRouter.swift */; };
 		486CD3C1237069C300FB0610 /* CreateAccountModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CD3BA237069C300FB0610 /* CreateAccountModels.swift */; };
@@ -215,6 +216,7 @@
 		484848AF2354EEA200A84FB0 /* AddNewProductInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewProductInteractor.swift; sourceTree = "<group>"; };
 		484848B02354EEA200A84FB0 /* AddNewProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewProductView.swift; sourceTree = "<group>"; };
 		484912162371A2E600AF0779 /* String+ValidEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ValidEmail.swift"; sourceTree = "<group>"; };
+		484912182371B55200AF0779 /* AccountWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountWorker.swift; sourceTree = "<group>"; };
 		486CD3B8237069C300FB0610 /* CreateAccountPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountPresenter.swift; sourceTree = "<group>"; };
 		486CD3B9237069C300FB0610 /* CreateAccountRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountRouter.swift; sourceTree = "<group>"; };
 		486CD3BA237069C300FB0610 /* CreateAccountModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountModels.swift; sourceTree = "<group>"; };
@@ -415,6 +417,7 @@
 				1B2DB9C22357C8DB00AF6D80 /* MeasureWorker.swift */,
 				1B4DFA81235981A9002C2B55 /* ProductItemWorker.swift */,
 				A3A79736235B3BBC00B5724F /* HomeNotificationWorker.swift */,
+				484912182371B55200AF0779 /* AccountWorker.swift */,
 			);
 			path = workers;
 			sourceTree = "<group>";
@@ -914,6 +917,7 @@
 				1B766361234B86740069D581 /* ListInventoryBuilder.swift in Sources */,
 				A32244F4235E8AE700375793 /* UnderConstructionViewController.swift in Sources */,
 				A304F940233CD9EA00C3B6F7 /* CaptionBoldLabel.swift in Sources */,
+				484912192371B55300AF0779 /* AccountWorker.swift in Sources */,
 				1B4DFA7E23595B6E002C2B55 /* ProductItemView.swift in Sources */,
 				A304F944233CDB3300C3B6F7 /* CaptionButton.swift in Sources */,
 				A3780875233B8ECA005B26E8 /* AppStyleGuide.swift in Sources */,
