@@ -62,6 +62,86 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 
 	func displaySomething(viewModel: CreateAccount.Something.ViewModel) {
 	}
+	
+	func createAccount() {
+		guard let name = validateName() else {
+			presentAlertModal("\(Localization(.createAccountScene(.errorFormAlertTitle)))", "\(Localization(.createAccountScene(.errorFormNameMessage)))", "\(Localization(.createAccountScene(.errorFormActionTitle)))")
+			return
+		}
+		
+		guard let email = validateEmail() else {
+			presentAlertModal("\(Localization(.createAccountScene(.errorFormAlertTitle)))", "\(Localization(.createAccountScene(.errorFormEmailMessage)))", "\(Localization(.createAccountScene(.errorFormActionTitle)))")
+			return
+		}
+		
+		if (!email.isValidEmail()) {
+			presentAlertModal("\(Localization(.createAccountScene(.errorFormAlertTitle)))", "\(Localization(.createAccountScene(.errorFormInvalidEmail)))", "\(Localization(.createAccountScene(.errorFormActionTitle)))")
+			return
+		}
+		
+		guard let password = validatePassword() else {
+			presentAlertModal("\(Localization(.createAccountScene(.errorFormAlertTitle)))", "\(Localization(.createAccountScene(.errorFormPasswordMessage)))", "\(Localization(.createAccountScene(.errorFormActionTitle)))")
+			return
+		}
+		
+		guard let confirmPassword = validateConfirmPassword() else {
+			presentAlertModal("\(Localization(.createAccountScene(.errorFormAlertTitle)))", "\(Localization(.createAccountScene(.errorFormConfirmPasswordMessage)))", "\(Localization(.createAccountScene(.errorFormActionTitle)))")
+			return
+		}
+		
+		if (password != confirmPassword) {
+			presentAlertModal("\(Localization(.createAccountScene(.errorFormAlertTitle)))", "\(Localization(.createAccountScene(.errorFormPasswordsDontMatchMessage)))", "\(Localization(.createAccountScene(.errorFormActionTitle)))")
+			return
+		}
+		
+//		let itemForm = AddProductItem.AddItemForm(quantity: quantity, price: price, expirationDate: expiration)
+//		let request = AddProductItem.AddItem.Request(addItemForm: itemForm)
+//		interactor?.addProductItem(request: request)
+	}
+	
+	func validateName() -> String? {
+		let indexPath = IndexPath(row: 0, section: 0)
+		guard let cell = contentView.tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell else { return nil }
+		guard let name = cell.textField.text else { return nil }
+		
+		if (name.isEmpty) {
+			return nil
+		}
+		return name
+	}
+	
+	func validateEmail() -> String? {
+		let indexPath = IndexPath(row: 1, section: 0)
+		guard let cell = contentView.tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell else { return nil }
+		guard let email = cell.textField.text else { return nil }
+		
+		if (email.isEmpty) {
+			return nil
+		}
+		return email
+	}
+	
+	func validatePassword() -> String? {
+		let indexPath = IndexPath(row: 2, section: 0)
+		guard let cell = contentView.tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell else { return nil }
+		guard let password = cell.textField.text else { return nil }
+		
+		if (password.isEmpty) {
+			return nil
+		}
+		return password
+	}
+	
+	func validateConfirmPassword() -> String? {
+		let indexPath = IndexPath(row: 3, section: 0)
+		guard let cell = contentView.tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell else { return nil }
+		guard let confirmPassword = cell.textField.text else { return nil }
+		
+		if (confirmPassword.isEmpty) {
+			return nil
+		}
+		return confirmPassword
+	}
 }
 
 extension CreateAccountViewController: UITableViewDelegate, UITableViewDataSource {
@@ -82,5 +162,11 @@ extension CreateAccountViewController: UITableViewDelegate, UITableViewDataSourc
 		let reusableCell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
 		let cell = tableViewDataSource.modify(reusableCell, for: indexPath)
 		return cell
+	}
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		if (indexPath.section == 1 && indexPath.row == 0) {
+			createAccount()
+		}
 	}
 }
