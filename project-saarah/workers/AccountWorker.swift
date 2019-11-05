@@ -9,7 +9,7 @@
 import Foundation
 
 protocol AccountStore {
-	func signUp(name: String, email: String, password: String, confirmPassword: String, _ completion: @escaping (Result<CreateAccount.SignUpResponse?, NetworkServiceError>) -> Void)
+	func signUp(name: String, email: String, password: String, confirmPassword: String, _ completion: @escaping (Result<SignUpResponse?, NetworkServiceError>) -> Void)
 }
 
 class AccountWorker: AccountStore {
@@ -19,7 +19,7 @@ class AccountWorker: AccountStore {
 		self.accountService = accountService
 	}
 	
-	func signUp(name: String, email: String, password: String, confirmPassword: String, _ completion: @escaping (Result<CreateAccount.SignUpResponse?, NetworkServiceError>) -> Void) {
+	func signUp(name: String, email: String, password: String, confirmPassword: String, _ completion: @escaping (Result<SignUpResponse?, NetworkServiceError>) -> Void) {
 		accountService.signUp(name: name, email: email, password: password, confirmPassword: confirmPassword) { (result) in
 			DispatchQueue.main.async {
 				completion(result)

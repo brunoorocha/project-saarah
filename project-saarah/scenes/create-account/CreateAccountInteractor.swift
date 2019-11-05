@@ -13,14 +13,14 @@ protocol CreateAccountBusinessLogic {
 }
 
 protocol CreateAccountDataStore {
-	var signUp: CreateAccount.SignUpResponse? { get set }
+	var signUp: SignUpResponse? { get set }
 }
 
 class CreateAccountInteractor: CreateAccountBusinessLogic, CreateAccountDataStore {
 	var presenter: CreateAccountPresentationLogic?
 	var accountWorker = AccountWorker(accountService: ApiAccountStore())
 	
-	var signUp: CreateAccount.SignUpResponse?
+	var signUp: SignUpResponse?
 
 	// MARK: Do something
 	func signUp(request: CreateAccount.SignUp.Request) {

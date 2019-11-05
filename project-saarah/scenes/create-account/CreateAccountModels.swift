@@ -15,12 +15,6 @@ enum CreateAccount {
 		let password: String
 		let confirmPassword: String
 	}
-	struct SignUpResponse: Decodable {
-		let id: String
-		let name: String
-		let email: String
-		let token: String
-	}
 	// MARK: Use cases
 	enum SignUp {
 		struct Request {

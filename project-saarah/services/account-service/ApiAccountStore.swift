@@ -9,9 +9,9 @@
 import Foundation
 
 class ApiAccountStore: AccountStore {
-	func signUp(name: String, email: String, password: String, confirmPassword: String, _ completion: @escaping (Result<CreateAccount.SignUpResponse?, NetworkServiceError>) -> Void) {
+	func signUp(name: String, email: String, password: String, confirmPassword: String, _ completion: @escaping (Result<SignUpResponse?, NetworkServiceError>) -> Void) {
 		let networkService = NetworkService()
-		networkService.request(endpoint: ConeheadApiEndpoint.signUp(name: name, email: email, password: password, confirmPassword: confirmPassword)) { (result: Result<CreateAccount.SignUpResponse?, NetworkServiceError>) in
+		networkService.request(endpoint: ConeheadApiEndpoint.signUp(name: name, email: email, password: password, confirmPassword: confirmPassword)) { (result: Result<SignUpResponse?, NetworkServiceError>) in
 			completion(result)
 		}
 	}
