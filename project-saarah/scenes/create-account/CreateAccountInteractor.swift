@@ -9,24 +9,29 @@
 import Foundation
 
 protocol CreateAccountBusinessLogic {
-	func doSomething(request: CreateAccount.Something.Request)
+	func signUp(request: CreateAccount.SignUp.Request)
 }
 
 protocol CreateAccountDataStore {
-	//var name: String { get set }
+	var signUp: CreateAccount.SignUpResponse? { get set }
 }
 
 class CreateAccountInteractor: CreateAccountBusinessLogic, CreateAccountDataStore {
 	var presenter: CreateAccountPresentationLogic?
-//	var worker: CreateAccountWorker?
-	//var name: String = ""
+	var accountWorker = AccountWorker(accountService: ApiAccountStore())
+	
+	var signUp: CreateAccount.SignUpResponse?
 
 	// MARK: Do something
-	func doSomething(request: CreateAccount.Something.Request) {
-//		worker = Worker()
-//		worker?.doSomeWork()
-
-		let response = CreateAccount.Something.Response()
-		presenter?.presentSomething(response: response)
+	func signUp(request: CreateAccount.SignUp.Request) {
+		accountWorker.signUp(name: request.signUpForm.name, email: request.signUpForm.email, password: request.signUpForm.password, confirmPassword: request.signUpForm.confirmPassword) { (result) in
+			switch result {
+			case .success(let response):
+				self.signUp = response
+				self.presenter?.presentSignUpResponse(response: CreateAccount.SignUp.Response(response: response))
+			case .failure(let error):
+				print(error)
+			}
+		}
 	}
 }
