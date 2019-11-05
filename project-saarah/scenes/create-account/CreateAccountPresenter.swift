@@ -9,15 +9,17 @@
 import Foundation
 
 protocol CreateAccountPresentationLogic {
-	func presentSomething(response: CreateAccount.Something.Response)
+	func presentSignUpResponse(response: CreateAccount.SignUp.Response)
 }
 
 class CreateAccountPresenter: CreateAccountPresentationLogic {
 	weak var viewController: CreateAccountDisplayLogic?
 
 	// MARK: Do something
-	func presentSomething(response: CreateAccount.Something.Response) {
-//		let viewModel = CreateAccount.Something.ViewModel()
-//		viewController?.displaySomething(viewModel: viewModel)
+	func presentSignUpResponse(response: CreateAccount.SignUp.Response) {
+		if (response.response != nil) {
+			let viewModel = CreateAccount.SignUp.ViewModel.SignUpViewModel(success: true)
+			viewController?.displaySignUpResponse(viewModel: viewModel)
+		}
 	}
 }
