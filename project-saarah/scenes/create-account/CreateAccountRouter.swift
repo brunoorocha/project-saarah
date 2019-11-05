@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CreateAccountRoutingLogic {
-	//func routeToSomewhere()
+	func routeToOnboarding()
 }
 
 protocol CreateAccountDataPassing {
@@ -21,7 +21,7 @@ class CreateAccountRouter: NSObject, CreateAccountRoutingLogic, CreateAccountDat
 	var dataStore: CreateAccountDataStore?
 
 	// MARK: Routing
-//	func routeToSomewhere() {
+	func routeToOnboarding() {
 //		let destinationVC = SomewhereViewController()
 //		guard var destinationDataStore = destinationVC.router?.dataStore else { return }
 //
@@ -30,7 +30,7 @@ class CreateAccountRouter: NSObject, CreateAccountRoutingLogic, CreateAccountDat
 //
 //		passDataToSomewhere(source: dataStore, destination: &destinationDataStore)
 //		navigateToSomewhere(source: viewController, destination: destinationVC)
-//	}
+	}
 //
 //	// MARK: Passing data
 //	func passDataToSomewhere(source: CreateAccountDataStore, destination: inout SomewhereDataStore) {
