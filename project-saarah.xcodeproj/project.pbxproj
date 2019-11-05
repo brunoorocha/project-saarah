@@ -385,6 +385,7 @@
 		1B4F4178231DF83400EB1F13 /* services */ = {
 			isa = PBXGroup;
 			children = (
+				4849121A2371B70100AF0779 /* account-service */,
 				48F28F28236076B1005CCF56 /* product-item-service */,
 				A3DBCF242361CCDC0044D43F /* measure-service */,
 				A3A79733235B3AE300B5724F /* product-service */,
@@ -463,6 +464,13 @@
 				481ECD6C2357E97600E3CA18 /* AddNewProductTableViewDataSource.swift */,
 			);
 			path = "add-new-product";
+			sourceTree = "<group>";
+		};
+		4849121A2371B70100AF0779 /* account-service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "account-service";
 			sourceTree = "<group>";
 		};
 		486CD3B72370697F00FB0610 /* create-account */ = {
