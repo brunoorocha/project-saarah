@@ -33,7 +33,6 @@ class HomeRouter: NSObject, HomeRoutingLogic, HomeDataPassing {
     }
 
     func navigateToInventory () {
-        // TODO: Change the instance of the inventory view controller to an instance of Inventory Scene view controller
         let inventoryViewController = ListInventoryViewController()
         viewController?.navigationController?.pushViewController(inventoryViewController, animated: true)
     }
@@ -53,9 +52,7 @@ class HomeRouter: NSObject, HomeRoutingLogic, HomeDataPassing {
     }
 
     func navigateToSettings () {
-        // TODO: Change the instance of the settings view controller to an instance of Settings Scene view controller
-        let settingsViewController = SaarahViewController()
-        settingsViewController.title = "\(Localization(.homeMenuOptionTitle(.settings)))"
-//        viewController?.navigationController?.pushViewController(settingsViewController, animated: true)
+        let settingsViewController = SettingsViewController()
+        viewController?.navigationController?.pushViewController(settingsViewController, animated: true)
     }
 }
