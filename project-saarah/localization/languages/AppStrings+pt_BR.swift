@@ -213,6 +213,8 @@ extension AppStrings {
 				return "O campo nome é obrigatório!"
 			case .errorFormEmailMessage:
 				return "O campo Email é obrigatório!"
+			case .errorFormInvalidEmail:
+				return "Insera um Email válido!"
 			case .errorFormPasswordMessage:
 				return "O campo senha é obrigatório!"
 			case .errorFormConfirmPasswordMessage:

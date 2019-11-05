@@ -152,6 +152,7 @@ enum AppStrings {
 		case errorFormActionTitle
 		case errorFormNameMessage
 		case errorFormEmailMessage
+		case errorFormInvalidEmail
 		case errorFormPasswordMessage
 		case errorFormConfirmPasswordMessage
 		case errorFormPasswordsDontMatchMessage

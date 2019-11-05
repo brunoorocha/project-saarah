@@ -206,6 +206,8 @@ extension AppStrings {
 				return "The name field must be filled out!"
 			case .errorFormEmailMessage:
 				return "The Email field must be filled out!"
+			case .errorFormInvalidEmail:
+				return "Insert a valid Email!"
 			case .errorFormPasswordMessage:
 				return "The password field must be filled out!"
 			case .errorFormConfirmPasswordMessage:
