@@ -214,6 +214,10 @@ extension AppStrings {
 				return "The confirm password field must be filled out!"
 			case .errorFormPasswordsDontMatchMessage:
 				return "The passwords dont match!"
+			case .errorSignUpTitle:
+				return "Sign up error"
+			case .errorSignUpMessage:
+				return "A error ocurrent when sign up, try again!"
 			}
         default:
             return nil
