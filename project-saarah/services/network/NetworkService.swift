@@ -62,6 +62,13 @@ class NetworkService: NetworkServiceProtocol {
                     completionHandler(.failure(networkError))
                 }
             } else {
+                if let errorResponse = response as? HTTPURLResponse, (400..<600).contains(errorResponse.statusCode) {
+                    DispatchQueue.main.async {
+                        completionHandler(.failure(.errorStatusCode(errorResponse.statusCode)))
+                    }
+                    return
+                }
+
                 do {
                     guard let data = data else {
                         DispatchQueue.main.async {
