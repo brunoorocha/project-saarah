@@ -21,4 +21,3 @@ class LoginBuilder {
         router.dataStore = interactor
     }
 }
-

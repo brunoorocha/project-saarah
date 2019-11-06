@@ -17,15 +17,43 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
 	var interactor: LoginBusinessLogic?
 	var router: (NSObjectProtocol & LoginRoutingLogic & LoginDataPassing)?
 
-	// MARK: Controller Property
+    // MARK: Controller Property
+    private var loginTableViewDataSource = LoginTableViewDataSource()
 	private var contentView = LoginView()
+    private var scrolledIndexPath: IndexPath?
 
 	// MARK: View lifecycle
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		setupContentView()
-		doSomething()
+        defaultViewControllerConfiguration()
+        navigationController?.isNavigationBarHidden = true
+
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
 	}
+
+    @objc private func keyboardWillShow(notification: NSNotification) {
+        if ((notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
+            //self.view.frame.origin.y -= keyboardSize.height
+            let userInfo = notification.userInfo!
+            guard var keyboardFrame: CGRect = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
+            keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+
+            var contentInset: UIEdgeInsets = contentView.tableView.contentInset
+            contentInset.bottom = keyboardFrame.size.height
+            contentView.tableView.contentInset = contentInset
+
+            guard let indexPath = loginTableViewDataSource.selectedIndexPath else { return }
+            contentView.tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
+        }
+    }
+
+    @objc private func keyboardWillHide(notification: NSNotification) {
+        if ((notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue) != nil {
+            let contentInset: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            contentView.tableView.contentInset = contentInset
+        }
+    }
 
 	// MARK: Init
 	init() {
@@ -37,9 +65,12 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
 		super.init(coder: aDecoder)
 	}
 
-	func setupContentView() {
-		title = "Login"
+	func defaultViewControllerConfiguration() {
+        title = "\(Localization(.loginScene(.title)))"
 		view = contentView
+        contentView.tableView.delegate = self
+        loginTableViewDataSource.registerCells(for: contentView.tableView)
+        contentView.tableView.dataSource = loginTableViewDataSource
 	}
 
 	// MARK: Do something
@@ -50,4 +81,14 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
 
 	func displaySomething(viewModel: Login.Something.ViewModel) {
 	}
+}
+
+extension LoginViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return loginTableViewDataSource.viewForHeader(in: section)
+    }
+
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return loginTableViewDataSource.viewForFooter(in: section)
+    }
 }
