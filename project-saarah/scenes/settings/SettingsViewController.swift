@@ -56,12 +56,17 @@ class SettingsViewController: SaarahViewController, SettingsDisplayLogic {
     }
 
     private func showConfirmationModalForLogout () {
-        let confirmAction = UIAlertAction(title: "Log Out", style: .destructive) { [weak self] _ in
+        let confirmText = Localization(.settingsScene(.logoutConfirmation(.logout))).description
+        let cancelText = Localization(.settingsScene(.logoutConfirmation(.cancel))).description
+        let titleText = Localization(.settingsScene(.logoutConfirmation(.title))).description
+        let messageText = Localization(.settingsScene(.logoutConfirmation(.message))).description
+
+        let confirmAction = UIAlertAction(title: confirmText, style: .destructive) { [weak self] _ in
             self?.doLogOut()
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let cancelAction = UIAlertAction(title: cancelText, style: .cancel)
 
-        presentConfirmationModal(with: "Confirmation", message: "Do you really want to log out from application?", actions: [confirmAction, cancelAction])
+        presentConfirmationModal(with: titleText, message: messageText, actions: [confirmAction, cancelAction])
     }
 
     private func goToLoginScene() {

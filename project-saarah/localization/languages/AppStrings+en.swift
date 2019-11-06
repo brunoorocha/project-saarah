@@ -178,6 +178,17 @@ extension AppStrings {
             switch options {
             case .logoutText:
                 return "Log out"
+            case .logoutConfirmation(let options):
+                switch options {
+                case .logout:
+                    return "Log Out"
+                case .cancel:
+                    return "Cancel"
+                case .title:
+                    return "Confirmation"
+                case .message:
+                    return "Do you really want to log out from application?"
+                }
             }
         default:
             return nil

@@ -185,6 +185,17 @@ extension AppStrings {
             switch options {
             case .logoutText:
                 return "Sair"
+            case .logoutConfirmation(let options):
+                switch options {
+                case .logout:
+                    return "Sair"
+                case .cancel:
+                    return "Cancelar"
+                case .title:
+                    return "Confirmação"
+                case .message:
+                    return "Você deseja realmente sair da aplicação?"
+                }
             }
         }
     }

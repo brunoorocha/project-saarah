@@ -135,8 +135,16 @@ enum AppStrings {
         case title
         case paragraph
     }
-    
+
     enum SettingsScene {
         case logoutText
+        case logoutConfirmation(LogoutConfirmation)
+        
+        enum LogoutConfirmation {
+            case title
+            case message
+            case logout
+            case cancel
+        }
     }
 }

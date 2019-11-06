@@ -14,7 +14,7 @@ class SettingsView: UIView {
 	init() {
 		super.init(frame: .zero)
 
-		backgroundColor = UIColor.white
+        backgroundColor = AppStyleGuide.Colors.background.uiColor
 
 		instantiateViews()
 		buildViewsHierarchy()
