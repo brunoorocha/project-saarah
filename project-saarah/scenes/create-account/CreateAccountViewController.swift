@@ -20,6 +20,8 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 	// MARK: Controller Property
 	private var contentView = CreateAccountView()
 	private let tableViewDataSource = CreateAccountTableViewDataSource()
+	
+	var isCreatingAccount = false
 
 	// MARK: View lifecycle
 	override func viewDidLoad() {
@@ -55,6 +57,7 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 
 	// MARK: Do something
 	func displaySignUpResponse(viewModel: CreateAccount.SignUp.ViewModel.SignUpViewModel) {
+		isCreatingAccount = false
 		if (viewModel.success) {
 			router?.routeToOnboarding()
 		} else {
@@ -98,6 +101,7 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 			return
 		}
 		
+		isCreatingAccount = true
 		let signUpForm = CreateAccount.SignUpForm(name: name, email: email, password: password, confirmPassword: confirmPassword)
 		let request = CreateAccount.SignUp.Request(signUpForm: signUpForm)
 		interactor?.signUp(request: request)
@@ -169,7 +173,7 @@ extension CreateAccountViewController: UITableViewDelegate, UITableViewDataSourc
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		if (indexPath.section == 1 && indexPath.row == 0) {
+		if (indexPath.section == 1 && indexPath.row == 0 && !isCreatingAccount) {
 			createAccount()
 		}
 	}
