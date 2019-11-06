@@ -24,6 +24,7 @@ enum AppStrings {
 	case addNewProductScene(AddNewProductScene)
     case productItemScene(ProductItemScene)
 	case addProductItemScene(AddProductItemScene)
+    case registerSectionFooterView(RegisterSectionFooterView)
     case underConstruction(UnderConstruction)
 
     // MARK: Enum's
@@ -129,6 +130,11 @@ enum AppStrings {
 			case expirationDateMessage
 		}
 	}
+    
+    enum RegisterSectionFooterView {
+        case title
+        case registerButton
+    }
 
     enum UnderConstruction {
         case title

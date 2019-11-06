@@ -174,6 +174,13 @@ extension AppStrings {
                     return "A data de validade não foi preenchida corretamente."
                 }
             }
+        case .registerSectionFooterView(let options):
+            switch options {
+            case .title:
+                return "Ainda não possui uma conta?"
+            case .registerButton:
+                return "Registre-se aqui."
+            }
         case .underConstruction(let options):
             switch options {
             case .title:
