@@ -20,6 +20,9 @@ class CreateAccountPresenter: CreateAccountPresentationLogic {
 		if (response.response != nil) {
 			let viewModel = CreateAccount.SignUp.ViewModel.SignUpViewModel(success: true)
 			viewController?.displaySignUpResponse(viewModel: viewModel)
+		} else {
+			let viewModel = CreateAccount.SignUp.ViewModel.SignUpViewModel(success: false)
+			viewController?.displaySignUpResponse(viewModel: viewModel)
 		}
 	}
 }
