@@ -84,13 +84,15 @@ class ProductItemViewController: UIViewController, ProductItemDisplayLogic {
 
 	// MARK: Display inserted product item
 	func displayInsertedProductItem(viewModel: ProductItem.InsertProductItem.ViewModel) {
-		tableViewDataSource.viewModel?.displayProductItems.append(viewModel.displayProductItem)
-		guard let row = tableViewDataSource.viewModel?.displayProductItems.count else { return }
-		let indexPath = IndexPath(row: (row - 1), section: 1)
-		contentView.tableView.beginUpdates()
-		contentView.tableView.insertRows(at: [indexPath], with: .automatic)
-		contentView.tableView.endUpdates()
-		contentView.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+		router?.dismissPresentedViewController({
+			self.tableViewDataSource.viewModel?.displayProductItems.append(viewModel.displayProductItem)
+			guard let row = self.tableViewDataSource.viewModel?.displayProductItems.count else { return }
+			let indexPath = IndexPath(row: (row - 1), section: 1)
+			self.contentView.tableView.beginUpdates()
+			self.contentView.tableView.insertRows(at: [indexPath], with: .automatic)
+			self.contentView.tableView.endUpdates()
+			self.contentView.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+		})
 	}
 }
 
