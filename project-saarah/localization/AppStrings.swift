@@ -131,12 +131,12 @@ enum AppStrings {
 			case expirationDateMessage
 		}
 	}
-    
+
     enum RegisterSectionFooterView {
         case title
         case registerButton
     }
-    
+
     enum LoginScene {
         case title
         case textField(TextField)
