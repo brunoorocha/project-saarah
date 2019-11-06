@@ -150,6 +150,8 @@
 		A3D2D0D42340E91100432214 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D2D0CD2340E91100432214 /* HomeViewController.swift */; };
 		A3D2D0D52340E91100432214 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D2D0CE2340E91100432214 /* HomeInteractor.swift */; };
 		A3D2D0D62340E91100432214 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D2D0CF2340E91100432214 /* HomeView.swift */; };
+		A3D619D3237245B30052BA83 /* SettingsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D619D2237245B30052BA83 /* SettingsBuilder.swift */; };
+		A3D619D52372464D0052BA83 /* SettingsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D619D42372464D0052BA83 /* SettingsTableViewDataSource.swift */; };
 		A3DBCF262361CCFE0044D43F /* ApiMeasureStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DBCF252361CCFE0044D43F /* ApiMeasureStore.swift */; };
 /* End PBXBuildFile section */
 
@@ -299,6 +301,8 @@
 		A3D2D0CD2340E91100432214 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A3D2D0CE2340E91100432214 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		A3D2D0CF2340E91100432214 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A3D619D2237245B30052BA83 /* SettingsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBuilder.swift; sourceTree = "<group>"; };
+		A3D619D42372464D0052BA83 /* SettingsTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDataSource.swift; sourceTree = "<group>"; };
 		A3DBCF252361CCFE0044D43F /* ApiMeasureStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiMeasureStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -692,6 +696,8 @@
 				A32F6E682371BC0C00B00B5F /* SettingsViewController.swift */,
 				A32F6E692371BC0C00B00B5F /* SettingsInteractor.swift */,
 				A32F6E6A2371BC0C00B00B5F /* SettingsView.swift */,
+				A3D619D2237245B30052BA83 /* SettingsBuilder.swift */,
+				A3D619D42372464D0052BA83 /* SettingsTableViewDataSource.swift */,
 			);
 			path = settings;
 			sourceTree = "<group>";
@@ -840,6 +846,7 @@
 				1B4DFA7D23595B6E002C2B55 /* ProductItemInteractor.swift in Sources */,
 				A3859A5B235A0279003E4B1B /* ConeheadApiEndpoint.swift in Sources */,
 				A3D2D0D62340E91100432214 /* HomeView.swift in Sources */,
+				A3D619D3237245B30052BA83 /* SettingsBuilder.swift in Sources */,
 				A3AACBC82340C946000EFB6B /* SaarahViewController.swift in Sources */,
 				48244F5C23478303007B4AA7 /* ProductDetailView.swift in Sources */,
 				A3522D722341882300DB1314 /* SaarahTableViewSeparator.swift in Sources */,
@@ -878,6 +885,7 @@
 				487B9B2F23311E5400D8D6CC /* MenuItem.swift in Sources */,
 				1B716459235CB70D000ABC08 /* ProductItemTableViewCell.swift in Sources */,
 				1B15E0CB2354A3530047A0B6 /* AppStrings.swift in Sources */,
+				A3D619D52372464D0052BA83 /* SettingsTableViewDataSource.swift in Sources */,
 				A3522D692341200A00DB1314 /* HomeNotification.swift in Sources */,
 				A3B76AD1234CB39D0010B7AF /* HomeBuilder.swift in Sources */,
 				4C94BADD233BA8ED008D62F5 /* UILabel.swift in Sources */,

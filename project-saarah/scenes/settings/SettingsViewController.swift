@@ -12,10 +12,11 @@ protocol SettingsDisplayLogic: class {
 	func displaySomething(viewModel: Settings.Something.ViewModel)
 }
 
-class SettingsViewController: UIViewController, SettingsDisplayLogic {
+class SettingsViewController: SaarahViewController, SettingsDisplayLogic {
 	// MARK: Architeture Property
 	var interactor: SettingsBusinessLogic?
 	var router: (NSObjectProtocol & SettingsRoutingLogic & SettingsDataPassing)?
+    var settingsTableViewDataSource = SettingsTableViewDataSource()
 
 	// MARK: Controller Property
 	private var contentView = SettingsView()
@@ -27,32 +28,20 @@ class SettingsViewController: UIViewController, SettingsDisplayLogic {
 		doSomething()
 	}
 
-	// MARK: Init
-	init() {
-		super.init(nibName: nil, bundle: nil)
-		setupArchiteture()
+    // MARK: Init
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        SettingsBuilder.build(aroundViewController: self)
 	}
 
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 	}
 
-	private func setupArchiteture() {
-		let viewController = self
-		let interactor = SettingsInteractor()
-		let presenter = SettingsPresenter()
-		let router = SettingsRouter()
-		viewController.interactor = interactor
-		viewController.router = router
-		interactor.presenter = presenter
-		presenter.viewController = viewController
-		router.viewController = viewController
-		router.dataStore = interactor
-	}
-
 	func setupContentView() {
 		title = "\(Localization(.homeMenuOptionTitle(.settings)))"
 		view = contentView
+        contentView.tableView.dataSource = settingsTableViewDataSource
 	}
 
 	// MARK: Do something
