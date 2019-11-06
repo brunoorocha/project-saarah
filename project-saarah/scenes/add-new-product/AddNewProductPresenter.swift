@@ -11,6 +11,7 @@ import Foundation
 protocol AddNewProductPresentationLogic {
     func presentSaveProductResponse(response: AddNewProduct.SaveProduct.Response)
     func presentGetMeasureResponse(response: AddNewProduct.GetMeasure.Response)
+	func productItemReceived()
 }
 
 class AddNewProductPresenter: AddNewProductPresentationLogic {
@@ -33,4 +34,8 @@ class AddNewProductPresenter: AddNewProductPresentationLogic {
         let viewModel = AddNewProduct.GetMeasure.ViewModel.Measure(name: response.measure.name.capitalized)
         viewController?.displayMeasureResponse(viewModel: viewModel)
     }
+
+	func productItemReceived() {
+		viewController?.productItemReceived()
+	}
 }
