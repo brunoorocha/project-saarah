@@ -26,6 +26,7 @@ enum AppStrings {
 	case addProductItemScene(AddProductItemScene)
     case underConstruction(UnderConstruction)
     case settingsScene(SettingsScene)
+	case createAccountScene(CreateAccountScene)
 
     // MARK: Enum's
 
@@ -95,7 +96,9 @@ enum AppStrings {
 		case measurePlaceholder
 		case successResponseTitle
 		case successResponseMessage
-		case alertAction
+		case alertOkAction
+		case alertCancelAction
+		case alertAddProductItemAction
 	}
 
     enum ProductItemScene {
@@ -147,4 +150,28 @@ enum AppStrings {
             case cancel
         }
     }
+	enum CreateAccountScene {
+		case headerTitle
+		case headerSubtitle
+		case nameCellTitle
+		case nameCellPlaceholder
+		case emailCellTitle
+		case emailCellPlaceholder
+		case passwordCellTitle
+		case passwordCellPlaceholder
+		case confirmPasswordCellTitle
+		case confirmPasswordCellPlaceholder
+		case createAccountButtonTitlle
+		case errorFormAlertTitle
+		case errorFormActionTitle
+		case errorFormNameMessage
+		case errorFormEmailMessage
+		case errorFormInvalidEmail
+		case errorFormPasswordMessage
+		case errorFormConfirmPasswordMessage
+		case errorFormPasswordsDontMatchMessage
+		case errorFormPasswordSize
+		case errorSignUpTitle
+		case errorSignUpMessage
+	}
 }

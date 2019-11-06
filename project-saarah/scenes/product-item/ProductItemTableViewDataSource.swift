@@ -38,7 +38,7 @@ class ProductItemTableViewDataSource {
         case 0:
             return 1
         case 1:
-            return viewModel.DisplayProductItems.count
+            return viewModel.displayProductItems.count
         default:
             return 0
         }
@@ -69,7 +69,7 @@ class ProductItemTableViewDataSource {
         guard let cell = cell as? ProductItemTableViewCell else { return UITableViewCell() }
         guard let viewModel = viewModel else { return UITableViewCell() }
 
-        let productItem = viewModel.DisplayProductItems[row]
+        let productItem = viewModel.displayProductItems[row]
         cell.setupNumericLabelsWith(amountText: productItem.amount, validityText: productItem.expiration, priceText: productItem.price, addedOnDayText: productItem.created)
 
         return cell

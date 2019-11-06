@@ -12,11 +12,7 @@ protocol SelectProductMeasurementDisplayLogic: class {
     func displayFetchedMeasurements(viewModel: SelectProductMeasurement.FetchMeasurements.ViewModel)
 }
 
-protocol addNewViewControllerReference {
-    var delegate: AddNewProductViewController? { get set }
-}
-
-class SelectProductMeasurementViewController: UIViewController, SelectProductMeasurementDisplayLogic, addNewViewControllerReference {
+class SelectProductMeasurementViewController: UIViewController, SelectProductMeasurementDisplayLogic {
 
     // MARK: Architeture Property
     var interactor: SelectProductMeasurementBusinessLogic?
@@ -25,9 +21,6 @@ class SelectProductMeasurementViewController: UIViewController, SelectProductMea
     // MARK: Controller Property
     private var contentView = SelectProductMeasurementView()
     var selectedIndexPath: IndexPath?
-
-    // MARK: Delegate
-    weak var delegate: AddNewProductViewController?
 
     // MARK: View lifecycle
     override func viewDidLoad() {

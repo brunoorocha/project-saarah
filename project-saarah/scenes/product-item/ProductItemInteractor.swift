@@ -13,7 +13,7 @@ protocol ProductItemBusinessLogic {
     func fetchProductItem(request: ProductItem.FetchProductItem.Request)
 }
 
-protocol ProductItemDataStore {
+protocol ProductItemDataStore: ProductItemReceptor {
 	var product: Product? { get set }
     var productItems: [ProductLog]? { get set }
 }
@@ -23,6 +23,11 @@ class ProductItemInteractor: ProductItemBusinessLogic, ProductItemDataStore {
     var presenter: ProductItemPresentationLogic?
     var product: Product?
     var productItems: [ProductLog]?
+	var productItem: ProductLog? {
+		didSet {
+			self.insertProductItem()
+		}
+	}
 
     let productItemWorker = ProductItemWorker(productItemService: ApiProductItemStore())
 
@@ -53,4 +58,14 @@ class ProductItemInteractor: ProductItemBusinessLogic, ProductItemDataStore {
 
         }
     }
+
+	// MARK: Insert product item
+	private func insertProductItem() {
+		guard var productItems = productItems else { return }
+		guard let productItem = productItem else { return }
+		productItems.append(productItem)
+
+		let response = ProductItem.InsertProductItem.Response(productItem: productItem)
+		presenter?.presentInsertedProductItem(response: response)
+	}
 }

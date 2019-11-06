@@ -12,9 +12,8 @@ protocol AddNewProductBusinessLogic {
 	func saveNewProduct(request: AddNewProduct.SaveProduct.Request)
 }
 
-protocol AddNewProductDataStore {
+protocol AddNewProductDataStore: SelectedMeasureReceptor, ProductItemReceptor {
 	var product: Product? { get set }
-    var measure: Measure? { get set }
 }
 
 class AddNewProductInteractor: AddNewProductBusinessLogic, AddNewProductDataStore {
@@ -22,19 +21,24 @@ class AddNewProductInteractor: AddNewProductBusinessLogic, AddNewProductDataStor
     var presenter: AddNewProductPresentationLogic?
 
     var product: Product?
-    var measure: Measure? {
+    var measureReceptor: Measure? {
         didSet {
-            guard let measure = self.measure else { return }
+            guard let measure = self.measureReceptor else { return }
             let response = AddNewProduct.GetMeasure.Response(measure: measure)
             presenter?.presentGetMeasureResponse(response: response)
         }
     }
+	var productItem: ProductLog? {
+		didSet {
+			self.presenter?.productItemReceived()
+		}
+	}
 
     let productWorker = ProductWorker(productService: ApiProductStore())
 
 	// MARK: Save new product
 	func saveNewProduct(request: AddNewProduct.SaveProduct.Request) {
-        guard let measure = measure else { return }
+        guard let measure = measureReceptor else { return }
         productWorker.addProduct(withName: request.productForm.name, andBarcode: request.productForm.barCode, andMeasureId: measure.id) { (result) in
             DispatchQueue.main.async {
                 switch result {
