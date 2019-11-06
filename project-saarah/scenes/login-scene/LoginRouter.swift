@@ -9,7 +9,7 @@
 import UIKit
 
 protocol LoginRoutingLogic {
-	//func routeToSomewhere()
+	func routeToSignUp()
 }
 
 protocol LoginDataPassing {
@@ -21,24 +21,18 @@ class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing {
 	var dataStore: LoginDataStore?
 
 	// MARK: Routing
-//	func routeToSomewhere() {
-//		let destinationVC = SomewhereViewController()
-//		guard var destinationDataStore = destinationVC.router?.dataStore else { return }
-//
-//		guard let dataStore = dataStore else { return }
-//		guard let viewController = viewController else { return }
-//
-//		passDataToSomewhere(source: dataStore, destination: &destinationDataStore)
-//		navigateToSomewhere(source: viewController, destination: destinationVC)
-//	}
-//
-//	// MARK: Passing data
-//	func passDataToSomewhere(source: LoginDataStore, destination: inout SomewhereDataStore) {
-//		destination.name = source.name
-//	}
-//
-//	// MARK: Navigation
-//	func navigateToSomewhere(source: LoginViewController, destination: SomewhereViewController) {
-//		source.show(destination, sender: nil)
-//	}
+	func routeToSignUp() {
+		let destinationVC = CreateAccountViewController()
+
+		guard let viewController = viewController else { return }
+
+		navigateToSignUp(source: viewController, destination: destinationVC)
+	}
+
+	// MARK: Passing data
+
+	// MARK: Navigation
+	func navigateToSignUp(source: LoginViewController, destination: CreateAccountViewController) {
+		source.show(destination, sender: nil)
+	}
 }
