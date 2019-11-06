@@ -188,6 +188,29 @@ extension AppStrings {
             case .paragraph:
                 return "mas nós ainda estamos em \nconstrução"
             }
+        case .loginScene(let options):
+            switch options {
+            case .title:
+                return "Entrar"
+            case .textField(let fields):
+                switch fields {
+                case .mail:
+                    return "Email"
+                case .mailPlaceholder:
+                    return "Toque para digitar seu email"
+                case .password:
+                    return "Senha"
+                case .passwordPlaceHolder:
+                    return "Toque para digitar sua senha"
+                }
+            case .greeting(let greetings):
+                switch greetings {
+                case .title:
+                    return "Olá de novo!"
+                case .description:
+                    return "Entre na sua conta para poder continuar."
+                }
+            }
         }
     }
 }

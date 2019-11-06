@@ -25,6 +25,7 @@ enum AppStrings {
     case productItemScene(ProductItemScene)
 	case addProductItemScene(AddProductItemScene)
     case registerSectionFooterView(RegisterSectionFooterView)
+    case loginScene(LoginScene)
     case underConstruction(UnderConstruction)
 
     // MARK: Enum's
@@ -134,6 +135,24 @@ enum AppStrings {
     enum RegisterSectionFooterView {
         case title
         case registerButton
+    }
+    
+    enum LoginScene {
+        case title
+        case textField(TextField)
+        case greeting(Greeting)
+
+        enum TextField {
+            case mail
+            case mailPlaceholder
+            case password
+            case passwordPlaceHolder
+        }
+
+        enum Greeting {
+            case title
+            case description
+        }
     }
 
     enum UnderConstruction {
