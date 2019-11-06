@@ -12,7 +12,7 @@ extension UserDefaults {
 	static func save(_ token: String) {
 		UserDefaults.standard.setValue("bearer \(token)", forKey: "token")
 	}
-	
+
 	static func token() -> String? {
 		return UserDefaults.standard.value(forKey: "token") as? String
 	}

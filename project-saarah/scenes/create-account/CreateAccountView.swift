@@ -10,7 +10,7 @@ import UIKit
 
 class CreateAccountView: UIView {
 	var tableView: SaarahTableView!
-	
+
 	init() {
 		super.init(frame: .zero)
 

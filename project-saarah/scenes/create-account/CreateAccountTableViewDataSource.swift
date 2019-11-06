@@ -13,11 +13,11 @@ class CreateAccountTableViewDataSource {
 		tableView.register(TextFieldTableViewCell.self, forCellReuseIdentifier: "TextFieldTableViewCell")
 		tableView.register(PurpleButtonTableViewCell.self, forCellReuseIdentifier: "PurpleButtonTableViewCell")
 	}
-	
+
 	func numberOfSections() -> Int {
 		return 2
 	}
-	
+
 	func reuseIdentifier(for section: Int) -> String {
 		switch (section) {
 		case 0:
@@ -28,7 +28,7 @@ class CreateAccountTableViewDataSource {
 			return ""
 		}
 	}
-	
+
 	func viewForHeader(in section: Int) -> UIView {
 		switch (section) {
 		case 0:
@@ -41,7 +41,7 @@ class CreateAccountTableViewDataSource {
 			return UIView()
 		}
 	}
-	
+
 	func numberOfRows(in section: Int) -> Int {
 		switch (section) {
 		case 0:
@@ -52,7 +52,7 @@ class CreateAccountTableViewDataSource {
 			return 0
 		}
 	}
-	
+
 	func modify( _ cell: UITableViewCell, for indexPath: IndexPath) -> UITableViewCell {
 		switch (indexPath.section) {
 		case 0:
@@ -63,7 +63,7 @@ class CreateAccountTableViewDataSource {
 			return UITableViewCell()
 		}
 	}
-	
+
 	func firstSection(_ cell: UITableViewCell, for row: Int) -> UITableViewCell {
 		guard let cell = cell as? TextFieldTableViewCell else { return UITableViewCell() }
 		cell.roundCellIfNeeded(index: row, numberOfCells: 4)

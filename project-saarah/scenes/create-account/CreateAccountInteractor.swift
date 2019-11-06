@@ -19,7 +19,7 @@ protocol CreateAccountDataStore {
 class CreateAccountInteractor: CreateAccountBusinessLogic, CreateAccountDataStore {
 	var presenter: CreateAccountPresentationLogic?
 	var accountWorker = AccountWorker(accountService: ApiAccountStore())
-	
+
 	var signUpResponse: SignUpResponse?
 
 	// MARK: Do something

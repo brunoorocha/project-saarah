@@ -21,4 +21,3 @@ class CreateAccountBuilder {
         router.dataStore = interactor
     }
 }
-
