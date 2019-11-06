@@ -11,7 +11,7 @@ import UIKit
 protocol AddNewProductDisplayLogic: class {
 	func displayResponse(viewModel: AddNewProduct.SaveProduct.ViewModel.Response)
     func displayMeasureResponse(viewModel: AddNewProduct.GetMeasure.ViewModel.Measure)
-	func dismissAfterAddProductItem()
+	func productItemReceived()
 }
 
 class AddNewProductViewController: SaarahViewController, AddNewProductDisplayLogic {
@@ -83,8 +83,8 @@ class AddNewProductViewController: SaarahViewController, AddNewProductDisplayLog
         cell.textField.text = viewModel.name
     }
 
-	func dismissAfterAddProductItem() {
-		router?.dismissParentViewController()
+	func productItemReceived() {
+		router?.dismissPresentedViewController()
 	}
 }
 

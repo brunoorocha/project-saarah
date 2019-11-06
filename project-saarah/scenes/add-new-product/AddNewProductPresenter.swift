@@ -11,7 +11,7 @@ import Foundation
 protocol AddNewProductPresentationLogic {
     func presentSaveProductResponse(response: AddNewProduct.SaveProduct.Response)
     func presentGetMeasureResponse(response: AddNewProduct.GetMeasure.Response)
-	func dismissAfterAddProductItem()
+	func productItemReceived()
 }
 
 class AddNewProductPresenter: AddNewProductPresentationLogic {
@@ -35,7 +35,7 @@ class AddNewProductPresenter: AddNewProductPresentationLogic {
         viewController?.displayMeasureResponse(viewModel: viewModel)
     }
 
-	func dismissAfterAddProductItem() {
-		viewController?.dismissAfterAddProductItem()
+	func productItemReceived() {
+		viewController?.productItemReceived()
 	}
 }

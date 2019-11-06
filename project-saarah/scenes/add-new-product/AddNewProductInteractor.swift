@@ -30,7 +30,7 @@ class AddNewProductInteractor: AddNewProductBusinessLogic, AddNewProductDataStor
     }
 	var productItem: ProductLog? {
 		didSet {
-			self.presenter?.dismissAfterAddProductItem()
+			self.presenter?.productItemReceived()
 		}
 	}
 
