@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SettingsRoutingLogic {
-	//func routeToSomewhere()
+	func routeToLoginScene()
 }
 
 protocol SettingsDataPassing {
@@ -19,4 +19,8 @@ protocol SettingsDataPassing {
 class SettingsRouter: NSObject, SettingsRoutingLogic, SettingsDataPassing {
 	weak var viewController: SettingsViewController?
 	var dataStore: SettingsDataStore?
+
+    func routeToLoginScene() {
+        // TODO: Call login view controller
+    }
 }

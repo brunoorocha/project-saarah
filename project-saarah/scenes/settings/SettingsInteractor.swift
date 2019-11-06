@@ -9,19 +9,16 @@
 import UIKit
 
 protocol SettingsBusinessLogic {
-	func doSomething(request: Settings.Something.Request)
+	func doLogOut(request: Settings.Logout.Request)
 }
 
-protocol SettingsDataStore {
-	//var name: String { get set }
-}
+protocol SettingsDataStore {}
 
 class SettingsInteractor: SettingsBusinessLogic, SettingsDataStore {
 	var presenter: SettingsPresentationLogic?
 
-	// MARK: Do something
-	func doSomething(request: Settings.Something.Request) {
-		let response = Settings.Something.Response()
-		presenter?.presentSomething(response: response)
-	}
+    func doLogOut(request: Settings.Logout.Request) {
+        let response = Settings.Logout.Response()
+        presenter?.presentLogOutSuccessMessage(response: response)
+    }
 }

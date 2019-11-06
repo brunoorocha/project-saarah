@@ -9,13 +9,13 @@
 import UIKit
 
 protocol SettingsPresentationLogic {
-	func presentSomething(response: Settings.Something.Response)
+	func presentLogOutSuccessMessage(response: Settings.Logout.Response)
 }
 
 class SettingsPresenter: SettingsPresentationLogic {
 	weak var viewController: SettingsDisplayLogic?
 
-	// MARK: Do something
-	func presentSomething(response: Settings.Something.Response) {
-	}
+    func presentLogOutSuccessMessage(response: Settings.Logout.Response) {
+        viewController?.displayLogOutSuccessMessage(viewModel: Settings.Logout.ViewModel())
+    }
 }

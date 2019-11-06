@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SettingsDisplayLogic: class {
-	func displaySomething(viewModel: Settings.Something.ViewModel)
+	func displayLogOutSuccessMessage(viewModel: Settings.Logout.ViewModel)
 }
 
 class SettingsViewController: SaarahViewController, SettingsDisplayLogic {
@@ -25,7 +25,6 @@ class SettingsViewController: SaarahViewController, SettingsDisplayLogic {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupContentView()
-		doSomething()
 	}
 
     // MARK: Init
@@ -46,18 +45,26 @@ class SettingsViewController: SaarahViewController, SettingsDisplayLogic {
         contentView.tableView.delegate = self
 	}
 
-	// MARK: Do something
-	func doSomething() {
-		let request = Settings.Something.Request()
-		interactor?.doSomething(request: request)
-	}
+    private func doLogOut() {
+        let logOutRequest = Settings.Logout.Request()
+        interactor?.doLogOut(request: logOutRequest)
+    }
 
-	func displaySomething(viewModel: Settings.Something.ViewModel) {
-	}
+    func displayLogOutSuccessMessage(viewModel: Settings.Logout.ViewModel) {
+        print("Log out")
+    }
 }
 
 extension SettingsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return settingsTableViewDataSource.viewForHeader(in: section)
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let section = settingsTableViewDataSource.tableViewSections[indexPath.section]
+        switch section {
+        case .logout:
+            doLogOut()
+        }
     }
 }
