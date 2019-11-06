@@ -133,6 +133,7 @@
 		A3859A572359FC8B003E4B1B /* ApiHomeNotificationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3859A562359FC8B003E4B1B /* ApiHomeNotificationStore.swift */; };
 		A3859A59235A0263003E4B1B /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3859A58235A0263003E4B1B /* Endpoint.swift */; };
 		A3859A5B235A0279003E4B1B /* ConeheadApiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3859A5A235A0279003E4B1B /* ConeheadApiEndpoint.swift */; };
+		A3A408E12372F38000682D0E /* UIViewController+PresentConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A408E02372F38000682D0E /* UIViewController+PresentConfirmation.swift */; };
 		A3A4599023606B9D000A765F /* SkelectonLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A4598F23606B9D000A765F /* SkelectonLoadingView.swift */; };
 		A3A4599223607100000A765F /* DefaultCellSkelectonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A4599123607100000A765F /* DefaultCellSkelectonTableViewCell.swift */; };
 		A3A459942360746C000A765F /* ListInventoryTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A459932360746C000A765F /* ListInventoryTableViewDataSource.swift */; };
@@ -284,6 +285,7 @@
 		A3859A562359FC8B003E4B1B /* ApiHomeNotificationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiHomeNotificationStore.swift; sourceTree = "<group>"; };
 		A3859A58235A0263003E4B1B /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		A3859A5A235A0279003E4B1B /* ConeheadApiEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConeheadApiEndpoint.swift; sourceTree = "<group>"; };
+		A3A408E02372F38000682D0E /* UIViewController+PresentConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+PresentConfirmation.swift"; sourceTree = "<group>"; };
 		A3A4598F23606B9D000A765F /* SkelectonLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkelectonLoadingView.swift; sourceTree = "<group>"; };
 		A3A4599123607100000A765F /* DefaultCellSkelectonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCellSkelectonTableViewCell.swift; sourceTree = "<group>"; };
 		A3A459932360746C000A765F /* ListInventoryTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInventoryTableViewDataSource.swift; sourceTree = "<group>"; };
@@ -505,6 +507,7 @@
 				1B5378822359881B007C819D /* Double+RoundToDecimal.swift */,
 				1B537884235988A8007C819D /* Date+Formatter.swift */,
 				48DC47642361D6E7005EE6BC /* UIViewController+PresentAlert.swift */,
+				A3A408E02372F38000682D0E /* UIViewController+PresentConfirmation.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -875,6 +878,7 @@
 				A32D8155233F9028008DB50F /* HomeMenuModels.swift in Sources */,
 				A3A4599023606B9D000A765F /* SkelectonLoadingView.swift in Sources */,
 				A32D814B233F6A03008DB50F /* HomeCardCollectionViewCell.swift in Sources */,
+				A3A408E12372F38000682D0E /* UIViewController+PresentConfirmation.swift in Sources */,
 				1B7D018F234CD3CD003B365D /* MockProduct.swift in Sources */,
 				48F28F0923593987005CCF56 /* AddProductItemTableViewDataSource.swift in Sources */,
 				484848B52354EEA200A84FB0 /* AddNewProductBuilder.swift in Sources */,

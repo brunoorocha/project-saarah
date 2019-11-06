@@ -51,7 +51,21 @@ class SettingsViewController: SaarahViewController, SettingsDisplayLogic {
     }
 
     func displayLogOutSuccessMessage(viewModel: Settings.Logout.ViewModel) {
-        print("Log out")
+        goToLoginScene()
+        print("Log Out")
+    }
+
+    private func showConfirmationModalForLogout () {
+        let confirmAction = UIAlertAction(title: "Log Out", style: .destructive) { [weak self] _ in
+            self?.doLogOut()
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+
+        presentConfirmationModal(with: "Confirmation", message: "Do you really want to log out from application?", actions: [confirmAction, cancelAction])
+    }
+
+    private func goToLoginScene() {
+        router?.routeToLoginScene()
     }
 }
 
@@ -64,7 +78,7 @@ extension SettingsViewController: UITableViewDelegate {
         let section = settingsTableViewDataSource.tableViewSections[indexPath.section]
         switch section {
         case .logout:
-            doLogOut()
+            showConfirmationModalForLogout()
         }
     }
 }
