@@ -93,9 +93,14 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 			return
 		}
 		
-//		let itemForm = AddProductItem.AddItemForm(quantity: quantity, price: price, expirationDate: expiration)
-//		let request = AddProductItem.AddItem.Request(addItemForm: itemForm)
-//		interactor?.addProductItem(request: request)
+		if (password.count < 6) {
+			presentAlertModal("\(Localization(.createAccountScene(.errorFormAlertTitle)))", "\(Localization(.createAccountScene(.errorFormPasswordSize)))", "\(Localization(.createAccountScene(.errorFormActionTitle)))")
+			return
+		}
+		
+		let signUpForm = CreateAccount.SignUpForm(name: name, email: email, password: password, confirmPassword: confirmPassword)
+		let request = CreateAccount.SignUp.Request(signUpForm: signUpForm)
+		interactor?.signUp(request: request)
 	}
 	
 	func validateName() -> String? {
