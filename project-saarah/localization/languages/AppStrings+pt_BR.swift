@@ -221,6 +221,8 @@ extension AppStrings {
 				return "O campo confirmar senha é obrigatório"
 			case .errorFormPasswordsDontMatchMessage:
 				return "As senhas devem ser iguais!"
+			case .errorFormPasswordSize:
+				return "A senha deve conter pelo menos 6 caracteres!"
 			case .errorSignUpTitle:
 				return "Falha ao cadastrar"
 			case .errorSignUpMessage:

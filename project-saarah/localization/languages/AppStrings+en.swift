@@ -214,6 +214,8 @@ extension AppStrings {
 				return "The confirm password field must be filled out!"
 			case .errorFormPasswordsDontMatchMessage:
 				return "The passwords dont match!"
+			case .errorFormPasswordSize:
+				return "The password must contain at least 6 characters!"
 			case .errorSignUpTitle:
 				return "Sign up error"
 			case .errorSignUpMessage:
