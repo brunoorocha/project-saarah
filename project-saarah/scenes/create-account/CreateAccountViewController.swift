@@ -59,7 +59,7 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 	func displaySignUpResponse(viewModel: CreateAccount.SignUp.ViewModel.SignUpViewModel) {
 		isCreatingAccount = false
 		if (viewModel.success) {
-			router?.routeToOnboarding()
+			router?.routeToHome()
 		} else {
 			presentAlertModal("\(Localization(.createAccountScene(.errorSignUpTitle)))", "\(Localization(.createAccountScene(.errorSignUpMessage)))", "\(Localization(.createAccountScene(.errorFormActionTitle)))")
 		}

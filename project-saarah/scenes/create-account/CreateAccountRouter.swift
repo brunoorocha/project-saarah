@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CreateAccountRoutingLogic {
-	func routeToOnboarding()
+	func routeToHome()
 }
 
 protocol CreateAccountDataPassing {
@@ -21,24 +21,19 @@ class CreateAccountRouter: NSObject, CreateAccountRoutingLogic, CreateAccountDat
 	var dataStore: CreateAccountDataStore?
 
 	// MARK: Routing
-	func routeToOnboarding() {
-//		let destinationVC = SomewhereViewController()
-//		guard var destinationDataStore = destinationVC.router?.dataStore else { return }
-//
-//		guard let dataStore = dataStore else { return }
-//		guard let viewController = viewController else { return }
-//
-//		passDataToSomewhere(source: dataStore, destination: &destinationDataStore)
-//		navigateToSomewhere(source: viewController, destination: destinationVC)
+	func routeToHome() {
+		let destinationVC = HomeViewController()
+		guard let viewController = viewController else { return }
+		navigateToHome(source: viewController, destination: destinationVC)
 	}
-//
-//	// MARK: Passing data
-//	func passDataToSomewhere(source: CreateAccountDataStore, destination: inout SomewhereDataStore) {
-//		destination.name = source.name
-//	}
-//
-//	// MARK: Navigation
-//	func navigateToSomewhere(source: CreateAccountViewController, destination: SomewhereViewController) {
-//		source.show(destination, sender: nil)
-//	}
+
+	// MARK: Passing data
+
+	// MARK: Navigation
+	func navigateToHome(source: CreateAccountViewController, destination: HomeViewController) {
+		guard let navigationController = source.navigationController else { return }
+		navigationController.popToRootViewController(animated: true)
+		navigationController.show(destination, sender: nil)
+		navigationController.viewControllers.removeAll(where: { !($0 is HomeViewController) })
+	}
 }
