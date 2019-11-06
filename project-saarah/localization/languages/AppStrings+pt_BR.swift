@@ -181,6 +181,11 @@ extension AppStrings {
             case .paragraph:
                 return "mas nós ainda estamos em \nconstrução"
             }
+        case .settingsScene(let options):
+            switch options {
+            case .logoutText:
+                return "Sair"
+            }
         }
     }
 }

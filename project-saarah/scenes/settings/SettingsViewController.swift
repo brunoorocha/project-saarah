@@ -41,6 +41,7 @@ class SettingsViewController: SaarahViewController, SettingsDisplayLogic {
 	func setupContentView() {
 		title = "\(Localization(.homeMenuOptionTitle(.settings)))"
 		view = contentView
+        settingsTableViewDataSource.registerCells(for: contentView.tableView)
         contentView.tableView.dataSource = settingsTableViewDataSource
 	}
 

@@ -25,6 +25,7 @@ enum AppStrings {
     case productItemScene(ProductItemScene)
 	case addProductItemScene(AddProductItemScene)
     case underConstruction(UnderConstruction)
+    case settingsScene(SettingsScene)
 
     // MARK: Enum's
 
@@ -133,5 +134,9 @@ enum AppStrings {
     enum UnderConstruction {
         case title
         case paragraph
+    }
+    
+    enum SettingsScene {
+        case logoutText
     }
 }

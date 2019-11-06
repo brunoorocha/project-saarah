@@ -174,6 +174,11 @@ extension AppStrings {
                     return "The expiration date aren't filled correctly."
                 }
             }
+        case .settingsScene(let options):
+            switch options {
+            case .logoutText:
+                return "Log out"
+            }
         default:
             return nil
         }
