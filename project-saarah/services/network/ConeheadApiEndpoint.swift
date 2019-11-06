@@ -47,7 +47,7 @@ extension ConeheadApiEndpoint: EndpointType {
 			return .get
         case .addProduct:
             return .post
-		case .signUp:
+        case .signUp:
 			return .post
         }
     }
@@ -66,7 +66,7 @@ extension ConeheadApiEndpoint: EndpointType {
 			return apiAddress + "/products/" + productId + "/items"
         case .addProduct:
             return apiAddress + "products"
-		case .signUp:
+        case .signUp:
 			return apiAddress + "accounts"
         }
     }
@@ -89,7 +89,7 @@ extension ConeheadApiEndpoint: EndpointType {
                 path.append("&barcode=\(barcode)")
             }
             return path
-		case .signUp(let parameters):
+        case .signUp(let parameters):
 			let path = "name=\(parameters.name)&email=\(parameters.email)&password=\(parameters.password)&passwordConfirmation=\(parameters.confirmPassword)"
 			return path
 		}
