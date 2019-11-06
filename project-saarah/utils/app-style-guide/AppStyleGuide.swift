@@ -103,6 +103,8 @@ enum AppStyleGuide {
 
     // MARK: Icons
     enum Icons {
+        case onboardingControl
+        case onboardingMenu
         case activityArrowUp
         case chevronRight
         case check
@@ -115,6 +117,10 @@ enum AppStyleGuide {
 
         var uiImage: UIImage? {
             switch self {
+            case .onboardingControl:
+                return UIImage(named: "onboarding-control")
+            case .onboardingMenu:
+                return UIImage(named: "onboarding-menu")
             case .activityArrowUp:
                 return UIImage(named: "activity-arrow-up")
             case .chevronRight:
