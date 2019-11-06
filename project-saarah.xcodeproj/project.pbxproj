@@ -45,6 +45,7 @@
 		1B766361234B86740069D581 /* ListInventoryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B766360234B86740069D581 /* ListInventoryBuilder.swift */; };
 		1B7D018F234CD3CD003B365D /* MockProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7D018E234CD3CD003B365D /* MockProduct.swift */; };
 		1B7D0192234CD3F6003B365D /* ProductWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7D0191234CD3F6003B365D /* ProductWorker.swift */; };
+		4800F0C52372E7E10048F34D /* UserDefaults+Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4800F0C42372E7E10048F34D /* UserDefaults+Token.swift */; };
 		4818E1372322AFC500EFF585 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A343CF4723180C31005F2210 /* AppDelegate.swift */; };
 		481ECD6D2357E97600E3CA18 /* AddNewProductTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481ECD6C2357E97600E3CA18 /* AddNewProductTableViewDataSource.swift */; };
 		48244F5723478303007B4AA7 /* ProductDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48244F5123478302007B4AA7 /* ProductDetailPresenter.swift */; };
@@ -61,6 +62,18 @@
 		484848B52354EEA200A84FB0 /* AddNewProductBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484848AE2354EEA200A84FB0 /* AddNewProductBuilder.swift */; };
 		484848B62354EEA200A84FB0 /* AddNewProductInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484848AF2354EEA200A84FB0 /* AddNewProductInteractor.swift */; };
 		484848B72354EEA200A84FB0 /* AddNewProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484848B02354EEA200A84FB0 /* AddNewProductView.swift */; };
+		484912172371A2E600AF0779 /* String+ValidEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484912162371A2E600AF0779 /* String+ValidEmail.swift */; };
+		484912192371B55300AF0779 /* AccountWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484912182371B55200AF0779 /* AccountWorker.swift */; };
+		4849121C2371B91F00AF0779 /* ApiAccountStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4849121B2371B91F00AF0779 /* ApiAccountStore.swift */; };
+		4853486E2372099D006E5CAE /* SignUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4853486D2372099D006E5CAE /* SignUpResponse.swift */; };
+		486CD3BF237069C300FB0610 /* CreateAccountPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CD3B8237069C300FB0610 /* CreateAccountPresenter.swift */; };
+		486CD3C0237069C300FB0610 /* CreateAccountRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CD3B9237069C300FB0610 /* CreateAccountRouter.swift */; };
+		486CD3C1237069C300FB0610 /* CreateAccountModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CD3BA237069C300FB0610 /* CreateAccountModels.swift */; };
+		486CD3C2237069C300FB0610 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CD3BB237069C300FB0610 /* CreateAccountViewController.swift */; };
+		486CD3C3237069C300FB0610 /* CreateAccountBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CD3BC237069C300FB0610 /* CreateAccountBuilder.swift */; };
+		486CD3C4237069C300FB0610 /* CreateAccountInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CD3BD237069C300FB0610 /* CreateAccountInteractor.swift */; };
+		486CD3C5237069C300FB0610 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CD3BE237069C300FB0610 /* CreateAccountView.swift */; };
+		486CD3C723706A0200FB0610 /* CreateAccountTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CD3C623706A0200FB0610 /* CreateAccountTableViewDataSource.swift */; };
 		487B9B252331193900D8D6CC /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487B9B242331193900D8D6CC /* Product.swift */; };
 		487B9B2723311BC900D8D6CC /* ProductLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487B9B2623311BC900D8D6CC /* ProductLog.swift */; };
 		487B9B2923311C8F00D8D6CC /* LogType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487B9B2823311C8F00D8D6CC /* LogType.swift */; };
@@ -189,6 +202,7 @@
 		1B7D018E234CD3CD003B365D /* MockProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProduct.swift; sourceTree = "<group>"; };
 		1B7D0191234CD3F6003B365D /* ProductWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductWorker.swift; sourceTree = "<group>"; };
 		1BBA19B1231FF4D300116004 /* FileManager+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Image.swift"; sourceTree = "<group>"; };
+		4800F0C42372E7E10048F34D /* UserDefaults+Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Token.swift"; sourceTree = "<group>"; };
 		481ECD6C2357E97600E3CA18 /* AddNewProductTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewProductTableViewDataSource.swift; sourceTree = "<group>"; };
 		48244F5123478302007B4AA7 /* ProductDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailPresenter.swift; sourceTree = "<group>"; };
 		48244F5223478302007B4AA7 /* ProductDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailRouter.swift; sourceTree = "<group>"; };
@@ -205,6 +219,18 @@
 		484848AE2354EEA200A84FB0 /* AddNewProductBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewProductBuilder.swift; sourceTree = "<group>"; };
 		484848AF2354EEA200A84FB0 /* AddNewProductInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewProductInteractor.swift; sourceTree = "<group>"; };
 		484848B02354EEA200A84FB0 /* AddNewProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewProductView.swift; sourceTree = "<group>"; };
+		484912162371A2E600AF0779 /* String+ValidEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ValidEmail.swift"; sourceTree = "<group>"; };
+		484912182371B55200AF0779 /* AccountWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountWorker.swift; sourceTree = "<group>"; };
+		4849121B2371B91F00AF0779 /* ApiAccountStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiAccountStore.swift; sourceTree = "<group>"; };
+		4853486D2372099D006E5CAE /* SignUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponse.swift; sourceTree = "<group>"; };
+		486CD3B8237069C300FB0610 /* CreateAccountPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountPresenter.swift; sourceTree = "<group>"; };
+		486CD3B9237069C300FB0610 /* CreateAccountRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountRouter.swift; sourceTree = "<group>"; };
+		486CD3BA237069C300FB0610 /* CreateAccountModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountModels.swift; sourceTree = "<group>"; };
+		486CD3BB237069C300FB0610 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		486CD3BC237069C300FB0610 /* CreateAccountBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountBuilder.swift; sourceTree = "<group>"; };
+		486CD3BD237069C300FB0610 /* CreateAccountInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountInteractor.swift; sourceTree = "<group>"; };
+		486CD3BE237069C300FB0610 /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
+		486CD3C623706A0200FB0610 /* CreateAccountTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountTableViewDataSource.swift; sourceTree = "<group>"; };
 		487B9B242331193900D8D6CC /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		487B9B2623311BC900D8D6CC /* ProductLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductLog.swift; sourceTree = "<group>"; };
 		487B9B2823311C8F00D8D6CC /* LogType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogType.swift; sourceTree = "<group>"; };
@@ -365,6 +391,7 @@
 		1B4F4178231DF83400EB1F13 /* services */ = {
 			isa = PBXGroup;
 			children = (
+				4849121A2371B70100AF0779 /* account-service */,
 				48F28F28236076B1005CCF56 /* product-item-service */,
 				A3DBCF242361CCDC0044D43F /* measure-service */,
 				A3A79733235B3AE300B5724F /* product-service */,
@@ -397,6 +424,7 @@
 				1B2DB9C22357C8DB00AF6D80 /* MeasureWorker.swift */,
 				1B4DFA81235981A9002C2B55 /* ProductItemWorker.swift */,
 				A3A79736235B3BBC00B5724F /* HomeNotificationWorker.swift */,
+				484912182371B55200AF0779 /* AccountWorker.swift */,
 			);
 			path = workers;
 			sourceTree = "<group>";
@@ -442,6 +470,29 @@
 				481ECD6C2357E97600E3CA18 /* AddNewProductTableViewDataSource.swift */,
 			);
 			path = "add-new-product";
+			sourceTree = "<group>";
+		};
+		4849121A2371B70100AF0779 /* account-service */ = {
+			isa = PBXGroup;
+			children = (
+				4849121B2371B91F00AF0779 /* ApiAccountStore.swift */,
+			);
+			path = "account-service";
+			sourceTree = "<group>";
+		};
+		486CD3B72370697F00FB0610 /* create-account */ = {
+			isa = PBXGroup;
+			children = (
+				486CD3BB237069C300FB0610 /* CreateAccountViewController.swift */,
+				486CD3BC237069C300FB0610 /* CreateAccountBuilder.swift */,
+				486CD3BE237069C300FB0610 /* CreateAccountView.swift */,
+				486CD3BD237069C300FB0610 /* CreateAccountInteractor.swift */,
+				486CD3B8237069C300FB0610 /* CreateAccountPresenter.swift */,
+				486CD3BA237069C300FB0610 /* CreateAccountModels.swift */,
+				486CD3B9237069C300FB0610 /* CreateAccountRouter.swift */,
+				486CD3C623706A0200FB0610 /* CreateAccountTableViewDataSource.swift */,
+			);
+			path = "create-account";
 			sourceTree = "<group>";
 		};
 		48ED6BD2231D3D9C00A792DF /* views */ = {
@@ -493,6 +544,8 @@
 				1B5378822359881B007C819D /* Double+RoundToDecimal.swift */,
 				1B537884235988A8007C819D /* Date+Formatter.swift */,
 				48DC47642361D6E7005EE6BC /* UIViewController+PresentAlert.swift */,
+				484912162371A2E600AF0779 /* String+ValidEmail.swift */,
+				4800F0C42372E7E10048F34D /* UserDefaults+Token.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -583,6 +636,7 @@
 				487B9B36233122C400D8D6CC /* Menu.swift */,
 				A3522D682341200A00DB1314 /* HomeNotification.swift */,
 				48F28F1F235E974A005CCF56 /* Response.swift */,
+				4853486D2372099D006E5CAE /* SignUpResponse.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -597,6 +651,7 @@
 				1B4DFA7023595B47002C2B55 /* product-item */,
 				1B2DB9B02357AE1C00AF6D80 /* select-product-measurement */,
 				48F28EF9235932CE005CCF56 /* add-product-item */,
+				486CD3B72370697F00FB0610 /* create-account */,
 			);
 			path = scenes;
 			sourceTree = "<group>";
@@ -810,6 +865,8 @@
 				481ECD6D2357E97600E3CA18 /* AddNewProductTableViewDataSource.swift in Sources */,
 				A3D2D0D52340E91100432214 /* HomeInteractor.swift in Sources */,
 				A3D2D0D22340E91100432214 /* HomeRouter.swift in Sources */,
+				4800F0C52372E7E10048F34D /* UserDefaults+Token.swift in Sources */,
+				4849121C2371B91F00AF0779 /* ApiAccountStore.swift in Sources */,
 				A32D814D233F6FE0008DB50F /* HomeMenuCollectionView.swift in Sources */,
 				48244F5E23479187007B4AA7 /* ProductDetailTableViewDataSource.swift in Sources */,
 				A3859A59235A0263003E4B1B /* Endpoint.swift in Sources */,
@@ -823,6 +880,7 @@
 				A3AACBC82340C946000EFB6B /* SaarahViewController.swift in Sources */,
 				48244F5C23478303007B4AA7 /* ProductDetailView.swift in Sources */,
 				A3522D722341882300DB1314 /* SaarahTableViewSeparator.swift in Sources */,
+				486CD3C1237069C300FB0610 /* CreateAccountModels.swift in Sources */,
 				48F28F03235932EE005CCF56 /* AddProductItemModels.swift in Sources */,
 				1B537887235A224A007C819D /* LabeledTableViewCell.swift in Sources */,
 				487B9B2B23311D2100D8D6CC /* Measure.swift in Sources */,
@@ -832,6 +890,8 @@
 				1B2DB9C32357C8DB00AF6D80 /* MeasureWorker.swift in Sources */,
 				48244F5A23478303007B4AA7 /* ProductDetailViewController.swift in Sources */,
 				487B9B252331193900D8D6CC /* Product.swift in Sources */,
+				486CD3C3237069C300FB0610 /* CreateAccountBuilder.swift in Sources */,
+				486CD3C0237069C300FB0610 /* CreateAccountRouter.swift in Sources */,
 				1B2DB9C12357C7A300AF6D80 /* MockMeasure.swift in Sources */,
 				1B4DFA842359824A002C2B55 /* MockProductItem.swift in Sources */,
 				A3A459942360746C000A765F /* ListInventoryTableViewDataSource.swift in Sources */,
@@ -839,6 +899,7 @@
 				1B4DFA82235981A9002C2B55 /* ProductItemWorker.swift in Sources */,
 				4818E1372322AFC500EFF585 /* AppDelegate.swift in Sources */,
 				A3C63043235DCEB30024F683 /* HomeTableViewDataSource.swift in Sources */,
+				486CD3C5237069C300FB0610 /* CreateAccountView.swift in Sources */,
 				1B4DFA7823595B6E002C2B55 /* ProductItemPresenter.swift in Sources */,
 				1B2DB9BD2357AE2E00AF6D80 /* SelectProductMeasurementInteractor.swift in Sources */,
 				A3C63047235DF6110024F683 /* HomeMenuCollectionViewDataSource.swift in Sources */,
@@ -869,13 +930,16 @@
 				A378089C233BA853005B26E8 /* ParagraphLabel.swift in Sources */,
 				1B76635123478E640069D581 /* ListInventoryPresenter.swift in Sources */,
 				A37808A6233BDD6C005B26E8 /* SaarahImageView.swift in Sources */,
+				486CD3C4237069C300FB0610 /* CreateAccountInteractor.swift in Sources */,
 				484848B72354EEA200A84FB0 /* AddNewProductView.swift in Sources */,
 				A3780890233B9CEE005B26E8 /* SaarahTableViewCell.swift in Sources */,
 				1B766361234B86740069D581 /* ListInventoryBuilder.swift in Sources */,
 				A32244F4235E8AE700375793 /* UnderConstructionViewController.swift in Sources */,
 				A304F940233CD9EA00C3B6F7 /* CaptionBoldLabel.swift in Sources */,
+				484912192371B55300AF0779 /* AccountWorker.swift in Sources */,
 				1B4DFA7E23595B6E002C2B55 /* ProductItemView.swift in Sources */,
 				A304F944233CDB3300C3B6F7 /* CaptionButton.swift in Sources */,
+				4853486E2372099D006E5CAE /* SignUpResponse.swift in Sources */,
 				A3780875233B8ECA005B26E8 /* AppStyleGuide.swift in Sources */,
 				48DC47652361D6E7005EE6BC /* UIViewController+PresentAlert.swift in Sources */,
 				487B9B2923311C8F00D8D6CC /* LogType.swift in Sources */,
@@ -898,6 +962,8 @@
 				1B76635523478E640069D581 /* ListInventoryInteractor.swift in Sources */,
 				A304F93C233CD90B00C3B6F7 /* DefaultSectionHeaderView.swift in Sources */,
 				1B2DB9BC2357AE2E00AF6D80 /* SelectProductMeasurementBuilder.swift in Sources */,
+				486CD3C2237069C300FB0610 /* CreateAccountViewController.swift in Sources */,
+				486CD3C723706A0200FB0610 /* CreateAccountTableViewDataSource.swift in Sources */,
 				A304F948233CE74500C3B6F7 /* EmptySectionHeaderView.swift in Sources */,
 				A3780889233B988A005B26E8 /* Heading1Label.swift in Sources */,
 				A304F953233E4AD400C3B6F7 /* SaarahTableView.swift in Sources */,
@@ -905,6 +971,7 @@
 				1B76635423478E640069D581 /* ListInventoryViewController.swift in Sources */,
 				484848B12354EEA200A84FB0 /* AddNewProductPresenter.swift in Sources */,
 				A3780898233BA771005B26E8 /* Heading3Label.swift in Sources */,
+				484912172371A2E600AF0779 /* String+ValidEmail.swift in Sources */,
 				A3D2D0D02340E91100432214 /* HomePresenter.swift in Sources */,
 				48F28F2723606C23005CCF56 /* DateFormat.swift in Sources */,
 				1B0D66EF2369B5830018DF25 /* GreetingSectionHeaderView.swift in Sources */,
@@ -924,6 +991,7 @@
 				1B15E0CF2354A3970047A0B6 /* AppStrings+pt_BR.swift in Sources */,
 				1B2DB9BB2357AE2E00AF6D80 /* SelectProductMeasurementViewController.swift in Sources */,
 				48F28F06235932EE005CCF56 /* AddProductItemInteractor.swift in Sources */,
+				486CD3BF237069C300FB0610 /* CreateAccountPresenter.swift in Sources */,
 				4C94BAD8233B9086008D62F5 /* UIView.swift in Sources */,
 				1B4DFA8023596056002C2B55 /* ProductItemTableViewDataSource.swift in Sources */,
 				A3D2D0D42340E91100432214 /* HomeViewController.swift in Sources */,
