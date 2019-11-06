@@ -13,24 +13,26 @@ protocol CreateAccountBusinessLogic {
 }
 
 protocol CreateAccountDataStore {
-	var signUp: SignUpResponse? { get set }
+	var signUpResponse: SignUpResponse? { get set }
 }
 
 class CreateAccountInteractor: CreateAccountBusinessLogic, CreateAccountDataStore {
 	var presenter: CreateAccountPresentationLogic?
 	var accountWorker = AccountWorker(accountService: ApiAccountStore())
 	
-	var signUp: SignUpResponse?
+	var signUpResponse: SignUpResponse?
 
 	// MARK: Do something
 	func signUp(request: CreateAccount.SignUp.Request) {
 		accountWorker.signUp(name: request.signUpForm.name, email: request.signUpForm.email, password: request.signUpForm.password, confirmPassword: request.signUpForm.confirmPassword) { (result) in
 			switch result {
 			case .success(let response):
-				self.signUp = response
-				self.presenter?.presentSignUpResponse(response: CreateAccount.SignUp.Response(response: response))
+				guard let signUpResponse = response else { return }
+				UserDefaults.save(signUpResponse.token)
+				self.signUpResponse = signUpResponse
+				self.presenter?.presentSignUpResponse(response: CreateAccount.SignUp.Response(response: signUpResponse))
 			case .failure(let error):
-				print(error)
+				self.presenter?.presentSignUpResponse(response: CreateAccount.SignUp.Response(response: nil))
 			}
 		}
 	}
