@@ -12,24 +12,24 @@ class SettingsTableViewDataSource: NSObject {
     var tableViewSections = SettingsTableViewSections.allCases
 
     enum SettingsTableViewSections: Int, CaseIterable {
-        case loggout = 0
+        case logout = 0
 
         var reusableIdentifier: String {
             switch self {
-            case .loggout:
+            case .logout:
                 return "DefaultCellTableViewCell"
             }
         }
     }
 
     func registerCells (for tableView: UITableView) {
-        tableView.register(DefaultCellTableViewCell.self, forCellReuseIdentifier: SettingsTableViewSections.loggout.reusableIdentifier)
+        tableView.register(DefaultCellTableViewCell.self, forCellReuseIdentifier: SettingsTableViewSections.logout.reusableIdentifier)
     }
 
     func numberOfRows (in section: Int) -> Int {
         guard let section = SettingsTableViewSections(rawValue: section) else { return 0 }
         switch section {
-        case .loggout:
+        case .logout:
             return 1
         }
     }
@@ -41,11 +41,20 @@ class SettingsTableViewDataSource: NSObject {
     private func defaultCell (for tableView: UITableView, in indexPath: IndexPath) -> UITableViewCell {
         guard let section = SettingsTableViewSections(rawValue: indexPath.section) else { return UITableViewCell() }
         switch section {
-        case .loggout:
+        case .logout:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: section.reusableIdentifier, for: indexPath) as? DefaultCellTableViewCell else { return UITableViewCell() }
             cell.label.text = Localization(.settingsScene(.logoutText)).description
+            cell.label.textColor = AppStyleGuide.Colors.red.uiColor
             cell.roundCellIfNeeded(index: indexPath.row, numberOfCells: numberOfRows(in: indexPath.section))
             return cell
+        }
+    }
+
+    func viewForHeader(in section: Int) -> UIView? {
+        guard let section = SettingsTableViewSections(rawValue: section) else { return nil }
+        switch section {
+        case .logout:
+            return DefaultSectionHeaderView()
         }
     }
 }

@@ -43,6 +43,7 @@ class SettingsViewController: SaarahViewController, SettingsDisplayLogic {
 		view = contentView
         settingsTableViewDataSource.registerCells(for: contentView.tableView)
         contentView.tableView.dataSource = settingsTableViewDataSource
+        contentView.tableView.delegate = self
 	}
 
 	// MARK: Do something
@@ -53,4 +54,10 @@ class SettingsViewController: SaarahViewController, SettingsDisplayLogic {
 
 	func displaySomething(viewModel: Settings.Something.ViewModel) {
 	}
+}
+
+extension SettingsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return settingsTableViewDataSource.viewForHeader(in: section)
+    }
 }
