@@ -10,14 +10,15 @@ import Foundation
 
 enum Login {
 	// MARK: Use cases
-    enum SignIn {
+    enum LogIn {
         struct Request {
             let form: Form
         }
         struct Response {
+            let response: SessionResponse?
         }
         struct ViewModel {
-            struct SignInViewModel {
+            struct LoginViewModel {
                 let success: Bool
             }
         }

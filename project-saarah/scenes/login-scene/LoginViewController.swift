@@ -9,7 +9,7 @@
 import UIKit
 
 protocol LoginDisplayLogic: class {
-    func displaySignInResponse(viewModel: Login.SignIn.ViewModel.SignInViewModel)
+    func displaySignInResponse(viewModel: Login.LogIn.ViewModel.LoginViewModel)
 }
 
 protocol TappedButtonLoginDelegate: class {
@@ -87,7 +87,7 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
         loginTableViewDataSource.delegate = self
 	}
 
-    func displaySignInResponse(viewModel: Login.SignIn.ViewModel.SignInViewModel) {
+    func displaySignInResponse(viewModel: Login.LogIn.ViewModel.LoginViewModel) {
         isLogin = false
         if viewModel.success {
             router?.routeToHome()
@@ -112,9 +112,9 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
             return
         }
         isLogin = true
-        let form = Login.SignIn.Form(email: email, passowrd: password)
-        let request = Login.SignIn.Request(form: form)
-        interactor?.signIn(request: request)
+        let form = Login.LogIn.Form(email: email, passowrd: password)
+        let request = Login.LogIn.Request(form: form)
+        interactor?.logIn(request: request)
     }
 
 }

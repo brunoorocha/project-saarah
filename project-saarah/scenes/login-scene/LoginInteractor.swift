@@ -9,24 +9,32 @@
 import Foundation
 
 protocol LoginBusinessLogic {
-	func doSomething(request: Login.Something.Request)
+    func logIn(request: Login.LogIn.Request)
 }
 
 protocol LoginDataStore {
-	//var name: String { get set }
+	var loginResponse: SessionResponse? { get set }
 }
 
 class LoginInteractor: LoginBusinessLogic, LoginDataStore {
-	var presenter: LoginPresentationLogic?
-//	var worker: LoginWorker?
-	//var name: String = ""
 
-	// MARK: Do something
-	func doSomething(request: Login.Something.Request) {
-//		worker = Worker()
-//		worker?.doSomeWork()
+    var presenter: LoginPresentationLogic?
+    var accountWorker = AccountWorker(accountService: ApiAccountStore())
 
-		let response = Login.Something.Response()
-		presenter?.presentSomething(response: response)
-	}
+    var loginResponse: SessionResponse?
+
+    // MARK: Do something
+    func logIn(request: Login.LogIn.Request) {
+        accountWorker.login(email: request.form.email, password: request.form.passowrd) { (result) in
+            switch result {
+            case .success(let response):
+                guard let loginResponse = response else { return }
+                UserDefaults.save(loginResponse.token)
+                self.loginResponse = loginResponse
+                self.presenter?.presentLoginResponse(response: Login.LogIn.Response(response: loginResponse))
+            case .failure:
+                self.presenter?.presentLoginResponse(response: Login.LogIn.Response(response: nil))
+            }
+        }
+    }
 }

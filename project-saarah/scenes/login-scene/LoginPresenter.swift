@@ -9,15 +9,20 @@
 import Foundation
 
 protocol LoginPresentationLogic {
-	func presentSomething(response: Login.Something.Response)
+	func presentLoginResponse(response: Login.LogIn.Response)
 }
 
 class LoginPresenter: LoginPresentationLogic {
 	weak var viewController: LoginDisplayLogic?
 
 	// MARK: Do something
-	func presentSomething(response: Login.Something.Response) {
-//		let viewModel = Login.Something.ViewModel()
-//		viewController?.displaySomething(viewModel: viewModel)
+	func presentLoginResponse(response: Login.LogIn.Response) {
+        if (response.response != nil) {
+            let viewModel = Login.LogIn.ViewModel.LoginViewModel(success: true)
+            viewController?.displaySignInResponse(viewModel: viewModel)
+        } else {
+            let viewModel = Login.LogIn.ViewModel.LoginViewModel(success: false)
+            viewController?.displaySignInResponse(viewModel: viewModel)
+        }
 	}
 }
