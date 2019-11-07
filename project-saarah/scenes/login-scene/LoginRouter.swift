@@ -10,6 +10,7 @@ import UIKit
 
 protocol LoginRoutingLogic {
 	func routeToSignUp()
+    func routeToHome()
 }
 
 protocol LoginDataPassing {
@@ -28,10 +29,24 @@ class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing {
 		navigateToSignUp(source: viewController, destination: destinationVC)
 	}
 
+    func routeToHome() {
+        let destinationVC = HomeViewController()
+
+        guard let viewController = viewController else { return }
+        navigateToHome(source: viewController, destination: destinationVC)
+    }
+
 	// MARK: Passing data
 
 	// MARK: Navigation
 	func navigateToSignUp(source: LoginViewController, destination: CreateAccountViewController) {
 		source.show(destination, sender: nil)
 	}
+
+    func navigateToHome(source: LoginViewController, destination: HomeViewController) {
+        let navigationController = UINavigationController(rootViewController: destination)
+        if let window = UIApplication.shared.windows.first {
+             window.rootViewController = navigationController
+        }
+    }
 }

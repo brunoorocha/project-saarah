@@ -9,10 +9,10 @@
 import UIKit
 
 protocol LoginDisplayLogic: class {
-	func displaySomething(viewModel: Login.Something.ViewModel)
+    func displaySignInResponse(viewModel: Login.SignIn.ViewModel.SignInViewModel)
 }
 
-protocol TappedButtonToSignUpDelegate: class {
+protocol TappedButtonLoginDelegate: class {
     func tappedButtonToSignUp()
 }
 
@@ -26,6 +26,7 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
     private var loginTableViewDataSource = LoginTableViewDataSource()
 	private var contentView = LoginView()
     private var scrolledIndexPath: IndexPath?
+    private var isLogin: Bool = false
 
 	// MARK: View lifecycle
 	override func viewDidLoad() {
@@ -48,7 +49,6 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
 
     @objc private func keyboardWillShow(notification: NSNotification) {
         if ((notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
-            //self.view.frame.origin.y -= keyboardSize.height
             let userInfo = notification.userInfo!
             guard var keyboardFrame: CGRect = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
             keyboardFrame = self.view.convert(keyboardFrame, from: nil)
@@ -87,14 +87,36 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
         loginTableViewDataSource.delegate = self
 	}
 
-	// MARK: Do something
-	func doSomething() {
-		let request = Login.Something.Request()
-		interactor?.doSomething(request: request)
-	}
+    func displaySignInResponse(viewModel: Login.SignIn.ViewModel.SignInViewModel) {
+        isLogin = false
+        if viewModel.success {
+            router?.routeToHome()
+        } else {
+            presentAlertModal("\(Localization(.createAccountScene(.errorSignUpTitle)))",
+                "\(Localization(.createAccountScene(.errorSignUpMessage)))",
+                "\(Localization(.createAccountScene(.errorFormActionTitle)))")
+        }
+    }
 
-	func displaySomething(viewModel: Login.Something.ViewModel) {
-	}
+    func doLogin() {
+        guard let email = getFieldEmail() else {
+            presentAlertModal("\(Localization(.createAccountScene(.errorFormAlertTitle)))",
+                "\(Localization(.createAccountScene(.errorFormEmailMessage)))",
+                "\(Localization(.createAccountScene(.errorFormActionTitle)))")
+            return
+        }
+        guard let password = getFieldPassword() else {
+            presentAlertModal("\(Localization(.createAccountScene(.errorFormAlertTitle)))",
+                "\(Localization(.createAccountScene(.errorFormPasswordMessage)))",
+                "\(Localization(.createAccountScene(.errorFormActionTitle)))")
+            return
+        }
+        isLogin = true
+        let form = Login.SignIn.Form(email: email, passowrd: password)
+        let request = Login.SignIn.Request(form: form)
+        interactor?.signIn(request: request)
+    }
+
 }
 
 extension LoginViewController: UITableViewDelegate {
@@ -105,10 +127,42 @@ extension LoginViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return loginTableViewDataSource.viewForFooter(in: section)
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if LoginTableViewDataSource.FormPosition.loginButton.indexPath == indexPath
+           && !isLogin {
+            doLogin()
+        }
+    }
 }
 
-extension LoginViewController: TappedButtonToSignUpDelegate {
+extension LoginViewController: TappedButtonLoginDelegate {
     func tappedButtonToSignUp() {
         router?.routeToSignUp()
+    }
+}
+
+// MARK: Get fields values
+extension LoginViewController {
+    func getFieldEmail() -> String? {
+        let indexPath = IndexPath(row: 0, section: 0)
+        guard let cell = contentView.tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell else { return nil }
+        guard let email = cell.textField.text else { return nil }
+
+        if (email.isEmpty) {
+            return nil
+        }
+        return email
+    }
+
+    func getFieldPassword() -> String? {
+        let indexPath = IndexPath(row: 1, section: 0)
+        guard let cell = contentView.tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell else { return nil }
+        guard let password = cell.textField.text else { return nil }
+
+        if (password.isEmpty) {
+            return nil
+        }
+        return password
     }
 }

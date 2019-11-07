@@ -12,7 +12,7 @@ class LoginTableViewDataSource: NSObject {
 
     var tableViewSections = LoginTableViewSections.allCases
 
-    var delegate: TappedButtonToSignUpDelegate?
+    weak var delegate: TappedButtonLoginDelegate?
 
     enum LoginTableViewSections: Int, CaseIterable {
         case login
@@ -31,9 +31,10 @@ class LoginTableViewDataSource: NSObject {
     // Used by controller in keyboard observer
     var selectedIndexPath: IndexPath?
 
-    enum LoginTableViewTextField: String {
+    enum FormPosition: String {
         case mail = "Mail"
         case password = "Password"
+        case loginButton = "Login button"
 
         var indexPath: IndexPath {
             switch self {
@@ -41,6 +42,8 @@ class LoginTableViewDataSource: NSObject {
                 return IndexPath(row: 0, section: 0)
             case .password:
                 return IndexPath(row: 1, section: 0)
+            case .loginButton:
+                return IndexPath(row: 0, section: 1)
             }
         }
     }
@@ -108,13 +111,13 @@ class LoginTableViewDataSource: NSObject {
         switch (row) {
         case 0:
             cell.fieldLabel.text = "\(Localization(.loginScene(.textField(.mail))))"
-            cell.textField.accessibilityIdentifier = LoginTableViewTextField.mail.rawValue
+            cell.textField.accessibilityIdentifier = FormPosition.mail.rawValue
             cell.textField.keyboardType = .emailAddress
             cell.textField.placeholder = "\(Localization(.loginScene(.textField(.mailPlaceholder))))"
             cell.textField.delegate = self
         case 1:
             cell.fieldLabel.text = "\(Localization(.loginScene(.textField(.password))))"
-            cell.textField.accessibilityIdentifier = LoginTableViewTextField.password.rawValue
+            cell.textField.accessibilityIdentifier = FormPosition.password.rawValue
             cell.textField.isSecureTextEntry = true
             cell.textField.placeholder = "\(Localization(.loginScene(.textField(.passwordPlaceHolder))))"
             cell.textField.delegate = self
@@ -152,10 +155,10 @@ extension LoginTableViewDataSource: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         guard let identifier = textField.accessibilityIdentifier else { return true }
         switch identifier {
-        case LoginTableViewTextField.mail.rawValue:
-            selectedIndexPath = LoginTableViewTextField.mail.indexPath
-        case LoginTableViewTextField.password.rawValue:
-            selectedIndexPath = LoginTableViewTextField.password.indexPath
+        case FormPosition.mail.rawValue:
+            selectedIndexPath = FormPosition.mail.indexPath
+        case FormPosition.password.rawValue:
+            selectedIndexPath = FormPosition.password.indexPath
         default:
             selectedIndexPath = nil
             return true
