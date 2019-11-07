@@ -12,6 +12,8 @@ class LoginTableViewDataSource: NSObject {
 
     var tableViewSections = LoginTableViewSections.allCases
 
+    var delegate: TappedButtonToSignUpDelegate?
+
     enum LoginTableViewSections: Int, CaseIterable {
         case login
         case loginButton
@@ -75,10 +77,16 @@ class LoginTableViewDataSource: NSObject {
         guard let section = LoginTableViewSections(rawValue: section) else { return nil }
         switch section {
         case .loginButton:
-            return RegisterSectionFooterView()
+            let footer = RegisterSectionFooterView()
+            footer.actionRegisterButton.addTarget(self, action: #selector(tapSignUpButton), for: .touchUpInside)
+            return footer
         default:
             return nil
         }
+    }
+
+    @objc func tapSignUpButton() {
+        delegate?.tappedButtonToSignUp()
     }
 
     func cell(for tableView: UITableView, in indexPath: IndexPath) -> UITableViewCell {

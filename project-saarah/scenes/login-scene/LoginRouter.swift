@@ -25,7 +25,6 @@ class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing {
 		let destinationVC = CreateAccountViewController()
 
 		guard let viewController = viewController else { return }
-
 		navigateToSignUp(source: viewController, destination: destinationVC)
 	}
 

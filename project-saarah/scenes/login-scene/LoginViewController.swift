@@ -12,7 +12,12 @@ protocol LoginDisplayLogic: class {
 	func displaySomething(viewModel: Login.Something.ViewModel)
 }
 
+protocol TappedButtonToSignUpDelegate: class {
+    func tappedButtonToSignUp()
+}
+
 class LoginViewController: UIViewController, LoginDisplayLogic {
+
 	// MARK: Architeture Property
 	var interactor: LoginBusinessLogic?
 	var router: (NSObjectProtocol & LoginRoutingLogic & LoginDataPassing)?
@@ -31,6 +36,15 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
 	}
+
+    override func viewDidDisappear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = false
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
+        navigationController?.navigationBar.prefersLargeTitles = false
+    }
 
     @objc private func keyboardWillShow(notification: NSNotification) {
         if ((notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
@@ -66,11 +80,11 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
 	}
 
 	func defaultViewControllerConfiguration() {
-        title = "\(Localization(.loginScene(.title)))"
 		view = contentView
         contentView.tableView.delegate = self
         loginTableViewDataSource.registerCells(for: contentView.tableView)
         contentView.tableView.dataSource = loginTableViewDataSource
+        loginTableViewDataSource.delegate = self
 	}
 
 	// MARK: Do something
@@ -90,5 +104,11 @@ extension LoginViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return loginTableViewDataSource.viewForFooter(in: section)
+    }
+}
+
+extension LoginViewController: TappedButtonToSignUpDelegate {
+    func tappedButtonToSignUp() {
+        router?.routeToSignUp()
     }
 }
