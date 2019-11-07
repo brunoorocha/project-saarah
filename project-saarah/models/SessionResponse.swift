@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SignUpResponse: Decodable {
+struct SessionResponse: Decodable {
 	let id: String
 	let name: String
 	let email: String
