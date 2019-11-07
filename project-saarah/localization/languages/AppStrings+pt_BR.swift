@@ -204,7 +204,7 @@ extension AppStrings {
                     return "Toque para digitar seu email"
                 case .password:
                     return "Senha"
-                case .passwordPlaceHolder:
+                case .passwordPlaceholder:
                     return "Toque para digitar sua senha"
                 }
             case .greeting(let greetings):

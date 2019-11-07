@@ -119,7 +119,7 @@ class LoginTableViewDataSource: NSObject {
             cell.fieldLabel.text = "\(Localization(.loginScene(.textField(.password))))"
             cell.textField.accessibilityIdentifier = FormPosition.password.rawValue
             cell.textField.isSecureTextEntry = true
-            cell.textField.placeholder = "\(Localization(.loginScene(.textField(.passwordPlaceHolder))))"
+            cell.textField.placeholder = "\(Localization(.loginScene(.textField(.passwordPlaceholder))))"
             cell.textField.delegate = self
         default:
             return UITableViewCell()

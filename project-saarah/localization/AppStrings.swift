@@ -150,7 +150,7 @@ enum AppStrings {
             case mail
             case mailPlaceholder
             case password
-            case passwordPlaceHolder
+            case passwordPlaceholder
         }
 
         enum ErrorFormValidation {
