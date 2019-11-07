@@ -98,7 +98,7 @@ extension ConeheadApiEndpoint: EndpointType {
 			let path = "name=\(parameters.name)&email=\(parameters.email)&password=\(parameters.password)&passwordConfirmation=\(parameters.confirmPassword)"
 			return path
         case .login(let parameters):
-            let path = "email=\(parameters.email)&=password\(parameters.passowrd)"
+            let path = "email=\(parameters.email)&password=\(parameters.passowrd)"
             return path
 		}
 	}
