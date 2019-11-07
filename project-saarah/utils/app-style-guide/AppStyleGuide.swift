@@ -91,7 +91,7 @@ enum AppStyleGuide {
             case .orange:
                 return UIColor.rgba(224, 133, 48)
             case .red:
-                return UIColor.rgba(224, 48, 48)
+                return UIColor.setupColorFor(UIColor.rgba(224, 48, 48), UIColor.rgba(250, 102, 102))
             case .gray:
                 return UIColor.rgba(96, 96, 96)
             case .lightRed:

@@ -141,6 +141,7 @@ enum AppStrings {
 
     enum SettingsScene {
         case logoutText
+        case myAccountText
         case logoutConfirmation(LogoutConfirmation)
         
         enum LogoutConfirmation {

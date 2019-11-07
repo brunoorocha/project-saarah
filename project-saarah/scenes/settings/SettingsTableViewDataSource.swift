@@ -54,7 +54,9 @@ class SettingsTableViewDataSource: NSObject {
         guard let section = SettingsTableViewSections(rawValue: section) else { return nil }
         switch section {
         case .logout:
-            return DefaultSectionHeaderView()
+            let header = DefaultSectionHeaderView()
+            header.titleLabelText = Localization(.settingsScene(.myAccountText)).description
+            return header
         }
     }
 }

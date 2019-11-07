@@ -182,6 +182,8 @@ extension AppStrings {
             switch options {
             case .logoutText:
                 return "Log out"
+            case .myAccountText:
+                return "My account"
             case .logoutConfirmation(let options):
                 switch options {
                 case .logout:
