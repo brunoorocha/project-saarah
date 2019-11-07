@@ -144,12 +144,21 @@ enum AppStrings {
         case title
         case textField(TextField)
         case greeting(Greeting)
+        case errorFormValidation(ErrorFormValidation)
 
         enum TextField {
             case mail
             case mailPlaceholder
             case password
             case passwordPlaceHolder
+        }
+
+        enum ErrorFormValidation {
+            case alertTitle
+            case action
+            case email
+            case password
+            case undefined
         }
 
         enum Greeting {

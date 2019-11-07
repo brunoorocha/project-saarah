@@ -92,23 +92,29 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
         if viewModel.success {
             router?.routeToHome()
         } else {
-            presentAlertModal("\(Localization(.createAccountScene(.errorSignUpTitle)))",
-                "\(Localization(.createAccountScene(.errorSignUpMessage)))",
-                "\(Localization(.createAccountScene(.errorFormActionTitle)))")
+            presentAlertModal(
+                "\(Localization(.loginScene(.errorFormValidation(.alertTitle))))",
+                "\(Localization(.loginScene(.errorFormValidation(.undefined))))",
+                "\(Localization(.loginScene(.errorFormValidation(.action))))"
+            )
         }
     }
 
     func doLogin() {
         guard let email = getFieldEmail() else {
-            presentAlertModal("\(Localization(.createAccountScene(.errorFormAlertTitle)))",
-                "\(Localization(.createAccountScene(.errorFormEmailMessage)))",
-                "\(Localization(.createAccountScene(.errorFormActionTitle)))")
+            presentAlertModal(
+                "\(Localization(.loginScene(.errorFormValidation(.alertTitle))))",
+                "\(Localization(.loginScene(.errorFormValidation(.email))))",
+                "\(Localization(.loginScene(.errorFormValidation(.action))))"
+            )
             return
         }
         guard let password = getFieldPassword() else {
-            presentAlertModal("\(Localization(.createAccountScene(.errorFormAlertTitle)))",
-                "\(Localization(.createAccountScene(.errorFormPasswordMessage)))",
-                "\(Localization(.createAccountScene(.errorFormActionTitle)))")
+            presentAlertModal(
+                "\(Localization(.loginScene(.errorFormValidation(.alertTitle))))",
+                "\(Localization(.loginScene(.errorFormValidation(.password))))",
+                "\(Localization(.loginScene(.errorFormValidation(.action))))"
+            )
             return
         }
         isLogin = true

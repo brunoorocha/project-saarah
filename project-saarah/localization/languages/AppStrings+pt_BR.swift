@@ -214,6 +214,19 @@ extension AppStrings {
                 case .description:
                     return "Entre na sua conta para poder continuar."
                 }
+            case .errorFormValidation(let error):
+                switch error {
+                case .alertTitle:
+                    return "Ocorreu um erro ao tentar realizar o login"
+                case .action:
+                    return "Fechar"
+                case .email:
+                    return "Preencha o seu campo de email"
+                case .password:
+                    return "Preencha o seu campo de senha"
+                case .undefined:
+                    return ""
+                }
             }
         case .createAccountScene(let options):
 			switch options {
