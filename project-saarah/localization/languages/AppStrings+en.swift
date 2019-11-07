@@ -178,6 +178,49 @@ extension AppStrings {
                     return "The expiration date aren't filled correctly."
                 }
             }
+        case .registerSectionFooterView(let options):
+        switch options {
+        case .title:
+            return "Don't have account yet?"
+        case .registerButton:
+            return "Sign up here."
+        }
+        case .loginScene(let options):
+            switch options {
+            case .title:
+                return "Login"
+            case .textField(let fields):
+                switch fields {
+                case .mail:
+                    return "Email"
+                case .mailPlaceholder:
+                    return "Tap to type your email"
+                case .password:
+                    return "Password"
+                case .passwordPlaceholder:
+                    return "Tap to type your senha"
+                }
+            case .greeting(let greetings):
+                switch greetings {
+                case .title:
+                    return "Hello, welcome back!"
+                case .description:
+                    return "Log in with your account to continue."
+                }
+            case .errorFormValidation(let error):
+                switch error {
+                case .alertTitle:
+                    return "A error ocurrent when try to login, try again!"
+                case .action:
+                    return "Close"
+                case .email:
+                    return "Fill the email field"
+                case .password:
+                    return "Fill the password field"
+                case .undefined:
+                    return ""
+                }
+            }
         case .createAccountScene(let options):
 			switch options {
 			case .headerTitle:

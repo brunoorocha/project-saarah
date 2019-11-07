@@ -31,9 +31,9 @@ class CreateAccountRouter: NSObject, CreateAccountRoutingLogic, CreateAccountDat
 
 	// MARK: Navigation
 	func navigateToHome(source: CreateAccountViewController, destination: HomeViewController) {
-		guard let navigationController = source.navigationController else { return }
-		navigationController.popToRootViewController(animated: true)
-		navigationController.show(destination, sender: nil)
-		navigationController.viewControllers.removeAll(where: { !($0 is HomeViewController) })
+        let navigationController = UINavigationController(rootViewController: destination)
+        if let window = UIApplication.shared.windows.first {
+             window.rootViewController = navigationController
+        }
 	}
 }

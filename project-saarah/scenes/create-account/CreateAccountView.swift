@@ -20,6 +20,8 @@ class CreateAccountView: UIView {
 		instantiateViews()
 		buildViewsHierarchy()
 		setupConstraints()
+
+        tableView.keyboardDismissMode = .onDrag
 	}
 
 	required init?(coder aDecoder: NSCoder) {

@@ -21,7 +21,7 @@ enum CreateAccount {
 			let signUpForm: SignUpForm
 		}
 		struct Response {
-			let response: SignUpResponse?
+			let response: SessionResponse?
 		}
 		struct ViewModel {
 			struct SignUpViewModel {

@@ -29,6 +29,11 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 		setupContentView()
 	}
 
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = false
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+
 	// MARK: Init
 	init() {
 		super.init(nibName: nil, bundle: nil)
@@ -40,7 +45,6 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 	}
 
 	func setupContentView() {
-		title = "CreateAccount"
 		contentView.tableView.delegate = self
 		contentView.tableView.dataSource = self
 		tableViewDataSource.registerCells(for: contentView.tableView)

@@ -118,9 +118,9 @@ extension AppStrings {
                 return "Você deseja adiciona um produto agora?"
             case .alertOkAction:
                 return "Ok"
-			case .alertCancelAction:
+            case .alertCancelAction:
 				return "Mais tarde"
-			case .alertAddProductItemAction:
+            case .alertAddProductItemAction:
 				return "Sim"
             }
         case .productItemScene(let options):
@@ -178,12 +178,55 @@ extension AppStrings {
                     return "A data de validade não foi preenchida corretamente."
                 }
             }
+        case .registerSectionFooterView(let options):
+            switch options {
+            case .title:
+                return "Ainda não possui uma conta?"
+            case .registerButton:
+                return "Registre-se aqui."
+            }
         case .underConstruction(let options):
             switch options {
             case .title:
                 return "Sentimos muito"
             case .paragraph:
                 return "mas nós ainda estamos em \nconstrução"
+            }
+        case .loginScene(let options):
+            switch options {
+            case .title:
+                return "Entrar"
+            case .textField(let fields):
+                switch fields {
+                case .mail:
+                    return "Email"
+                case .mailPlaceholder:
+                    return "Toque para digitar seu email"
+                case .password:
+                    return "Senha"
+                case .passwordPlaceholder:
+                    return "Toque para digitar sua senha"
+                }
+            case .greeting(let greetings):
+                switch greetings {
+                case .title:
+                    return "Olá de novo!"
+                case .description:
+                    return "Entre na sua conta para poder continuar."
+                }
+            case .errorFormValidation(let error):
+                switch error {
+                case .alertTitle:
+                    return "Ocorreu um erro ao tentar realizar o login"
+                case .action:
+                    return "Fechar"
+                case .email:
+                    return "Preencha o seu campo de email"
+                case .password:
+                    return "Preencha o seu campo de senha"
+                case .undefined:
+                    return ""
+                }
             }
         case .createAccountScene(let options):
 			switch options {
