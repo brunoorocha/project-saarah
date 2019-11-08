@@ -75,17 +75,29 @@ class AddProductItemViewController: UIViewController, AddProductItemDisplayLogic
 
 	func saveProductItem() {
 		guard let quantity = validateQuantity() else {
-			presentAlertModal("\(Localization(.addProductItemScene(.errorFormAlertTitle)))", "\(Localization(.addProductItemScene(.errorFormQuantityAlertMessage)))", "\(Localization(.addProductItemScene(.errorFormActionAlertTitle)))")
+			presentAlertModal(
+                "\(Localization(.addProductItemScene(.errorFormAlertTitle)))",
+                "\(Localization(.addProductItemScene(.errorFormQuantityAlertMessage)))",
+                "\(Localization(.addProductItemScene(.errorFormActionAlertTitle)))"
+            )
 			return
 		}
 
 		guard let price = validatePrice() else {
-			presentAlertModal("\(Localization(.addProductItemScene(.errorFormAlertTitle)))", "\(Localization(.addProductItemScene(.errorFormPriceAlertMessage)))", "\(Localization(.addProductItemScene(.errorFormActionAlertTitle)))")
+			presentAlertModal(
+                "\(Localization(.addProductItemScene(.errorFormAlertTitle)))",
+                "\(Localization(.addProductItemScene(.errorFormPriceAlertMessage)))",
+                "\(Localization(.addProductItemScene(.errorFormActionAlertTitle)))"
+            )
 			return
 		}
 
 		guard let expiration = validateExpiration() else {
-			presentAlertModal("\(Localization(.addProductItemScene(.errorFormAlertTitle)))", "\(Localization(.addProductItemScene(.errorFormExpirationAlertMessage)))", "\(Localization(.addProductItemScene(.errorFormActionAlertTitle)))")
+			presentAlertModal(
+                "\(Localization(.addProductItemScene(.errorFormAlertTitle)))",
+                "\(Localization(.addProductItemScene(.errorFormExpirationAlertMessage)))",
+                "\(Localization(.addProductItemScene(.errorFormActionAlertTitle)))"
+            )
 			return
 		}
 
