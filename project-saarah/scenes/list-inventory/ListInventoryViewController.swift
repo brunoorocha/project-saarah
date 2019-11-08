@@ -90,11 +90,13 @@ class ListInventoryViewController: UIViewController, ListInventoryDisplayLogic {
 	func displayInsertedProduct(viewModel: ListInventory.InsertProduct.ViewModel) {
  		listInventoryTableViewDataSource.viewModels.append(viewModel.displayProduct)
  		let row = listInventoryTableViewDataSource.viewModels.count - 1
-  		var indexPath = IndexPath(row: (row - 1), section: 0)
+  		var indexPath = IndexPath(row: row, section: 0)
   		contentView.tableView.beginUpdates()
   		contentView.tableView.insertRows(at: [indexPath], with: .automatic)
+		indexPath.row -= 1
+		contentView.tableView.reloadRows(at: [indexPath], with: .none)
   		contentView.tableView.endUpdates()
- 		indexPath.row += 1
+		indexPath.row += 1
   		contentView.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
  	}
 
