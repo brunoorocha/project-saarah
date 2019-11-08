@@ -86,30 +86,30 @@ class AddNewProductViewController: SaarahViewController, AddNewProductDisplayLog
 	func productItemReceived() {
 		router?.dismissPresentedViewController()
 	}
-	
+
 	func addProduct() {
 		guard let productName = validateProductName() else {
 			presentAlertModal("\(Localization(.addNewProductScene(.alertFormTitle)))", "\(Localization(.addNewProductScene(.alertFormName)))", "\(Localization(.addNewProductScene(.alertOkAction)))")
 			return
 		}
-		
+
 		let barCode = validateBarCode()
 		if (!barCode.1) {
 			presentAlertModal("\(Localization(.addNewProductScene(.alertFormTitle)))", "\(Localization(.addNewProductScene(.alertFormBarCode)))", "\(Localization(.addNewProductScene(.alertOkAction)))")
 			return
 		}
-		
+
 		if (!validadeSelectMeasure()) {
 			presentAlertModal("\(Localization(.addNewProductScene(.alertFormTitle)))", "\(Localization(.addNewProductScene(.alertFormMeasure)))", "\(Localization(.addNewProductScene(.alertOkAction)))")
-			
+
 			return
 		}
-		
+
 		let productForm = AddNewProduct.ProductForm(name: productName, barCode: barCode.0)
 		let request = AddNewProduct.SaveProduct.Request(productForm: productForm)
 		interactor?.saveNewProduct(request: request)
 	}
-	
+
 	func validateProductName() -> String? {
 		let indexPath = IndexPath(row: 0, section: 0)
 		guard let cell = contentView.tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell else { return nil }
@@ -120,27 +120,27 @@ class AddNewProductViewController: SaarahViewController, AddNewProductDisplayLog
 		}
 		return productName
 	}
-	
+
 	func validateBarCode() -> (String?, Bool) {
 		let indexPath = IndexPath(row: 1, section: 0)
 		guard let cell = contentView.tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell else { return (nil, true) }
 		guard let barCode = cell.textField.text else { return (nil, true) }
-        
+
 		if (barCode.isEmpty) {
 			return (nil, true)
 		}
 		if (barCode.isNumeric) {
 			return (barCode, true)
 		}
-		
+
 		return (nil, false)
 	}
-	
+
 	func validadeSelectMeasure() -> Bool {
 		let indexPath = IndexPath(row: 2, section: 0)
 		guard let cell = contentView.tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell else { return false }
 		guard let measure = cell.textField.text else { return false }
-		
+
 		if (measure.isEmpty) {
 			return false
 		}

@@ -118,17 +118,17 @@ extension AppStrings {
                 return "Do you want to create a product item?"
             case .alertOkAction:
                 return "OK"
-			case .alertAddProductItemAction:
+            case .alertAddProductItemAction:
 				return "Now"
-			case .alertCancelAction:
+            case .alertCancelAction:
 				return "Later"
-			case .alertFormTitle:
+            case .alertFormTitle:
 				return "Error"
-			case .alertFormName:
+            case .alertFormName:
 				return "You must fill the name field."
-			case .alertFormBarCode:
+            case .alertFormBarCode:
 				return "The bar code must contain only numbers."
-			case .alertFormMeasure:
+            case .alertFormMeasure:
 				return "Select a measurement unit."
             }
         case .productItemScene(let options):
