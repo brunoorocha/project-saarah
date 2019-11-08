@@ -24,4 +24,18 @@ extension UserDefaults {
 	static func hasToken() -> Bool {
 		return UserDefaults.standard.object(forKey: "token") != nil
 	}
+
+    static func willShowOnboarding() -> Bool {
+        guard let onboardingValue = UserDefaults.standard.object(forKey: "onboarding") else {
+            return true
+        }
+        guard let willShow = onboardingValue as? Bool else {
+            return true
+        }
+        return willShow
+    }
+
+    static func showOnboarding(_ show: Bool = false) {
+        UserDefaults.standard.set(show, forKey: "onboarding")
+    }
 }

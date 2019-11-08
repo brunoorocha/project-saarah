@@ -17,24 +17,24 @@ class OnboardingCollectionViewCell: UICollectionViewCell {
             mainDescriptionLabel.text = unwrappedDataModel.description
         }
     }
-    
+
     private let mainImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        
+
         return imageView
     }()
-    
+
     private let mainDescriptionLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.textColor = AppStyleGuide.Colors.textColor.uiColor
         label.font = AppStyleGuide.Typography.heading3.uiFont
         label.numberOfLines = 0
-        
+
         return label
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
 

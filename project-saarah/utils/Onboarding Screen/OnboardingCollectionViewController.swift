@@ -124,7 +124,7 @@ extension OnboardingCollectionViewController: UICollectionViewDelegateFlowLayout
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let data = onboardingData[indexPath.item]
-        
+
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? OnboardingCollectionViewCell else { return UICollectionViewCell() }
 
         cell.onboardingDataModel = data
