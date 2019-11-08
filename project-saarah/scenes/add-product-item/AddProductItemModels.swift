@@ -12,7 +12,7 @@ enum AddProductItem {
 	struct AddItemForm {
 		let quantity: Double
 		let price: Double
-		let expirationDate: String
+		let expirationDate: String?
 	}
 	// MARK: Use cases
 	enum AddItem {

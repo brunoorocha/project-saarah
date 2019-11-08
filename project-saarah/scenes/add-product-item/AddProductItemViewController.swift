@@ -84,10 +84,7 @@ class AddProductItemViewController: UIViewController, AddProductItemDisplayLogic
 			return
 		}
 
-		guard let expiration = validateExpiration() else {
-			presentAlertModal("\(Localization(.addProductItemScene(.errorFormAlertTitle)))", "\(Localization(.addProductItemScene(.errorFormExpirationAlertMessage)))", "\(Localization(.addProductItemScene(.errorFormActionAlertTitle)))")
-			return
-		}
+		let expiration = validateExpiration()
 
 		let itemForm = AddProductItem.AddItemForm(quantity: quantity, price: price, expirationDate: expiration)
 		let request = AddProductItem.AddItem.Request(addItemForm: itemForm)
