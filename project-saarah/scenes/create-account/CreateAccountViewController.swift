@@ -67,6 +67,8 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 		} else {
 			presentAlertModal("\(Localization(.createAccountScene(.errorSignUpTitle)))", "\(Localization(.createAccountScene(.errorSignUpMessage)))", "\(Localization(.createAccountScene(.errorFormActionTitle)))")
 		}
+        
+        hideFullScreenActivityIndicator()
 	}
 
 	func createAccount() {
@@ -109,6 +111,7 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 		let signUpForm = CreateAccount.SignUpForm(name: name, email: email, password: password, confirmPassword: confirmPassword)
 		let request = CreateAccount.SignUp.Request(signUpForm: signUpForm)
 		interactor?.signUp(request: request)
+        showFullScreenActivityIndicator()
 	}
 
 	func validateName() -> String? {

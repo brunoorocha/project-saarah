@@ -36,7 +36,6 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        showFullScreenActivityIndicator()
 	}
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -99,6 +98,8 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
                 "\(Localization(.loginScene(.errorFormValidation(.action))))"
             )
         }
+
+        hideFullScreenActivityIndicator()
     }
 
     func doLogin() {
@@ -122,6 +123,7 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
         let form = Login.LogIn.Form(email: email, passowrd: password)
         let request = Login.LogIn.Request(form: form)
         interactor?.logIn(request: request)
+        showFullScreenActivityIndicator()
     }
 
 }
