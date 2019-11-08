@@ -60,6 +60,9 @@ class OnboardingCollectionViewController: UICollectionViewController {
         collectionView.backgroundColor = AppStyleGuide.Colors.background.uiColor
         collectionView.isPagingEnabled = true
         collectionView.register(OnboardingCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        collectionView.showsHorizontalScrollIndicator = false
+
+        pageControl.addTarget(self, action: #selector(pageControlTapped), for: .touchUpInside)
 
         setupBottomControls()
     }
@@ -71,26 +74,26 @@ class OnboardingCollectionViewController: UICollectionViewController {
             previousButton.setTitleColor(AppStyleGuide.Colors.primary.uiColor, for: .normal)
         }
         pageControl.currentPage = page
+
+        let indexPath = IndexPath(item: page, section: 0)
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
 }
 
 extension OnboardingCollectionViewController {
+    @objc func pageControlTapped(_ sender: Any) {
+        guard let pageControl = sender as? UIPageControl else { return }
+        changePage(by: pageControl.currentPage)
+    }
+
     @objc private func handlePrevious() {
         let previousIndex = max(pageControl.currentPage - 1, 0)
-        let indexPath = IndexPath(item: previousIndex, section: 0)
-
         changePage(by: previousIndex)
-
-        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
 
     @objc private func handleNext() {
         let nextIndex = min(pageControl.currentPage + 1, onboardingData.count - 1)
-        let indexPath = IndexPath(item: nextIndex, section: 0)
-
         changePage(by: nextIndex)
-
-        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
 
     fileprivate func setupBottomControls() {
