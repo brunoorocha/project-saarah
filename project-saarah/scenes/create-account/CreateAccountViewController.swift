@@ -65,43 +65,77 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 		if (viewModel.success) {
 			router?.routeToHome()
 		} else {
-			presentAlertModal("\(Localization(.createAccountScene(.errorSignUpTitle)))", "\(Localization(.createAccountScene(.errorSignUpMessage)))", "\(Localization(.createAccountScene(.errorFormActionTitle)))")
+			presentAlertModal(
+                "\(Localization(.createAccountScene(.errorSignUpTitle)))",
+                "\(Localization(.createAccountScene(.errorSignUpMessage)))",
+                "\(Localization(.createAccountScene(.errorFormActionTitle)))"
+            )
 		}
+
+        hideFullScreenActivityIndicator()
 	}
 
-	func createAccount() {
+	func createAccount() { // swiftlint:disable:this function_body_length
 		guard let name = validateName() else {
-			presentAlertModal("\(Localization(.createAccountScene(.errorFormAlertTitle)))", "\(Localization(.createAccountScene(.errorFormNameMessage)))", "\(Localization(.createAccountScene(.errorFormActionTitle)))")
+			presentAlertModal(
+                "\(Localization(.createAccountScene(.errorFormAlertTitle)))",
+                "\(Localization(.createAccountScene(.errorFormNameMessage)))",
+                "\(Localization(.createAccountScene(.errorFormActionTitle)))"
+            )
 			return
 		}
 
 		guard let email = validateEmail() else {
-			presentAlertModal("\(Localization(.createAccountScene(.errorFormAlertTitle)))", "\(Localization(.createAccountScene(.errorFormEmailMessage)))", "\(Localization(.createAccountScene(.errorFormActionTitle)))")
+			presentAlertModal(
+                "\(Localization(.createAccountScene(.errorFormAlertTitle)))",
+                "\(Localization(.createAccountScene(.errorFormEmailMessage)))",
+                "\(Localization(.createAccountScene(.errorFormActionTitle)))"
+            )
 			return
 		}
 
 		if (!email.isValidEmail()) {
-			presentAlertModal("\(Localization(.createAccountScene(.errorFormAlertTitle)))", "\(Localization(.createAccountScene(.errorFormInvalidEmail)))", "\(Localization(.createAccountScene(.errorFormActionTitle)))")
+			presentAlertModal(
+                "\(Localization(.createAccountScene(.errorFormAlertTitle)))",
+                "\(Localization(.createAccountScene(.errorFormInvalidEmail)))",
+                "\(Localization(.createAccountScene(.errorFormActionTitle)))"
+            )
 			return
 		}
 
 		guard let password = validatePassword() else {
-			presentAlertModal("\(Localization(.createAccountScene(.errorFormAlertTitle)))", "\(Localization(.createAccountScene(.errorFormPasswordMessage)))", "\(Localization(.createAccountScene(.errorFormActionTitle)))")
+			presentAlertModal(
+                "\(Localization(.createAccountScene(.errorFormAlertTitle)))",
+                "\(Localization(.createAccountScene(.errorFormPasswordMessage)))",
+                "\(Localization(.createAccountScene(.errorFormActionTitle)))"
+            )
 			return
 		}
 
 		guard let confirmPassword = validateConfirmPassword() else {
-			presentAlertModal("\(Localization(.createAccountScene(.errorFormAlertTitle)))", "\(Localization(.createAccountScene(.errorFormConfirmPasswordMessage)))", "\(Localization(.createAccountScene(.errorFormActionTitle)))")
+			presentAlertModal(
+                "\(Localization(.createAccountScene(.errorFormAlertTitle)))",
+                "\(Localization(.createAccountScene(.errorFormConfirmPasswordMessage)))",
+                "\(Localization(.createAccountScene(.errorFormActionTitle)))"
+            )
 			return
 		}
 
 		if (password != confirmPassword) {
-			presentAlertModal("\(Localization(.createAccountScene(.errorFormAlertTitle)))", "\(Localization(.createAccountScene(.errorFormPasswordsDontMatchMessage)))", "\(Localization(.createAccountScene(.errorFormActionTitle)))")
+			presentAlertModal(
+                "\(Localization(.createAccountScene(.errorFormAlertTitle)))",
+                "\(Localization(.createAccountScene(.errorFormPasswordsDontMatchMessage)))",
+                "\(Localization(.createAccountScene(.errorFormActionTitle)))"
+            )
 			return
 		}
 
 		if (password.count < 6) {
-			presentAlertModal("\(Localization(.createAccountScene(.errorFormAlertTitle)))", "\(Localization(.createAccountScene(.errorFormPasswordSize)))", "\(Localization(.createAccountScene(.errorFormActionTitle)))")
+			presentAlertModal(
+                "\(Localization(.createAccountScene(.errorFormAlertTitle)))",
+                "\(Localization(.createAccountScene(.errorFormPasswordSize)))",
+                "\(Localization(.createAccountScene(.errorFormActionTitle)))"
+            )
 			return
 		}
 
@@ -109,6 +143,7 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 		let signUpForm = CreateAccount.SignUpForm(name: name, email: email, password: password, confirmPassword: confirmPassword)
 		let request = CreateAccount.SignUp.Request(signUpForm: signUpForm)
 		interactor?.signUp(request: request)
+        showFullScreenActivityIndicator()
 	}
 
 	func validateName() -> String? {

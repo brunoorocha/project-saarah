@@ -11,6 +11,7 @@ import Foundation
 protocol AccountStore {
 	func signUp(name: String, email: String, password: String, confirmPassword: String, _ completion: @escaping (Result<SessionResponse?, NetworkServiceError>) -> Void)
     func login(email: String, password: String, _ completion: @escaping (Result<SessionResponse?, NetworkServiceError>) -> Void)
+    func session(_ completion: @escaping (Result<SessionResponse?, NetworkServiceError>) -> Void)
 }
 
 class AccountWorker: AccountStore {
@@ -30,6 +31,14 @@ class AccountWorker: AccountStore {
 
     func login(email: String, password: String, _ completion: @escaping (Result<SessionResponse?, NetworkServiceError>) -> Void) {
         accountService.login(email: email, password: password) { (result) in
+            DispatchQueue.main.async {
+                completion(result)
+            }
+        }
+    }
+
+    func session(_ completion: @escaping (Result<SessionResponse?, NetworkServiceError>) -> Void) {
+        accountService.session { (result) in
             DispatchQueue.main.async {
                 completion(result)
             }
