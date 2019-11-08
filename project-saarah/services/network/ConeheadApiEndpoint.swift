@@ -10,7 +10,7 @@ import Foundation
 
 enum ConeheadApiEndpoint {
     case fetchNotifications
-	case addProductItem(productId: String, price: Double, quantity: Double, expirationDate: String)
+	case addProductItem(productId: String, price: Double, quantity: Double, expirationDate: String?)
     case fetchProducts
     case fetchMeasures
 	case fetchProductItems(productId: String)
@@ -84,7 +84,11 @@ extension ConeheadApiEndpoint: EndpointType {
         case .fetchNotifications:
             return nil
         case .addProductItem(let productItem):
-            return "quantity=\(productItem.quantity)&price=\(productItem.price)&expiration=\(productItem.expirationDate)"
+            var path = "quantity=\(productItem.quantity)&price=\(productItem.price)"
+            if let expirationDate = productItem.expirationDate {
+                path.append("&expiration=\(expirationDate)")
+            }
+            return path
         case .fetchProducts:
             return nil
         case .fetchMeasures:

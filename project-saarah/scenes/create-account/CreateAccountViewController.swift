@@ -71,7 +71,7 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
                 "\(Localization(.createAccountScene(.errorFormActionTitle)))"
             )
 		}
-        
+
         hideFullScreenActivityIndicator()
 	}
 

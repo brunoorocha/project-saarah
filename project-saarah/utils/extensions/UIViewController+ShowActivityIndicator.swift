@@ -22,7 +22,7 @@ extension UIViewController {
             fullScreenActivityIndicator.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
 
-        fullScreenActivityIndicator.show(animated: true) 
+        fullScreenActivityIndicator.show(animated: true)
     }
 
     func hideFullScreenActivityIndicator () {

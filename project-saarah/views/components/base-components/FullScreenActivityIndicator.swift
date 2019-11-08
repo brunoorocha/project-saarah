@@ -60,7 +60,7 @@ class FullScreenActivityIndicator: UIView {
                 completion?()
             })
         }
-        
+
         layer.opacity = 1
         return
     }
@@ -73,7 +73,7 @@ class FullScreenActivityIndicator: UIView {
                 completion?()
             })
         }
-        
+
         layer.opacity = 0
         return
     }
