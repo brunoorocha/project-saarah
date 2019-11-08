@@ -18,7 +18,8 @@ class ApiProductItemStore: ProductItemStore {
 
 	func addProductItem(productId: String, price: Double, quantity: Double, expirationDate: String, _ completion: @escaping (Result<ProductLog?, NetworkServiceError>) -> Void) {
 		let networkService = NetworkService()
-		networkService.request(endpoint: ConeheadApiEndpoint.addProductItem(productId: productId, price: price, quantity: quantity, expirationDate: expirationDate)) { (result: Result<ProductLog?, NetworkServiceError>) in
+		networkService.request(endpoint: ConeheadApiEndpoint.addProductItem(
+            productId: productId, price: price, quantity: quantity, expirationDate: expirationDate)) { (result: Result<ProductLog?, NetworkServiceError>) in
 			completion(result)
 		}
 	}

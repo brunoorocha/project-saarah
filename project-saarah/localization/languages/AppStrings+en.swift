@@ -118,10 +118,10 @@ extension AppStrings {
                 return "Do you want to create a product item?"
             case .alertOkAction:
                 return "OK"
-			case .alertAddProductItemAction:
-				return "Now"
-			case .alertCancelAction:
-				return "Later"
+            case .alertAddProductItemAction:
+                return "Now"
+            case .alertCancelAction:
+                return "Later"
             }
         case .productItemScene(let options):
             switch options {
