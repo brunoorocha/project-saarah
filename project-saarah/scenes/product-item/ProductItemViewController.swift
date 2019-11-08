@@ -11,6 +11,7 @@ import UIKit
 protocol ProductItemDisplayLogic: class {
     func displayProduct(viewModel: ProductItem.ReceiveProduct.ViewModel)
 	func displayProductItem(viewModel: ProductItem.FetchProductItem.ViewModel)
+	func displayInsertedProductItem(viewModel: ProductItem.InsertProductItem.ViewModel)
 }
 
 class ProductItemViewController: UIViewController, ProductItemDisplayLogic {
@@ -79,6 +80,19 @@ class ProductItemViewController: UIViewController, ProductItemDisplayLogic {
     func displayProductItem(viewModel: ProductItem.FetchProductItem.ViewModel) {
         tableViewDataSource.viewModel = viewModel
         contentView.tableView.reloadData()
+	}
+
+	// MARK: Display inserted product item
+	func displayInsertedProductItem(viewModel: ProductItem.InsertProductItem.ViewModel) {
+		router?.dismissPresentedViewController({
+			self.tableViewDataSource.viewModel?.displayProductItems.append(viewModel.displayProductItem)
+			guard let row = self.tableViewDataSource.viewModel?.displayProductItems.count else { return }
+			let indexPath = IndexPath(row: (row - 1), section: 1)
+			self.contentView.tableView.beginUpdates()
+			self.contentView.tableView.insertRows(at: [indexPath], with: .automatic)
+			self.contentView.tableView.endUpdates()
+			self.contentView.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+		})
 	}
 }
 

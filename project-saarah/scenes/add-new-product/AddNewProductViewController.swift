@@ -11,6 +11,7 @@ import UIKit
 protocol AddNewProductDisplayLogic: class {
 	func displayResponse(viewModel: AddNewProduct.SaveProduct.ViewModel.Response)
     func displayMeasureResponse(viewModel: AddNewProduct.GetMeasure.ViewModel.Measure)
+	func productItemReceived()
 }
 
 class AddNewProductViewController: SaarahViewController, AddNewProductDisplayLogic {
@@ -54,17 +55,23 @@ class AddNewProductViewController: SaarahViewController, AddNewProductDisplayLog
 		let alert = UIAlertController(title: viewModel.title, message: viewModel.message, preferredStyle: .alert)
         var okAction: UIAlertAction
 		if (viewModel.success) {
-			okAction = UIAlertAction(title: "\(Localization(.addNewProductScene(.alertAction)))", style: .default) { _ in
+			let addProductItemAction = UIAlertAction(title: "\(Localization(.addNewProductScene(.alertAddProductItemAction)))", style: .default) { (_) in
 				self.router?.routeToAddProductItem()
 			}
+			addProductItemAction.setValue(AppStyleGuide.Colors.primary.uiColor, forKey: "titleTextColor")
+			alert.addAction(addProductItemAction)
 
-            okAction.setValue(AppStyleGuide.Colors.primary.uiColor, forKey: "titleTextColor")
+			okAction = UIAlertAction(title: "\(Localization(.addNewProductScene(.alertCancelAction)))", style: .cancel) { _ in
+				self.router?.routeToListInventory()
+
+			}
+			okAction.setValue(AppStyleGuide.Colors.primary.uiColor, forKey: "titleTextColor")
+			alert.addAction(okAction)
 		} else {
-            okAction = UIAlertAction(title: "\(Localization(.addNewProductScene(.alertAction)))", style: .default, handler: nil)
-
-            okAction.setValue(AppStyleGuide.Colors.primary.uiColor, forKey: "titleTextColor")
+            okAction = UIAlertAction(title: "\(Localization(.addNewProductScene(.alertOkAction)))", style: .default, handler: nil)
+			okAction.setValue(AppStyleGuide.Colors.primary.uiColor, forKey: "titleTextColor")
+			alert.addAction(okAction)
         }
-        alert.addAction(okAction)
 
 		present(alert, animated: true, completion: nil)
 	}
@@ -75,6 +82,10 @@ class AddNewProductViewController: SaarahViewController, AddNewProductDisplayLog
         guard let cell = contentView.tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell else { return }
         cell.textField.text = viewModel.name
     }
+
+	func productItemReceived() {
+		router?.dismissPresentedViewController()
+	}
 }
 
 extension AddNewProductViewController: AddNewProductViewDelegate {

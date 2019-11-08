@@ -15,12 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         UINavigationBar.appearance().tintColor = AppStyleGuide.Colors.primary.uiColor
 
-        let controller = HomeViewController()
-        let navigationController = UINavigationController(rootViewController: controller)
-
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        window?.rootViewController = navigationController
+
+        let coordinator = Coordinator(with: window)
+        coordinator.callController()
 
         return true
     }

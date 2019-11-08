@@ -9,36 +9,36 @@
 import UIKit
 
 protocol AddProductItemRoutingLogic {
-	//func routeToSomewhere()
+	func routeBack()
 }
 
 protocol AddProductItemDataPassing {
 	var dataStore: AddProductItemDataStore? { get }
+	var productItemReceptor: ProductItemReceptor? { get set }
+}
+
+protocol ProductItemReceptor: class {
+	var productItem: ProductLog? { get set }
 }
 
 class AddProductItemRouter: NSObject, AddProductItemRoutingLogic, AddProductItemDataPassing {
 	weak var viewController: AddProductItemViewController?
 	var dataStore: AddProductItemDataStore?
 
+	var productItemReceptor: ProductItemReceptor?
+
 	// MARK: Routing
-//	func routeToSomewhere() {
-//		let destinationVC = SomewhereViewController()
-//		guard var destinationDataStore = destinationVC.router?.dataStore else { return }
-//
-//		guard let dataStore = dataStore else { return }
-//		guard let viewController = viewController else { return }
-//
-//		passDataToSomewhere(source: dataStore, destination: &destinationDataStore)
-//		navigateToSomewhere(source: viewController, destination: destinationVC)
-//	}
-//
-//	// MARK: Passing data
-//	func passDataToSomewhere(source: AddProductItemDataStore, destination: inout SomewhereDataStore) {
-//		destination.name = source.name
-//	}
-//
-//	// MARK: Navigation
-//	func navigateToSomewhere(source: AddProductItemViewController, destination: SomewhereViewController) {
-//		source.show(destination, sender: nil)
-//	}
+	func routeBack() {
+		guard let dataStore = dataStore else { return }
+
+		passDataToProductItem(source: dataStore, destinationReceptor: productItemReceptor)
+		// the dismiss is made in the parent view controller, after pass the product item
+	}
+
+	// MARK: Passing data
+	func passDataToProductItem(source: AddProductItemDataStore, destinationReceptor: ProductItemReceptor?) {
+		destinationReceptor?.productItem = source.productItem
+	}
+
+	// MARK: Navigation
 }

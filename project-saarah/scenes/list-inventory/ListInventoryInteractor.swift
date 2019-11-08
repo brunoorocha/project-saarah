@@ -12,7 +12,7 @@ protocol ListInventoryBusinessLogic {
     func fetchProducts(request: ListInventory.FetchProducts.Request)
 }
 
-protocol ListInventoryDataStore {
+protocol ListInventoryDataStore: ProductReceptor {
     var products: [Product]? { get }
 }
 
@@ -20,6 +20,16 @@ class ListInventoryInteractor: ListInventoryBusinessLogic, ListInventoryDataStor
 
     var presenter: ListInventoryPresentationLogic?
     var products: [Product]?
+	var product: Product? {
+		didSet {
+//			guard var products = products else { return }
+			guard let product = product else { return }
+			products?.append(product)
+
+			let response = ListInventory.InsertProduct.Response(product: product)
+			self.presenter?.presentInsertedProduct(response: response)
+		}
+	}
 
     let productWorker = ProductWorker(productService: ApiProductStore())
 

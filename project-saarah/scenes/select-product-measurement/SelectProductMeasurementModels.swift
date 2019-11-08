@@ -31,4 +31,10 @@ enum SelectProductMeasurement {
             var row: Int
         }
     }
+    // MARK: Select Measure
+    enum SelectMeasure {
+        struct Request {
+            var name: String
+        }
+    }
 }
