@@ -20,6 +20,7 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 	// MARK: Controller Property
 	private var contentView = CreateAccountView()
 	private let tableViewDataSource = CreateAccountTableViewDataSource()
+    private var scrolledIndexPath: IndexPath?
 
 	var isCreatingAccount = false
 
@@ -27,11 +28,36 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupContentView()
+
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
 	}
 
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = false
         navigationController?.navigationBar.prefersLargeTitles = true
+    }
+
+    @objc private func keyboardWillShow(notification: NSNotification) {
+        if ((notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
+            let userInfo = notification.userInfo!
+            guard var keyboardFrame: CGRect = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
+            keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+
+            var contentInset: UIEdgeInsets = contentView.tableView.contentInset
+            contentInset.bottom = keyboardFrame.size.height
+            contentView.tableView.contentInset = contentInset
+
+            guard let indexPath = tableViewDataSource.selectedIndexPath else { return }
+            contentView.tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
+        }
+    }
+
+    @objc private func keyboardWillHide(notification: NSNotification) {
+        if ((notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue) != nil {
+            let contentInset: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            contentView.tableView.contentInset = contentInset
+        }
     }
 
 	// MARK: Init
