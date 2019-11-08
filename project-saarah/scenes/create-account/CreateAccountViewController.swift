@@ -71,6 +71,8 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
                 "\(Localization(.createAccountScene(.errorFormActionTitle)))"
             )
 		}
+        
+        hideFullScreenActivityIndicator()
 	}
 
 	func createAccount() { // swiftlint:disable:this function_body_length
@@ -141,6 +143,7 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 		let signUpForm = CreateAccount.SignUpForm(name: name, email: email, password: password, confirmPassword: confirmPassword)
 		let request = CreateAccount.SignUp.Request(signUpForm: signUpForm)
 		interactor?.signUp(request: request)
+        showFullScreenActivityIndicator()
 	}
 
 	func validateName() -> String? {
