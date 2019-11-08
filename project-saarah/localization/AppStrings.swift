@@ -214,12 +214,12 @@ enum AppStrings {
 		case errorSignUpTitle
 		case errorSignUpMessage
 	}
-    
+
     enum Onboarding {
         case before
         case next
         case description(Description)
-        
+
         enum Description {
             case first
             case second
