@@ -10,6 +10,14 @@ import Foundation
 
 class ApiAccountStore: AccountStore {
 
+    func session(_ completion: @escaping (Result<SessionResponse?, NetworkServiceError>) -> Void) {
+          let networkService = NetworkService()
+        networkService.request(endpoint: ConeheadApiEndpoint.session) { (result: Result<SessionResponse?, NetworkServiceError>) in
+            completion(result)
+        }
+    }
+
+
     func login(email: String, password: String, _ completion: @escaping (Result<SessionResponse?, NetworkServiceError>) -> Void) {
         let networkService = NetworkService()
         networkService.request(endpoint: ConeheadApiEndpoint.login(email: email, passowrd: password)) { (result: Result<SessionResponse?, NetworkServiceError>) in

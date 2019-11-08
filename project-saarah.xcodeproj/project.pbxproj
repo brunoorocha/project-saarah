@@ -54,6 +54,7 @@
 		1B7D0192234CD3F6003B365D /* ProductWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7D0191234CD3F6003B365D /* ProductWorker.swift */; };
 		1B8CF0D423705F0100B41355 /* LoginTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8CF0D323705F0100B41355 /* LoginTableViewDataSource.swift */; };
 		1B8CF0D62372E5A900B41355 /* RegisterSectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8CF0D52372E5A900B41355 /* RegisterSectionFooterView.swift */; };
+		1B8CF0D823759F3600B41355 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8CF0D723759F3600B41355 /* Coordinator.swift */; };
 		4800F0C52372E7E10048F34D /* UserDefaults+Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4800F0C42372E7E10048F34D /* UserDefaults+Token.swift */; };
 		4818E1372322AFC500EFF585 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A343CF4723180C31005F2210 /* AppDelegate.swift */; };
 		481ECD6D2357E97600E3CA18 /* AddNewProductTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481ECD6C2357E97600E3CA18 /* AddNewProductTableViewDataSource.swift */; };
@@ -228,6 +229,7 @@
 		1B7D0191234CD3F6003B365D /* ProductWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductWorker.swift; sourceTree = "<group>"; };
 		1B8CF0D323705F0100B41355 /* LoginTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTableViewDataSource.swift; sourceTree = "<group>"; };
 		1B8CF0D52372E5A900B41355 /* RegisterSectionFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSectionFooterView.swift; sourceTree = "<group>"; };
+		1B8CF0D723759F3600B41355 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		1BBA19B1231FF4D300116004 /* FileManager+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Image.swift"; sourceTree = "<group>"; };
 		4800F0C42372E7E10048F34D /* UserDefaults+Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Token.swift"; sourceTree = "<group>"; };
 		481ECD6C2357E97600E3CA18 /* AddNewProductTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewProductTableViewDataSource.swift; sourceTree = "<group>"; };
@@ -560,6 +562,7 @@
 				A343CF4723180C31005F2210 /* AppDelegate.swift */,
 				A343CF5323180C3C005F2210 /* LaunchScreen.storyboard */,
 				A343CF5123180C3C005F2210 /* Assets.xcassets */,
+				1B8CF0D723759F3600B41355 /* Coordinator.swift */,
 			);
 			path = applications;
 			sourceTree = "<group>";
@@ -943,6 +946,7 @@
 				487B9B3523311FDC00D8D6CC /* Promotion.swift in Sources */,
 				48F28F07235932EE005CCF56 /* AddProductItemView.swift in Sources */,
 				48F28F01235932EE005CCF56 /* AddProductItemPresenter.swift in Sources */,
+				1B8CF0D823759F3600B41355 /* Coordinator.swift in Sources */,
 				A353D7CE231FE4B1004A5139 /* NavigationDrawerMenu.swift in Sources */,
 				1B4DFA7D23595B6E002C2B55 /* ProductItemInteractor.swift in Sources */,
 				A3859A5B235A0279003E4B1B /* ConeheadApiEndpoint.swift in Sources */,
