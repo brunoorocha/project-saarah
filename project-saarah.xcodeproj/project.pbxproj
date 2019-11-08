@@ -134,6 +134,8 @@
 		A32F6E702371BC0C00B00B5F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32F6E6A2371BC0C00B00B5F /* SettingsView.swift */; };
 		A343CF5223180C3C005F2210 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A343CF5123180C3C005F2210 /* Assets.xcassets */; };
 		A343CF5523180C3C005F2210 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A343CF5323180C3C005F2210 /* LaunchScreen.storyboard */; };
+		A34D156023759AEB00DF815D /* UIViewController+ShowActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34D155F23759AEB00DF815D /* UIViewController+ShowActivityIndicator.swift */; };
+		A34D156223759D7D00DF815D /* FullScreenActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34D156123759D7D00DF815D /* FullScreenActivityIndicator.swift */; };
 		A3522D692341200A00DB1314 /* HomeNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3522D682341200A00DB1314 /* HomeNotification.swift */; };
 		A3522D6E2341253700DB1314 /* LocalHomeNotificationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3522D6D2341253700DB1314 /* LocalHomeNotificationStore.swift */; };
 		A3522D70234186AB00DB1314 /* HomeNotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3522D6F234186AB00DB1314 /* HomeNotificationTableViewCell.swift */; };
@@ -310,6 +312,8 @@
 		A343CF5123180C3C005F2210 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A343CF5423180C3C005F2210 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A343CF5623180C3C005F2210 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A34D155F23759AEB00DF815D /* UIViewController+ShowActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ShowActivityIndicator.swift"; sourceTree = "<group>"; };
+		A34D156123759D7D00DF815D /* FullScreenActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenActivityIndicator.swift; sourceTree = "<group>"; };
 		A3522D682341200A00DB1314 /* HomeNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNotification.swift; sourceTree = "<group>"; };
 		A3522D6D2341253700DB1314 /* LocalHomeNotificationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalHomeNotificationStore.swift; sourceTree = "<group>"; };
 		A3522D6F234186AB00DB1314 /* HomeNotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNotificationTableViewCell.swift; sourceTree = "<group>"; };
@@ -598,6 +602,7 @@
 				A3A408E02372F38000682D0E /* UIViewController+PresentConfirmation.swift */,
 				484912162371A2E600AF0779 /* String+ValidEmail.swift */,
 				4800F0C42372E7E10048F34D /* UserDefaults+Token.swift */,
+				A34D155F23759AEB00DF815D /* UIViewController+ShowActivityIndicator.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -749,6 +754,7 @@
 				A3522D712341882300DB1314 /* SaarahTableViewSeparator.swift */,
 				A32244F3235E8AE700375793 /* UnderConstructionViewController.swift */,
 				A3A4598F23606B9D000A765F /* SkelectonLoadingView.swift */,
+				A34D156123759D7D00DF815D /* FullScreenActivityIndicator.swift */,
 			);
 			path = "base-components";
 			sourceTree = "<group>";
@@ -1020,6 +1026,7 @@
 				A32F6E6B2371BC0C00B00B5F /* SettingsPresenter.swift in Sources */,
 				1B0D67042370533B0018DF25 /* LoginView.swift in Sources */,
 				A304F944233CDB3300C3B6F7 /* CaptionButton.swift in Sources */,
+				A34D156223759D7D00DF815D /* FullScreenActivityIndicator.swift in Sources */,
 				4853486E2372099D006E5CAE /* SessionResponse.swift in Sources */,
 				A3780875233B8ECA005B26E8 /* AppStyleGuide.swift in Sources */,
 				48DC47652361D6E7005EE6BC /* UIViewController+PresentAlert.swift in Sources */,
@@ -1036,6 +1043,7 @@
 				A32F6E6C2371BC0C00B00B5F /* SettingsRouter.swift in Sources */,
 				1B0D66F5237043AC0018DF25 /* PurpleButtonTableViewCell.swift in Sources */,
 				A3859A572359FC8B003E4B1B /* ApiHomeNotificationStore.swift in Sources */,
+				A34D156023759AEB00DF815D /* UIViewController+ShowActivityIndicator.swift in Sources */,
 				A3A79735235B3B9600B5724F /* ApiProductStore.swift in Sources */,
 				A3ABCE71233CCFDE00FF54FD /* SaarahIconImageView.swift in Sources */,
 				A32F6E702371BC0C00B00B5F /* SettingsView.swift in Sources */,
