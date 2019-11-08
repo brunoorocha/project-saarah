@@ -29,14 +29,18 @@ class FullScreenActivityIndicator: UIView {
     private func createSubviews () {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor.rgba(0, 0, 0, 0.6)
+        view.backgroundColor = AppStyleGuide.Colors.foreground.uiColor.withAlphaComponent(0.8)
         view.layer.cornerRadius = 8
         view.clipsToBounds = true
         addSubview(view)
 
         let activityIndicatorView = UIActivityIndicatorView()
         activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
-        activityIndicatorView.style = .whiteLarge
+        activityIndicatorView.style = .gray
+
+        if #available(iOS 13, *) {
+            activityIndicatorView.style = .large
+        }
         activityIndicatorView.startAnimating()
 
         view.addSubview(activityIndicatorView)
