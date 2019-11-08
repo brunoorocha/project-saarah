@@ -23,6 +23,7 @@ class Coordinator {
             // Temp viewController to wait for completion
             let viewController = UIViewController()
             viewController.view.backgroundColor = AppStyleGuide.Colors.background.uiColor
+            viewController.showFullScreenActivityIndicator()
             window?.rootViewController = viewController
 
             // Validate token in API
