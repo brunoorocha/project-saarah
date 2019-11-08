@@ -47,7 +47,7 @@ class AddProductItemViewController: UIViewController, AddProductItemDisplayLogic
 		contentView.delegate = self
 		contentView.tableView.delegate = self
 		contentView.tableView.dataSource = self
-		tableViewDataSource.resgisterCell(for: contentView.tableView)
+		tableViewDataSource.registerCell(for: contentView.tableView)
 		contentView.tableView.reloadData()
 	}
 
