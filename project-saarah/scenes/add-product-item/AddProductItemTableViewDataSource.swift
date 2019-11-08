@@ -30,7 +30,7 @@ class AddProductItemTableViewDataSource {
 
 	weak var delegate: AddProductItemTableViewDataSourceDelegate?
 
-	func resgisterCell(for tableView: UITableView) {
+	func registerCell(for tableView: UITableView) {
 		tableView.register(TextFieldTableViewCell.self, forCellReuseIdentifier: "TextFieldTableViewCell")
 	}
 
@@ -88,7 +88,6 @@ class AddProductItemTableViewDataSource {
 		switch (row) {
 		case 0:
 			cell.fieldLabel.text = "\(Localization(.addProductItemScene(.quantity)))"
-			// TODO: get the measure name o add in the end of placeholder
 			cell.textField.placeholder = "\(Localization(.addProductItemScene(.quantityPlaceholder)))"
 			cell.textField.keyboardType = .decimalPad
 		case 1:

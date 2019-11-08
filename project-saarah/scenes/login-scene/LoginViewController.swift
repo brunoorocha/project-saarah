@@ -98,6 +98,8 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
                 "\(Localization(.loginScene(.errorFormValidation(.action))))"
             )
         }
+
+        hideFullScreenActivityIndicator()
     }
 
     func doLogin() {
@@ -121,6 +123,7 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
         let form = Login.LogIn.Form(email: email, passowrd: password)
         let request = Login.LogIn.Request(form: form)
         interactor?.logIn(request: request)
+        showFullScreenActivityIndicator()
     }
 
 }

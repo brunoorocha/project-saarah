@@ -10,13 +10,14 @@ import Foundation
 
 enum ConeheadApiEndpoint {
     case fetchNotifications
-	case addProductItem(productId: String, price: Double, quantity: Double, expirationDate: String)
+	case addProductItem(productId: String, price: Double, quantity: Double, expirationDate: String?)
     case fetchProducts
     case fetchMeasures
 	case fetchProductItems(productId: String)
     case addProduct(name: String, barcode: String?, measureId: String)
 	case signUp(name: String, email: String, password: String, confirmPassword: String)
     case login(email: String, passowrd: String)
+    case session
 }
 
 extension ConeheadApiEndpoint: EndpointType {
@@ -50,6 +51,8 @@ extension ConeheadApiEndpoint: EndpointType {
 			return .post
         case .login:
             return .post
+        case .session:
+            return .get
         }
     }
 
@@ -71,6 +74,8 @@ extension ConeheadApiEndpoint: EndpointType {
 			return apiAddress + "accounts"
         case .login:
             return apiAddress + "sessions"
+        case .session:
+            return apiAddress + "sessions"
         }
     }
 
@@ -79,7 +84,11 @@ extension ConeheadApiEndpoint: EndpointType {
         case .fetchNotifications:
             return nil
         case .addProductItem(let productItem):
-            return "quantity=\(productItem.quantity)&price=\(productItem.price)&expiration=\(productItem.expirationDate)"
+            var path = "quantity=\(productItem.quantity)&price=\(productItem.price)"
+            if let expirationDate = productItem.expirationDate {
+                path.append("&expiration=\(expirationDate)")
+            }
+            return path
         case .fetchProducts:
             return nil
         case .fetchMeasures:
@@ -98,6 +107,8 @@ extension ConeheadApiEndpoint: EndpointType {
         case .login(let parameters):
             let path = "email=\(parameters.email)&password=\(parameters.passowrd)"
             return path
+        case .session:
+            return nil
 		}
 	}
 

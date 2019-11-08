@@ -47,7 +47,7 @@ class AddProductItemViewController: UIViewController, AddProductItemDisplayLogic
 		contentView.delegate = self
 		contentView.tableView.delegate = self
 		contentView.tableView.dataSource = self
-		tableViewDataSource.resgisterCell(for: contentView.tableView)
+		tableViewDataSource.registerCell(for: contentView.tableView)
 		contentView.tableView.reloadData()
 	}
 
@@ -75,19 +75,24 @@ class AddProductItemViewController: UIViewController, AddProductItemDisplayLogic
 
 	func saveProductItem() {
 		guard let quantity = validateQuantity() else {
-			presentAlertModal("\(Localization(.addProductItemScene(.errorFormAlertTitle)))", "\(Localization(.addProductItemScene(.errorFormQuantityAlertMessage)))", "\(Localization(.addProductItemScene(.errorFormActionAlertTitle)))")
+			presentAlertModal(
+                "\(Localization(.addProductItemScene(.errorFormAlertTitle)))",
+                "\(Localization(.addProductItemScene(.errorFormQuantityAlertMessage)))",
+                "\(Localization(.addProductItemScene(.errorFormActionAlertTitle)))"
+            )
 			return
 		}
 
 		guard let price = validatePrice() else {
-			presentAlertModal("\(Localization(.addProductItemScene(.errorFormAlertTitle)))", "\(Localization(.addProductItemScene(.errorFormPriceAlertMessage)))", "\(Localization(.addProductItemScene(.errorFormActionAlertTitle)))")
+			presentAlertModal(
+                "\(Localization(.addProductItemScene(.errorFormAlertTitle)))",
+                "\(Localization(.addProductItemScene(.errorFormPriceAlertMessage)))",
+                "\(Localization(.addProductItemScene(.errorFormActionAlertTitle)))"
+            )
 			return
 		}
 
-		guard let expiration = validateExpiration() else {
-			presentAlertModal("\(Localization(.addProductItemScene(.errorFormAlertTitle)))", "\(Localization(.addProductItemScene(.errorFormExpirationAlertMessage)))", "\(Localization(.addProductItemScene(.errorFormActionAlertTitle)))")
-			return
-		}
+		let expiration = validateExpiration()
 
 		let itemForm = AddProductItem.AddItemForm(quantity: quantity, price: price, expirationDate: expiration)
 		let request = AddProductItem.AddItem.Request(addItemForm: itemForm)
