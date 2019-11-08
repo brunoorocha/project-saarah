@@ -71,8 +71,10 @@ class OnboardingCollectionViewController: UICollectionViewController {
         if page == 0 {
             previousButton.setTitleColor(AppStyleGuide.Colors.background.uiColor, for: .normal)
         } else if page == onboardingData.count-1 && page != pageControl.currentPage {
+            nextButton.titleLabel?.text = "\(Localization(.onboarding(.close)))"
             nextButton.setTitle("\(Localization(.onboarding(.close)))", for: .normal)
         } else if pageControl.currentPage == onboardingData.count-1 && page != pageControl.currentPage {
+            nextButton.titleLabel?.text = "\(Localization(.onboarding(.next)))"
             nextButton.setTitle("\(Localization(.onboarding(.next)))", for: .normal)
         } else if pageControl.currentPage == onboardingData.count-1 && page == onboardingData.count-1 {
             dismiss(animated: true)
