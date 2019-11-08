@@ -122,6 +122,14 @@ extension AppStrings {
 				return "Now"
 			case .alertCancelAction:
 				return "Later"
+			case .alertFormTitle:
+				return "Error"
+			case .alertFormName:
+				return "You must fill the name field."
+			case .alertFormBarCode:
+				return "The bar code must contain only numbers."
+			case .alertFormMeasure:
+				return "Select a measurement unit."
             }
         case .productItemScene(let options):
             switch options {
