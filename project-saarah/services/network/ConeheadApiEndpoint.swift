@@ -100,8 +100,8 @@ extension ConeheadApiEndpoint: EndpointType {
             return path
 		}
 	}
-    
-    var headers: [String : String]? {
+
+    var headers: [String: String]? {
         return ["Authorization": UserDefaults.token() ?? ""]
     }
 }

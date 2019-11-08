@@ -17,5 +17,5 @@ protocol EndpointType {
     var url: URL? { get }
     var httpMethod: HttpMethod { get }
     var body: String? { get }
-    var headers: [String : String]? { get } 
+    var headers: [String: String]? { get }
 }

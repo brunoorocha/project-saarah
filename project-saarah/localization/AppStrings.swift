@@ -177,7 +177,7 @@ enum AppStrings {
         case logoutText
         case myAccountText
         case logoutConfirmation(LogoutConfirmation)
-        
+
         enum LogoutConfirmation {
             case title
             case message
