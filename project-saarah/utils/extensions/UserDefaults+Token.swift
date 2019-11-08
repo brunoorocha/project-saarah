@@ -16,4 +16,8 @@ extension UserDefaults {
 	static func token() -> String? {
 		return UserDefaults.standard.value(forKey: "token") as? String
 	}
+
+	static func hasToken() -> Bool {
+		return UserDefaults.standard.object(forKey: "token") != nil
+	}
 }
