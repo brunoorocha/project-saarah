@@ -49,7 +49,7 @@ class ProductLog: Decodable {
 			throw NSError(domain: "Invalide date from server", code: 999, userInfo: nil)
 		}
 
-		let expirationString = try values.decode(String?.self, forKey: .expiration)
+		let expirationString = try values.decodeIfPresent(String.self, forKey: .expiration)
         if let expirationString = expirationString {
             self.expiration = DateFormat.dateFromTimeZone(expirationString)
         } else {
