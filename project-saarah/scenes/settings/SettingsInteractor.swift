@@ -18,6 +18,7 @@ class SettingsInteractor: SettingsBusinessLogic, SettingsDataStore {
 	var presenter: SettingsPresentationLogic?
 
     func doLogOut(request: Settings.Logout.Request) {
+        UserDefaults.removeToken()
         let response = Settings.Logout.Response()
         presenter?.presentLogOutSuccessMessage(response: response)
     }

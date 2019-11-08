@@ -52,7 +52,6 @@ class SettingsViewController: SaarahViewController, SettingsDisplayLogic {
 
     func displayLogOutSuccessMessage(viewModel: Settings.Logout.ViewModel) {
         goToLoginScene()
-        print("Log Out")
     }
 
     private func showConfirmationModalForLogout () {
