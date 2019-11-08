@@ -25,7 +25,7 @@ protocol NetworkServiceProtocol {
 class NetworkService: NetworkServiceProtocol {
     private var task: URLSessionTask?
 
-    func request<T: Decodable>(endpoint: EndpointType, completionHandler: @escaping (Result<T?, NetworkServiceError>) -> Void) {
+    func request<T: Decodable>(endpoint: EndpointType, completionHandler: @escaping (Result<T?, NetworkServiceError>) -> Void) { // swiftlint:disable:this function_body_length
         let session = URLSession.shared
 
         guard let url = endpoint.url else {
@@ -35,6 +35,7 @@ class NetworkService: NetworkServiceProtocol {
 
         var request = URLRequest(url: url)
         request.httpMethod = endpoint.httpMethod.rawValue
+        endpoint.headers?.forEach({ request.addValue($1, forHTTPHeaderField: $0) })
 
 		if let bodyString = endpoint.body {
 			if let bodyData = bodyString.data(using: String.Encoding.utf8) {

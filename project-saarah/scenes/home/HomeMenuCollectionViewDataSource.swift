@@ -9,7 +9,7 @@
 import UIKit
 
 class HomeMenuCollectionViewDataSource: NSObject {
-    var menuOptions = [HomeMenuOption.inventory]
+    var menuOptions = [HomeMenuOption.inventory, HomeMenuOption.settings]
 }
 
 extension HomeMenuCollectionViewDataSource: UICollectionViewDataSource {

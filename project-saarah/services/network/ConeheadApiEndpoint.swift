@@ -21,9 +21,7 @@ enum ConeheadApiEndpoint {
 
 extension ConeheadApiEndpoint: EndpointType {
     var body: String? {
-        get {
-            return caseBody
-        }
+        return caseBody
     }
 
     var apiAddress: String {
@@ -102,4 +100,8 @@ extension ConeheadApiEndpoint: EndpointType {
             return path
 		}
 	}
+
+    var headers: [String: String]? {
+        return ["Authorization": UserDefaults.token() ?? ""]
+    }
 }

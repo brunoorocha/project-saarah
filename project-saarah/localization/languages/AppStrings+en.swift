@@ -178,13 +178,31 @@ extension AppStrings {
                     return "The expiration date aren't filled correctly."
                 }
             }
+        case .settingsScene(let options):
+            switch options {
+            case .logoutText:
+                return "Log out"
+            case .myAccountText:
+                return "My account"
+            case .logoutConfirmation(let options):
+                switch options {
+                case .logout:
+                    return "Log Out"
+                case .cancel:
+                    return "Cancel"
+                case .title:
+                    return "Confirmation"
+                case .message:
+                    return "Do you really want to log out from application?"
+                }
+            }
         case .registerSectionFooterView(let options):
-        switch options {
-        case .title:
-            return "Don't have account yet?"
-        case .registerButton:
-            return "Sign up here."
-        }
+            switch options {
+            case .title:
+                return "Don't have account yet?"
+            case .registerButton:
+                return "Sign up here."
+            }
         case .loginScene(let options):
             switch options {
             case .title:

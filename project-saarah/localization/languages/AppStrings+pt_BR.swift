@@ -192,6 +192,24 @@ extension AppStrings {
             case .paragraph:
                 return "mas nós ainda estamos em \nconstrução"
             }
+        case .settingsScene(let options):
+            switch options {
+            case .logoutText:
+                return "Sair"
+            case .myAccountText:
+                return "Minha conta"
+            case .logoutConfirmation(let options):
+                switch options {
+                case .logout:
+                    return "Sair"
+                case .cancel:
+                    return "Cancelar"
+                case .title:
+                    return "Confirmação"
+                case .message:
+                    return "Você deseja realmente sair da aplicação?"
+                }
+            }
         case .loginScene(let options):
             switch options {
             case .title:
@@ -229,52 +247,52 @@ extension AppStrings {
                 }
             }
         case .createAccountScene(let options):
-			switch options {
-			case .headerTitle:
-				return "Não possui uma conta?"
-			case .headerSubtitle:
-				return "Sem problemas. Você pode criar uma rapidinho."
-			case .nameCellTitle:
-				return "Nome"
-			case .nameCellPlaceholder:
-				return "Toque para digitar seu nome"
-			case .emailCellTitle:
-				return "Email"
-			case .emailCellPlaceholder:
-				return "Toque para digitar seu email"
-			case .passwordCellTitle:
-				return "Senha"
-			case .passwordCellPlaceholder:
-				return "Toque para digitar sua senha"
-			case .confirmPasswordCellTitle:
-				return "Confirme a senha"
-			case .confirmPasswordCellPlaceholder:
-				return "Toque para digitar sua senha novamente"
-			case .createAccountButtonTitlle:
-				return "Criar conta"
-			case .errorFormAlertTitle:
-				return "Erro"
-			case .errorFormActionTitle:
-				return "Ok"
-			case .errorFormNameMessage:
-				return "O campo nome é obrigatório!"
-			case .errorFormEmailMessage:
-				return "O campo Email é obrigatório!"
-			case .errorFormInvalidEmail:
-				return "Insera um Email válido!"
-			case .errorFormPasswordMessage:
-				return "O campo senha é obrigatório!"
-			case .errorFormConfirmPasswordMessage:
-				return "O campo confirmar senha é obrigatório"
-			case .errorFormPasswordsDontMatchMessage:
-				return "As senhas devem ser iguais!"
-			case .errorFormPasswordSize:
-				return "A senha deve conter pelo menos 6 caracteres!"
-			case .errorSignUpTitle:
-				return "Falha ao cadastrar"
-			case .errorSignUpMessage:
-				return "Ocorreu algum erro durante o seu cadastro, tente novamente!"
-			}
-		}
+            switch options {
+            case .headerTitle:
+                return "Não possui uma conta?"
+            case .headerSubtitle:
+                return "Sem problemas. Você pode criar uma rapidinho."
+            case .nameCellTitle:
+                return "Nome"
+            case .nameCellPlaceholder:
+                return "Toque para digitar seu nome"
+            case .emailCellTitle:
+                return "Email"
+            case .emailCellPlaceholder:
+                return "Toque para digitar seu email"
+            case .passwordCellTitle:
+                return "Senha"
+            case .passwordCellPlaceholder:
+                return "Toque para digitar sua senha"
+            case .confirmPasswordCellTitle:
+                return "Confirme a senha"
+            case .confirmPasswordCellPlaceholder:
+                return "Toque para digitar sua senha novamente"
+            case .createAccountButtonTitlle:
+                return "Criar conta"
+            case .errorFormAlertTitle:
+                return "Erro"
+            case .errorFormActionTitle:
+                return "Ok"
+            case .errorFormNameMessage:
+                return "O campo nome é obrigatório!"
+            case .errorFormEmailMessage:
+                return "O campo Email é obrigatório!"
+            case .errorFormInvalidEmail:
+                return "Insera um Email válido!"
+            case .errorFormPasswordMessage:
+                return "O campo senha é obrigatório!"
+            case .errorFormConfirmPasswordMessage:
+                return "O campo confirmar senha é obrigatório"
+            case .errorFormPasswordsDontMatchMessage:
+                return "As senhas devem ser iguais!"
+            case .errorFormPasswordSize:
+                return "A senha deve conter pelo menos 6 caracteres!"
+            case .errorSignUpTitle:
+                return "Falha ao cadastrar"
+            case .errorSignUpMessage:
+                return "Ocorreu algum erro durante o seu cadastro, tente novamente!"
+            }
+        }
     }
 }

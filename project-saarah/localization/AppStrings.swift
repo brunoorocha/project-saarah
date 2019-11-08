@@ -27,6 +27,7 @@ enum AppStrings {
     case registerSectionFooterView(RegisterSectionFooterView)
     case loginScene(LoginScene)
     case underConstruction(UnderConstruction)
+    case settingsScene(SettingsScene)
 	case createAccountScene(CreateAccountScene)
 
     // MARK: Enum's
@@ -172,6 +173,18 @@ enum AppStrings {
         case paragraph
     }
 
+    enum SettingsScene {
+        case logoutText
+        case myAccountText
+        case logoutConfirmation(LogoutConfirmation)
+
+        enum LogoutConfirmation {
+            case title
+            case message
+            case logout
+            case cancel
+        }
+    }
 	enum CreateAccountScene {
 		case headerTitle
 		case headerSubtitle
