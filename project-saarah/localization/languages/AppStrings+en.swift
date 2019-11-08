@@ -119,9 +119,17 @@ extension AppStrings {
             case .alertOkAction:
                 return "OK"
             case .alertAddProductItemAction:
-                return "Now"
+				return "Now"
             case .alertCancelAction:
-                return "Later"
+				return "Later"
+            case .alertFormTitle:
+				return "Error"
+            case .alertFormName:
+				return "You must fill the name field."
+            case .alertFormBarCode:
+				return "The bar code must contain only numbers."
+            case .alertFormMeasure:
+				return "Select a measure unit."
             }
         case .productItemScene(let options):
             switch options {
@@ -201,7 +209,7 @@ extension AppStrings {
             case .title:
                 return "Don't have account yet?"
             case .registerButton:
-                return "Sign up here."
+                return "Sign up here"
             }
         case .loginScene(let options):
             switch options {
@@ -216,7 +224,7 @@ extension AppStrings {
                 case .password:
                     return "Password"
                 case .passwordPlaceholder:
-                    return "Tap to type your senha"
+                    return "Tap to type your password"
                 }
             case .greeting(let greetings):
                 switch greetings {
@@ -228,7 +236,7 @@ extension AppStrings {
             case .errorFormValidation(let error):
                 switch error {
                 case .alertTitle:
-                    return "A error ocurrent when try to login, try again!"
+                    return "An error ocurrent when try to login, try again!"
                 case .action:
                     return "Close"
                 case .email:
@@ -242,9 +250,9 @@ extension AppStrings {
         case .createAccountScene(let options):
 			switch options {
 			case .headerTitle:
-				return "Don't have a account?"
+				return "Don't have an account?"
 			case .headerSubtitle:
-				return "No problem. You can create one account here."
+				return "No problem. You can create one account quickly."
 			case .nameCellTitle:
 				return "Name"
 			case .nameCellPlaceholder:
@@ -270,7 +278,7 @@ extension AppStrings {
 			case .errorFormNameMessage:
 				return "The name field must be filled out!"
 			case .errorFormEmailMessage:
-				return "The Email field must be filled out!"
+				return "The email field must be filled out!"
 			case .errorFormInvalidEmail:
 				return "Insert a valid Email!"
 			case .errorFormPasswordMessage:
@@ -284,7 +292,7 @@ extension AppStrings {
 			case .errorSignUpTitle:
 				return "Sign up error"
 			case .errorSignUpMessage:
-				return "A error ocurrent when sign up, try again!"
+				return "An error ocurrent when sign up, try again!"
 			}
         default:
             return nil

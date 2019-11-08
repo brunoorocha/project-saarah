@@ -101,6 +101,10 @@ enum AppStrings {
 		case alertOkAction
 		case alertCancelAction
 		case alertAddProductItemAction
+		case alertFormTitle
+		case alertFormName
+		case alertFormBarCode
+		case alertFormMeasure
 	}
 
     enum ProductItemScene {
