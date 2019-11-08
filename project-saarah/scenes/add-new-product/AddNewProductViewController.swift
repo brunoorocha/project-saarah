@@ -93,8 +93,8 @@ class AddNewProductViewController: SaarahViewController, AddNewProductDisplayLog
 			return
 		}
 
-		let barCode = validateBarCode()
-		if (!barCode.1) {
+		let validationBarCode = validateBarCode()
+		if (!validationBarCode.isValid) {
 			presentAlertModal("\(Localization(.addNewProductScene(.alertFormTitle)))", "\(Localization(.addNewProductScene(.alertFormBarCode)))", "\(Localization(.addNewProductScene(.alertOkAction)))")
 			return
 		}
@@ -105,7 +105,7 @@ class AddNewProductViewController: SaarahViewController, AddNewProductDisplayLog
 			return
 		}
 
-		let productForm = AddNewProduct.ProductForm(name: productName, barCode: barCode.0)
+		let productForm = AddNewProduct.ProductForm(name: productName, barCode: validationBarCode.barCode)
 		let request = AddNewProduct.SaveProduct.Request(productForm: productForm)
 		interactor?.saveNewProduct(request: request)
 	}
@@ -121,7 +121,7 @@ class AddNewProductViewController: SaarahViewController, AddNewProductDisplayLog
 		return productName
 	}
 
-	func validateBarCode() -> (String?, Bool) {
+	func validateBarCode() -> (barCode: String?, isValid: Bool) {
 		let indexPath = IndexPath(row: 1, section: 0)
 		guard let cell = contentView.tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell else { return (nil, true) }
 		guard let barCode = cell.textField.text else { return (nil, true) }
