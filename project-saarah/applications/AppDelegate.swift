@@ -15,15 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         UINavigationBar.appearance().tintColor = AppStyleGuide.Colors.primary.uiColor
 
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-
-        let controller = TestCollectionViewController(collectionViewLayout: layout)
+        let controller = HomeViewController()
         let navigationController = UINavigationController(rootViewController: controller)
 
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        window?.rootViewController = controller
+        window?.rootViewController = navigationController
 
         return true
     }

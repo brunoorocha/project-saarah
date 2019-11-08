@@ -1,29 +1,25 @@
 //
-//  TestCollectionViewController.swift
+//  OnboardingCollectionViewController.swift
 //  project-saarah
 //
-//  Created by Marcus Vinícius on 06/11/19.
+//  Created by Marcus Vinícius on 08/11/19.
 //  Copyright © 2019 Bruno Rocha. All rights reserved.
 //
 
 import UIKit
 
-class TestCollectionViewController: UICollectionViewController {
-    let testData = [
-        TestData(
+class OnboardingCollectionViewController: UICollectionViewController {
+    let onboardingData = [
+        OnboardingDataModel(
             image: AppStyleGuide.Icons.onboardingControl.uiImage!,
             description: "Mantenha o controle sobre os produtos do seu Restaurante ou Lanchonete."
         ),
-        TestData(
-            image: AppStyleGuide.Icons.onboardingControl.uiImage!,
-            description: "Fique sabendo quando seus produtos estão próximos de vencer e evite desperdícios."
-        ),
-        TestData(
-            image: AppStyleGuide.Icons.onboardingControl.uiImage!,
+        OnboardingDataModel(
+            image: AppStyleGuide.Icons.onboardingMenu.uiImage!,
             description: "Monte o seu cardápio baseado nos produtos do estoque."
         ),
-        TestData(
-            image: AppStyleGuide.Icons.onboardingControl.uiImage!,
+        OnboardingDataModel(
+            image: AppStyleGuide.Icons.onboardingMoney.uiImage!,
             description: "Acompanhe as entradas e saídas de produtos e pratos do seu negócio."
         )
     ]
@@ -51,7 +47,7 @@ class TestCollectionViewController: UICollectionViewController {
     private lazy var pageControl: UIPageControl = {
         let pageControl = UIPageControl()
         pageControl.currentPage = 0
-        pageControl.numberOfPages = testData.count
+        pageControl.numberOfPages = onboardingData.count
         pageControl.currentPageIndicatorTintColor = AppStyleGuide.Colors.primary.uiColor
         pageControl.pageIndicatorTintColor = AppStyleGuide.Colors.mediumGray.uiColor
 
@@ -63,13 +59,13 @@ class TestCollectionViewController: UICollectionViewController {
 
         collectionView.backgroundColor = AppStyleGuide.Colors.background.uiColor
         collectionView.isPagingEnabled = true
-        collectionView.register(TestCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        collectionView.register(OnboardingCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
 
         setupBottomControls()
     }
 }
 
-extension TestCollectionViewController {
+extension OnboardingCollectionViewController {
     @objc private func handlePrevious() {
         let previousIndex = max(pageControl.currentPage - 1, 0)
         let indexPath = IndexPath(item: previousIndex, section: 0)
@@ -80,7 +76,7 @@ extension TestCollectionViewController {
     }
 
     @objc private func handleNext() {
-        let nextIndex = min(pageControl.currentPage + 1, testData.count - 1)
+        let nextIndex = min(pageControl.currentPage + 1, onboardingData.count - 1)
         let indexPath = IndexPath(item: nextIndex, section: 0)
 
         pageControl.currentPage = nextIndex
@@ -113,7 +109,7 @@ extension TestCollectionViewController {
     }
 }
 
-extension TestCollectionViewController: UICollectionViewDelegateFlowLayout {
+extension OnboardingCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0.0
     }
@@ -123,14 +119,15 @@ extension TestCollectionViewController: UICollectionViewDelegateFlowLayout {
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return testData.count
+        return onboardingData.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let data = testData[indexPath.item]
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! TestCollectionViewCell
+        let data = onboardingData[indexPath.item]
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? OnboardingCollectionViewCell else { return UICollectionViewCell() }
 
-        cell.testData = data
+        cell.onboardingDataModel = data
 
         return cell
     }

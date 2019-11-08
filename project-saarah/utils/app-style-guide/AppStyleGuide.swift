@@ -105,6 +105,7 @@ enum AppStyleGuide {
     enum Icons {
         case onboardingControl
         case onboardingMenu
+        case onboardingMoney
         case activityArrowUp
         case chevronRight
         case check
@@ -121,6 +122,8 @@ enum AppStyleGuide {
                 return UIImage(named: "onboarding-control")
             case .onboardingMenu:
                 return UIImage(named: "onboarding-menu")
+            case .onboardingMoney:
+                return UIImage(named: "onboarding-money")
             case .activityArrowUp:
                 return UIImage(named: "activity-arrow-up")
             case .chevronRight:
