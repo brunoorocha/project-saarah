@@ -70,6 +70,12 @@ class OnboardingCollectionViewController: UICollectionViewController {
     func changePage(by page: Int) {
         if page == 0 {
             previousButton.setTitleColor(AppStyleGuide.Colors.background.uiColor, for: .normal)
+        } else if page == onboardingData.count-1 && page != pageControl.currentPage {
+            nextButton.setTitle("\(Localization(.onboarding(.close)))", for: .normal)
+        } else if pageControl.currentPage == onboardingData.count-1 && page != pageControl.currentPage {
+            nextButton.setTitle("\(Localization(.onboarding(.next)))", for: .normal)
+        } else if pageControl.currentPage == onboardingData.count-1 && page == onboardingData.count-1 {
+            dismiss(animated: true)
         } else {
             previousButton.setTitleColor(AppStyleGuide.Colors.primary.uiColor, for: .normal)
         }
