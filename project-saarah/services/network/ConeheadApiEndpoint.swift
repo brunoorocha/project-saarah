@@ -16,6 +16,7 @@ enum ConeheadApiEndpoint {
 	case fetchProductItems(productId: String)
     case addProduct(name: String, barcode: String?, measureId: String)
 	case signUp(name: String, email: String, password: String, confirmPassword: String)
+    case login(email: String, passowrd: String)
 }
 
 extension ConeheadApiEndpoint: EndpointType {
@@ -49,6 +50,8 @@ extension ConeheadApiEndpoint: EndpointType {
             return .post
         case .signUp:
 			return .post
+        case .login:
+            return .post
         }
     }
 
@@ -68,6 +71,8 @@ extension ConeheadApiEndpoint: EndpointType {
             return apiAddress + "products"
         case .signUp:
 			return apiAddress + "accounts"
+        case .login:
+            return apiAddress + "sessions"
         }
     }
 
@@ -92,6 +97,9 @@ extension ConeheadApiEndpoint: EndpointType {
         case .signUp(let parameters):
 			let path = "name=\(parameters.name)&email=\(parameters.email)&password=\(parameters.password)&passwordConfirmation=\(parameters.confirmPassword)"
 			return path
+        case .login(let parameters):
+            let path = "email=\(parameters.email)&password=\(parameters.passowrd)"
+            return path
 		}
 	}
 }

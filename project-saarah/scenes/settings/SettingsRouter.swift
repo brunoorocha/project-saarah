@@ -21,6 +21,15 @@ class SettingsRouter: NSObject, SettingsRoutingLogic, SettingsDataPassing {
 	var dataStore: SettingsDataStore?
 
     func routeToLoginScene() {
-        // TODO: Call login view controller
+        guard let viewController = viewController else { return }
+        let destination = LoginViewController()
+        navigateToHome(source: viewController, destination: destination)
+    }
+
+    private func navigateToHome(source: SettingsViewController, destination: LoginViewController) {
+        let navigationController = UINavigationController(rootViewController: destination)
+        if let window = UIApplication.shared.windows.first {
+             window.rootViewController = navigationController
+        }
     }
 }

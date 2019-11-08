@@ -24,6 +24,8 @@ enum AppStrings {
 	case addNewProductScene(AddNewProductScene)
     case productItemScene(ProductItemScene)
 	case addProductItemScene(AddProductItemScene)
+    case registerSectionFooterView(RegisterSectionFooterView)
+    case loginScene(LoginScene)
     case underConstruction(UnderConstruction)
     case settingsScene(SettingsScene)
 	case createAccountScene(CreateAccountScene)
@@ -133,6 +135,38 @@ enum AppStrings {
 			case expirationDateMessage
 		}
 	}
+
+    enum RegisterSectionFooterView {
+        case title
+        case registerButton
+    }
+
+    enum LoginScene {
+        case title
+        case textField(TextField)
+        case greeting(Greeting)
+        case errorFormValidation(ErrorFormValidation)
+
+        enum TextField {
+            case mail
+            case mailPlaceholder
+            case password
+            case passwordPlaceholder
+        }
+
+        enum ErrorFormValidation {
+            case alertTitle
+            case action
+            case email
+            case password
+            case undefined
+        }
+
+        enum Greeting {
+            case title
+            case description
+        }
+    }
 
     enum UnderConstruction {
         case title
