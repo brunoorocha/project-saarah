@@ -122,6 +122,14 @@ extension AppStrings {
 				return "Mais tarde"
             case .alertAddProductItemAction:
 				return "Sim"
+            case .alertFormTitle:
+				return "Erro"
+            case .alertFormName:
+				return "Insira o nome do produto."
+            case .alertFormBarCode:
+				return "O código de barra deve conter apenas números."
+            case .alertFormMeasure:
+				return "Selecione uma unidade de medida."
             }
         case .productItemScene(let options):
             switch options {

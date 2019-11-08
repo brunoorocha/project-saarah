@@ -55,7 +55,6 @@ class CreateAccountTableViewDataSource: NSObject {
         }
     }
 
-
 	func viewForHeader(in section: Int) -> UIView {
 		switch (section) {
 		case 0:
@@ -147,4 +146,3 @@ extension CreateAccountTableViewDataSource: UITextFieldDelegate {
         return true
     }
 }
-

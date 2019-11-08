@@ -86,6 +86,66 @@ class AddNewProductViewController: SaarahViewController, AddNewProductDisplayLog
 	func productItemReceived() {
 		router?.dismissPresentedViewController()
 	}
+
+	func addProduct() {
+		guard let productName = validateProductName() else {
+			presentAlertModal("\(Localization(.addNewProductScene(.alertFormTitle)))", "\(Localization(.addNewProductScene(.alertFormName)))", "\(Localization(.addNewProductScene(.alertOkAction)))")
+			return
+		}
+
+		let validationBarCode = validateBarCode()
+		if (!validationBarCode.isValid) {
+			presentAlertModal("\(Localization(.addNewProductScene(.alertFormTitle)))", "\(Localization(.addNewProductScene(.alertFormBarCode)))", "\(Localization(.addNewProductScene(.alertOkAction)))")
+			return
+		}
+
+		if (!validadeSelectMeasure()) {
+			presentAlertModal("\(Localization(.addNewProductScene(.alertFormTitle)))", "\(Localization(.addNewProductScene(.alertFormMeasure)))", "\(Localization(.addNewProductScene(.alertOkAction)))")
+
+			return
+		}
+
+		let productForm = AddNewProduct.ProductForm(name: productName, barCode: validationBarCode.barCode)
+		let request = AddNewProduct.SaveProduct.Request(productForm: productForm)
+		interactor?.saveNewProduct(request: request)
+	}
+
+	func validateProductName() -> String? {
+		let indexPath = IndexPath(row: 0, section: 0)
+		guard let cell = contentView.tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell else { return nil }
+		guard let productName = cell.textField.text else { return nil }
+
+		if (productName.isEmpty) {
+			return nil
+		}
+		return productName
+	}
+
+	func validateBarCode() -> (barCode: String?, isValid: Bool) {
+		let indexPath = IndexPath(row: 1, section: 0)
+		guard let cell = contentView.tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell else { return (nil, true) }
+		guard let barCode = cell.textField.text else { return (nil, true) }
+
+		if (barCode.isEmpty) {
+			return (nil, true)
+		}
+		if (barCode.isNumeric) {
+			return (barCode, true)
+		}
+
+		return (nil, false)
+	}
+
+	func validadeSelectMeasure() -> Bool {
+		let indexPath = IndexPath(row: 2, section: 0)
+		guard let cell = contentView.tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell else { return false }
+		guard let measure = cell.textField.text else { return false }
+
+		if (measure.isEmpty) {
+			return false
+		}
+		return true
+	}
 }
 
 extension AddNewProductViewController: AddNewProductViewDelegate {
@@ -94,17 +154,7 @@ extension AddNewProductViewController: AddNewProductViewDelegate {
 	}
 
 	func saveAction() {
-		var indexPath = IndexPath(row: 0, section: 0)
-		guard let cell0 = contentView.tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell else { return }
-		guard let productName = cell0.textField.text else { return }
-		indexPath.row = 1
-		guard let cell1 = contentView.tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell else { return }
-		var barCode = cell1.textField.text
-        barCode = barCode == "" ? nil : barCode
-
-		let productForm = AddNewProduct.ProductForm(name: productName, barCode: barCode)
-		let request = AddNewProduct.SaveProduct.Request(productForm: productForm)
-		interactor?.saveNewProduct(request: request)
+		addProduct()
 	}
 }
 

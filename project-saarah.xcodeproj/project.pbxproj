@@ -65,6 +65,7 @@
 		48244F5B23478303007B4AA7 /* ProductDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48244F5523478302007B4AA7 /* ProductDetailInteractor.swift */; };
 		48244F5C23478303007B4AA7 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48244F5623478302007B4AA7 /* ProductDetailView.swift */; };
 		48244F5E23479187007B4AA7 /* ProductDetailTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48244F5D23479187007B4AA7 /* ProductDetailTableViewDataSource.swift */; };
+		4836AE35237595CF00F10D85 /* String+isNumeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4836AE34237595CF00F10D85 /* String+isNumeric.swift */; };
 		484848B12354EEA200A84FB0 /* AddNewProductPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484848AA2354EEA200A84FB0 /* AddNewProductPresenter.swift */; };
 		484848B22354EEA200A84FB0 /* AddNewProductRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484848AB2354EEA200A84FB0 /* AddNewProductRouter.swift */; };
 		484848B32354EEA200A84FB0 /* AddNewProductModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484848AC2354EEA200A84FB0 /* AddNewProductModels.swift */; };
@@ -243,6 +244,7 @@
 		48244F5623478302007B4AA7 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 		48244F5D23479187007B4AA7 /* ProductDetailTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailTableViewDataSource.swift; sourceTree = "<group>"; };
 		482922F5231D42B2005DAF11 /* ConfigurableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableController.swift; sourceTree = "<group>"; };
+		4836AE34237595CF00F10D85 /* String+isNumeric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isNumeric.swift"; sourceTree = "<group>"; };
 		484848AA2354EEA200A84FB0 /* AddNewProductPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewProductPresenter.swift; sourceTree = "<group>"; };
 		484848AB2354EEA200A84FB0 /* AddNewProductRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewProductRouter.swift; sourceTree = "<group>"; };
 		484848AC2354EEA200A84FB0 /* AddNewProductModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewProductModels.swift; sourceTree = "<group>"; };
@@ -605,6 +607,7 @@
 				A3A408E02372F38000682D0E /* UIViewController+PresentConfirmation.swift */,
 				484912162371A2E600AF0779 /* String+ValidEmail.swift */,
 				4800F0C42372E7E10048F34D /* UserDefaults+Token.swift */,
+				4836AE34237595CF00F10D85 /* String+isNumeric.swift */,
 				A34D155F23759AEB00DF815D /* UIViewController+ShowActivityIndicator.swift */,
 			);
 			path = extensions;
@@ -956,6 +959,7 @@
 				A353D7CE231FE4B1004A5139 /* NavigationDrawerMenu.swift in Sources */,
 				1B4DFA7D23595B6E002C2B55 /* ProductItemInteractor.swift in Sources */,
 				A3859A5B235A0279003E4B1B /* ConeheadApiEndpoint.swift in Sources */,
+				4836AE35237595CF00F10D85 /* String+isNumeric.swift in Sources */,
 				A3D2D0D62340E91100432214 /* HomeView.swift in Sources */,
 				A3D619D3237245B30052BA83 /* SettingsBuilder.swift in Sources */,
 				A3AACBC82340C946000EFB6B /* SaarahViewController.swift in Sources */,
