@@ -300,6 +300,8 @@ extension AppStrings {
                 return "Before"
             case .next:
                 return "Next"
+            case .close:
+                return "Close"
             case .description(let descriptions):
                 switch descriptions {
                 case .first:

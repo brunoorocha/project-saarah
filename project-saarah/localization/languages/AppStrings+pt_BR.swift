@@ -307,6 +307,8 @@ extension AppStrings {
                 return "Anterior"
             case .next:
                 return "Próximo"
+            case .close:
+                return "Fechar"
             case .description(let descriptions):
                 switch descriptions {
                 case .first:

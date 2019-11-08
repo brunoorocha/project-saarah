@@ -218,6 +218,7 @@ enum AppStrings {
     enum Onboarding {
         case before
         case next
+        case close
         case description(Description)
 
         enum Description {
