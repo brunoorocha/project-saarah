@@ -27,7 +27,7 @@ class OnboardingCollectionViewController: UICollectionViewController {
     private let previousButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("\(Localization(.onboarding(.before)))", for: .normal)
-        button.setTitleColor(AppStyleGuide.Colors.primary.uiColor, for: .normal)
+        button.setTitleColor(AppStyleGuide.Colors.background.uiColor, for: .normal)
         button.titleLabel?.font = AppStyleGuide.Typography.paragraph.uiFont
         button.addTarget(self, action: #selector(handlePrevious), for: .touchUpInside)
 
@@ -63,6 +63,15 @@ class OnboardingCollectionViewController: UICollectionViewController {
 
         setupBottomControls()
     }
+
+    func changePage(by page: Int) {
+        if page == 0 {
+            previousButton.setTitleColor(AppStyleGuide.Colors.background.uiColor, for: .normal)
+        } else {
+            previousButton.setTitleColor(AppStyleGuide.Colors.primary.uiColor, for: .normal)
+        }
+        pageControl.currentPage = page
+    }
 }
 
 extension OnboardingCollectionViewController {
@@ -70,7 +79,7 @@ extension OnboardingCollectionViewController {
         let previousIndex = max(pageControl.currentPage - 1, 0)
         let indexPath = IndexPath(item: previousIndex, section: 0)
 
-        pageControl.currentPage = previousIndex
+        changePage(by: previousIndex)
 
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
@@ -79,7 +88,7 @@ extension OnboardingCollectionViewController {
         let nextIndex = min(pageControl.currentPage + 1, onboardingData.count - 1)
         let indexPath = IndexPath(item: nextIndex, section: 0)
 
-        pageControl.currentPage = nextIndex
+        changePage(by: nextIndex)
 
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
@@ -105,7 +114,7 @@ extension OnboardingCollectionViewController {
     override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let currentTarget = targetContentOffset.pointee.x
 
-        pageControl.currentPage = Int(currentTarget / view.frame.width)
+        changePage(by: Int(currentTarget / view.frame.width))
     }
 }
 
