@@ -12,21 +12,21 @@ class OnboardingCollectionViewController: UICollectionViewController {
     let onboardingData = [
         OnboardingDataModel(
             image: AppStyleGuide.Icons.onboardingControl.uiImage!,
-            description: "Mantenha o controle sobre os produtos do seu Restaurante ou Lanchonete."
+            description: "\(Localization(.onboarding(.description(.first))))"
         ),
         OnboardingDataModel(
             image: AppStyleGuide.Icons.onboardingMenu.uiImage!,
-            description: "Monte o seu cardápio baseado nos produtos do estoque."
+            description: "\(Localization(.onboarding(.description(.second))))"
         ),
         OnboardingDataModel(
             image: AppStyleGuide.Icons.onboardingMoney.uiImage!,
-            description: "Acompanhe as entradas e saídas de produtos e pratos do seu negócio."
+            description: "\(Localization(.onboarding(.description(.third))))"
         )
     ]
 
     private let previousButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Anterior", for: .normal)
+        button.setTitle("\(Localization(.onboarding(.before)))", for: .normal)
         button.setTitleColor(AppStyleGuide.Colors.primary.uiColor, for: .normal)
         button.titleLabel?.font = AppStyleGuide.Typography.paragraph.uiFont
         button.addTarget(self, action: #selector(handlePrevious), for: .touchUpInside)
@@ -36,7 +36,7 @@ class OnboardingCollectionViewController: UICollectionViewController {
 
     private let nextButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Próximo", for: .normal)
+        button.setTitle("\(Localization(.onboarding(.next)))", for: .normal)
         button.setTitleColor(AppStyleGuide.Colors.primary.uiColor, for: .normal)
         button.titleLabel?.font = AppStyleGuide.Typography.paragraph.uiFont
         button.addTarget(self, action: #selector(handleNext), for: .touchUpInside)
