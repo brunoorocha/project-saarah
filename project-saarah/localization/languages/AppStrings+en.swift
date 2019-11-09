@@ -294,6 +294,24 @@ extension AppStrings {
 			case .errorSignUpMessage:
 				return "An error ocurrent when sign up, try again!"
 			}
+        case .onboarding(let options):
+            switch options {
+            case .before:
+                return "Before"
+            case .next:
+                return "Next"
+            case .close:
+                return "Close"
+            case .description(let descriptions):
+                switch descriptions {
+                case .first:
+                    return "Keep track of your products in Restaurant or Snackbar."
+                case .second:
+                    return "Set up your menu based on the products in stock."
+                case .third:
+                    return "Track the inputs and outputs of products and dishes of your business."
+                }
+            }
         default:
             return nil
         }

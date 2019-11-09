@@ -112,6 +112,9 @@
 		4C94BAD8233B9086008D62F5 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94BAD7233B9086008D62F5 /* UIView.swift */; };
 		4C94BADD233BA8ED008D62F5 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94BADC233BA8ED008D62F5 /* UILabel.swift */; };
 		4C94BAE8233CE4FA008D62F5 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94BAE7233CE4FA008D62F5 /* ProductTableViewCell.swift */; };
+		4CCAC0E62375CF6E00470AA0 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCAC0E52375CF6E00470AA0 /* OnboardingCollectionViewCell.swift */; };
+		4CCAC0E82375D11600470AA0 /* OnboardingDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCAC0E72375D11600470AA0 /* OnboardingDataModel.swift */; };
+		4CCAC0EA2375D21100470AA0 /* OnboardingCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCAC0E92375D21100470AA0 /* OnboardingCollectionViewController.swift */; };
 		4CEDEA4E2361E7390029BB85 /* AppStrings+en.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEDEA4D2361E7390029BB85 /* AppStrings+en.swift */; };
 		A304F93C233CD90B00C3B6F7 /* DefaultSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304F93B233CD90B00C3B6F7 /* DefaultSectionHeaderView.swift */; };
 		A304F940233CD9EA00C3B6F7 /* CaptionBoldLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304F93F233CD9EA00C3B6F7 /* CaptionBoldLabel.swift */; };
@@ -289,6 +292,9 @@
 		4C94BAD7233B9086008D62F5 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		4C94BADC233BA8ED008D62F5 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		4C94BAE7233CE4FA008D62F5 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
+		4CCAC0E52375CF6E00470AA0 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
+		4CCAC0E72375D11600470AA0 /* OnboardingDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingDataModel.swift; sourceTree = "<group>"; };
+		4CCAC0E92375D21100470AA0 /* OnboardingCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewController.swift; sourceTree = "<group>"; };
 		4CEDEA4D2361E7390029BB85 /* AppStrings+en.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppStrings+en.swift"; sourceTree = "<group>"; };
 		A304F93B233CD90B00C3B6F7 /* DefaultSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSectionHeaderView.swift; sourceTree = "<group>"; };
 		A304F93F233CD9EA00C3B6F7 /* CaptionBoldLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionBoldLabel.swift; sourceTree = "<group>"; };
@@ -506,6 +512,7 @@
 		482922F7231D4503005DAF11 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				4CCAC0E42375CEB500470AA0 /* Onboarding Screen */,
 				4C94BAD6233B9060008D62F5 /* extensions */,
 				A3780873233B8E64005B26E8 /* app-style-guide */,
 				482922F5231D42B2005DAF11 /* ConfigurableController.swift */,
@@ -611,6 +618,16 @@
 				A34D155F23759AEB00DF815D /* UIViewController+ShowActivityIndicator.swift */,
 			);
 			path = extensions;
+			sourceTree = "<group>";
+		};
+		4CCAC0E42375CEB500470AA0 /* Onboarding Screen */ = {
+			isa = PBXGroup;
+			children = (
+				4CCAC0E72375D11600470AA0 /* OnboardingDataModel.swift */,
+				4CCAC0E52375CF6E00470AA0 /* OnboardingCollectionViewCell.swift */,
+				4CCAC0E92375D21100470AA0 /* OnboardingCollectionViewController.swift */,
+			);
+			path = "Onboarding Screen";
 			sourceTree = "<group>";
 		};
 		A304F949233CEC9E00C3B6F7 /* form-cells */ = {
@@ -944,8 +961,10 @@
 				48BC8069234CB1560001B1A9 /* ConfigurableController.swift in Sources */,
 				1B15E0D22354A44B0047A0B6 /* Localization.swift in Sources */,
 				489C01A1234B89FC00AEC143 /* FileManager+Image.swift in Sources */,
+				4CCAC0E62375CF6E00470AA0 /* OnboardingCollectionViewCell.swift in Sources */,
 				481ECD6D2357E97600E3CA18 /* AddNewProductTableViewDataSource.swift in Sources */,
 				A3D2D0D52340E91100432214 /* HomeInteractor.swift in Sources */,
+				4CCAC0E82375D11600470AA0 /* OnboardingDataModel.swift in Sources */,
 				A3D2D0D22340E91100432214 /* HomeRouter.swift in Sources */,
 				4800F0C52372E7E10048F34D /* UserDefaults+Token.swift in Sources */,
 				4849121C2371B91F00AF0779 /* ApiAccountStore.swift in Sources */,
@@ -1093,6 +1112,7 @@
 				A3522D6E2341253700DB1314 /* LocalHomeNotificationStore.swift in Sources */,
 				1B15E0CF2354A3970047A0B6 /* AppStrings+pt_BR.swift in Sources */,
 				1B2DB9BB2357AE2E00AF6D80 /* SelectProductMeasurementViewController.swift in Sources */,
+				4CCAC0EA2375D21100470AA0 /* OnboardingCollectionViewController.swift in Sources */,
 				48F28F06235932EE005CCF56 /* AddProductItemInteractor.swift in Sources */,
 				486CD3BF237069C300FB0610 /* CreateAccountPresenter.swift in Sources */,
 				4C94BAD8233B9086008D62F5 /* UIView.swift in Sources */,

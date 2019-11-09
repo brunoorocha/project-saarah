@@ -301,6 +301,24 @@ extension AppStrings {
             case .errorSignUpMessage:
                 return "Ocorreu algum erro durante o seu cadastro, tente novamente!"
             }
+        case .onboarding(let options):
+            switch options {
+            case .before:
+                return "Anterior"
+            case .next:
+                return "Próximo"
+            case .close:
+                return "Fechar"
+            case .description(let descriptions):
+                switch descriptions {
+                case .first:
+                    return "Mantenha o controle sobre os produtos do seu Restaurante ou Lanchonete."
+                case .second:
+                    return "Monte o seu cardápio baseado nos produtos do estoque."
+                case .third:
+                    return "Acompanhe as entradas e saídas de produtos e pratos do seu negócio."
+                }
+            }
         }
     }
 }

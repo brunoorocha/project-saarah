@@ -38,8 +38,20 @@ class Coordinator {
                 self.window?.rootViewController = navigationController
             })
         } else {
-            navigationController.show(LoginViewController(), sender: nil)
+            let loginViewController = LoginViewController()
+            navigationController.show(loginViewController, sender: nil)
             window?.rootViewController = navigationController
+
+            if (UserDefaults.willShowOnboarding()) {
+                presentOnboarding(in: loginViewController)
+            }
         }
+    }
+
+    func presentOnboarding(in viewController: UIViewController) {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        viewController.present(OnboardingCollectionViewController(collectionViewLayout: layout), animated: false)
+        UserDefaults.showOnboarding()
     }
 }
