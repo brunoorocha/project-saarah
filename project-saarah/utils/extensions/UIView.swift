@@ -37,6 +37,8 @@ extension UIView {
         var leading: NSLayoutConstraint?
         var bottom: NSLayoutConstraint?
         var trailing: NSLayoutConstraint?
+        var centerX: NSLayoutConstraint?
+        var centerY: NSLayoutConstraint?
         var width: NSLayoutConstraint?
         var height: NSLayoutConstraint?
     }
@@ -93,6 +95,17 @@ extension UIView {
             anchoredConstraints.width,
             anchoredConstraints.height
         ].forEach { $0?.isActive = true }
+
+        return anchoredConstraints
+    }
+
+    @discardableResult
+    public func constraintHeight(_ constant: CGFloat) -> AnchoredConstraints {
+        self.translatesAutoresizingMaskIntoConstraints = false
+
+        var anchoredConstraints = AnchoredConstraints()
+        anchoredConstraints.height = self.heightAnchor.constraint(equalToConstant: constant)
+        anchoredConstraints.height?.isActive = true
 
         return anchoredConstraints
     }

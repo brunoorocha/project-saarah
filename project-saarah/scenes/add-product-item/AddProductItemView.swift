@@ -14,7 +14,7 @@ protocol AddProductItemViewDelegate: class {
 }
 
 class AddProductItemView: UIView {
-	var navigationBar: UINavigationBar!
+	var navigationBar = UINavigationBar()
 	var tableView: SaarahTableView!
 
 	weak var delegate: AddProductItemViewDelegate?
@@ -42,37 +42,43 @@ class AddProductItemView: UIView {
 	}
 
 	func instantiateViews() {
-		navigationBar = UINavigationBar()
-		navigationBar.translatesAutoresizingMaskIntoConstraints = false
-		navigationBar.barTintColor = .white
 		let navbarTitleAttributes = [
 			NSAttributedString.Key.font: AppStyleGuide.Typography.heading3.uiFont,
 			NSAttributedString.Key.foregroundColor: AppStyleGuide.Colors.textColor.uiColor
 		]
+
 		navigationBar.titleTextAttributes = navbarTitleAttributes
+
 		let navigationItem = UINavigationItem(title: "\(Localization(.addProductItemScene(.title)))")
+
 		let leftButton = UIBarButtonItem(title: "\(Localization(.addProductItemScene(.cancelBarButton)))", style: .plain, target: self, action: #selector(cancelButtonAction))
+
 		let rightButton = UIBarButtonItem(title: "\(Localization(.addProductItemScene(.saveBarButton)))", style: .done, target: self, action: #selector(saveButtonAction))
+
 		navigationItem.leftBarButtonItem = leftButton
 		navigationItem.rightBarButtonItem = rightButton
+
 		navigationBar.setItems([navigationItem], animated: false)
+
 		tableView = SaarahTableView()
 	}
 
 	func buildViewsHierarchy() {
-		addSubview(navigationBar)
-		addSubview(tableView)
+        addSubviews([navigationBar, tableView])
 	}
 
 	func setupConstraints() {
+        navigationBar.anchor(
+            top: topAnchor,
+            leading: leadingAnchor,
+            trailing: trailingAnchor
+        )
+
 		NSLayoutConstraint.activate([
-			navigationBar.leadingAnchor.constraint(equalTo: leadingAnchor),
-			navigationBar.topAnchor.constraint(equalTo: topAnchor),
-			navigationBar.trailingAnchor.constraint(equalTo: trailingAnchor),
-			tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
-			tableView.topAnchor.constraint(equalTo: navigationBar.bottomAnchor),
-			tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
-			tableView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            tableView.topAnchor.constraint(equalTo: navigationBar.bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            tableView.trailingAnchor.constraint(equalTo: trailingAnchor)
 		])
 	}
 }

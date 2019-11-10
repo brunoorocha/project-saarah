@@ -10,17 +10,19 @@ import Foundation
 
 enum ConeheadApiEndpoint {
     case fetchNotifications
-	case addProductItem(productId: String, price: Double, quantity: Double, expirationDate: String)
+	case addProductItem(productId: String, price: Double, quantity: Double, expirationDate: String?)
     case fetchProducts
     case fetchMeasures
+	case fetchProductItems(productId: String)
     case addProduct(name: String, barcode: String?, measureId: String)
+	case signUp(name: String, email: String, password: String, confirmPassword: String)
+    case login(email: String, passowrd: String)
+    case session
 }
 
 extension ConeheadApiEndpoint: EndpointType {
     var body: String? {
-        get {
-            return caseBody
-        }
+        return caseBody
     }
 
     var apiAddress: String {
@@ -41,8 +43,16 @@ extension ConeheadApiEndpoint: EndpointType {
             return .get
         case .fetchMeasures:
             return .get
+        case .fetchProductItems:
+			return .get
         case .addProduct:
             return .post
+        case .signUp:
+			return .post
+        case .login:
+            return .post
+        case .session:
+            return .get
         }
     }
 
@@ -56,8 +66,16 @@ extension ConeheadApiEndpoint: EndpointType {
             return apiAddress + "products"
         case .fetchMeasures:
             return apiAddress + "measurements"
+        case .fetchProductItems(let productId):
+			return apiAddress + "/products/" + productId + "/items"
         case .addProduct:
             return apiAddress + "products"
+        case .signUp:
+			return apiAddress + "accounts"
+        case .login:
+            return apiAddress + "sessions"
+        case .session:
+            return apiAddress + "sessions"
         }
     }
 
@@ -66,17 +84,35 @@ extension ConeheadApiEndpoint: EndpointType {
         case .fetchNotifications:
             return nil
         case .addProductItem(let productItem):
-            return "quantity=\(productItem.quantity)&price=\(productItem.price)&expiration=\(productItem.expirationDate)"
+            var path = "quantity=\(productItem.quantity)&price=\(productItem.price)"
+            if let expirationDate = productItem.expirationDate {
+                path.append("&expiration=\(expirationDate)")
+            }
+            return path
         case .fetchProducts:
             return nil
         case .fetchMeasures:
             return nil
+        case .fetchProductItems:
+			return nil
         case .addProduct(let product):
             var path: String = "name=\(product.name)&measurementId=\(product.measureId)"
             if let barcode = product.barcode {
                 path.append("&barcode=\(barcode)")
             }
             return path
+        case .signUp(let parameters):
+			let path = "name=\(parameters.name)&email=\(parameters.email)&password=\(parameters.password)&passwordConfirmation=\(parameters.confirmPassword)"
+			return path
+        case .login(let parameters):
+            let path = "email=\(parameters.email)&password=\(parameters.passowrd)"
+            return path
+        case .session:
+            return nil
 		}
 	}
+
+    var headers: [String: String]? {
+        return ["Authorization": UserDefaults.token() ?? ""]
+    }
 }

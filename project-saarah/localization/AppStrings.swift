@@ -24,7 +24,12 @@ enum AppStrings {
 	case addNewProductScene(AddNewProductScene)
     case productItemScene(ProductItemScene)
 	case addProductItemScene(AddProductItemScene)
+    case registerSectionFooterView(RegisterSectionFooterView)
+    case loginScene(LoginScene)
     case underConstruction(UnderConstruction)
+    case settingsScene(SettingsScene)
+	case createAccountScene(CreateAccountScene)
+    case onboarding(Onboarding)
 
     // MARK: Enum's
 
@@ -94,7 +99,13 @@ enum AppStrings {
 		case measurePlaceholder
 		case successResponseTitle
 		case successResponseMessage
-		case alertAction
+		case alertOkAction
+		case alertCancelAction
+		case alertAddProductItemAction
+		case alertFormTitle
+		case alertFormName
+		case alertFormBarCode
+		case alertFormMeasure
 	}
 
     enum ProductItemScene {
@@ -130,8 +141,90 @@ enum AppStrings {
 		}
 	}
 
+    enum RegisterSectionFooterView {
+        case title
+        case registerButton
+    }
+
+    enum LoginScene {
+        case title
+        case textField(TextField)
+        case greeting(Greeting)
+        case errorFormValidation(ErrorFormValidation)
+
+        enum TextField {
+            case mail
+            case mailPlaceholder
+            case password
+            case passwordPlaceholder
+        }
+
+        enum ErrorFormValidation {
+            case alertTitle
+            case action
+            case email
+            case password
+            case undefined
+        }
+
+        enum Greeting {
+            case title
+            case description
+        }
+    }
+
     enum UnderConstruction {
         case title
         case paragraph
+    }
+
+    enum SettingsScene {
+        case logoutText
+        case myAccountText
+        case logoutConfirmation(LogoutConfirmation)
+
+        enum LogoutConfirmation {
+            case title
+            case message
+            case logout
+            case cancel
+        }
+    }
+	enum CreateAccountScene {
+		case headerTitle
+		case headerSubtitle
+		case nameCellTitle
+		case nameCellPlaceholder
+		case emailCellTitle
+		case emailCellPlaceholder
+		case passwordCellTitle
+		case passwordCellPlaceholder
+		case confirmPasswordCellTitle
+		case confirmPasswordCellPlaceholder
+		case createAccountButtonTitlle
+		case errorFormAlertTitle
+		case errorFormActionTitle
+		case errorFormNameMessage
+		case errorFormEmailMessage
+		case errorFormInvalidEmail
+		case errorFormPasswordMessage
+		case errorFormConfirmPasswordMessage
+		case errorFormPasswordsDontMatchMessage
+		case errorFormPasswordSize
+		case errorSignUpTitle
+		case errorSignUpMessage
+	}
+
+    enum Onboarding {
+        case before
+        case next
+        case close
+        case description(Description)
+
+        enum Description {
+            case first
+            case second
+            case third
+        }
     }
 }

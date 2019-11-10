@@ -61,6 +61,7 @@ enum AppStyleGuide {
         case mediumGray
         case darkCyan
         case orange
+        case red
         case gray
         case lightRed
         case lightPurple
@@ -69,21 +70,28 @@ enum AppStyleGuide {
         var uiColor: UIColor {
             switch self {
             case .primary:
-                return UIColor.rgba(88, 72, 160)
+                return UIColor.setupColorFor(.lightModePrimary, .darkModePrimary)
+
             case .background:
-                return UIColor.rgba(245, 245, 245)
+                return UIColor.setupColorFor(.lightModeBackground, .darkModeBackground)
+
             case .foreground:
-                return UIColor.white
+                return UIColor.setupColorFor(.lightModeForeground, .darkModeForeground)
+
             case .textColor:
-                return UIColor.rgba(56, 56, 56)
+                return UIColor.setupColorFor(.lightModeTextColor, .darkModeTextColor)
+
             case .lightGray:
-                return UIColor.rgba(244, 244, 244)
+                return UIColor.setupColorFor(.lightModeLightGray, .darkModeLightGray)
+
             case .mediumGray:
                 return UIColor.rgba(168, 168, 168)
             case .darkCyan:
                 return UIColor.rgba(48, 128, 144)
             case .orange:
                 return UIColor.rgba(224, 133, 48)
+            case .red:
+                return UIColor.setupColorFor(UIColor.rgba(224, 48, 48), UIColor.rgba(250, 102, 102))
             case .gray:
                 return UIColor.rgba(96, 96, 96)
             case .lightRed:
@@ -98,6 +106,9 @@ enum AppStyleGuide {
 
     // MARK: Icons
     enum Icons {
+        case onboardingControl
+        case onboardingMenu
+        case onboardingMoney
         case activityArrowUp
         case chevronRight
         case check
@@ -110,12 +121,18 @@ enum AppStyleGuide {
 
         var uiImage: UIImage? {
             switch self {
+            case .onboardingControl:
+                return UIImage(named: "onboarding-control")
+            case .onboardingMenu:
+                return UIImage(named: "onboarding-menu")
+            case .onboardingMoney:
+                return UIImage(named: "onboarding-money")
             case .activityArrowUp:
                 return UIImage(named: "activity-arrow-up")
             case .chevronRight:
                 return UIImage(named: "chevron-right")
             case .check:
-                return UIImage(named: "check")
+                return UIImage(named: "check")?.withRenderingMode(.alwaysTemplate)
             case .inventory:
                 return UIImage(named: "inventory-icon")
             case .menu:

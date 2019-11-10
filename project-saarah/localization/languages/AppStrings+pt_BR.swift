@@ -113,11 +113,23 @@ extension AppStrings {
             case .measurePlaceholder:
                 return "Quilos, gramas, litros"
             case .successResponseTitle:
-                return "Sucesso"
+                return "Produto criado com sucesso"
             case .successResponseMessage:
-                return "Seu novo produto foi salvo na nuvem!"
-            case .alertAction:
+                return "Você deseja adiciona um produto agora?"
+            case .alertOkAction:
                 return "Ok"
+            case .alertCancelAction:
+				return "Mais tarde"
+            case .alertAddProductItemAction:
+				return "Sim"
+            case .alertFormTitle:
+				return "Erro"
+            case .alertFormName:
+				return "Insira o nome do produto."
+            case .alertFormBarCode:
+				return "O código de barra deve conter apenas números."
+            case .alertFormMeasure:
+				return "Selecione uma unidade de medida."
             }
         case .productItemScene(let options):
             switch options {
@@ -174,12 +186,138 @@ extension AppStrings {
                     return "A data de validade não foi preenchida corretamente."
                 }
             }
+        case .registerSectionFooterView(let options):
+            switch options {
+            case .title:
+                return "Ainda não possui uma conta?"
+            case .registerButton:
+                return "Registre-se aqui."
+            }
         case .underConstruction(let options):
             switch options {
             case .title:
                 return "Sentimos muito"
             case .paragraph:
                 return "mas nós ainda estamos em \nconstrução"
+            }
+        case .settingsScene(let options):
+            switch options {
+            case .logoutText:
+                return "Sair"
+            case .myAccountText:
+                return "Minha conta"
+            case .logoutConfirmation(let options):
+                switch options {
+                case .logout:
+                    return "Sair"
+                case .cancel:
+                    return "Cancelar"
+                case .title:
+                    return "Confirmação"
+                case .message:
+                    return "Você deseja realmente sair da aplicação?"
+                }
+            }
+        case .loginScene(let options):
+            switch options {
+            case .title:
+                return "Entrar"
+            case .textField(let fields):
+                switch fields {
+                case .mail:
+                    return "Email"
+                case .mailPlaceholder:
+                    return "Toque para digitar seu email"
+                case .password:
+                    return "Senha"
+                case .passwordPlaceholder:
+                    return "Toque para digitar sua senha"
+                }
+            case .greeting(let greetings):
+                switch greetings {
+                case .title:
+                    return "Olá de novo!"
+                case .description:
+                    return "Entre na sua conta para poder continuar."
+                }
+            case .errorFormValidation(let error):
+                switch error {
+                case .alertTitle:
+                    return "Ocorreu um erro ao tentar realizar o login"
+                case .action:
+                    return "Fechar"
+                case .email:
+                    return "Preencha o seu campo de email"
+                case .password:
+                    return "Preencha o seu campo de senha"
+                case .undefined:
+                    return ""
+                }
+            }
+        case .createAccountScene(let options):
+            switch options {
+            case .headerTitle:
+                return "Não possui uma conta?"
+            case .headerSubtitle:
+                return "Sem problemas. Você pode criar uma rapidinho."
+            case .nameCellTitle:
+                return "Nome"
+            case .nameCellPlaceholder:
+                return "Toque para digitar seu nome"
+            case .emailCellTitle:
+                return "Email"
+            case .emailCellPlaceholder:
+                return "Toque para digitar seu email"
+            case .passwordCellTitle:
+                return "Senha"
+            case .passwordCellPlaceholder:
+                return "Toque para digitar sua senha"
+            case .confirmPasswordCellTitle:
+                return "Confirme a senha"
+            case .confirmPasswordCellPlaceholder:
+                return "Toque para digitar sua senha novamente"
+            case .createAccountButtonTitlle:
+                return "Criar conta"
+            case .errorFormAlertTitle:
+                return "Erro"
+            case .errorFormActionTitle:
+                return "Ok"
+            case .errorFormNameMessage:
+                return "O campo nome é obrigatório!"
+            case .errorFormEmailMessage:
+                return "O campo Email é obrigatório!"
+            case .errorFormInvalidEmail:
+                return "Insera um Email válido!"
+            case .errorFormPasswordMessage:
+                return "O campo senha é obrigatório!"
+            case .errorFormConfirmPasswordMessage:
+                return "O campo confirmar senha é obrigatório"
+            case .errorFormPasswordsDontMatchMessage:
+                return "As senhas devem ser iguais!"
+            case .errorFormPasswordSize:
+                return "A senha deve conter pelo menos 6 caracteres!"
+            case .errorSignUpTitle:
+                return "Falha ao cadastrar"
+            case .errorSignUpMessage:
+                return "Ocorreu algum erro durante o seu cadastro, tente novamente!"
+            }
+        case .onboarding(let options):
+            switch options {
+            case .before:
+                return "Anterior"
+            case .next:
+                return "Próximo"
+            case .close:
+                return "Fechar"
+            case .description(let descriptions):
+                switch descriptions {
+                case .first:
+                    return "Mantenha o controle sobre os produtos do seu Restaurante ou Lanchonete."
+                case .second:
+                    return "Monte o seu cardápio baseado nos produtos do estoque."
+                case .third:
+                    return "Acompanhe as entradas e saídas de produtos e pratos do seu negócio."
+                }
             }
         }
     }
