@@ -136,7 +136,7 @@ extension AddProductItemViewController: AddProductItemTableViewDataSourceDelegat
 
 extension AddProductItemViewController: AddProductItemViewDelegate {
 	func cancelAction() {
-		dismiss(animated: true, completion: nil)
+		router?.routeBack()
 	}
 
 	func saveAction() {
