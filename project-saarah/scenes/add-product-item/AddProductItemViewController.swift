@@ -53,6 +53,7 @@ class AddProductItemViewController: UIViewController, AddProductItemDisplayLogic
 
 	// MARK: Do something
 	func displayResponse(viewModel: AddProductItem.AddItem.ViewModel.AddItemViewModel) {
+        hideFullScreenActivityIndicator()
 		let alert = UIAlertController(title: viewModel.title, message: viewModel.message, preferredStyle: .alert)
 		if (viewModel.success) {
 			let okAction = UIAlertAction(title: "\(Localization(.addProductItemScene(.alertActionTitle)))", style: .default) { _ in
@@ -93,6 +94,8 @@ class AddProductItemViewController: UIViewController, AddProductItemDisplayLogic
 		}
 
 		let expiration = validateExpiration()
+
+        showFullScreenActivityIndicator()
 
 		let itemForm = AddProductItem.AddItemForm(quantity: quantity, price: price, expirationDate: expiration)
 		let request = AddProductItem.AddItem.Request(addItemForm: itemForm)

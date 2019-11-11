@@ -31,6 +31,8 @@ class ProductItemViewController: UIViewController, ProductItemDisplayLogic {
 		setupContentView()
         getProduct()
         fetchProductItems()
+        // TODO: Add skeleton and remove activity indicator
+        showFullScreenActivityIndicator()
 	}
 
 	// MARK: Init
@@ -79,6 +81,7 @@ class ProductItemViewController: UIViewController, ProductItemDisplayLogic {
 
     // MARK: Display Product Item
     func displayProductItem(viewModel: ProductItem.FetchProductItem.ViewModel) {
+        hideFullScreenActivityIndicator()
         tableViewDataSource.viewModel = viewModel
         contentView.tableView.reloadData()
 	}
