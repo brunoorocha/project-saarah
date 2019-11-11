@@ -94,42 +94,60 @@ extension AppStrings {
             switch (options) {
             case .title:
                 return "Create New Product"
-            case .cancelBarButton:
-                return "Cancel"
-            case .saveBarButton:
-                return "Save"
             case .basicInformation:
-                return "BASIC INFOS"
-            case .productName:
-                return "Product Name"
-            case .productNamePlaceholder:
-                return "Tap to type the Product Name"
-            case .barCode:
-                return "Barcode (Optional)"
-            case .barCodePlacehoder:
-                return "Tap to insert the Barcode"
-            case .measure:
-                return "Measurement Unit"
-            case .measurePlaceholder:
-                return "Pounds, Onces, Gallons..."
-            case .successResponseTitle:
-                return "Product created"
-            case .successResponseMessage:
-                return "Do you want to create a product item?"
-            case .alertOkAction:
-                return "OK"
-            case .alertAddProductItemAction:
-				return "Now"
-            case .alertCancelAction:
-				return "Later"
-            case .alertFormTitle:
-				return "Error"
-            case .alertFormName:
-				return "You must fill the name field."
-            case .alertFormBarCode:
-				return "The bar code must contain only numbers."
-            case .alertFormMeasure:
-				return "Select a measure unit."
+                return "Basic Infos"
+            case .barButton(let buttons):
+                switch buttons {
+                case .save:
+                    return "Save"
+                case .cancel:
+                    return "Cancel"
+                }
+            case .alert(let alerts):
+                switch alerts {
+                case .okAction:
+                    return "Ok"
+                case .cancelAction:
+                    return "Later"
+                case .addProductItemAction:
+                    return "Now"
+                case .form(let form):
+                    switch form {
+                    case .title:
+                        return "Error"
+                    case .name:
+                        return "You must fill the product name field."
+                    case .barCode:
+                        return "The bar code must contain only numbers."
+                    case .meausre:
+                        return "Select a measure unit."
+                    }
+                }
+            case .response(let responses):
+                switch responses {
+                case .success(let successes):
+                    switch successes {
+                    case .title:
+                        return "Product created"
+                    case .message:
+                        return "Do you want to create a product item?"
+                    }
+                }
+            case .field(let fields):
+                switch fields {
+                case .productName:
+                    return "Product Name"
+                case .productNamePlaceholder:
+                    return "Tap to type the Product Name"
+                case .barCode:
+                    return "Barcode (Optional)"
+                case .barCodePlacehoder:
+                    return "Tap to insert the Barcode"
+                case .measure:
+                    return "Measurement Unit"
+                case .measurePlaceholder:
+                    return "Pounds, Onces, Gallons..."
+                }
             }
         case .productItemScene(let options):
             switch options {
@@ -296,8 +314,8 @@ extension AppStrings {
 			}
         case .onboarding(let options):
             switch options {
-            case .before:
-                return "Before"
+            case .previous:
+                return "Previous"
             case .next:
                 return "Next"
             case .close:

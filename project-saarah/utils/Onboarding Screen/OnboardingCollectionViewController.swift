@@ -26,7 +26,7 @@ class OnboardingCollectionViewController: UICollectionViewController {
 
     private let previousButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("\(Localization(.onboarding(.before)))", for: .normal)
+        button.setTitle("\(Localization(.onboarding(.previous)))", for: .normal)
         button.setTitleColor(AppStyleGuide.Colors.background.uiColor, for: .normal)
         button.titleLabel?.font = AppStyleGuide.Typography.paragraph.uiFont
         button.addTarget(self, action: #selector(handlePrevious), for: .touchUpInside)

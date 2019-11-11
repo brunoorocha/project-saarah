@@ -23,8 +23,8 @@ class AddNewProductPresenter: AddNewProductPresentationLogic {
         if response.success {
 			let viewModel = AddNewProduct
                 .SaveProduct.ViewModel.Response(success: true,
-												title: "\(Localization(.addNewProductScene(.successResponseTitle)))",
-												message: "\(Localization(.addNewProductScene(.successResponseMessage)))")
+                                                title: "\(Localization(.addNewProductScene(.response(.success(.title)))))",
+												message: "\(Localization(.addNewProductScene(.response(.success(.message)))))")
 			viewController?.displayResponse(viewModel: viewModel)
 		}
 	}

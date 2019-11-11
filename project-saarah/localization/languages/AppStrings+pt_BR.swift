@@ -94,42 +94,60 @@ extension AppStrings {
             switch (options) {
             case .title:
                 return "Criar novo produto"
-            case .cancelBarButton:
-                return "Cancelar"
-            case .saveBarButton:
-                return "Salvar"
             case .basicInformation:
-                return "INFORMAÇÕES BÁSICAS"
-            case .productName:
-                return "Nome do produto"
-            case .productNamePlaceholder:
-                return "Toque para digitar o nome do produto"
-            case .barCode:
-                return "Código de barras (opcional)"
-            case .barCodePlacehoder:
-                return "Toque para inserir o código de barras"
-            case .measure:
-                return "Unidade de medida"
-            case .measurePlaceholder:
-                return "Quilos, gramas, litros"
-            case .successResponseTitle:
-                return "Produto criado com sucesso"
-            case .successResponseMessage:
-                return "Você deseja adiciona um produto agora?"
-            case .alertOkAction:
-                return "Ok"
-            case .alertCancelAction:
-				return "Mais tarde"
-            case .alertAddProductItemAction:
-				return "Sim"
-            case .alertFormTitle:
-				return "Erro"
-            case .alertFormName:
-				return "Insira o nome do produto."
-            case .alertFormBarCode:
-				return "O código de barra deve conter apenas números."
-            case .alertFormMeasure:
-				return "Selecione uma unidade de medida."
+                return "Informações Básicas"
+            case .barButton(let buttons):
+                switch buttons {
+                case .save:
+                    return "Salvar"
+                case .cancel:
+                    return "Cancelar"
+                }
+            case .alert(let alerts):
+                switch alerts {
+                case .okAction:
+                    return "Ok"
+                case .cancelAction:
+                    return "Mais tarde"
+                case .addProductItemAction:
+                    return "Agora"
+                case .form(let form):
+                    switch form {
+                    case .title:
+                        return "Erro"
+                    case .name:
+                        return "Insira o nome do produto."
+                    case .barCode:
+                        return "O código de barra deve conter apenas números."
+                    case .meausre:
+                        return "Selecione uma unidade de medida."
+                    }
+                }
+            case .response(let responses):
+                switch responses {
+                case .success(let successes):
+                    switch successes {
+                    case .title:
+                        return "Produto criado com sucesso"
+                    case .message:
+                        return "Você deseja adiciona um item do produto agora?"
+                    }
+                }
+            case .field(let fields):
+                switch fields {
+                case .productName:
+                    return "Nome do produto"
+                case .productNamePlaceholder:
+                    return "Toque para digitar o nome do produto"
+                case .barCode:
+                    return "Código de barras (opcional)"
+                case .barCodePlacehoder:
+                    return "Toque para inserir o código de barras"
+                case .measure:
+                    return "Unidade de medida"
+                case .measurePlaceholder:
+                    return "Quilos, gramas, litros"
+                }
             }
         case .productItemScene(let options):
             switch options {
@@ -303,7 +321,7 @@ extension AppStrings {
             }
         case .onboarding(let options):
             switch options {
-            case .before:
+            case .previous:
                 return "Anterior"
             case .next:
                 return "Próximo"
