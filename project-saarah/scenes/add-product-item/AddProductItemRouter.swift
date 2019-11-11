@@ -30,9 +30,7 @@ class AddProductItemRouter: NSObject, AddProductItemRoutingLogic, AddProductItem
 	// MARK: Routing
 	func routeBack() {
 		guard let dataStore = dataStore else { return }
-
 		passDataToProductItem(source: dataStore, destinationReceptor: productItemReceptor)
-		// the dismiss is made in the parent view controller, after pass the product item
 	}
 
 	// MARK: Passing data
