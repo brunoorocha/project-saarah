@@ -12,6 +12,7 @@ protocol ProductItemPresentationLogic {
     func presentProduct(response: ProductItem.ReceiveProduct.Response)
     func presentProductItem(response: ProductItem.FetchProductItem.Response)
 	func presentInsertedProductItem(response: ProductItem.InsertProductItem.Response)
+	func productItemReceived()
 }
 
 class ProductItemPresenter: ProductItemPresentationLogic {
@@ -56,5 +57,9 @@ class ProductItemPresenter: ProductItemPresentationLogic {
 			created: response.productItem.createdDate.formatter())
 
 		viewController?.displayInsertedProductItem(viewModel: ProductItem.InsertProductItem.ViewModel(displayProductItem: displayedItem))
+	}
+
+	func productItemReceived() {
+		viewController?.productItemReceived()
 	}
 }
