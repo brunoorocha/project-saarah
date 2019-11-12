@@ -283,50 +283,59 @@ extension AppStrings {
             }
         case .createAccountScene(let options):
             switch options {
-            case .headerTitle:
-                return "Não possui uma conta?"
-            case .headerSubtitle:
-                return "Sem problemas. Você pode criar uma rapidinho."
-            case .nameCellTitle:
-                return "Nome"
-            case .nameCellPlaceholder:
-                return "Toque para digitar seu nome"
-            case .emailCellTitle:
-                return "Email"
-            case .emailCellPlaceholder:
-                return "Toque para digitar seu email"
-            case .passwordCellTitle:
-                return "Senha"
-            case .passwordCellPlaceholder:
-                return "Toque para digitar sua senha"
-            case .confirmPasswordCellTitle:
-                return "Confirme a senha"
-            case .confirmPasswordCellPlaceholder:
-                return "Toque para digitar sua senha novamente"
-            case .createAccountButtonTitlle:
+            case .createAccountButtonTitle:
                 return "Criar conta"
-            case .errorFormAlertTitle:
-                return "Erro"
-            case .errorFormActionTitle:
-                return "Ok"
-            case .errorFormNameMessage:
-                return "O campo nome é obrigatório!"
-            case .errorFormEmailMessage:
-                return "O campo Email é obrigatório!"
-            case .errorFormInvalidEmail:
-                return "Insera um Email válido!"
-            case .errorFormPasswordMessage:
-                return "O campo senha é obrigatório!"
-            case .errorFormConfirmPasswordMessage:
-                return "O campo confirmar senha é obrigatório"
-            case .errorFormPasswordsDontMatchMessage:
-                return "As senhas devem ser iguais!"
-            case .errorFormPasswordSize:
-                return "A senha deve conter pelo menos 6 caracteres!"
-            case .errorSignUpTitle:
-                return "Falha ao cadastrar"
-            case .errorSignUpMessage:
-                return "Ocorreu algum erro durante o seu cadastro, tente novamente!"
+            case .header(let header):
+                switch header {
+                case .title:
+                    return "Não possui uma conta?"
+                case .subtitle:
+                    return "Sem problemas. Você pode criar uma rapidinho."
+                }
+            case .field(let fields):
+                switch fields {
+                case .nameTitle:
+                    return "Nome"
+                case .namePlaceholder:
+                    return "Toque para digitar seu nome"
+                case .emailTitle:
+                    return "Email"
+                case .emailPlaceholder:
+                    return "Toque para digitar seu email"
+                case .passwordTitle:
+                    return "Senha"
+                case .passwordPlaceholder:
+                    return "Toque para digitar sua senha"
+                case .confirmPasswordTitle:
+                    return "Confirme a senha"
+                case .confirmPasswordPlaceholder:
+                    return "Toque para digitar sua senha novamente"
+                }
+            case .errorForm(let errors):
+                switch errors {
+                case .alertTitle:
+                    return "Erro"
+                case .actionTitle:
+                    return "Ok"
+                case .nameMessage:
+                    return "O campo nome é obrigatório!"
+                case .emailMessage:
+                    return "O campo Email é obrigatório!"
+                case .invalidEmail:
+                    return "Insera um Email válido!"
+                case .passwordMessage:
+                    return "O campo senha é obrigatório!"
+                case .confirmPasswordMessage:
+                    return "O campo confirmar senha é obrigatório"
+                case .passwordsDontMatchMessage:
+                    return "As senhas devem ser iguais!"
+                case .passwordSize:
+                    return "A senha deve conter pelo menos 6 caracteres!"
+                case .signUpTitle:
+                    return "Falha ao cadastrar"
+                case .signUpMessage:
+                    return "Ocorreu algum erro durante o seu cadastro, tente novamente!"
+                }
             }
         case .onboarding(let options):
             switch options {

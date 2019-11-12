@@ -59,7 +59,10 @@ class CreateAccountTableViewDataSource: NSObject {
 		switch (section) {
 		case 0:
 			let headerView = GreetingSectionHeaderView()
-			headerView.setTitle(with: "\(Localization(.createAccountScene(.headerTitle)))", andDescription: "\(Localization(.createAccountScene(.headerSubtitle)))")
+			headerView.setTitle(
+                with: Localization(.createAccountScene(.header(.title))).description,
+                andDescription: Localization(.createAccountScene(.header(.subtitle))).description
+            )
 			return headerView
 		case 1:
 			return EmptySectionHeaderView()
@@ -96,21 +99,21 @@ class CreateAccountTableViewDataSource: NSObject {
 
 		switch (row) {
 		case 0:
-			cell.fieldLabel.text = "\(Localization(.createAccountScene(.nameCellTitle)))"
-			cell.textField.placeholder = "\(Localization(.createAccountScene(.nameCellPlaceholder)))"
+            cell.fieldLabel.text = Localization(.createAccountScene(.field(.nameTitle))).description
+			cell.textField.placeholder = Localization(.createAccountScene(.field(.namePlaceholder))).description
             cell.textField.accessibilityIdentifier = FormPosition.name.rawValue
 		case 1:
-			cell.fieldLabel.text = "\(Localization(.createAccountScene(.emailCellTitle)))"
-			cell.textField.placeholder = "\(Localization(.createAccountScene(.emailCellPlaceholder)))"
+			cell.fieldLabel.text = Localization(.createAccountScene(.field(.emailTitle))).description
+			cell.textField.placeholder = Localization(.createAccountScene(.field(.emailPlaceholder))).description
             cell.textField.accessibilityIdentifier = FormPosition.email.rawValue
 		case 2:
-			cell.fieldLabel.text = "\(Localization(.createAccountScene(.passwordCellTitle)))"
-			cell.textField.placeholder = "\(Localization(.createAccountScene(.passwordCellPlaceholder)))"
+			cell.fieldLabel.text = Localization(.createAccountScene(.field(.passwordTitle))).description
+			cell.textField.placeholder = Localization(.createAccountScene(.field(.passwordPlaceholder))).description
 			cell.textField.isSecureTextEntry = true
             cell.textField.accessibilityIdentifier = FormPosition.password.rawValue
 		case 3:
-			cell.fieldLabel.text = "\(Localization(.createAccountScene(.confirmPasswordCellTitle)))"
-			cell.textField.placeholder = "\(Localization(.createAccountScene(.confirmPasswordCellPlaceholder)))"
+            cell.fieldLabel.text = Localization(.createAccountScene(.field(.confirmPasswordTitle))).description
+			cell.textField.placeholder = Localization(.createAccountScene(.field(.confirmPasswordPlaceholder))).description
 			cell.textField.isSecureTextEntry = true
             cell.textField.accessibilityIdentifier = FormPosition.confirmPassword.rawValue
 		default:
@@ -122,7 +125,7 @@ class CreateAccountTableViewDataSource: NSObject {
 
 	func secondSection(_ cell: UITableViewCell) -> UITableViewCell {
 		guard let cell = cell as? PurpleButtonTableViewCell else { return UITableViewCell() }
-		cell.setTitle(with: "\(Localization(.createAccountScene(.createAccountButtonTitlle)))")
+        cell.setTitle(with: Localization(.createAccountScene(.createAccountButtonTitle)).description)
 		return cell
 	}
 }

@@ -275,52 +275,61 @@ extension AppStrings {
                 }
             }
         case .createAccountScene(let options):
-			switch options {
-			case .headerTitle:
-				return "Don't have an account?"
-			case .headerSubtitle:
-				return "No problem. You can create one account quickly."
-			case .nameCellTitle:
-				return "Name"
-			case .nameCellPlaceholder:
-				return "Tap to type your name"
-			case .emailCellTitle:
-				return "Email"
-			case .emailCellPlaceholder:
-				return "Tap to type your email"
-			case .passwordCellTitle:
-				return "Password"
-			case .passwordCellPlaceholder:
-				return "Tap to type your password"
-			case .confirmPasswordCellTitle:
-				return "Confirm password"
-			case .confirmPasswordCellPlaceholder:
-				return "Tap to type your password again"
-			case .createAccountButtonTitlle:
-				return "Create account"
-			case .errorFormAlertTitle:
-				return "Error"
-			case .errorFormActionTitle:
-				return "Ok"
-			case .errorFormNameMessage:
-				return "The name field must be filled out!"
-			case .errorFormEmailMessage:
-				return "The email field must be filled out!"
-			case .errorFormInvalidEmail:
-				return "Insert a valid Email!"
-			case .errorFormPasswordMessage:
-				return "The password field must be filled out!"
-			case .errorFormConfirmPasswordMessage:
-				return "The confirm password field must be filled out!"
-			case .errorFormPasswordsDontMatchMessage:
-				return "The passwords dont match!"
-			case .errorFormPasswordSize:
-				return "The password must contain at least 6 characters!"
-			case .errorSignUpTitle:
-				return "Sign up error"
-			case .errorSignUpMessage:
-				return "An error ocurrent when sign up, try again!"
-			}
+            switch options {
+            case .createAccountButtonTitle:
+                return "Create account"
+            case .header(let header):
+                switch header {
+                case .title:
+                    return "Don't have an account?"
+                case .subtitle:
+                    return "No problem. You can create one account quickly."
+                }
+            case .field(let fields):
+                switch fields {
+                case .nameTitle:
+                    return "Name"
+                case .namePlaceholder:
+                    return "Tap to type your name"
+                case .emailTitle:
+                    return "Email"
+                case .emailPlaceholder:
+                    return "Tap to type your email"
+                case .passwordTitle:
+                    return "Password"
+                case .passwordPlaceholder:
+                    return "Tap to type your password"
+                case .confirmPasswordTitle:
+                    return "Confirm password"
+                case .confirmPasswordPlaceholder:
+                    return "Tap to type your password again"
+                }
+            case .errorForm(let errors):
+                switch errors {
+                case .alertTitle:
+                    return "Error"
+                case .actionTitle:
+                    return "Ok"
+                case .nameMessage:
+                    return "The name field must be filled out!"
+                case .emailMessage:
+                    return "The email field must be filled out!"
+                case .invalidEmail:
+                    return "Insert a valid Email!"
+                case .passwordMessage:
+                    return "The password field must be filled out!"
+                case .confirmPasswordMessage:
+                    return "The confirm password field must be filled out!"
+                case .passwordsDontMatchMessage:
+                    return "The passwords dont match!"
+                case .passwordSize:
+                    return "The password must contain at least 6 characters!"
+                case .signUpTitle:
+                    return "Sign up error"
+                case .signUpMessage:
+                    return "An error ocurrent when sign up, try again!"
+                }
+            }
         case .onboarding(let options):
             switch options {
             case .previous:

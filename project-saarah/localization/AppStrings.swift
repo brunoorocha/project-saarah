@@ -227,28 +227,40 @@ enum AppStrings {
         }
     }
     enum CreateAccountScene {
-        case headerTitle
-        case headerSubtitle
-        case nameCellTitle
-        case nameCellPlaceholder
-        case emailCellTitle
-        case emailCellPlaceholder
-        case passwordCellTitle
-        case passwordCellPlaceholder
-        case confirmPasswordCellTitle
-        case confirmPasswordCellPlaceholder
-        case createAccountButtonTitlle
-        case errorFormAlertTitle
-        case errorFormActionTitle
-        case errorFormNameMessage
-        case errorFormEmailMessage
-        case errorFormInvalidEmail
-        case errorFormPasswordMessage
-        case errorFormConfirmPasswordMessage
-        case errorFormPasswordsDontMatchMessage
-        case errorFormPasswordSize
-        case errorSignUpTitle
-        case errorSignUpMessage
+        case createAccountButtonTitle
+        case header(Header)
+        case field(Field)
+        case errorForm(ErrorForm)
+
+        enum Header {
+            case title
+            case subtitle
+        }
+
+        enum Field {
+            case nameTitle
+            case namePlaceholder
+            case emailTitle
+            case emailPlaceholder
+            case passwordTitle
+            case passwordPlaceholder
+            case confirmPasswordTitle
+            case confirmPasswordPlaceholder
+        }
+
+        enum ErrorForm {
+            case alertTitle
+            case actionTitle
+            case nameMessage
+            case emailMessage
+            case invalidEmail
+            case passwordMessage
+            case confirmPasswordMessage
+            case passwordsDontMatchMessage
+            case passwordSize
+            case signUpTitle
+            case signUpMessage
+        }
     }
 
     enum Onboarding {
