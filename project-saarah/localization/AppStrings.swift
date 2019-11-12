@@ -139,23 +139,35 @@ enum AppStrings {
 
     enum AddProductItemScene {
         case title
-        case cancelBarButton
-        case saveBarButton
         case alertActionTitle
         case basicInformation
-        case quantity
-        case quantityPlaceholder
-        case price
-        case pricePlaceholder
         case complementaryInformation
-        case expirationDate
-        case expirationDatePlaceholder
-        case errorFormAlertTitle
-        case errorFormActionAlertTitle
-        case errorFormQuantityAlertMessage
-        case errorFormPriceAlertMessage
-        case errorFormExpirationAlertMessage
+        case barButton(BarButton)
+        case field(Field)
+        case errorForm(ErrorForm)
         case response(Response)
+
+        enum BarButton {
+            case save
+            case cancel
+        }
+
+        enum Field {
+            case quantity
+            case quantityPlaceholder
+            case price
+            case pricePlaceholder
+            case expirationDate
+            case expirationDatePlaceholder
+        }
+
+        enum ErrorForm {
+            case alertTitle
+            case actionAlert
+            case quantityAlertMessage
+            case priceAlertMessage
+            case expirationAlertMessage
+        }
 
         enum Response {
             case successTitle

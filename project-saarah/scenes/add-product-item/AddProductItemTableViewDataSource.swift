@@ -57,12 +57,12 @@ class AddProductItemTableViewDataSource {
 		switch (section) {
 		case 0:
 			let headerView = DefaultSectionHeaderView()
-			headerView.titleLabel.text = "\(Localization(.addProductItemScene(.basicInformation)))"
+            headerView.titleLabel.text = Localization(.addProductItemScene(.basicInformation)).description.uppercased()
 			headerView.rightButton.isHidden = true
 			return headerView
 		case 1:
 			let headerView = DefaultSectionHeaderView()
-			headerView.titleLabel.text = "\(Localization(.addProductItemScene(.complementaryInformation)))"
+            headerView.titleLabel.text = Localization(.addProductItemScene(.complementaryInformation)).description.uppercased()
 			headerView.rightButton.isHidden = true
 			return headerView
 		default:
@@ -87,12 +87,12 @@ class AddProductItemTableViewDataSource {
 
 		switch (row) {
 		case 0:
-			cell.fieldLabel.text = "\(Localization(.addProductItemScene(.quantity)))"
-			cell.textField.placeholder = "\(Localization(.addProductItemScene(.quantityPlaceholder)))"
+            cell.fieldLabel.text = Localization(.addProductItemScene(.field(.quantity))).description
+            cell.textField.placeholder = Localization(.addProductItemScene(.field(.quantityPlaceholder))).description
 			cell.textField.keyboardType = .decimalPad
 		case 1:
-			cell.fieldLabel.text = "\(Localization(.addProductItemScene(.price)))"
-			cell.textField.placeholder = "\(Localization(.addProductItemScene(.pricePlaceholder)))"
+            cell.fieldLabel.text = Localization(.addProductItemScene(.field(.price))).description
+            cell.textField.placeholder = Localization(.addProductItemScene(.field(.pricePlaceholder))).description
 			cell.textField.keyboardType = .decimalPad
 		default:
 			break
@@ -105,8 +105,8 @@ class AddProductItemTableViewDataSource {
 		guard let cell = cell as? TextFieldTableViewCell else { return UITableViewCell() }
 		cell.roundCellIfNeeded(index: 0, numberOfCells: 1)
 
-		cell.fieldLabel.text = "\(Localization(.addProductItemScene(.expirationDate)))"
-		cell.textField.placeholder = "\(Localization(.addProductItemScene(.expirationDatePlaceholder)))"
+        cell.fieldLabel.text = Localization(.addProductItemScene(.field(.expirationDate))).description
+		cell.textField.placeholder = Localization(.addProductItemScene(.field(.expirationDatePlaceholder))).description
 		cell.textField.inputAccessoryView = toolBar
 		cell.textField.inputView = datePicker
 

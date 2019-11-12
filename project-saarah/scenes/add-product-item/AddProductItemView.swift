@@ -49,11 +49,11 @@ class AddProductItemView: UIView {
 
 		navigationBar.titleTextAttributes = navbarTitleAttributes
 
-		let navigationItem = UINavigationItem(title: "\(Localization(.addProductItemScene(.title)))")
+        let navigationItem = UINavigationItem(title: Localization(.addProductItemScene(.title)).description)
 
-		let leftButton = UIBarButtonItem(title: "\(Localization(.addProductItemScene(.cancelBarButton)))", style: .plain, target: self, action: #selector(cancelButtonAction))
+        let leftButton = UIBarButtonItem(title: Localization(.addProductItemScene(.barButton(.cancel))).description, style: .plain, target: self, action: #selector(cancelButtonAction))
 
-		let rightButton = UIBarButtonItem(title: "\(Localization(.addProductItemScene(.saveBarButton)))", style: .done, target: self, action: #selector(saveButtonAction))
+		let rightButton = UIBarButtonItem(title: Localization(.addProductItemScene(.barButton(.save))).description, style: .done, target: self, action: #selector(saveButtonAction))
 
 		navigationItem.leftBarButtonItem = leftButton
 		navigationItem.rightBarButtonItem = rightButton
