@@ -25,13 +25,13 @@ class ProductItemInteractor: ProductItemBusinessLogic, ProductItemDataStore {
     var productItems: [ProductLog]?
 	var productItem: ProductLog? {
 		didSet {
-			self.productItemRecptor()
+			self.productItemReceptor()
 		}
 	}
 
     let productItemWorker = ProductItemWorker(productItemService: ApiProductItemStore())
 
-	func productItemRecptor() {
+	func productItemReceptor() {
 		presenter?.productItemReceived()
 		insertProductItem()
 	}
