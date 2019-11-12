@@ -25,14 +25,17 @@ extension AppStrings {
             }
         case .productItemTableViewCell(let options):
             switch options {
-            case .amountLabel:
-                return "Quantity"
-            case .validityLabel:
-                return "Validity"
-            case .priceLabel:
-                return "Price"
-            case .addedOnDayLabel:
-                return "Added on Day"
+            case .label(let labels):
+                switch labels {
+                case .amount:
+                    return "Quantity"
+                case .validity:
+                    return "Validity"
+                case .price:
+                    return "Price"
+                case .addedOnDay:
+                    return "Added on Day"
+                }
             }
         case .homeMenuOptionTitle(let options):
             switch options {
@@ -162,10 +165,13 @@ extension AppStrings {
                 return "Add product item"
             case .alertActionTitle:
                 return "Ok"
-            case .basicInformation:
-                return "Basic Information"
-            case .complementaryInformation:
-                return "Additional Information (Optional)"
+            case .information(let informations):
+                switch informations {
+                case .basic:
+                    return "Basic Information"
+                case .complementary:
+                    return "Additional information (optional)"
+                }
             case .barButton(let button):
                 switch button {
                 case .save:

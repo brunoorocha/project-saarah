@@ -42,10 +42,14 @@ enum AppStrings {
     }
 
     enum ProductItemTableViewCell {
-        case amountLabel
-        case validityLabel
-        case priceLabel
-        case addedOnDayLabel
+        case label(Label)
+
+        enum Label {
+            case amount
+            case validity
+            case price
+            case addedOnDay
+        }
     }
 
     enum HomeMenuOptionTitle {
