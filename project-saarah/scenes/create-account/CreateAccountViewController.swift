@@ -94,7 +94,7 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 			presentAlertModal(
                 Localization(.createAccountScene(.errorForm(.alertTitle))).description,
                 Localization(.createAccountScene(.errorForm(.signUpTitle))).description,
-                Localization(.createAccountScene(.errorForm(.actionTitle))).description
+                Localization(.createAccountScene(.errorForm(.action))).description
             )
 		}
 
@@ -106,7 +106,7 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 			presentAlertModal(
                 Localization(.createAccountScene(.errorForm(.alertTitle))).description,
                 Localization(.createAccountScene(.errorForm(.nameMessage))).description,
-                Localization(.createAccountScene(.errorForm(.actionTitle))).description
+                Localization(.createAccountScene(.errorForm(.action))).description
             )
 			return
 		}
@@ -115,7 +115,7 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 			presentAlertModal(
                 Localization(.createAccountScene(.errorForm(.alertTitle))).description,
                 Localization(.createAccountScene(.errorForm(.emailMessage))).description,
-                Localization(.createAccountScene(.errorForm(.actionTitle))).description
+                Localization(.createAccountScene(.errorForm(.action))).description
             )
 			return
 		}
@@ -124,7 +124,7 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 			presentAlertModal(
                 Localization(.createAccountScene(.errorForm(.alertTitle))).description,
                 Localization(.createAccountScene(.errorForm(.invalidEmail))).description,
-                Localization(.createAccountScene(.errorForm(.actionTitle))).description
+                Localization(.createAccountScene(.errorForm(.action))).description
             )
 			return
 		}
@@ -133,7 +133,7 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 			presentAlertModal(
                 Localization(.createAccountScene(.errorForm(.alertTitle))).description,
                 Localization(.createAccountScene(.errorForm(.passwordMessage))).description,
-                Localization(.createAccountScene(.errorForm(.actionTitle))).description
+                Localization(.createAccountScene(.errorForm(.action))).description
             )
 			return
 		}
@@ -142,7 +142,7 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 			presentAlertModal(
                 Localization(.createAccountScene(.errorForm(.alertTitle))).description,
                 Localization(.createAccountScene(.errorForm(.confirmPasswordMessage))).description,
-                Localization(.createAccountScene(.errorForm(.actionTitle))).description
+                Localization(.createAccountScene(.errorForm(.action))).description
             )
 			return
 		}
@@ -151,7 +151,7 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 			presentAlertModal(
                 Localization(.createAccountScene(.errorForm(.alertTitle))).description,
                 Localization(.createAccountScene(.errorForm(.passwordsDontMatchMessage))).description,
-                Localization(.createAccountScene(.errorForm(.actionTitle))).description
+                Localization(.createAccountScene(.errorForm(.action))).description
             )
 			return
 		}
@@ -160,7 +160,7 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 			presentAlertModal(
                 Localization(.createAccountScene(.errorForm(.alertTitle))).description,
                 Localization(.createAccountScene(.errorForm(.passwordSize))).description,
-                Localization(.createAccountScene(.errorForm(.actionTitle))).description
+                Localization(.createAccountScene(.errorForm(.action))).description
             )
 			return
 		}

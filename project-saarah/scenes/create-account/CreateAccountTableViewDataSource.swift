@@ -99,20 +99,20 @@ class CreateAccountTableViewDataSource: NSObject {
 
 		switch (row) {
 		case 0:
-            cell.fieldLabel.text = Localization(.createAccountScene(.field(.nameTitle))).description
+            cell.fieldLabel.text = Localization(.createAccountScene(.field(.name))).description
 			cell.textField.placeholder = Localization(.createAccountScene(.field(.namePlaceholder))).description
             cell.textField.accessibilityIdentifier = FormPosition.name.rawValue
 		case 1:
-			cell.fieldLabel.text = Localization(.createAccountScene(.field(.emailTitle))).description
+			cell.fieldLabel.text = Localization(.createAccountScene(.field(.email))).description
 			cell.textField.placeholder = Localization(.createAccountScene(.field(.emailPlaceholder))).description
             cell.textField.accessibilityIdentifier = FormPosition.email.rawValue
 		case 2:
-			cell.fieldLabel.text = Localization(.createAccountScene(.field(.passwordTitle))).description
+			cell.fieldLabel.text = Localization(.createAccountScene(.field(.password))).description
 			cell.textField.placeholder = Localization(.createAccountScene(.field(.passwordPlaceholder))).description
 			cell.textField.isSecureTextEntry = true
             cell.textField.accessibilityIdentifier = FormPosition.password.rawValue
 		case 3:
-            cell.fieldLabel.text = Localization(.createAccountScene(.field(.confirmPasswordTitle))).description
+            cell.fieldLabel.text = Localization(.createAccountScene(.field(.confirmPassword))).description
 			cell.textField.placeholder = Localization(.createAccountScene(.field(.confirmPasswordPlaceholder))).description
 			cell.textField.isSecureTextEntry = true
             cell.textField.accessibilityIdentifier = FormPosition.confirmPassword.rawValue

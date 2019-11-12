@@ -140,12 +140,16 @@ enum AppStrings {
     enum AddProductItemScene {
         case title
         case alertActionTitle
-        case basicInformation
-        case complementaryInformation
+        case information(Information)
         case barButton(BarButton)
         case field(Field)
         case errorForm(ErrorForm)
         case response(Response)
+
+        enum Information {
+            case basic
+            case complementary
+        }
 
         enum BarButton {
             case save
@@ -163,7 +167,7 @@ enum AppStrings {
 
         enum ErrorForm {
             case alertTitle
-            case actionAlert
+            case action
             case quantityAlertMessage
             case priceAlertMessage
             case expirationAlertMessage
@@ -184,11 +188,11 @@ enum AppStrings {
 
     enum LoginScene {
         case title
-        case textField(TextField)
+        case field(Field)
         case greeting(Greeting)
         case errorFormValidation(ErrorFormValidation)
 
-        enum TextField {
+        enum Field {
             case mail
             case mailPlaceholder
             case password
@@ -238,19 +242,19 @@ enum AppStrings {
         }
 
         enum Field {
-            case nameTitle
+            case name
             case namePlaceholder
-            case emailTitle
+            case email
             case emailPlaceholder
-            case passwordTitle
+            case password
             case passwordPlaceholder
-            case confirmPasswordTitle
+            case confirmPassword
             case confirmPasswordPlaceholder
         }
 
         enum ErrorForm {
             case alertTitle
-            case actionTitle
+            case action
             case nameMessage
             case emailMessage
             case invalidEmail

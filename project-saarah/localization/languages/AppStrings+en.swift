@@ -192,7 +192,7 @@ extension AppStrings {
                 switch errors {
                 case .alertTitle:
                     return "Error"
-                case .actionAlert:
+                case .action:
                     return "Ok"
                 case .quantityAlertMessage:
                     return "The field quantity only accept numbers."
@@ -242,7 +242,7 @@ extension AppStrings {
             switch options {
             case .title:
                 return "Login"
-            case .textField(let fields):
+            case .field(let fields):
                 switch fields {
                 case .mail:
                     return "Email"
@@ -287,19 +287,19 @@ extension AppStrings {
                 }
             case .field(let fields):
                 switch fields {
-                case .nameTitle:
+                case .name:
                     return "Name"
                 case .namePlaceholder:
                     return "Tap to type your name"
-                case .emailTitle:
+                case .email:
                     return "Email"
                 case .emailPlaceholder:
                     return "Tap to type your email"
-                case .passwordTitle:
+                case .password:
                     return "Password"
                 case .passwordPlaceholder:
                     return "Tap to type your password"
-                case .confirmPasswordTitle:
+                case .confirmPassword:
                     return "Confirm password"
                 case .confirmPasswordPlaceholder:
                     return "Tap to type your password again"
@@ -308,7 +308,7 @@ extension AppStrings {
                 switch errors {
                 case .alertTitle:
                     return "Error"
-                case .actionTitle:
+                case .action:
                     return "Ok"
                 case .nameMessage:
                     return "The name field must be filled out!"

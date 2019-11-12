@@ -110,16 +110,16 @@ class LoginTableViewDataSource: NSObject {
 
         switch (row) {
         case 0:
-            cell.fieldLabel.text = "\(Localization(.loginScene(.textField(.mail))))"
+            cell.fieldLabel.text = "\(Localization(.loginScene(.field(.mail))))"
             cell.textField.accessibilityIdentifier = FormPosition.mail.rawValue
             cell.textField.keyboardType = .emailAddress
-            cell.textField.placeholder = "\(Localization(.loginScene(.textField(.mailPlaceholder))))"
+            cell.textField.placeholder = "\(Localization(.loginScene(.field(.mailPlaceholder))))"
             cell.textField.delegate = self
         case 1:
-            cell.fieldLabel.text = "\(Localization(.loginScene(.textField(.password))))"
+            cell.fieldLabel.text = "\(Localization(.loginScene(.field(.password))))"
             cell.textField.accessibilityIdentifier = FormPosition.password.rawValue
             cell.textField.isSecureTextEntry = true
-            cell.textField.placeholder = "\(Localization(.loginScene(.textField(.passwordPlaceholder))))"
+            cell.textField.placeholder = "\(Localization(.loginScene(.field(.passwordPlaceholder))))"
             cell.textField.delegate = self
         default:
             return UITableViewCell()

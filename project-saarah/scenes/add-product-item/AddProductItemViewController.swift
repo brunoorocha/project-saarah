@@ -79,7 +79,7 @@ class AddProductItemViewController: UIViewController, AddProductItemDisplayLogic
 			presentAlertModal(
                 Localization(.addProductItemScene(.errorForm(.alertTitle))).description,
                 Localization(.addProductItemScene(.errorForm(.quantityAlertMessage))).description,
-                Localization(.addProductItemScene(.errorForm(.actionAlert))).description
+                Localization(.addProductItemScene(.errorForm(.action))).description
             )
 			return
 		}
@@ -88,7 +88,7 @@ class AddProductItemViewController: UIViewController, AddProductItemDisplayLogic
 			presentAlertModal(
                 Localization(.addProductItemScene(.errorForm(.alertTitle))).description,
                 Localization(.addProductItemScene(.errorForm(.priceAlertMessage))).description,
-                Localization(.addProductItemScene(.errorForm(.actionAlert))).description
+                Localization(.addProductItemScene(.errorForm(.action))).description
             )
 			return
 		}
