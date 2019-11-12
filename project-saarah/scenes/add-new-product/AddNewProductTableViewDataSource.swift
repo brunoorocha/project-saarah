@@ -29,7 +29,7 @@ class AddNewProductTableViewDataSource {
 		switch (section) {
 		case 0:
 			let headerView = DefaultSectionHeaderView()
-			headerView.titleLabel.text = "\(Localization(.addNewProductScene(.basicInformation)))"
+            headerView.titleLabel.text = (Localization(.addNewProductScene(.basicInformation)).description).uppercased()
 			headerView.rightButton.isHidden = true
 			return headerView
 		default:
