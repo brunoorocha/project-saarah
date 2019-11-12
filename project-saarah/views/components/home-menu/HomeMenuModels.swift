@@ -17,13 +17,13 @@ enum HomeMenuOption: Int, CaseIterable {
     var title: String {
         switch self {
         case .inventory:
-            return "\(Localization(.homeMenuOptionTitle(.inventory)))"
+            return Localization(.homeMenuOptionTitle(.inventory)).description
         case .menu:
-            return "\(Localization(.homeMenuOptionTitle(.menu)))"
+            return Localization(.homeMenuOptionTitle(.menu)).description
         case .measurers:
-            return "\(Localization(.homeMenuOptionTitle(.measurers)))"
+            return Localization(.homeMenuOptionTitle(.measurers)).description
         case .settings:
-            return "\(Localization(.homeMenuOptionTitle(.settings)))"
+            return Localization(.homeMenuOptionTitle(.settings)).description
         }
     }
 

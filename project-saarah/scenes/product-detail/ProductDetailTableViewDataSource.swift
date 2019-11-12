@@ -93,9 +93,14 @@ class ProductDetailTableViewDataSource {
 		guard let viewModel = viewModel else { return UITableViewCell() }
 
 		if (row == 0) {
-			cell.setContent(title: "\(Localization(.productDetailScene(.productName)))", subtitle: viewModel.productViewModel.name)
+			cell.setContent(
+                title: Localization(.productDetailScene(.productName)).description,
+                subtitle: viewModel.productViewModel.name
+            )
 		} else {
-			cell.setContent(title: "\(Localization(.productDetailScene(.quantityInStock)))", subtitle: viewModel.productViewModel.quantity)
+			cell.setContent(
+                title: Localization(.productDetailScene(.quantityInStock)).description,
+                subtitle: viewModel.productViewModel.quantity)
 		}
 
         cell.roundCellIfNeeded(index: row, numberOfCells: 2)
@@ -106,7 +111,7 @@ class ProductDetailTableViewDataSource {
 		guard let cell = cell as? DefaultCellTableViewCell else { return UITableViewCell() }
 		cell.roundCellIfNeeded(index: 0, numberOfCells: 1)
 
-		cell.label.text = "\(Localization(.productDetailScene(.seeAllFromThisProduct)))"
+		cell.label.text = Localization(.productDetailScene(.seeAllFromThisProduct)).description
 		cell.detailLabel.text = ""
 
 		return cell

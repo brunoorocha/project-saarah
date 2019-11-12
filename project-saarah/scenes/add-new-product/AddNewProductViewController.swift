@@ -55,20 +55,26 @@ class AddNewProductViewController: SaarahViewController, AddNewProductDisplayLog
 		let alert = UIAlertController(title: viewModel.title, message: viewModel.message, preferredStyle: .alert)
         var action: UIAlertAction
 		if (viewModel.success) {
-            let addProductItemAction = UIAlertAction(title: "\(Localization(.addNewProductScene(.alert(.addProductItemAction))))", style: .default) { (_) in
+            let addProductItemAction = UIAlertAction(
+                title: Localization(.addNewProductScene(.alert(.addProductItemAction))).description,
+                style: .default) { (_) in
 				self.router?.routeToAddProductItem()
 			}
 			addProductItemAction.setValue(AppStyleGuide.Colors.primary.uiColor, forKey: "titleTextColor")
 			alert.addAction(addProductItemAction)
 
-            action = UIAlertAction(title: "\(Localization(.addNewProductScene(.alert(.cancelAction))))", style: .cancel) { _ in
+            action = UIAlertAction(title: Localization(.addNewProductScene(.alert(.cancelAction))).description, style: .cancel) { _ in
 				self.router?.routeToListInventory()
 
 			}
 			action.setValue(AppStyleGuide.Colors.primary.uiColor, forKey: "titleTextColor")
 			alert.addAction(action)
 		} else {
-            action = UIAlertAction(title: "\(Localization(.addNewProductScene(.alert(.okAction))))", style: .default, handler: nil)
+            action = UIAlertAction(
+                title: Localization(.addNewProductScene(.alert(.okAction))).description,
+                style: .default,
+                handler: nil
+            )
 			action.setValue(AppStyleGuide.Colors.primary.uiColor, forKey: "titleTextColor")
 			alert.addAction(action)
         }
@@ -90,26 +96,29 @@ class AddNewProductViewController: SaarahViewController, AddNewProductDisplayLog
 	func addProduct() {
 		guard let productName = validateProductName() else {
             presentAlertModal(
-                "\(Localization(.addNewProductScene(.alert(.form(.title)))))",
-                "\(Localization(.addNewProductScene(.alert(.form(.name)))))",
-                "\(Localization(.addNewProductScene(.alert(.okAction))))")
+                Localization(.addNewProductScene(.alert(.form(.title)))).description,
+                Localization(.addNewProductScene(.alert(.form(.name)))).description,
+                Localization(.addNewProductScene(.alert(.okAction))).description
+            )
 			return
 		}
 
 		let validationBarCode = validateBarCode()
 		if (!validationBarCode.isValid) {
             presentAlertModal(
-                "\(Localization(.addNewProductScene(.alert(.form(.title)))))",
-                "\(Localization(.addNewProductScene(.alert(.form(.barCode)))))",
-                "\(Localization(.addNewProductScene(.alert(.okAction))))")
+                Localization(.addNewProductScene(.alert(.form(.title)))).description,
+                Localization(.addNewProductScene(.alert(.form(.barCode)))).description,
+                Localization(.addNewProductScene(.alert(.okAction))).description
+            )
 			return
 		}
 
 		if (!validadeSelectMeasure()) {
 			presentAlertModal(
-                "\(Localization(.addNewProductScene(.alert(.form(.title)))))",
-                "\(Localization(.addNewProductScene(.alert(.form(.meausre)))))",
-                "\(Localization(.addNewProductScene(.alert(.okAction))))")
+                Localization(.addNewProductScene(.alert(.form(.title)))).description,
+                Localization(.addNewProductScene(.alert(.form(.meausre)))).description,
+                Localization(.addNewProductScene(.alert(.okAction))).description
+            )
 			return
 		}
 

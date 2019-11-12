@@ -47,14 +47,14 @@ class AddNewProductTableViewDataSource {
 
 		switch (row) {
 		case 0:
-            cell.fieldLabel.text = "\(Localization(.addNewProductScene(.field(.productName))))"
-            cell.textField.placeholder = "\(Localization(.addNewProductScene(.field(.productNamePlaceholder))))"
+            cell.fieldLabel.text = Localization(.addNewProductScene(.field(.productName))).description
+            cell.textField.placeholder = Localization(.addNewProductScene(.field(.productNamePlaceholder))).description
 		case 1:
-            cell.fieldLabel.text = "\(Localization(.addNewProductScene(.field(.barCode))))"
-            cell.textField.placeholder = "\(Localization(.addNewProductScene(.field(.barCodePlacehoder))))"
+            cell.fieldLabel.text = Localization(.addNewProductScene(.field(.barCode))).description
+            cell.textField.placeholder = Localization(.addNewProductScene(.field(.barCodePlacehoder))).description
 		case 2:
-            cell.fieldLabel.text = "\(Localization(.addNewProductScene(.field(.measure))))"
-            cell.textField.placeholder = "\(Localization(.addNewProductScene(.field(.measurePlaceholder))))"
+            cell.fieldLabel.text = Localization(.addNewProductScene(.field(.measure))).description
+            cell.textField.placeholder = Localization(.addNewProductScene(.field(.measurePlaceholder))).description
 			cell.textField.isUserInteractionEnabled = false
 		default:
 			break
