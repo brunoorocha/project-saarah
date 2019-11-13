@@ -21,4 +21,3 @@ class BarcodeBuilder {
         router.dataStore = interactor
     }
 }
-
