@@ -55,6 +55,7 @@ class AddNewProductTableViewDataSource {
 		case 2:
             cell.fieldLabel.text = Localization(.addNewProductScene(.field(.measure))).description
             cell.textField.placeholder = Localization(.addNewProductScene(.field(.measurePlaceholder))).description
+            cell.showDisclosureIndicator()
 			cell.textField.isUserInteractionEnabled = false
 		default:
 			break
