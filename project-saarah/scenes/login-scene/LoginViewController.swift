@@ -93,9 +93,9 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
             router?.routeToHome()
         } else {
             presentAlertModal(
-                "\(Localization(.loginScene(.errorFormValidation(.alertTitle))))",
-                "\(Localization(.loginScene(.errorFormValidation(.undefined))))",
-                "\(Localization(.loginScene(.errorFormValidation(.action))))"
+                Localization(.loginScene(.errorFormValidation(.alertTitle))).description,
+                Localization(.loginScene(.errorFormValidation(.undefined))).description,
+                Localization(.loginScene(.errorFormValidation(.action))).description
             )
         }
 
@@ -105,17 +105,17 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
     func doLogin() {
         guard let email = getFieldEmail() else {
             presentAlertModal(
-                "\(Localization(.loginScene(.errorFormValidation(.alertTitle))))",
-                "\(Localization(.loginScene(.errorFormValidation(.email))))",
-                "\(Localization(.loginScene(.errorFormValidation(.action))))"
+                Localization(.loginScene(.errorFormValidation(.alertTitle))).description,
+                Localization(.loginScene(.errorFormValidation(.email))).description,
+                Localization(.loginScene(.errorFormValidation(.action))).description
             )
             return
         }
         guard let password = getFieldPassword() else {
             presentAlertModal(
-                "\(Localization(.loginScene(.errorFormValidation(.alertTitle))))",
-                "\(Localization(.loginScene(.errorFormValidation(.password))))",
-                "\(Localization(.loginScene(.errorFormValidation(.action))))"
+                Localization(.loginScene(.errorFormValidation(.alertTitle))).description,
+                Localization(.loginScene(.errorFormValidation(.password))).description,
+                Localization(.loginScene(.errorFormValidation(.action))).description
             )
             return
         }

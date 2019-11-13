@@ -92,9 +92,9 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 			router?.routeToHome()
 		} else {
 			presentAlertModal(
-                "\(Localization(.createAccountScene(.errorSignUpTitle)))",
-                "\(Localization(.createAccountScene(.errorSignUpMessage)))",
-                "\(Localization(.createAccountScene(.errorFormActionTitle)))"
+                Localization(.createAccountScene(.errorForm(.alertTitle))).description,
+                Localization(.createAccountScene(.errorForm(.signUpTitle))).description,
+                Localization(.createAccountScene(.errorForm(.action))).description
             )
 		}
 
@@ -104,63 +104,63 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 	func createAccount() { // swiftlint:disable:this function_body_length
 		guard let name = validateName() else {
 			presentAlertModal(
-                "\(Localization(.createAccountScene(.errorFormAlertTitle)))",
-                "\(Localization(.createAccountScene(.errorFormNameMessage)))",
-                "\(Localization(.createAccountScene(.errorFormActionTitle)))"
+                Localization(.createAccountScene(.errorForm(.alertTitle))).description,
+                Localization(.createAccountScene(.errorForm(.nameMessage))).description,
+                Localization(.createAccountScene(.errorForm(.action))).description
             )
 			return
 		}
 
 		guard let email = validateEmail() else {
 			presentAlertModal(
-                "\(Localization(.createAccountScene(.errorFormAlertTitle)))",
-                "\(Localization(.createAccountScene(.errorFormEmailMessage)))",
-                "\(Localization(.createAccountScene(.errorFormActionTitle)))"
+                Localization(.createAccountScene(.errorForm(.alertTitle))).description,
+                Localization(.createAccountScene(.errorForm(.emailMessage))).description,
+                Localization(.createAccountScene(.errorForm(.action))).description
             )
 			return
 		}
 
 		if (!email.isValidEmail()) {
 			presentAlertModal(
-                "\(Localization(.createAccountScene(.errorFormAlertTitle)))",
-                "\(Localization(.createAccountScene(.errorFormInvalidEmail)))",
-                "\(Localization(.createAccountScene(.errorFormActionTitle)))"
+                Localization(.createAccountScene(.errorForm(.alertTitle))).description,
+                Localization(.createAccountScene(.errorForm(.invalidEmail))).description,
+                Localization(.createAccountScene(.errorForm(.action))).description
             )
 			return
 		}
 
 		guard let password = validatePassword() else {
 			presentAlertModal(
-                "\(Localization(.createAccountScene(.errorFormAlertTitle)))",
-                "\(Localization(.createAccountScene(.errorFormPasswordMessage)))",
-                "\(Localization(.createAccountScene(.errorFormActionTitle)))"
+                Localization(.createAccountScene(.errorForm(.alertTitle))).description,
+                Localization(.createAccountScene(.errorForm(.passwordMessage))).description,
+                Localization(.createAccountScene(.errorForm(.action))).description
             )
 			return
 		}
 
 		guard let confirmPassword = validateConfirmPassword() else {
 			presentAlertModal(
-                "\(Localization(.createAccountScene(.errorFormAlertTitle)))",
-                "\(Localization(.createAccountScene(.errorFormConfirmPasswordMessage)))",
-                "\(Localization(.createAccountScene(.errorFormActionTitle)))"
+                Localization(.createAccountScene(.errorForm(.alertTitle))).description,
+                Localization(.createAccountScene(.errorForm(.confirmPasswordMessage))).description,
+                Localization(.createAccountScene(.errorForm(.action))).description
             )
 			return
 		}
 
 		if (password != confirmPassword) {
 			presentAlertModal(
-                "\(Localization(.createAccountScene(.errorFormAlertTitle)))",
-                "\(Localization(.createAccountScene(.errorFormPasswordsDontMatchMessage)))",
-                "\(Localization(.createAccountScene(.errorFormActionTitle)))"
+                Localization(.createAccountScene(.errorForm(.alertTitle))).description,
+                Localization(.createAccountScene(.errorForm(.passwordsDontMatchMessage))).description,
+                Localization(.createAccountScene(.errorForm(.action))).description
             )
 			return
 		}
 
 		if (password.count < 6) {
 			presentAlertModal(
-                "\(Localization(.createAccountScene(.errorFormAlertTitle)))",
-                "\(Localization(.createAccountScene(.errorFormPasswordSize)))",
-                "\(Localization(.createAccountScene(.errorFormActionTitle)))"
+                Localization(.createAccountScene(.errorForm(.alertTitle))).description,
+                Localization(.createAccountScene(.errorForm(.passwordSize))).description,
+                Localization(.createAccountScene(.errorForm(.action))).description
             )
 			return
 		}
