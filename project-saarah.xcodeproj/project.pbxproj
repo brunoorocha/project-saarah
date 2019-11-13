@@ -164,6 +164,7 @@
 		A3859A572359FC8B003E4B1B /* ApiHomeNotificationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3859A562359FC8B003E4B1B /* ApiHomeNotificationStore.swift */; };
 		A3859A59235A0263003E4B1B /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3859A58235A0263003E4B1B /* Endpoint.swift */; };
 		A3859A5B235A0279003E4B1B /* ConeheadApiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3859A5A235A0279003E4B1B /* ConeheadApiEndpoint.swift */; };
+		A39228FE23798E20007BB0D6 /* ApiResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39228FD23798E20007BB0D6 /* ApiResponseError.swift */; };
 		A3A408E12372F38000682D0E /* UIViewController+PresentConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A408E02372F38000682D0E /* UIViewController+PresentConfirmation.swift */; };
 		A3A4599023606B9D000A765F /* SkelectonLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A4598F23606B9D000A765F /* SkelectonLoadingView.swift */; };
 		A3A4599223607100000A765F /* DefaultCellSkelectonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A4599123607100000A765F /* DefaultCellSkelectonTableViewCell.swift */; };
@@ -176,6 +177,7 @@
 		A3C63041235CE6FF0024F683 /* HomeNotificationSkelectonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C63040235CE6FF0024F683 /* HomeNotificationSkelectonTableViewCell.swift */; };
 		A3C63043235DCEB30024F683 /* HomeTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C63042235DCEB30024F683 /* HomeTableViewDataSource.swift */; };
 		A3C63047235DF6110024F683 /* HomeMenuCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C63046235DF6110024F683 /* HomeMenuCollectionViewDataSource.swift */; };
+		A3CF014C237C4E8D00DD192A /* ApiResponseErrorAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CF014B237C4E8D00DD192A /* ApiResponseErrorAdapter.swift */; };
 		A3D2D0D02340E91100432214 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D2D0C92340E91100432214 /* HomePresenter.swift */; };
 		A3D2D0D22340E91100432214 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D2D0CB2340E91100432214 /* HomeRouter.swift */; };
 		A3D2D0D32340E91100432214 /* HomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D2D0CC2340E91100432214 /* HomeModels.swift */; };
@@ -347,6 +349,7 @@
 		A3859A562359FC8B003E4B1B /* ApiHomeNotificationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiHomeNotificationStore.swift; sourceTree = "<group>"; };
 		A3859A58235A0263003E4B1B /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		A3859A5A235A0279003E4B1B /* ConeheadApiEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConeheadApiEndpoint.swift; sourceTree = "<group>"; };
+		A39228FD23798E20007BB0D6 /* ApiResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponseError.swift; sourceTree = "<group>"; };
 		A3A408E02372F38000682D0E /* UIViewController+PresentConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+PresentConfirmation.swift"; sourceTree = "<group>"; };
 		A3A4598F23606B9D000A765F /* SkelectonLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkelectonLoadingView.swift; sourceTree = "<group>"; };
 		A3A4599123607100000A765F /* DefaultCellSkelectonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCellSkelectonTableViewCell.swift; sourceTree = "<group>"; };
@@ -359,6 +362,7 @@
 		A3C63040235CE6FF0024F683 /* HomeNotificationSkelectonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNotificationSkelectonTableViewCell.swift; sourceTree = "<group>"; };
 		A3C63042235DCEB30024F683 /* HomeTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewDataSource.swift; sourceTree = "<group>"; };
 		A3C63046235DF6110024F683 /* HomeMenuCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		A3CF014B237C4E8D00DD192A /* ApiResponseErrorAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponseErrorAdapter.swift; sourceTree = "<group>"; };
 		A3D2D0C92340E91100432214 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		A3D2D0CB2340E91100432214 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		A3D2D0CC2340E91100432214 /* HomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModels.swift; sourceTree = "<group>"; };
@@ -704,6 +708,7 @@
 		A353D7CA231FE44A004A5139 /* models */ = {
 			isa = PBXGroup;
 			children = (
+				A39228FF23798FEC007BB0D6 /* error */,
 				A353D7CD231FE4B1004A5139 /* NavigationDrawerMenu.swift */,
 				487B9B242331193900D8D6CC /* Product.swift */,
 				487B9B2623311BC900D8D6CC /* ProductLog.swift */,
@@ -828,6 +833,15 @@
 				A3D619D42372464D0052BA83 /* SettingsTableViewDataSource.swift */,
 			);
 			path = settings;
+			sourceTree = "<group>";
+		};
+		A39228FF23798FEC007BB0D6 /* error */ = {
+			isa = PBXGroup;
+			children = (
+				A39228FD23798E20007BB0D6 /* ApiResponseError.swift */,
+				A3CF014B237C4E8D00DD192A /* ApiResponseErrorAdapter.swift */,
+			);
+			path = error;
 			sourceTree = "<group>";
 		};
 		A3A79733235B3AE300B5724F /* product-service */ = {
@@ -1023,11 +1037,13 @@
 				484848B52354EEA200A84FB0 /* AddNewProductBuilder.swift in Sources */,
 				487B9B2D23311DE400D8D6CC /* MenuItemProduct.swift in Sources */,
 				1B76635223478E640069D581 /* ListInventoryRouter.swift in Sources */,
+				A3CF014C237C4E8D00DD192A /* ApiResponseErrorAdapter.swift in Sources */,
 				487B9B2723311BC900D8D6CC /* ProductLog.swift in Sources */,
 				1B2DB9BA2357AE2E00AF6D80 /* SelectProductMeasurementModels.swift in Sources */,
 				487B9B2F23311E5400D8D6CC /* MenuItem.swift in Sources */,
 				1B716459235CB70D000ABC08 /* ProductItemTableViewCell.swift in Sources */,
 				1B15E0CB2354A3530047A0B6 /* AppStrings.swift in Sources */,
+				A39228FE23798E20007BB0D6 /* ApiResponseError.swift in Sources */,
 				A3D619D52372464D0052BA83 /* SettingsTableViewDataSource.swift in Sources */,
 				A3522D692341200A00DB1314 /* HomeNotification.swift in Sources */,
 				A3B76AD1234CB39D0010B7AF /* HomeBuilder.swift in Sources */,
@@ -1270,7 +1286,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8UG5N7U4RW;
+				DEVELOPMENT_TEAM = MK2CL4Y92D;
 				INFOPLIST_FILE = "project-saarah/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1290,7 +1306,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8UG5N7U4RW;
+				DEVELOPMENT_TEAM = MK2CL4Y92D;
 				INFOPLIST_FILE = "project-saarah/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

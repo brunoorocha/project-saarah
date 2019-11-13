@@ -20,6 +20,13 @@ class ApiAccountStore: AccountStore {
     func login(email: String, password: String, _ completion: @escaping (Result<SessionResponse?, NetworkServiceError>) -> Void) {
         let networkService = NetworkService()
         networkService.request(endpoint: ConeheadApiEndpoint.login(email: email, passowrd: password)) { (result: Result<SessionResponse?, NetworkServiceError>) in
+            switch result {
+            case .failure(let error):
+                ApiResponseErrorAdapter.fromNetworkServiceError(error: error)
+            default:
+                print("")
+            }
+
             completion(result)
         }
     }
