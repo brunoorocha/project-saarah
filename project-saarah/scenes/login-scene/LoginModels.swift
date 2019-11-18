@@ -16,10 +16,21 @@ enum Login {
         }
         struct Response {
             let response: SessionResponse?
+            let formErrors: [FormFieldError]?
+            
+            init(response: SessionResponse? = nil, formErrors: [FormFieldError]? = nil) {
+                self.response = response
+                self.formErrors = formErrors
+            }
         }
         struct ViewModel {
             struct LoginViewModel {
                 let success: Bool
+            }
+
+            struct FormError {
+                let field: String
+                let message: String
             }
         }
         struct Form {

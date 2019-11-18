@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ApiResponseError {
+struct ApiResponseError: Error {
     let errors: [ApiError]
 }
 

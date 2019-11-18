@@ -173,6 +173,7 @@
 		A3A79737235B3BBC00B5724F /* HomeNotificationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A79736235B3BBC00B5724F /* HomeNotificationWorker.swift */; };
 		A3AACBC82340C946000EFB6B /* SaarahViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AACBC72340C946000EFB6B /* SaarahViewController.swift */; };
 		A3ABCE71233CCFDE00FF54FD /* SaarahIconImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ABCE70233CCFDE00FF54FD /* SaarahIconImageView.swift */; };
+		A3AEFA402382BCC0007AB749 /* StoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AEFA3F2382BCC0007AB749 /* StoreError.swift */; };
 		A3B76AD1234CB39D0010B7AF /* HomeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B76AD0234CB39D0010B7AF /* HomeBuilder.swift */; };
 		A3C63041235CE6FF0024F683 /* HomeNotificationSkelectonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C63040235CE6FF0024F683 /* HomeNotificationSkelectonTableViewCell.swift */; };
 		A3C63043235DCEB30024F683 /* HomeTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C63042235DCEB30024F683 /* HomeTableViewDataSource.swift */; };
@@ -358,6 +359,7 @@
 		A3A79736235B3BBC00B5724F /* HomeNotificationWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNotificationWorker.swift; sourceTree = "<group>"; };
 		A3AACBC72340C946000EFB6B /* SaarahViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahViewController.swift; sourceTree = "<group>"; };
 		A3ABCE70233CCFDE00FF54FD /* SaarahIconImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahIconImageView.swift; sourceTree = "<group>"; };
+		A3AEFA3F2382BCC0007AB749 /* StoreError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreError.swift; sourceTree = "<group>"; };
 		A3B76AD0234CB39D0010B7AF /* HomeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBuilder.swift; sourceTree = "<group>"; };
 		A3C63040235CE6FF0024F683 /* HomeNotificationSkelectonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNotificationSkelectonTableViewCell.swift; sourceTree = "<group>"; };
 		A3C63042235DCEB30024F683 /* HomeTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewDataSource.swift; sourceTree = "<group>"; };
@@ -840,6 +842,7 @@
 			children = (
 				A39228FD23798E20007BB0D6 /* ApiResponseError.swift */,
 				A3CF014B237C4E8D00DD192A /* ApiResponseErrorAdapter.swift */,
+				A3AEFA3F2382BCC0007AB749 /* StoreError.swift */,
 			);
 			path = error;
 			sourceTree = "<group>";
@@ -1044,6 +1047,7 @@
 				1B716459235CB70D000ABC08 /* ProductItemTableViewCell.swift in Sources */,
 				1B15E0CB2354A3530047A0B6 /* AppStrings.swift in Sources */,
 				A39228FE23798E20007BB0D6 /* ApiResponseError.swift in Sources */,
+				A3AEFA402382BCC0007AB749 /* StoreError.swift in Sources */,
 				A3D619D52372464D0052BA83 /* SettingsTableViewDataSource.swift in Sources */,
 				A3522D692341200A00DB1314 /* HomeNotification.swift in Sources */,
 				A3B76AD1234CB39D0010B7AF /* HomeBuilder.swift in Sources */,

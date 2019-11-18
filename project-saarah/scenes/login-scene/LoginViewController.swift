@@ -10,6 +10,7 @@ import UIKit
 
 protocol LoginDisplayLogic: class {
     func displaySignInResponse(viewModel: Login.LogIn.ViewModel.LoginViewModel)
+    func displayFormErrors(viewModels: [Login.LogIn.ViewModel.FormError])
 }
 
 protocol TappedButtonLoginDelegate: class {
@@ -26,7 +27,11 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
     private var loginTableViewDataSource = LoginTableViewDataSource()
 	private var contentView = LoginView()
     private var scrolledIndexPath: IndexPath?
-    private var isLogin: Bool = false
+    private var isLogin: Bool = false {
+        didSet {
+            self.isLogin ? showFullScreenActivityIndicator() : hideFullScreenActivityIndicator()
+        }
+    }
 
 	// MARK: View lifecycle
 	override func viewDidLoad() {
@@ -98,8 +103,11 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
                 "\(Localization(.loginScene(.errorFormValidation(.action))))"
             )
         }
+    }
 
-        hideFullScreenActivityIndicator()
+    func displayFormErrors(viewModels: [Login.LogIn.ViewModel.FormError]) {
+        isLogin = false
+        print(viewModels)
     }
 
     func doLogin() {
@@ -123,7 +131,6 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
         let form = Login.LogIn.Form(email: email, passowrd: password)
         let request = Login.LogIn.Request(form: form)
         interactor?.logIn(request: request)
-        showFullScreenActivityIndicator()
     }
 
 }

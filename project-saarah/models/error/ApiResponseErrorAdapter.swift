@@ -8,19 +8,20 @@
 
 import Foundation
 
-class ApiResponseErrorAdapter {
-    static func fromNetworkServiceError (error: NetworkServiceError) {
+class StoreErrorAdapter {
+    static func fromNetworkServiceError (error: NetworkServiceError) -> StoreError? {
         switch error {
         case .errorStatusCode(_, let errorData):
-            guard let errorData = errorData else { return }
+            guard let errorData = errorData else { return nil }
             do {
                 let apiError = try JSONDecoder().decode(ApiResponseError.self, from: errorData)
-                print(apiError)
-            } catch let error {
-                print(error)
+                let fieldErrors = apiError.errors.map { return FormFieldError(error: $0.errorCode, field: $0.field ?? "")}
+                return StoreError.form(fields: fieldErrors)
+            } catch {
+                return nil
             }
         default:
-            print(error)
+            return nil
         }
     }
 }

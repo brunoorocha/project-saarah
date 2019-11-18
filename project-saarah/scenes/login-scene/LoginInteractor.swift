@@ -32,9 +32,19 @@ class LoginInteractor: LoginBusinessLogic, LoginDataStore {
                 UserDefaults.save(loginResponse.token)
                 self.loginResponse = loginResponse
                 self.presenter?.presentLoginResponse(response: Login.LogIn.Response(response: loginResponse))
-            case .failure:
-                self.presenter?.presentLoginResponse(response: Login.LogIn.Response(response: nil))
+            case .failure(let error):
+                self.handleStoreErrors(error: error)
             }
+        }
+    }
+
+    private func handleStoreErrors (error: StoreError) {
+        switch error {
+        case .form(let fields):
+            let response = Login.LogIn.Response(formErrors: fields)
+            self.presenter?.presentFormErrorsResponse(response: response)
+        case .plain(let message):
+            print(message)
         }
     }
 }
