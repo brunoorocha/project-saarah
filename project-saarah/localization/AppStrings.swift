@@ -30,6 +30,7 @@ enum AppStrings {
     case settingsScene(SettingsScene)
 	case createAccountScene(CreateAccountScene)
     case onboarding(Onboarding)
+    case barcodeScene(BarcodeScene)
 
     // MARK: Enum's
 
@@ -225,6 +226,19 @@ enum AppStrings {
             case first
             case second
             case third
+        }
+    }
+
+    enum BarcodeScene {
+        case view(View)
+        
+        enum View {
+            case notFound(NotFound)
+            
+            enum NotFound {
+                case product
+                case overview
+            }
         }
     }
 }
