@@ -319,7 +319,7 @@ extension AppStrings {
                 case .notFound(let messages):
                     switch messages {
                     case .product:
-                        return "Product not founds."
+                        return "Product not found."
                     case .overview:
                         return "You can create a new product in inventory with this barcode."
                     }
