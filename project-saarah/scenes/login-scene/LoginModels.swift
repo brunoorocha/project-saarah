@@ -32,21 +32,6 @@ enum Login {
                 let field: String
                 let message: String
             }
-
-            struct FormField {
-                var label: String
-                var placeholder: String
-                var keyboardType: KeyboardType
-                var identifier: String
-                var errorLabel: String
-
-                enum KeyboardType {
-                    case normal
-                    case email
-                    case password
-                    case number
-                }
-            }
         }
         struct Form {
             let email: String

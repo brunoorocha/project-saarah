@@ -90,6 +90,7 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
         loginTableViewDataSource.registerCells(for: contentView.tableView)
         contentView.tableView.dataSource = loginTableViewDataSource
         loginTableViewDataSource.delegate = self
+        loginTableViewDataSource.textFieldDelegate = self
 	}
 
     func displaySignInResponse(viewModel: Login.LogIn.ViewModel.LoginViewModel) {
@@ -107,7 +108,7 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
 
     func displayFormErrors(viewModels: [Login.LogIn.ViewModel.FormError]) {
         isLogin = false
-        print(viewModels)
+        viewModels.forEach { loginTableViewDataSource.showErrorMessage($0.message, forFieldWithIdentifier: $0.field, in: contentView.tableView) }
     }
 
     func doLogin() {
@@ -145,8 +146,9 @@ extension LoginViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if LoginTableViewDataSource.FormPosition.loginButton.indexPath == indexPath
-           && !isLogin {
+        if LoginTableViewDataSource.LoginTableViewSections.loginButton.rawValue == indexPath.section
+            && !isLogin {
+            contentView.endEditing(true)
             doLogin()
         }
     }
@@ -168,6 +170,7 @@ extension LoginViewController {
         if (email.isEmpty) {
             return nil
         }
+
         return email
     }
 
@@ -179,6 +182,17 @@ extension LoginViewController {
         if (password.isEmpty) {
             return nil
         }
+
         return password
+    }
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        guard let identifier = textField.accessibilityIdentifier,
+            let row = loginTableViewDataSource.formFieldViewModels.firstIndex(where: { $0.identifier == identifier }) else { return true }
+        loginTableViewDataSource.clearFieldErrorMessage(forFieldWithIdentifier: identifier, in: contentView.tableView)
+        loginTableViewDataSource.selectedIndexPath = IndexPath(row: row, section: 0)
+        return true
     }
 }

@@ -42,4 +42,8 @@ class TextFieldTableViewCell: SaarahTableViewCell {
             separator.trailingAnchor.constraint(equalTo: cellContentView.trailingAnchor)
         ])
     }
+
+    func clearErrors () {
+        errorLabel.text = ""
+    }
 }
