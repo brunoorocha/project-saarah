@@ -12,6 +12,24 @@ class LoginTableViewDataSource: NSObject {
 
     var tableViewSections = LoginTableViewSections.allCases
 
+    var formFieldViewModels = [
+        Login.LogIn.ViewModel.FormField(
+            label: Localization(.loginScene(.textField(.mail))).description,
+            placeholder: Localization(.loginScene(.textField(.mailPlaceholder))).description,
+            keyboardType: .email,
+            identifier: "email",
+            errorLabel: ""
+        ),
+
+        Login.LogIn.ViewModel.FormField(
+            label: Localization(.loginScene(.textField(.password))).description,
+            placeholder: Localization(.loginScene(.textField(.passwordPlaceholder))).description,
+            keyboardType: .password,
+            identifier: "password",
+            errorLabel: ""
+        )
+    ]
+
     weak var delegate: TappedButtonLoginDelegate?
 
     enum LoginTableViewSections: Int, CaseIterable {
@@ -57,7 +75,7 @@ class LoginTableViewDataSource: NSObject {
         guard let section = LoginTableViewSections(rawValue: section) else { return 0 }
         switch section {
         case .login:
-            return 2
+            return formFieldViewModels.count
         case .loginButton:
             return 1
         }
@@ -106,24 +124,16 @@ class LoginTableViewDataSource: NSObject {
     func firstSectionCell(for tableView: UITableView, in indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: LoginTableViewSections.login.reuseIdentifier, for: indexPath) as? TextFieldTableViewCell else { return UITableViewCell() } // swiftlint:disable:this line_length
         let row = indexPath.row
-        cell.roundCellIfNeeded(index: row, numberOfCells: 2)
+        let fieldViewModel = formFieldViewModels[row]
+        cell.roundCellIfNeeded(index: row, numberOfCells: formFieldViewModels.count)
 
-        switch (row) {
-        case 0:
-            cell.fieldLabel.text = "\(Localization(.loginScene(.textField(.mail))))"
-            cell.textField.accessibilityIdentifier = FormPosition.mail.rawValue
-            cell.textField.keyboardType = .emailAddress
-            cell.textField.placeholder = "\(Localization(.loginScene(.textField(.mailPlaceholder))))"
-            cell.textField.delegate = self
-        case 1:
-            cell.fieldLabel.text = "\(Localization(.loginScene(.textField(.password))))"
-            cell.textField.accessibilityIdentifier = FormPosition.password.rawValue
-            cell.textField.isSecureTextEntry = true
-            cell.textField.placeholder = "\(Localization(.loginScene(.textField(.passwordPlaceholder))))"
-            cell.textField.delegate = self
-        default:
-            return UITableViewCell()
-        }
+        cell.fieldLabel.text = fieldViewModel.label
+        cell.textField.accessibilityIdentifier = fieldViewModel.identifier
+        cell.textField.placeholder = fieldViewModel.placeholder
+        cell.textField.keyboardType = fieldViewModel.keyboardType == .email ? .emailAddress : .default
+        cell.textField.isSecureTextEntry = fieldViewModel.keyboardType == .password
+        cell.errorLabel.text = fieldViewModel.errorLabel
+        cell.textField.delegate = self
 
         return cell
     }

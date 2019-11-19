@@ -11,11 +11,12 @@ import UIKit
 class TextFieldTableViewCell: SaarahTableViewCell {
     var fieldLabel = Heading3Label()
     var textField = SaarahTextField()
+    var errorLabel = FieldErrorLabel()
 
     private var separator = SaarahTableViewSeparator()
 
     override func configureCellComponents() {
-        cellContentView.addSubviews([fieldLabel, textField, separator])
+        cellContentView.addSubviews([fieldLabel, textField, errorLabel, separator])
         contentView.isUserInteractionEnabled = true
 
         let xsmallMargin = AppStyleGuide.Margins.xsmall.rawValue
@@ -30,7 +31,11 @@ class TextFieldTableViewCell: SaarahTableViewCell {
             textField.topAnchor.constraint(equalTo: fieldLabel.bottomAnchor, constant: xsmallMargin),
             textField.leadingAnchor.constraint(equalTo: fieldLabel.leadingAnchor),
             textField.trailingAnchor.constraint(equalTo: fieldLabel.trailingAnchor),
-            textField.bottomAnchor.constraint(equalTo: cellContentView.bottomAnchor, constant: -smallMargin),
+
+            errorLabel.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: xsmallMargin),
+            errorLabel.leadingAnchor.constraint(equalTo: textField.leadingAnchor),
+            errorLabel.trailingAnchor.constraint(equalTo: textField.trailingAnchor),
+            errorLabel.bottomAnchor.constraint(equalTo: cellContentView.bottomAnchor, constant: -smallMargin),
 
             separator.bottomAnchor.constraint(equalTo: cellContentView.bottomAnchor),
             separator.leadingAnchor.constraint(equalTo: cellContentView.leadingAnchor, constant: mediumMargin),

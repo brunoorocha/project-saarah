@@ -17,7 +17,7 @@ enum Login {
         struct Response {
             let response: SessionResponse?
             let formErrors: [FormFieldError]?
-            
+
             init(response: SessionResponse? = nil, formErrors: [FormFieldError]? = nil) {
                 self.response = response
                 self.formErrors = formErrors
@@ -31,6 +31,21 @@ enum Login {
             struct FormError {
                 let field: String
                 let message: String
+            }
+
+            struct FormField {
+                var label: String
+                var placeholder: String
+                var keyboardType: KeyboardType
+                var identifier: String
+                var errorLabel: String
+
+                enum KeyboardType {
+                    case normal
+                    case email
+                    case password
+                    case number
+                }
             }
         }
         struct Form {

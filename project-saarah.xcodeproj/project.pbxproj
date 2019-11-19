@@ -126,6 +126,7 @@
 		A304F94D233CED4100C3B6F7 /* SaarahTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304F94C233CED4100C3B6F7 /* SaarahTextField.swift */; };
 		A304F94F233E270600C3B6F7 /* SelectableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304F94E233E270600C3B6F7 /* SelectableCell.swift */; };
 		A304F953233E4AD400C3B6F7 /* SaarahTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304F952233E4AD400C3B6F7 /* SaarahTableView.swift */; };
+		A30611F4238408ED00949B34 /* FieldErrorLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30611F3238408ED00949B34 /* FieldErrorLabel.swift */; };
 		A32244F4235E8AE700375793 /* UnderConstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32244F3235E8AE700375793 /* UnderConstructionViewController.swift */; };
 		A32D814B233F6A03008DB50F /* HomeCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32D814A233F6A03008DB50F /* HomeCardCollectionViewCell.swift */; };
 		A32D814D233F6FE0008DB50F /* HomeMenuCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32D814C233F6FE0008DB50F /* HomeMenuCollectionView.swift */; };
@@ -309,6 +310,7 @@
 		A304F94C233CED4100C3B6F7 /* SaarahTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahTextField.swift; sourceTree = "<group>"; };
 		A304F94E233E270600C3B6F7 /* SelectableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableCell.swift; sourceTree = "<group>"; };
 		A304F952233E4AD400C3B6F7 /* SaarahTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahTableView.swift; sourceTree = "<group>"; };
+		A30611F3238408ED00949B34 /* FieldErrorLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldErrorLabel.swift; sourceTree = "<group>"; };
 		A32244F3235E8AE700375793 /* UnderConstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderConstructionViewController.swift; sourceTree = "<group>"; };
 		A32D814A233F6A03008DB50F /* HomeCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		A32D814C233F6FE0008DB50F /* HomeMenuCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuCollectionView.swift; sourceTree = "<group>"; };
@@ -785,6 +787,7 @@
 				A32244F3235E8AE700375793 /* UnderConstructionViewController.swift */,
 				A3A4598F23606B9D000A765F /* SkelectonLoadingView.swift */,
 				A34D156123759D7D00DF815D /* FullScreenActivityIndicator.swift */,
+				A30611F3238408ED00949B34 /* FieldErrorLabel.swift */,
 			);
 			path = "base-components";
 			sourceTree = "<group>";
@@ -1050,6 +1053,7 @@
 				A3AEFA402382BCC0007AB749 /* StoreError.swift in Sources */,
 				A3D619D52372464D0052BA83 /* SettingsTableViewDataSource.swift in Sources */,
 				A3522D692341200A00DB1314 /* HomeNotification.swift in Sources */,
+				A30611F4238408ED00949B34 /* FieldErrorLabel.swift in Sources */,
 				A3B76AD1234CB39D0010B7AF /* HomeBuilder.swift in Sources */,
 				4C94BADD233BA8ED008D62F5 /* UILabel.swift in Sources */,
 				1B4DFA7A23595B6E002C2B55 /* ProductItemModels.swift in Sources */,
