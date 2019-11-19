@@ -154,6 +154,12 @@ class LoginTableViewDataSource: NSObject {
         cell.clearErrors()
         tableView.endUpdates()
     }
+
+    func clearAllFieldsErrorMessages (in tableView: UITableView) {
+        formFieldViewModels.forEach { formFieldViewModel in
+            clearFieldErrorMessage(forFieldWithIdentifier: formFieldViewModel.identifier, in: tableView)
+        }
+    }
 }
 
 extension LoginTableViewDataSource: UITableViewDataSource {

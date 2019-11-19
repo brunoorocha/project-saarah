@@ -23,7 +23,11 @@ class LoginPresenter: LoginPresentationLogic {
 
     func presentFormErrorsResponse(response: Login.LogIn.Response) {
         guard let formErrors = response.formErrors else { return }
-        let formErrorViewModels = formErrors.map { formError in
+        let formErrorViewModels = formErrors.map { formError -> Login.LogIn.ViewModel.FormError in
+            guard let apiResponseError = ApiPossibleResponseErrors(rawValue: formError.error) else {
+                return Login.LogIn.ViewModel.FormError(field: "", message: "")
+            }
+
             return Login.LogIn.ViewModel.FormError(field: formError.field, message: formError.error)
         }
         viewController?.displayFormErrors(viewModels: formErrorViewModels)

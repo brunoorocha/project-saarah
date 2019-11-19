@@ -40,3 +40,13 @@ extension ApiError: Decodable {
         errorCode = try values.decode(String.self, forKey: .errorCode)
     }
 }
+
+enum ApiPossibleResponseErrors: String {
+    case notFoundUserWithEmail
+    case passwordDoesntMatchForUserWithEmail
+    case unauthorizedObjectAccess
+    case unableToRemoveObject
+    case unableToCreateObject
+    case objectNotFound
+    case objectWithThisPropertyAlreadyExists
+}

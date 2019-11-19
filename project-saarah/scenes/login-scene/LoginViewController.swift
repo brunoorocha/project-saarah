@@ -148,6 +148,7 @@ extension LoginViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if LoginTableViewDataSource.LoginTableViewSections.loginButton.rawValue == indexPath.section
             && !isLogin {
+            loginTableViewDataSource.clearAllFieldsErrorMessages(in: contentView.tableView)
             contentView.endEditing(true)
             doLogin()
         }
