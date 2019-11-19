@@ -63,6 +63,7 @@
 		1B8CF0D423705F0100B41355 /* LoginTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8CF0D323705F0100B41355 /* LoginTableViewDataSource.swift */; };
 		1B8CF0D62372E5A900B41355 /* RegisterSectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8CF0D52372E5A900B41355 /* RegisterSectionFooterView.swift */; };
 		1B8CF0D823759F3600B41355 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8CF0D723759F3600B41355 /* Coordinator.swift */; };
+		1BE018662384116A007410A5 /* SaarahView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE018652384116A007410A5 /* SaarahView.swift */; };
 		4800F0C52372E7E10048F34D /* UserDefaults+Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4800F0C42372E7E10048F34D /* UserDefaults+Token.swift */; };
 		4818E1372322AFC500EFF585 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A343CF4723180C31005F2210 /* AppDelegate.swift */; };
 		481ECD6D2357E97600E3CA18 /* AddNewProductTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481ECD6C2357E97600E3CA18 /* AddNewProductTableViewDataSource.swift */; };
@@ -253,6 +254,7 @@
 		1B8CF0D52372E5A900B41355 /* RegisterSectionFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSectionFooterView.swift; sourceTree = "<group>"; };
 		1B8CF0D723759F3600B41355 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		1BBA19B1231FF4D300116004 /* FileManager+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Image.swift"; sourceTree = "<group>"; };
+		1BE018652384116A007410A5 /* SaarahView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahView.swift; sourceTree = "<group>"; };
 		4800F0C42372E7E10048F34D /* UserDefaults+Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Token.swift"; sourceTree = "<group>"; };
 		481ECD6C2357E97600E3CA18 /* AddNewProductTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewProductTableViewDataSource.swift; sourceTree = "<group>"; };
 		48244F5123478302007B4AA7 /* ProductDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailPresenter.swift; sourceTree = "<group>"; };
@@ -810,6 +812,7 @@
 				A32244F3235E8AE700375793 /* UnderConstructionViewController.swift */,
 				A3A4598F23606B9D000A765F /* SkelectonLoadingView.swift */,
 				A34D156123759D7D00DF815D /* FullScreenActivityIndicator.swift */,
+				1BE018652384116A007410A5 /* SaarahView.swift */,
 			);
 			path = "base-components";
 			sourceTree = "<group>";
@@ -1162,6 +1165,7 @@
 				1B537885235988A8007C819D /* Date+Formatter.swift in Sources */,
 				A304F94B233CECC100C3B6F7 /* TextFieldTableViewCell.swift in Sources */,
 				484848B62354EEA200A84FB0 /* AddNewProductInteractor.swift in Sources */,
+				1BE018662384116A007410A5 /* SaarahView.swift in Sources */,
 				1B0D66FE2370533B0018DF25 /* LoginPresenter.swift in Sources */,
 				484848B22354EEA200A84FB0 /* AddNewProductRouter.swift in Sources */,
 				A3522D70234186AB00DB1314 /* HomeNotificationTableViewCell.swift in Sources */,
