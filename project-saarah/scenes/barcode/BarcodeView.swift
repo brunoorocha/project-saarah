@@ -9,32 +9,18 @@
 import UIKit
 
 class BarcodeView: UIView {
-
-    var topView: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor(white: 0, alpha: 0.7)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
+//
+    let imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
     }()
 
-    var contentBarView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .none
-        return view
-    }()
-    var bottomView: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor(white: 0, alpha: 0.7)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
+    let smallMargin = AppStyleGuide.Margins.small.rawValue
+    let mediumMargin = AppStyleGuide.Margins.medium.rawValue
 
-    var lineView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
+    let addProductView = SaarahView()
+    let addProductActionView = SaarahView()
 
     init() {
         super.init(frame: .zero)
@@ -51,49 +37,77 @@ class BarcodeView: UIView {
     }
 
     func instantiateViews() {
-        searchCode()
     }
 
     func buildViewsHierarchy() {
-        addSubviews([topView, contentBarView, bottomView])
-        contentBarView.addSubview(lineView)
+        addSubview(imageView)
     }
 
     func setupConstraints() {
-        let xLargeMargin = AppStyleGuide.Margins.xlarge.rawValue
-
         NSLayoutConstraint.activate([
-            topView.topAnchor.constraint(equalTo: topAnchor),
-            topView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            topView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            topView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.35),
-
-            contentBarView.topAnchor.constraint(equalTo: topView.bottomAnchor),
-            contentBarView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            contentBarView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            contentBarView.bottomAnchor.constraint(equalTo: bottomView.topAnchor),
-
-            bottomView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            bottomView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            bottomView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            bottomView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.35),
-
-            lineView.centerYAnchor.constraint(equalTo: contentBarView.centerYAnchor),
-            lineView.heightAnchor.constraint(equalToConstant: 5),
-            lineView.leadingAnchor.constraint(equalTo: contentBarView.leadingAnchor, constant: xLargeMargin),
-            lineView.trailingAnchor.constraint(equalTo: contentBarView.trailingAnchor, constant: -xLargeMargin)
+            imageView.topAnchor.constraint(equalTo: topAnchor),
+            imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            imageView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
 
-    func searchCode() {
-        lineView.backgroundColor = UIColor.rgba(66, 66, 66)
+    func presentUndefinedProductViews() {
+        if addProductActionView.superview != nil { return }
+        showUndefinedProductView()
     }
 
-    func foundCode() {
-        lineView.backgroundColor = UIColor.rgba(72, 184, 48)
+   private func showUndefinedProductView() {
+        addSubview(addProductActionView)
+
+        let addIconImageView = SaarahIconImageView(image: AppStyleGuide.Icons.plus.uiImage)
+        let buttonLabel = SaarahButton()
+        buttonLabel.setTitle(Localization(.buttonTableViewCell(.title)).description, for: .normal)
+        buttonLabel.contentHorizontalAlignment = .left
+
+        addProductActionView.addSubviews([addIconImageView, buttonLabel])
+        buttonLabel.isUserInteractionEnabled = false
+
+        NSLayoutConstraint.activate([
+            addProductActionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: mediumMargin),
+            addProductActionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -mediumMargin),
+            addProductActionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -mediumMargin),
+
+            addIconImageView.topAnchor.constraint(equalTo: addProductActionView.topAnchor, constant: mediumMargin),
+            addIconImageView.bottomAnchor.constraint(equalTo: addProductActionView.bottomAnchor, constant: -mediumMargin),
+            addIconImageView.trailingAnchor.constraint(equalTo: buttonLabel.leadingAnchor, constant: -smallMargin),
+
+            buttonLabel.topAnchor.constraint(equalTo: addProductActionView.topAnchor, constant: mediumMargin),
+            buttonLabel.bottomAnchor.constraint(equalTo: addProductActionView.bottomAnchor, constant: -mediumMargin),
+            buttonLabel.centerXAnchor.constraint(equalTo: addProductActionView.centerXAnchor, constant: (addIconImageView.frame.width - mediumMargin))
+        ])
+
+        showUndefinedProductMessage()
     }
 
-    func errorCode() {
-        lineView.backgroundColor = UIColor.rgba(224, 48, 48)
+    private func showUndefinedProductMessage() {
+        addSubview(addProductView)
+
+        let title = Heading3Label()
+        title.text = Localization(.barcodeScene(.view(.notFound(.product)))).description
+        let overview = ParagraphLabel()
+        overview.text = Localization(.barcodeScene(.view(.notFound(.overview)))).description
+
+        addProductView.addSubviews([title, overview])
+
+        NSLayoutConstraint.activate([
+            addProductView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: mediumMargin),
+            addProductView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -mediumMargin),
+            addProductView.bottomAnchor.constraint(equalTo: addProductActionView.topAnchor, constant: -mediumMargin),
+
+            title.topAnchor.constraint(equalTo: addProductView.topAnchor, constant: mediumMargin),
+            title.leadingAnchor.constraint(equalTo: addProductView.leadingAnchor, constant: mediumMargin),
+            title.trailingAnchor.constraint(equalTo: addProductView.trailingAnchor, constant: -mediumMargin),
+
+            overview.topAnchor.constraint(equalTo: title.bottomAnchor, constant: smallMargin),
+            overview.leadingAnchor.constraint(equalTo: addProductView.leadingAnchor, constant: mediumMargin),
+            overview.trailingAnchor.constraint(equalTo: addProductView.trailingAnchor, constant: -mediumMargin),
+            overview.bottomAnchor.constraint(equalTo: addProductView.bottomAnchor, constant: -mediumMargin)
+        ])
     }
 }
