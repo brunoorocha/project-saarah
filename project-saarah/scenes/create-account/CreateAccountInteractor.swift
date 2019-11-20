@@ -30,10 +30,20 @@ class CreateAccountInteractor: CreateAccountBusinessLogic, CreateAccountDataStor
 				guard let signUpResponse = response else { return }
 				UserDefaults.save(signUpResponse.token)
 				self.signUpResponse = signUpResponse
-				self.presenter?.presentSignUpResponse(response: CreateAccount.SignUp.Response(response: signUpResponse))
-			case .failure:
-				self.presenter?.presentSignUpResponse(response: CreateAccount.SignUp.Response(response: nil))
+                self.presenter?.presentSignUpSucessResponse(response: CreateAccount.SignUp.Response.Success(response: signUpResponse))
+			case .failure(let error):
+                self.handleStoreErrors(error: error)
 			}
 		}
 	}
+
+    private func handleStoreErrors (error: StoreError) {
+        switch error {
+        case .form(let fields):
+            let response = CreateAccount.SignUp.Response.Failure(formErrors: fields)
+            self.presenter?.presentSignUpFailureResponse(response: response)
+        case .plain(let message):
+            print(message)
+        }
+    }
 }

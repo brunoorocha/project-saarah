@@ -9,20 +9,29 @@
 import Foundation
 
 protocol CreateAccountPresentationLogic {
-	func presentSignUpResponse(response: CreateAccount.SignUp.Response)
+    func presentSignUpSucessResponse(response: CreateAccount.SignUp.Response.Success)
+    func presentSignUpFailureResponse(response: CreateAccount.SignUp.Response.Failure)
 }
 
 class CreateAccountPresenter: CreateAccountPresentationLogic {
 	weak var viewController: CreateAccountDisplayLogic?
 
 	// MARK: Do something
-	func presentSignUpResponse(response: CreateAccount.SignUp.Response) {
-		if (response.response != nil) {
-			let viewModel = CreateAccount.SignUp.ViewModel.SignUpViewModel(success: true)
-			viewController?.displaySignUpResponse(viewModel: viewModel)
-		} else {
-			let viewModel = CreateAccount.SignUp.ViewModel.SignUpViewModel(success: false)
-			viewController?.displaySignUpResponse(viewModel: viewModel)
-		}
+    func presentSignUpSucessResponse(response: CreateAccount.SignUp.Response.Success) {
+        let viewModel = CreateAccount.SignUp.ViewModel.SignUpViewModel(success: true)
+        viewController?.displaySignUpResponse(viewModel: viewModel)
 	}
+
+    func presentSignUpFailureResponse(response: CreateAccount.SignUp.Response.Failure) {
+        let formErrorViewModels = response.formErrors.map { formFieldError -> CreateAccount.SignUp.ViewModel.FormErrorViewModel in
+            guard let apiResponseError = ApiPossibleResponseErrors(rawValue: formFieldError.error) else {
+                return CreateAccount.SignUp.ViewModel.FormErrorViewModel(field: "", message: "")
+            }
+
+            let errorMessage = Localization(.errorMessage(.api(apiResponseError))).description
+            return CreateAccount.SignUp.ViewModel.FormErrorViewModel(field: formFieldError.field, message: errorMessage)
+        }
+
+        viewController?.displaySignUpFailureResponse(viewModels: formErrorViewModels)
+    }
 }

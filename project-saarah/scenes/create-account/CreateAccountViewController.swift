@@ -9,7 +9,8 @@
 import UIKit
 
 protocol CreateAccountDisplayLogic: class {
-	func displaySignUpResponse(viewModel: CreateAccount.SignUp.ViewModel.SignUpViewModel)
+	func displaySignUpSuccessResponse(viewModel: CreateAccount.SignUp.ViewModel.SignUpViewModel)
+    func displaySignUpFailureResponse(viewModels: [CreateAccount.SignUp.ViewModel.FormErrorViewModel])
 }
 
 class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
@@ -86,7 +87,7 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 	}
 
 	// MARK: Do something
-	func displaySignUpResponse(viewModel: CreateAccount.SignUp.ViewModel.SignUpViewModel) {
+	func displaySignUpSuccessResponse(viewModel: CreateAccount.SignUp.ViewModel.SignUpViewModel) {
 		isCreatingAccount = false
 		if (viewModel.success) {
 			router?.routeToHome()
@@ -100,6 +101,10 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 
         hideFullScreenActivityIndicator()
 	}
+    
+    func displaySignUpFailureResponse(viewModels: [CreateAccount.SignUp.ViewModel.FormErrorViewModel]) {
+        
+    }
 
 	func createAccount() { // swiftlint:disable:this function_body_length
 		guard let name = validateName() else {
