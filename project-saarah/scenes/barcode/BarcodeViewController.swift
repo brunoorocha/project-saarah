@@ -50,7 +50,7 @@ class BarcodeViewController: UIViewController, BarcodeDisplayLogic {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        AppUtility.lockOrientation(.landscapeRight)
+        AppUtility.lockOrientation(.portrait)
 
         startBarcodeDetection()
         session.startRunning()
@@ -95,7 +95,7 @@ class BarcodeViewController: UIViewController, BarcodeDisplayLogic {
         session.addInput(deviceInput)
         session.addOutput(deviceOutput)
         videoPreviewLayer = AVCaptureVideoPreviewLayer(session: session)
-        videoPreviewLayer.connection?.videoOrientation = .landscapeRight
+        videoPreviewLayer.connection?.videoOrientation = .portrait
         contentView.imageView.layer.addSublayer(videoPreviewLayer)
 
         session.startRunning()
@@ -107,6 +107,8 @@ class BarcodeViewController: UIViewController, BarcodeDisplayLogic {
         requests = [barcodeDetectRequest]
     }
 
+    var barcode: String?
+
     func handleDetectedBarcode(request: VNRequest, error: Error?) {
         if let nsError = error as NSError? {
             print(nsError.localizedDescription)
@@ -117,7 +119,12 @@ class BarcodeViewController: UIViewController, BarcodeDisplayLogic {
             if !self.session.isRunning { return }
             guard let results = request.results as? [VNBarcodeObservation] else { return }
             if let result = results.first {
-                print(result.payloadStringValue ?? "")
+                if self.contentView.hasContentVisible && self.barcode == result.payloadStringValue { return }
+                if self.contentView.hasContentVisible && self.barcode != result.payloadStringValue {
+                    self.contentView.animateToHide()
+                }
+                self.barcode = result.payloadStringValue
+                // TODO: Request to API
                 self.contentView.presentUndefinedProductViews()
             }
         }
@@ -155,7 +162,7 @@ extension BarcodeViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
 
         var requestOptions: [VNImageOption: Any] = [:]
-        connection.videoOrientation = .landscapeRight
+        connection.videoOrientation = .portrait
         if let camData = CMGetAttachment(sampleBuffer, key: kCMSampleBufferAttachmentKey_CameraIntrinsicMatrix, attachmentModeOut: nil) {
             requestOptions = [.cameraIntrinsics: camData]
         }

@@ -9,7 +9,7 @@
 import UIKit
 
 class BarcodeView: UIView {
-//
+
     let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -21,6 +21,16 @@ class BarcodeView: UIView {
 
     let addProductView = SaarahView()
     let addProductActionView = SaarahView()
+    let bodyView = UIView()
+
+    var constraintBottomAnimate: NSLayoutConstraint!
+    var constraintTopAnimate: NSLayoutConstraint!
+
+    var hasContentVisible = false
+
+    // MARK: time animations
+    private let contentAnimateTime: TimeInterval = 1
+    private let hideContentTime: TimeInterval = 10
 
     init() {
         super.init(frame: .zero)
@@ -50,11 +60,14 @@ class BarcodeView: UIView {
             imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
             imageView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
+        showUndefinedProductView()
     }
 
     func presentUndefinedProductViews() {
-        if addProductActionView.superview != nil { return }
-        showUndefinedProductView()
+        self.animateToShow {}
+        DispatchQueue.main.asyncAfter(deadline: .now() + hideContentTime) {
+            self.animateToHide()
+        }
     }
 
    private func showUndefinedProductView() {
@@ -66,16 +79,18 @@ class BarcodeView: UIView {
         buttonLabel.contentHorizontalAlignment = .left
 
         addProductActionView.addSubviews([addIconImageView, buttonLabel])
-        buttonLabel.isUserInteractionEnabled = false
+        buttonLabel.isUserInteractionEnabled = true
+
+        constraintBottomAnimate = addProductActionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -self.mediumMargin)
+        constraintBottomAnimate.isActive = false
 
         NSLayoutConstraint.activate([
             addProductActionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: mediumMargin),
             addProductActionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -mediumMargin),
-            addProductActionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -mediumMargin),
 
             addIconImageView.topAnchor.constraint(equalTo: addProductActionView.topAnchor, constant: mediumMargin),
-            addIconImageView.bottomAnchor.constraint(equalTo: addProductActionView.bottomAnchor, constant: -mediumMargin),
             addIconImageView.trailingAnchor.constraint(equalTo: buttonLabel.leadingAnchor, constant: -smallMargin),
+            addIconImageView.bottomAnchor.constraint(equalTo: addProductActionView.bottomAnchor, constant: -mediumMargin),
 
             buttonLabel.topAnchor.constraint(equalTo: addProductActionView.topAnchor, constant: mediumMargin),
             buttonLabel.bottomAnchor.constraint(equalTo: addProductActionView.bottomAnchor, constant: -mediumMargin),
@@ -95,6 +110,9 @@ class BarcodeView: UIView {
 
         addProductView.addSubviews([title, overview])
 
+        constraintTopAnimate = addProductView.topAnchor.constraint(equalTo: bottomAnchor)
+        constraintTopAnimate.isActive = true
+
         NSLayoutConstraint.activate([
             addProductView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: mediumMargin),
             addProductView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -mediumMargin),
@@ -110,4 +128,31 @@ class BarcodeView: UIView {
             overview.bottomAnchor.constraint(equalTo: addProductView.bottomAnchor, constant: -mediumMargin)
         ])
     }
+
+    func animateToShow(completion: @escaping () -> () = {}) {
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: self.contentAnimateTime, animations: {
+                self.constraintTopAnimate.isActive = false
+                self.constraintBottomAnimate.isActive = true
+                self.layoutIfNeeded()
+            }, completion: { _ in
+                self.hasContentVisible = true
+                completion()
+            })
+        }
+    }
+
+    func animateToHide(completion: @escaping () -> () = {}) {
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: self.contentAnimateTime, animations: {
+                self.constraintBottomAnimate.isActive = false
+                self.constraintTopAnimate.isActive = true
+                self.layoutIfNeeded()
+            }, completion: { _ in
+                self.hasContentVisible = false
+                completion()
+            })
+        }
+    }
+
 }
