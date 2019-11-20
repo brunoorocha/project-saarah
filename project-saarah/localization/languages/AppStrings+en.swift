@@ -312,6 +312,26 @@ extension AppStrings {
                     return "Track the inputs and outputs of products and dishes of your business."
                 }
             }
+        case .errorMessage(let options):
+            switch options {
+            case .api(let apiError):
+                switch apiError {
+                case .notFoundUserWithEmail:
+                    return "There's no user found with this email"
+                case .passwordDoesntMatchForUserWithEmail:
+                    return "Your password is wrong"
+                case .unauthorizedObjectAccess:
+                    return "Sorry, but you don't have permission to access this object"
+                case .unableToRemoveObject:
+                    return "The object could not be removed"
+                case .unableToCreateObject:
+                    return "The object could not be created"
+                case .objectNotFound:
+                    return "Object not found"
+                case .objectWithThisPropertyAlreadyExists:
+                    return "Already exists a object with this property"
+                }
+            }
         default:
             return nil
         }

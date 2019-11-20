@@ -319,6 +319,26 @@ extension AppStrings {
                     return "Acompanhe as entradas e saídas de produtos e pratos do seu negócio."
                 }
             }
+        case .errorMessage(let options):
+            switch options {
+            case .api(let apiError):
+                switch apiError {
+                case .notFoundUserWithEmail:
+                    return "Nenhum usuário foi encontrado com esse email"
+                case .passwordDoesntMatchForUserWithEmail:
+                    return "Sua senha está incorreta"
+                case .unauthorizedObjectAccess:
+                    return "Você não tem autorização para acessar esse objeto"
+                case .unableToRemoveObject:
+                    return "Não foi possível remover o objeto"
+                case .unableToCreateObject:
+                    return "Não foi possível criar o objeto"
+                case .objectNotFound:
+                    return "Objeto não encontrado"
+                case .objectWithThisPropertyAlreadyExists:
+                    return "Já existe um objeto com essa propriedade"
+                }
+            }
         }
     }
 }

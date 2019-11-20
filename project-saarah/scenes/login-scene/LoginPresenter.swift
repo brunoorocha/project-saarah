@@ -28,8 +28,10 @@ class LoginPresenter: LoginPresentationLogic {
                 return Login.LogIn.ViewModel.FormError(field: "", message: "")
             }
 
-            return Login.LogIn.ViewModel.FormError(field: formError.field, message: formError.error)
+            let errorMessage = Localization(.errorMessage(.api(apiResponseError))).description
+            return Login.LogIn.ViewModel.FormError(field: formError.field, message: errorMessage)
         }
+
         viewController?.displayFormErrors(viewModels: formErrorViewModels)
     }
 }
