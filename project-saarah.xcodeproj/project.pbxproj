@@ -190,6 +190,7 @@
 		A3D619D3237245B30052BA83 /* SettingsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D619D2237245B30052BA83 /* SettingsBuilder.swift */; };
 		A3D619D52372464D0052BA83 /* SettingsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D619D42372464D0052BA83 /* SettingsTableViewDataSource.swift */; };
 		A3DBCF262361CCFE0044D43F /* ApiMeasureStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DBCF252361CCFE0044D43F /* ApiMeasureStore.swift */; };
+		A3DCC4152385655100452063 /* SaarahFormTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DCC4142385655100452063 /* SaarahFormTableViewDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -378,6 +379,7 @@
 		A3D619D2237245B30052BA83 /* SettingsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBuilder.swift; sourceTree = "<group>"; };
 		A3D619D42372464D0052BA83 /* SettingsTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDataSource.swift; sourceTree = "<group>"; };
 		A3DBCF252361CCFE0044D43F /* ApiMeasureStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiMeasureStore.swift; sourceTree = "<group>"; };
+		A3DCC4142385655100452063 /* SaarahFormTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahFormTableViewDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -645,6 +647,7 @@
 			children = (
 				A304F94A233CECC100C3B6F7 /* TextFieldTableViewCell.swift */,
 				A30611F5238410F700949B34 /* FormFieldViewModel.swift */,
+				A3DCC4142385655100452063 /* SaarahFormTableViewDataSource.swift */,
 			);
 			path = "form-cells";
 			sourceTree = "<group>";
@@ -981,6 +984,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3DCC4152385655100452063 /* SaarahFormTableViewDataSource.swift in Sources */,
 				48BC8069234CB1560001B1A9 /* ConfigurableController.swift in Sources */,
 				1B15E0D22354A44B0047A0B6 /* Localization.swift in Sources */,
 				489C01A1234B89FC00AEC143 /* FileManager+Image.swift in Sources */,

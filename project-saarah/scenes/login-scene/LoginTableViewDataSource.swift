@@ -8,30 +8,11 @@
 
 import UIKit
 
-class LoginTableViewDataSource: NSObject {
+class LoginTableViewDataSource: SaarahFormTableViewDataSource {
 
     var tableViewSections = LoginTableViewSections.allCases
 
-    var formFieldViewModels = [
-        FormFieldViewModel(
-            label: Localization(.loginScene(.textField(.mail))).description,
-            placeholder: Localization(.loginScene(.textField(.mailPlaceholder))).description,
-            keyboardType: .email,
-            identifier: "email",
-            errorLabel: ""
-        ),
-
-        FormFieldViewModel(
-            label: Localization(.loginScene(.textField(.password))).description,
-            placeholder: Localization(.loginScene(.textField(.passwordPlaceholder))).description,
-            keyboardType: .password,
-            identifier: "password",
-            errorLabel: ""
-        )
-    ]
-
     weak var delegate: TappedButtonLoginDelegate?
-    weak var textFieldDelegate: UITextFieldDelegate?
 
     enum LoginTableViewSections: Int, CaseIterable {
         case login
@@ -47,11 +28,34 @@ class LoginTableViewDataSource: NSObject {
        }
     }
 
-    // Used by controller in keyboard observer
-    var selectedIndexPath: IndexPath?
+    override init() {
+        super.init()
+        formFieldsSection = LoginTableViewSections.login.rawValue
+        setFormFieldsViewModels()
+    }
 
-    func registerCells(for tableView: UITableView) {
-        tableView.register(TextFieldTableViewCell.self, forCellReuseIdentifier: LoginTableViewSections.login.reuseIdentifier)
+    private func setFormFieldsViewModels () {
+        formFieldsViewModels = [
+            FormFieldViewModel(
+                label: Localization(.loginScene(.textField(.mail))).description,
+                placeholder: Localization(.loginScene(.textField(.mailPlaceholder))).description,
+                keyboardType: .email,
+                identifier: "email",
+                errorLabel: ""
+            ),
+
+            FormFieldViewModel(
+                label: Localization(.loginScene(.textField(.password))).description,
+                placeholder: Localization(.loginScene(.textField(.passwordPlaceholder))).description,
+                keyboardType: .password,
+                identifier: "password",
+                errorLabel: ""
+            )
+        ]
+    }
+
+    override func registerCells(for tableView: UITableView) {
+        super.registerCells(for: tableView)
         tableView.register(PurpleButtonTableViewCell.self, forCellReuseIdentifier: LoginTableViewSections.loginButton.reuseIdentifier)
     }
 
@@ -59,7 +63,7 @@ class LoginTableViewDataSource: NSObject {
         guard let section = LoginTableViewSections(rawValue: section) else { return 0 }
         switch section {
         case .login:
-            return formFieldViewModels.count
+            return numberOfFields()
         case .loginButton:
             return 1
         }
@@ -108,20 +112,7 @@ class LoginTableViewDataSource: NSObject {
 
     // MARK: Sections cells
     func firstSectionCell(for tableView: UITableView, in indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: LoginTableViewSections.login.reuseIdentifier, for: indexPath) as? TextFieldTableViewCell else { return UITableViewCell() } // swiftlint:disable:this line_length
-        let row = indexPath.row
-        let fieldViewModel = formFieldViewModels[row]
-        cell.roundCellIfNeeded(index: row, numberOfCells: formFieldViewModels.count)
-
-        cell.fieldLabel.text = fieldViewModel.label
-        cell.textField.accessibilityIdentifier = fieldViewModel.identifier
-        cell.textField.placeholder = fieldViewModel.placeholder
-        cell.textField.keyboardType = fieldViewModel.keyboardType == .email ? .emailAddress : .default
-        cell.textField.isSecureTextEntry = fieldViewModel.keyboardType == .password
-        cell.errorLabel.text = fieldViewModel.errorLabel
-        cell.textField.delegate = textFieldDelegate
-
-        return cell
+        return fieldCell(for: tableView, in: indexPath)
     }
 
     func secondSectionCell(for tableView: UITableView, in indexPath: IndexPath) -> UITableViewCell {
@@ -131,47 +122,15 @@ class LoginTableViewDataSource: NSObject {
         return cell
     }
 
-    func showErrorMessage (_ errorMessage: String, forFieldWithIdentifier identifier: String, in tableView: UITableView) {
-        guard let row = formFieldViewModels.firstIndex(where: { $0.identifier == identifier }) else { return }
-        let indexPath = IndexPath(row: row, section: LoginTableViewSections.login.rawValue)
-        guard let cell = tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell else { return }
-
-        tableView.beginUpdates()
-        formFieldViewModels[row].errorLabel = errorMessage
-        cell.errorLabel.text = errorMessage
-        tableView.endUpdates()
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return cell(for: tableView, in: indexPath)
     }
 
-    func clearFieldErrorMessage (forFieldWithIdentifier identifier: String, in tableView: UITableView) {
-        guard let row = formFieldViewModels.firstIndex(where: { $0.identifier == identifier }) else { return }
-
-        if (formFieldViewModels[row].errorLabel == "") { return }
-        let indexPath = IndexPath(row: row, section: LoginTableViewSections.login.rawValue)
-        guard let cell = tableView.cellForRow(at: indexPath) as? TextFieldTableViewCell else { return }
-
-        tableView.beginUpdates()
-        formFieldViewModels[row].errorLabel = ""
-        cell.clearErrors()
-        tableView.endUpdates()
-    }
-
-    func clearAllFieldsErrorMessages (in tableView: UITableView) {
-        formFieldViewModels.forEach { formFieldViewModel in
-            clearFieldErrorMessage(forFieldWithIdentifier: formFieldViewModel.identifier, in: tableView)
-        }
-    }
-}
-
-extension LoginTableViewDataSource: UITableViewDataSource {
-    func numberOfSections (in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return tableViewSections.count
     }
 
-    func tableView (_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return numberOfRows(in: section)
-    }
-
-    func tableView (_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return cell(for: tableView, in: indexPath)
     }
 }

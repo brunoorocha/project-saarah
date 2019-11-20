@@ -229,7 +229,7 @@ enum AppStrings {
             case third
         }
     }
-    
+
     enum ErrorMessage {
         case api(ApiPossibleResponseErrors)
     }
