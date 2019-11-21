@@ -50,6 +50,7 @@ class AddNewProductRouter: NSObject, AddNewProductRoutingLogic, AddNewProductDat
 		guard let dataStore = dataStore else { return }
 		guard let viewController = viewController else { return }
 		destinationVC.router?.productItemReceptor = dataStore
+		destinationVC.presentationController?.delegate = self
 
 		passDataToAddProductItem(source: dataStore, destination: &destinationDataStore)
 		navigateToAddProductItem(source: viewController, destination: destinationVC)
@@ -95,4 +96,10 @@ class AddNewProductRouter: NSObject, AddNewProductRoutingLogic, AddNewProductDat
 	func navigateBack(source: AddNewProductViewController) {
  		source.dismiss(animated: true, completion: nil)
  	}
+}
+
+extension AddNewProductRouter: UIAdaptivePresentationControllerDelegate {
+	func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+		routeToListInventory()
+	}
 }

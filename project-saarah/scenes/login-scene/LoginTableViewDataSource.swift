@@ -36,16 +36,16 @@ class LoginTableViewDataSource: SaarahFormTableViewDataSource {
     override func setFormFieldsViewModels () {
         formFieldsViewModels = [
             FormFieldViewModel(
-                label: Localization(.loginScene(.textField(.mail))).description,
-                placeholder: Localization(.loginScene(.textField(.mailPlaceholder))).description,
+                label: Localization(.loginScene(.field(.mail))).description,
+                placeholder: Localization(.loginScene(.field(.mailPlaceholder))).description,
                 keyboardType: .email,
                 identifier: "email",
                 errorLabel: ""
             ),
 
             FormFieldViewModel(
-                label: Localization(.loginScene(.textField(.password))).description,
-                placeholder: Localization(.loginScene(.textField(.passwordPlaceholder))).description,
+                label: Localization(.loginScene(.field(.password))).description,
+                placeholder: Localization(.loginScene(.field(.passwordPlaceholder))).description,
                 keyboardType: .password,
                 identifier: "password",
                 errorLabel: ""

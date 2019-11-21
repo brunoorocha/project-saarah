@@ -94,7 +94,7 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 	// MARK: Do something
 	func displaySignUpSuccessResponse() {
 		isCreatingAccount = false
-        router?.routeToHome()
+    router?.routeToHome()
 	}
 
     func displaySignUpFailureResponse(viewModels: [CreateAccount.SignUp.ViewModel.FormErrorViewModel]) {
@@ -109,7 +109,7 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 
 		guard let name = validateName() else {
             tableViewDataSource.showErrorMessage(
-                Localization(.createAccountScene(.errorFormNameMessage)).description,
+                Localization(.createAccountScene(.errorForm(.nameMessage))).description,
                 forFieldWithIdentifier: "name", in: contentView.tableView
             )
 			return
@@ -117,7 +117,7 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 
 		guard let email = validateEmail() else {
 			tableViewDataSource.showErrorMessage(
-                Localization(.createAccountScene(.errorFormEmailMessage)).description,
+                Localization(.createAccountScene(.errorForm(.emailMessage))).description,
                 forFieldWithIdentifier: "email", in: contentView.tableView
             )
 			return
@@ -125,7 +125,7 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 
 		if (!email.isValidEmail()) {
             tableViewDataSource.showErrorMessage(
-                Localization(.createAccountScene(.errorFormInvalidEmail)).description,
+                Localization(.createAccountScene(.errorForm(.invalidEmail))).description,
                 forFieldWithIdentifier: "email", in: contentView.tableView
             )
 			return
@@ -133,7 +133,7 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 
 		guard let password = validatePassword() else {
             tableViewDataSource.showErrorMessage(
-                Localization(.createAccountScene(.errorFormPasswordMessage)).description,
+                Localization(.createAccountScene(.errorForm(.passwordMessage))).description,
                 forFieldWithIdentifier: "password", in: contentView.tableView
             )
 			return
@@ -141,7 +141,7 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 
 		guard let confirmPassword = validateConfirmPassword() else {
             tableViewDataSource.showErrorMessage(
-                Localization(.createAccountScene(.errorFormConfirmPasswordMessage)).description,
+                Localization(.createAccountScene(.errorForm(.confirmPasswordMessage))).description,
                 forFieldWithIdentifier: "passwordConfirmation", in: contentView.tableView
             )
 			return
@@ -149,7 +149,7 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 
 		if (password != confirmPassword) {
 			tableViewDataSource.showErrorMessage(
-                Localization(.createAccountScene(.errorFormPasswordsDontMatchMessage)).description,
+                Localization(.createAccountScene(.errorForm(.passwordsDontMatchMessage))).description,
                 forFieldWithIdentifier: "passwordConfirmation", in: contentView.tableView
             )
 			return
@@ -157,7 +157,7 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 
 		if (password.count < 6) {
             tableViewDataSource.showErrorMessage(
-                Localization(.createAccountScene(.errorFormPasswordSize)).description,
+                Localization(.createAccountScene(.errorForm(.passwordSize))).description,
                 forFieldWithIdentifier: "password", in: contentView.tableView
             )
 			return

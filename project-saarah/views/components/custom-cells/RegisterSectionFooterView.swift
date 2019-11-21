@@ -27,8 +27,8 @@ class RegisterSectionFooterView: UIView {
 
         titleLabel.textAlignment = .center
 
-        titleLabel.text = "\(Localization(.registerSectionFooterView(.title)))"
-        actionRegisterButton.setTitle("\(Localization(.registerSectionFooterView(.registerButton)))", for: .normal)
+        titleLabel.text = Localization(.registerSectionFooterView(.title)).description
+        actionRegisterButton.setTitle(Localization(.registerSectionFooterView(.registerButton)).description, for: .normal)
 
         let smallMargin = AppStyleGuide.Margins.small.rawValue
         let mediumMargin = AppStyleGuide.Margins.medium.rawValue

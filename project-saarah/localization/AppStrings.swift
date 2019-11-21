@@ -21,14 +21,14 @@ enum AppStrings {
     case homeScene(HomeScene)
     case productDetailScene(ProductDetailScene)
     case selectProductMeasurement(SelectProductMeasurement)
-	case addNewProductScene(AddNewProductScene)
+    case addNewProductScene(AddNewProductScene)
     case productItemScene(ProductItemScene)
-	case addProductItemScene(AddProductItemScene)
+    case addProductItemScene(AddProductItemScene)
     case registerSectionFooterView(RegisterSectionFooterView)
     case loginScene(LoginScene)
     case underConstruction(UnderConstruction)
     case settingsScene(SettingsScene)
-	case createAccountScene(CreateAccountScene)
+    case createAccountScene(CreateAccountScene)
     case onboarding(Onboarding)
     case errorMessage(ErrorMessage)
 
@@ -43,10 +43,14 @@ enum AppStrings {
     }
 
     enum ProductItemTableViewCell {
-        case amountLabel
-        case validityLabel
-        case priceLabel
-        case addedOnDayLabel
+        case label(Label)
+
+        enum Label {
+            case amount
+            case validity
+            case price
+            case addedOnDay
+        }
     }
 
     enum HomeMenuOptionTitle {
@@ -87,60 +91,100 @@ enum AppStrings {
         case title
     }
 
-	enum AddNewProductScene {
-		case title
-		case cancelBarButton
-		case saveBarButton
-		case basicInformation
-		case productName
-		case productNamePlaceholder
-		case barCode
-		case barCodePlacehoder
-		case measure
-		case measurePlaceholder
-		case successResponseTitle
-		case successResponseMessage
-		case alertOkAction
-		case alertCancelAction
-		case alertAddProductItemAction
-		case alertFormTitle
-		case alertFormName
-		case alertFormBarCode
-		case alertFormMeasure
-	}
+    enum AddNewProductScene {
+        case title
+        case basicInformation
+        case barButton(BarButton)
+        case field(Field)
+        case alert(Alert)
+        case response(Response)
+
+        enum BarButton {
+            case save
+            case cancel
+        }
+
+        enum Alert {
+            case okAction
+            case cancelAction
+            case addProductItemAction
+            case form(Form)
+
+            enum Form {
+                case title
+                case name
+                case barCode
+                case meausre
+            }
+        }
+
+        enum Response {
+            case success(Success)
+
+            enum Success {
+                case title
+                case message
+            }
+        }
+
+        enum Field {
+            case productName
+            case productNamePlaceholder
+            case barCode
+            case barCodePlacehoder
+            case measure
+            case measurePlaceholder
+        }
+    }
 
     enum ProductItemScene {
         case title
         case notInformed
     }
 
-	enum AddProductItemScene {
-		case title
-		case cancelBarButton
-		case saveBarButton
-		case alertActionTitle
-		case basicInformation
-		case quantity
-		case quantityPlaceholder
-		case price
-		case pricePlaceholder
-		case complementaryInformation
-		case expirationDate
-		case expirationDatePlaceholder
-		case errorFormAlertTitle
-		case errorFormActionAlertTitle
-		case errorFormQuantityAlertMessage
-		case errorFormPriceAlertMessage
-		case errorFormExpirationAlertMessage
-		case response(Response)
+    enum AddProductItemScene {
+        case title
+        case alertActionTitle
+        case information(Information)
+        case barButton(BarButton)
+        case field(Field)
+        case errorForm(ErrorForm)
+        case response(Response)
 
-		enum Response {
-			case successTitle
-			case suceessMessage
-			case inputErrorTitle
-			case expirationDateMessage
-		}
-	}
+        enum Information {
+            case basic
+            case complementary
+        }
+
+        enum BarButton {
+            case save
+            case cancel
+        }
+
+        enum Field {
+            case quantity
+            case quantityPlaceholder
+            case price
+            case pricePlaceholder
+            case expirationDate
+            case expirationDatePlaceholder
+        }
+
+        enum ErrorForm {
+            case alertTitle
+            case action
+            case quantityAlertMessage
+            case priceAlertMessage
+            case expirationAlertMessage
+        }
+
+        enum Response {
+            case successTitle
+            case suceessMessage
+            case inputErrorTitle
+            case expirationDateMessage
+        }
+    }
 
     enum RegisterSectionFooterView {
         case title
@@ -149,11 +193,11 @@ enum AppStrings {
 
     enum LoginScene {
         case title
-        case textField(TextField)
+        case field(Field)
         case greeting(Greeting)
         case errorFormValidation(ErrorFormValidation)
 
-        enum TextField {
+        enum Field {
             case mail
             case mailPlaceholder
             case password
@@ -191,34 +235,45 @@ enum AppStrings {
             case cancel
         }
     }
+    enum CreateAccountScene {
+        case createAccountButtonTitle
+        case header(Header)
+        case field(Field)
+        case errorForm(ErrorForm)
 
-	enum CreateAccountScene {
-		case headerTitle
-		case headerSubtitle
-		case nameCellTitle
-		case nameCellPlaceholder
-		case emailCellTitle
-		case emailCellPlaceholder
-		case passwordCellTitle
-		case passwordCellPlaceholder
-		case confirmPasswordCellTitle
-		case confirmPasswordCellPlaceholder
-		case createAccountButtonTitlle
-		case errorFormAlertTitle
-		case errorFormActionTitle
-		case errorFormNameMessage
-		case errorFormEmailMessage
-		case errorFormInvalidEmail
-		case errorFormPasswordMessage
-		case errorFormConfirmPasswordMessage
-		case errorFormPasswordsDontMatchMessage
-		case errorFormPasswordSize
-		case errorSignUpTitle
-		case errorSignUpMessage
-	}
+        enum Header {
+            case title
+            case subtitle
+        }
+
+        enum Field {
+            case name
+            case namePlaceholder
+            case email
+            case emailPlaceholder
+            case password
+            case passwordPlaceholder
+            case confirmPassword
+            case confirmPasswordPlaceholder
+        }
+
+        enum ErrorForm {
+            case alertTitle
+            case action
+            case nameMessage
+            case emailMessage
+            case invalidEmail
+            case passwordMessage
+            case confirmPasswordMessage
+            case passwordsDontMatchMessage
+            case passwordSize
+            case signUpTitle
+            case signUpMessage
+        }
+    }
 
     enum Onboarding {
-        case before
+        case previous
         case next
         case close
         case description(Description)

@@ -28,28 +28,28 @@ class CreateAccountTableViewDataSource: SaarahFormTableViewDataSource {
     override func setFormFieldsViewModels() {
         formFieldsViewModels = [
             FormFieldViewModel(
-                label: Localization(.createAccountScene(.nameCellTitle)).description,
-                placeholder: Localization(.createAccountScene(.nameCellPlaceholder)).description,
+                label: Localization(.createAccountScene(.field(.name))).description,
+                placeholder: Localization(.createAccountScene(.field(.namePlaceholder))).description,
                 identifier: "name",
                 errorLabel: ""
             ),
             FormFieldViewModel(
-                label: Localization(.createAccountScene(.emailCellTitle)).description,
-                placeholder: Localization(.createAccountScene(.emailCellPlaceholder)).description,
+                label: Localization(.createAccountScene(.field(.email))).description,
+                placeholder: Localization(.createAccountScene(.field(.emailPlaceholder))).description,
                 keyboardType: .email,
                 identifier: "email",
                 errorLabel: ""
             ),
             FormFieldViewModel(
-                label: Localization(.createAccountScene(.passwordCellTitle)).description,
-                placeholder: Localization(.createAccountScene(.passwordCellPlaceholder)).description,
+                label: Localization(.createAccountScene(.field(.password))).description,
+                placeholder: Localization(.createAccountScene(.field(.passwordPlaceholder))).description,
                 keyboardType: .password,
                 identifier: "password",
                 errorLabel: ""
             ),
             FormFieldViewModel(
-                label: Localization(.createAccountScene(.confirmPasswordCellTitle)).description,
-                placeholder: Localization(.createAccountScene(.confirmPasswordCellPlaceholder)).description,
+                label: Localization(.createAccountScene(.field(.confirmPassword))).description,
+                placeholder: Localization(.createAccountScene(.field(.confirmPasswordPlaceholder))).description,
                 keyboardType: .password,
                 identifier: "passwordConfirmation",
                 errorLabel: ""
@@ -71,8 +71,11 @@ class CreateAccountTableViewDataSource: SaarahFormTableViewDataSource {
         switch (section) {
         case .fields:
             let headerView = GreetingSectionHeaderView()
-            headerView.setTitle(with: "\(Localization(.createAccountScene(.headerTitle)))", andDescription: "\(Localization(.createAccountScene(.headerSubtitle)))")
-            return headerView
+			headerView.setTitle(
+                with: Localization(.createAccountScene(.header(.title))).description,
+                andDescription: Localization(.createAccountScene(.header(.subtitle))).description
+            )
+			return headerView
         case .button:
             return EmptySectionHeaderView()
         }
@@ -105,7 +108,7 @@ class CreateAccountTableViewDataSource: SaarahFormTableViewDataSource {
     func secondSection(for tableView: UITableView, in indexPath: IndexPath) -> UITableViewCell {
         guard let section = TableViewSections(rawValue: indexPath.section),
             let cell = tableView.dequeueReusableCell(withIdentifier: section.reuseIdentifier, for: indexPath) as? PurpleButtonTableViewCell else { return UITableViewCell() }
-        cell.setTitle(with: Localization(.createAccountScene(.createAccountButtonTitlle)).description)
+        cell.setTitle(with: Localization(.createAccountScene(.createAccountButtonTitle)).description)
 		return cell
 	}
 

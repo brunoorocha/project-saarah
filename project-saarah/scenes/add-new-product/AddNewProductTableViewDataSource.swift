@@ -29,7 +29,7 @@ class AddNewProductTableViewDataSource {
 		switch (section) {
 		case 0:
 			let headerView = DefaultSectionHeaderView()
-			headerView.titleLabel.text = "\(Localization(.addNewProductScene(.basicInformation)))"
+            headerView.titleLabel.text = (Localization(.addNewProductScene(.basicInformation)).description).uppercased()
 			headerView.rightButton.isHidden = true
 			return headerView
 		default:
@@ -47,14 +47,15 @@ class AddNewProductTableViewDataSource {
 
 		switch (row) {
 		case 0:
-			cell.fieldLabel.text = "\(Localization(.addNewProductScene(.productName)))"
-			cell.textField.placeholder = "\(Localization(.addNewProductScene(.productNamePlaceholder)))"
+            cell.fieldLabel.text = Localization(.addNewProductScene(.field(.productName))).description
+            cell.textField.placeholder = Localization(.addNewProductScene(.field(.productNamePlaceholder))).description
 		case 1:
-			cell.fieldLabel.text = "\(Localization(.addNewProductScene(.barCode)))"
-			cell.textField.placeholder = "\(Localization(.addNewProductScene(.barCodePlacehoder)))"
+            cell.fieldLabel.text = Localization(.addNewProductScene(.field(.barCode))).description
+            cell.textField.placeholder = Localization(.addNewProductScene(.field(.barCodePlacehoder))).description
 		case 2:
-			cell.fieldLabel.text = "\(Localization(.addNewProductScene(.measure)))"
-			cell.textField.placeholder = "\(Localization(.addNewProductScene(.measurePlaceholder)))"
+            cell.fieldLabel.text = Localization(.addNewProductScene(.field(.measure))).description
+            cell.textField.placeholder = Localization(.addNewProductScene(.field(.measurePlaceholder))).description
+            cell.showDisclosureIndicator()
 			cell.textField.isUserInteractionEnabled = false
 		default:
 			break

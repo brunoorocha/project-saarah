@@ -12,6 +12,7 @@ protocol ProductItemPresentationLogic {
     func presentProduct(response: ProductItem.ReceiveProduct.Response)
     func presentProductItem(response: ProductItem.FetchProductItem.Response)
 	func presentInsertedProductItem(response: ProductItem.InsertProductItem.Response)
+	func productItemReceived()
 }
 
 class ProductItemPresenter: ProductItemPresentationLogic {
@@ -28,33 +29,45 @@ class ProductItemPresenter: ProductItemPresentationLogic {
     func presentProductItem(response: ProductItem.FetchProductItem.Response) {
         var displayItems: [ProductItem.FetchProductItem.ViewModel.DisplayProductItem] = []
         for item in response.ProductItems {
-            var price = "\(Localization(.productItemScene(.notInformed)))"
-            var expiration = "\(Localization(.productItemScene(.notInformed)))"
+            var price = Localization(.productItemScene(.notInformed)).description
+            var expiration = Localization(.productItemScene(.notInformed)).description
+
             if let hasPrice = item.price { price = "\(hasPrice.roundToDecimal(2))" }
             if let hasExpiration = item.expiration { expiration = "\(hasExpiration.formatter())" }
+
             let displayedItem = ProductItem.FetchProductItem.ViewModel.DisplayProductItem(
                 amount: "\(item.quantity)",
                 expiration: expiration,
                 price: price,
-                created: item.createdDate.formatter())
+                created: item.createdDate.formatter()
+            )
+
             displayItems.append(displayedItem)
         }
+
         let viewModel = ProductItem.FetchProductItem.ViewModel(displayProductItems: displayItems)
         viewController?.displayProductItem(viewModel: viewModel)
     }
 
 	// MARK: Present the product item inserted
 	func presentInsertedProductItem(response: ProductItem.InsertProductItem.Response) {
-		var price = "\(Localization(.productItemScene(.notInformed)))"
-		var expiration = "\(Localization(.productItemScene(.notInformed)))"
+		var price = Localization(.productItemScene(.notInformed)).description
+		var expiration = Localization(.productItemScene(.notInformed)).description
+
 		if let hasPrice = response.productItem.price { price = "\(hasPrice.roundToDecimal(2))" }
 		if let hasExpiration = response.productItem.expiration { expiration = "\(hasExpiration.formatter())" }
+
 		let displayedItem = ProductItem.FetchProductItem.ViewModel.DisplayProductItem(
 			amount: "\(response.productItem.quantity)",
 			expiration: expiration,
 			price: price,
-			created: response.productItem.createdDate.formatter())
+			created: response.productItem.createdDate.formatter()
+        )
 
 		viewController?.displayInsertedProductItem(viewModel: ProductItem.InsertProductItem.ViewModel(displayProductItem: displayedItem))
+	}
+
+	func productItemReceived() {
+		viewController?.productItemReceived()
 	}
 }
