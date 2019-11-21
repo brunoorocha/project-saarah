@@ -129,24 +129,16 @@ class CreateAccountTableViewDataSource: SaarahFormTableViewDataSource {
         cell.setTitle(with: Localization(.createAccountScene(.createAccountButtonTitlle)).description)
 		return cell
 	}
-}
 
-extension CreateAccountTableViewDataSource: UITextFieldDelegate {
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        guard let identifier = textField.accessibilityIdentifier else { return true }
-        switch identifier {
-        case FormPosition.name.rawValue:
-            selectedIndexPath = FormPosition.name.indexPath
-        case FormPosition.email.rawValue:
-            selectedIndexPath = FormPosition.email.indexPath
-        case FormPosition.password.rawValue:
-            selectedIndexPath = FormPosition.password.indexPath
-        case FormPosition.confirmPassword.rawValue:
-            selectedIndexPath = FormPosition.confirmPassword.indexPath
-        default:
-            selectedIndexPath = nil
-            return true
-        }
-        return true
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return cell(for: tableView, in: indexPath)
+    }
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return numberOfSections()
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return numberOfRows(in: section)
     }
 }

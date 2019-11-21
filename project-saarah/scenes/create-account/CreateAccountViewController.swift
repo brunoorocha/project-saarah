@@ -73,8 +73,9 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 
 	func setupContentView() {
 		contentView.tableView.delegate = self
-		contentView.tableView.dataSource = self
+		contentView.tableView.dataSource = tableViewDataSource
 		tableViewDataSource.registerCells(for: contentView.tableView)
+        tableViewDataSource.textFieldDelegate = self
 		contentView.tableView.reloadData()
 
 		view.addSubview(contentView)
@@ -92,7 +93,7 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
         router?.routeToHome()
         hideFullScreenActivityIndicator()
 	}
-    
+
     func displaySignUpFailureResponse(viewModels: [CreateAccount.SignUp.ViewModel.FormErrorViewModel]) {
         presentAlertModal(
             "\(Localization(.createAccountScene(.errorSignUpTitle)))",
@@ -217,21 +218,9 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 	}
 }
 
-extension CreateAccountViewController: UITableViewDelegate, UITableViewDataSource {
-	func numberOfSections(in tableView: UITableView) -> Int {
-		return tableViewDataSource.numberOfSections()
-	}
-
-	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return tableViewDataSource.numberOfRows(in: section)
-	}
-
+extension CreateAccountViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		return tableViewDataSource.viewForHeader(in: section)
-	}
-
-	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return tableViewDataSource.cell(for: tableView, in: indexPath)
 	}
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -239,4 +228,14 @@ extension CreateAccountViewController: UITableViewDelegate, UITableViewDataSourc
 			createAccount()
 		}
 	}
+}
+
+extension CreateAccountViewController: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+       guard let identifier = textField.accessibilityIdentifier,
+           let row = tableViewDataSource.formFieldsViewModels.firstIndex(where: { $0.identifier == identifier }) else { return true }
+       tableViewDataSource.clearFieldErrorMessage(forFieldWithIdentifier: identifier, in: contentView.tableView)
+        tableViewDataSource.selectedIndexPath = IndexPath(row: row, section: tableViewDataSource.formFieldsSection)
+       return true
+   }
 }

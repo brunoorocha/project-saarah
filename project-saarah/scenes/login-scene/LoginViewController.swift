@@ -193,7 +193,7 @@ extension LoginViewController: UITextFieldDelegate {
         guard let identifier = textField.accessibilityIdentifier,
             let row = loginTableViewDataSource.formFieldsViewModels.firstIndex(where: { $0.identifier == identifier }) else { return true }
         loginTableViewDataSource.clearFieldErrorMessage(forFieldWithIdentifier: identifier, in: contentView.tableView)
-        loginTableViewDataSource.selectedIndexPath = IndexPath(row: row, section: 0)
+        loginTableViewDataSource.selectedIndexPath = IndexPath(row: row, section: loginTableViewDataSource.formFieldsSection)
         return true
     }
 }
