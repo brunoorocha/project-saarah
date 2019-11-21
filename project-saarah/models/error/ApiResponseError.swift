@@ -49,4 +49,5 @@ enum ApiPossibleResponseErrors: String {
     case unableToCreateObject
     case objectNotFound
     case objectWithThisPropertyAlreadyExists
+    case invalidValue
 }

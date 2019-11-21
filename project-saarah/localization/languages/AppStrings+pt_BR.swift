@@ -337,6 +337,8 @@ extension AppStrings {
                     return "Objeto não encontrado"
                 case .objectWithThisPropertyAlreadyExists:
                     return "Já existe um objeto com essa propriedade"
+                case .invalidValue:
+                    return "Valor inválido"
                 }
             }
         }

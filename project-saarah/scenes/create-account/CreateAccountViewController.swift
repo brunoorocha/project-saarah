@@ -90,16 +90,16 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 	// MARK: Do something
 	func displaySignUpSuccessResponse() {
 		isCreatingAccount = false
-        router?.routeToHome()
         hideFullScreenActivityIndicator()
+        router?.routeToHome()
 	}
 
     func displaySignUpFailureResponse(viewModels: [CreateAccount.SignUp.ViewModel.FormErrorViewModel]) {
-        presentAlertModal(
-            "\(Localization(.createAccountScene(.errorSignUpTitle)))",
-            "\(Localization(.createAccountScene(.errorSignUpMessage)))",
-            "\(Localization(.createAccountScene(.errorFormActionTitle)))"
-        )
+        isCreatingAccount = false
+        hideFullScreenActivityIndicator()
+        viewModels.forEach { formErrorViewModel in
+            tableViewDataSource.showErrorMessage(formErrorViewModel.message, forFieldWithIdentifier: formErrorViewModel.field, in: contentView.tableView)
+        }
     }
 
 	func createAccount() { // swiftlint:disable:this function_body_length
