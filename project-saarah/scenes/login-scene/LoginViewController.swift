@@ -9,8 +9,8 @@
 import UIKit
 
 protocol LoginDisplayLogic: class {
-    func displaySignInResponse(viewModel: Login.LogIn.ViewModel.LoginViewModel)
-    func displayFormErrors(viewModels: [Login.LogIn.ViewModel.FormError])
+    func displaySignInResponse()
+    func displayFormErrors(viewModels: [Login.LogIn.ViewModel.FormErrorViewModel])
 }
 
 protocol TappedButtonLoginDelegate: class {
@@ -93,38 +93,28 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
         loginTableViewDataSource.textFieldDelegate = self
 	}
 
-    func displaySignInResponse(viewModel: Login.LogIn.ViewModel.LoginViewModel) {
+    func displaySignInResponse() {
         isLogin = false
-        if viewModel.success {
-            router?.routeToHome()
-        } else {
-            presentAlertModal(
-                "\(Localization(.loginScene(.errorFormValidation(.alertTitle))))",
-                "\(Localization(.loginScene(.errorFormValidation(.undefined))))",
-                "\(Localization(.loginScene(.errorFormValidation(.action))))"
-            )
-        }
+        router?.routeToHome()
     }
 
-    func displayFormErrors(viewModels: [Login.LogIn.ViewModel.FormError]) {
+    func displayFormErrors(viewModels: [Login.LogIn.ViewModel.FormErrorViewModel]) {
         isLogin = false
         viewModels.forEach { loginTableViewDataSource.showErrorMessage($0.message, forFieldWithIdentifier: $0.field, in: contentView.tableView) }
     }
 
     func doLogin() {
         guard let email = getFieldEmail() else {
-            presentAlertModal(
-                "\(Localization(.loginScene(.errorFormValidation(.alertTitle))))",
-                "\(Localization(.loginScene(.errorFormValidation(.email))))",
-                "\(Localization(.loginScene(.errorFormValidation(.action))))"
+            loginTableViewDataSource.showErrorMessage(
+                Localization(.loginScene(.errorFormValidation(.email))).description,
+                forFieldWithIdentifier: "email", in: contentView.tableView
             )
             return
         }
         guard let password = getFieldPassword() else {
-            presentAlertModal(
-                "\(Localization(.loginScene(.errorFormValidation(.alertTitle))))",
-                "\(Localization(.loginScene(.errorFormValidation(.password))))",
-                "\(Localization(.loginScene(.errorFormValidation(.action))))"
+            loginTableViewDataSource.showErrorMessage(
+                Localization(.loginScene(.errorFormValidation(.password))).description,
+                forFieldWithIdentifier: "password", in: contentView.tableView
             )
             return
         }

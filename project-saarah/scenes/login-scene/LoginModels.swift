@@ -15,12 +15,10 @@ enum Login {
             let form: Form
         }
         struct Response {
-            let response: SessionResponse?
-            let formErrors: [FormFieldError]?
-
-            init(response: SessionResponse? = nil, formErrors: [FormFieldError]? = nil) {
-                self.response = response
-                self.formErrors = formErrors
+            struct Success {}
+            
+            struct Failure {
+                let formErrors: [FormFieldError]
             }
         }
         struct ViewModel {
@@ -28,7 +26,7 @@ enum Login {
                 let success: Bool
             }
 
-            struct FormError {
+            struct FormErrorViewModel {
                 let field: String
                 let message: String
             }

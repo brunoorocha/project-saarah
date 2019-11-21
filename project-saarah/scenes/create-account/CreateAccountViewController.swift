@@ -23,7 +23,11 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 	private let tableViewDataSource = CreateAccountTableViewDataSource()
     private var scrolledIndexPath: IndexPath?
 
-	var isCreatingAccount = false
+    var isCreatingAccount = false {
+        didSet {
+            self.isCreatingAccount ? showFullScreenActivityIndicator() : hideFullScreenActivityIndicator()
+        }
+    }
 
 	// MARK: View lifecycle
 	override func viewDidLoad() {
@@ -90,13 +94,11 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 	// MARK: Do something
 	func displaySignUpSuccessResponse() {
 		isCreatingAccount = false
-        hideFullScreenActivityIndicator()
         router?.routeToHome()
 	}
 
     func displaySignUpFailureResponse(viewModels: [CreateAccount.SignUp.ViewModel.FormErrorViewModel]) {
         isCreatingAccount = false
-        hideFullScreenActivityIndicator()
         viewModels.forEach { formErrorViewModel in
             tableViewDataSource.showErrorMessage(formErrorViewModel.message, forFieldWithIdentifier: formErrorViewModel.field, in: contentView.tableView)
         }
@@ -165,7 +167,6 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 		let signUpForm = CreateAccount.SignUpForm(name: name, email: email, password: password, confirmPassword: confirmPassword)
 		let request = CreateAccount.SignUp.Request(signUpForm: signUpForm)
 		interactor?.signUp(request: request)
-        showFullScreenActivityIndicator()
 	}
 
 	func validateName() -> String? {

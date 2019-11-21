@@ -31,7 +31,7 @@ class LoginInteractor: LoginBusinessLogic, LoginDataStore {
                 guard let loginResponse = response else { return }
                 UserDefaults.save(loginResponse.token)
                 self.loginResponse = loginResponse
-                self.presenter?.presentLoginResponse(response: Login.LogIn.Response(response: loginResponse))
+                self.presenter?.presentLoginResponse(response: Login.LogIn.Response.Success())
             case .failure(let error):
                 self.handleStoreErrors(error: error)
             }
@@ -41,7 +41,7 @@ class LoginInteractor: LoginBusinessLogic, LoginDataStore {
     private func handleStoreErrors (error: StoreError) {
         switch error {
         case .form(let fields):
-            let response = Login.LogIn.Response(formErrors: fields)
+            let response = Login.LogIn.Response.Failure(formErrors: fields)
             self.presenter?.presentFormErrorsResponse(response: response)
         case .plain(let message):
             print(message)

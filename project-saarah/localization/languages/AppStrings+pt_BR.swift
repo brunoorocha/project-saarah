@@ -324,7 +324,7 @@ extension AppStrings {
             case .api(let apiError):
                 switch apiError {
                 case .notFoundUserWithEmail:
-                    return "Nenhum usuário foi encontrado com esse email"
+                    return "Nenhuma conta foi encontrada com esse email"
                 case .passwordDoesntMatchForUserWithEmail:
                     return "Sua senha está incorreta"
                 case .unauthorizedObjectAccess:
