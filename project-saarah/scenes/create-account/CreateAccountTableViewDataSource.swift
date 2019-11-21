@@ -9,6 +9,39 @@
 import UIKit
 
 class CreateAccountTableViewDataSource: SaarahFormTableViewDataSource {
+
+    override func setFormFieldsViewModels() {
+        formFieldsViewModels = [
+            FormFieldViewModel(
+                label: Localization(.createAccountScene(.nameCellTitle)).description,
+                placeholder: Localization(.createAccountScene(.nameCellPlaceholder)).description,
+                identifier: "name",
+                errorLabel: ""
+            ),
+            FormFieldViewModel(
+                label: Localization(.createAccountScene(.emailCellTitle)).description,
+                placeholder: Localization(.createAccountScene(.emailCellPlaceholder)).description,
+                keyboardType: .email,
+                identifier: "email",
+                errorLabel: ""
+            ),
+            FormFieldViewModel(
+                label: Localization(.createAccountScene(.passwordCellTitle)).description,
+                placeholder: Localization(.createAccountScene(.passwordCellPlaceholder)).description,
+                keyboardType: .password,
+                identifier: "password",
+                errorLabel: ""
+            ),
+            FormFieldViewModel(
+                label: Localization(.createAccountScene(.confirmPasswordCellTitle)).description,
+                placeholder: Localization(.createAccountScene(.confirmPasswordCellPlaceholder)).description,
+                keyboardType: .password,
+                identifier: "passwordConfirmation",
+                errorLabel: ""
+            )
+        ]
+    }
+
 	override func registerCells(for tableView: UITableView) {
         super.registerCells(for: tableView)
 		tableView.register(PurpleButtonTableViewCell.self, forCellReuseIdentifier: "PurpleButtonTableViewCell")
@@ -68,7 +101,7 @@ class CreateAccountTableViewDataSource: SaarahFormTableViewDataSource {
 	func numberOfRows(in section: Int) -> Int {
 		switch (section) {
 		case 0:
-			return 4
+			return numberOfFields()
 		case 1:
 			return 1
 		default:
@@ -76,50 +109,24 @@ class CreateAccountTableViewDataSource: SaarahFormTableViewDataSource {
 		}
 	}
 
-	func modify( _ cell: UITableViewCell, for indexPath: IndexPath) -> UITableViewCell {
+	func cell (for tableView: UITableView, in indexPath: IndexPath) -> UITableViewCell {
 		switch (indexPath.section) {
 		case 0:
-			return firstSection(cell, for: indexPath.row)
+            return firstSection(for: tableView, in: indexPath)
 		case 1:
-			return secondSection(cell)
+			return secondSection(for: tableView, in: indexPath)
 		default:
 			return UITableViewCell()
 		}
 	}
 
-	func firstSection(_ cell: UITableViewCell, for row: Int) -> UITableViewCell {
-		guard let cell = cell as? TextFieldTableViewCell else { return UITableViewCell() }
-		cell.roundCellIfNeeded(index: row, numberOfCells: 4)
-
-		switch (row) {
-		case 0:
-			cell.fieldLabel.text = "\(Localization(.createAccountScene(.nameCellTitle)))"
-			cell.textField.placeholder = "\(Localization(.createAccountScene(.nameCellPlaceholder)))"
-            cell.textField.accessibilityIdentifier = FormPosition.name.rawValue
-		case 1:
-			cell.fieldLabel.text = "\(Localization(.createAccountScene(.emailCellTitle)))"
-			cell.textField.placeholder = "\(Localization(.createAccountScene(.emailCellPlaceholder)))"
-            cell.textField.accessibilityIdentifier = FormPosition.email.rawValue
-		case 2:
-			cell.fieldLabel.text = "\(Localization(.createAccountScene(.passwordCellTitle)))"
-			cell.textField.placeholder = "\(Localization(.createAccountScene(.passwordCellPlaceholder)))"
-			cell.textField.isSecureTextEntry = true
-            cell.textField.accessibilityIdentifier = FormPosition.password.rawValue
-		case 3:
-			cell.fieldLabel.text = "\(Localization(.createAccountScene(.confirmPasswordCellTitle)))"
-			cell.textField.placeholder = "\(Localization(.createAccountScene(.confirmPasswordCellPlaceholder)))"
-			cell.textField.isSecureTextEntry = true
-            cell.textField.accessibilityIdentifier = FormPosition.confirmPassword.rawValue
-		default:
-			break
-		}
-        cell.textField.delegate = self
-		return cell
+	func firstSection(for tableView: UITableView, in indexPath: IndexPath) -> UITableViewCell {
+		return fieldCell(for: tableView, in: indexPath)
 	}
 
-	func secondSection(_ cell: UITableViewCell) -> UITableViewCell {
-		guard let cell = cell as? PurpleButtonTableViewCell else { return UITableViewCell() }
-		cell.setTitle(with: "\(Localization(.createAccountScene(.createAccountButtonTitlle)))")
+    func secondSection(for tableView: UITableView, in indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier(for: indexPath.section), for: indexPath) as? PurpleButtonTableViewCell else { return UITableViewCell() }
+        cell.setTitle(with: Localization(.createAccountScene(.createAccountButtonTitlle)).description)
 		return cell
 	}
 }

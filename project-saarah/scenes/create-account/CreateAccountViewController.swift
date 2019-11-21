@@ -231,10 +231,7 @@ extension CreateAccountViewController: UITableViewDelegate, UITableViewDataSourc
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let reuseIdentifier = tableViewDataSource.reuseIdentifier(for: indexPath.section)
-		let reusableCell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
-		let cell = tableViewDataSource.modify(reusableCell, for: indexPath)
-		return cell
+        return tableViewDataSource.cell(for: tableView, in: indexPath)
 	}
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

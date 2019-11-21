@@ -31,10 +31,9 @@ class LoginTableViewDataSource: SaarahFormTableViewDataSource {
     override init() {
         super.init()
         formFieldsSection = LoginTableViewSections.login.rawValue
-        setFormFieldsViewModels()
     }
 
-    private func setFormFieldsViewModels () {
+    override func setFormFieldsViewModels () {
         formFieldsViewModels = [
             FormFieldViewModel(
                 label: Localization(.loginScene(.textField(.mail))).description,

@@ -18,8 +18,7 @@ class CreateAccountPresenter: CreateAccountPresentationLogic {
 
 	// MARK: Do something
     func presentSignUpSucessResponse(response: CreateAccount.SignUp.Response.Success) {
-        let viewModel = CreateAccount.SignUp.ViewModel.SignUpViewModel(success: true)
-        viewController?.displaySignUpSuccessResponse(viewModel: viewModel)
+        viewController?.displaySignUpSuccessResponse()
 	}
 
     func presentSignUpFailureResponse(response: CreateAccount.SignUp.Response.Failure) {

@@ -20,6 +20,13 @@ class SaarahFormTableViewDataSource: NSObject {
     // Used by controller in keyboard observer
     var selectedIndexPath: IndexPath?
 
+    override init() {
+        super.init()
+        setFormFieldsViewModels()
+    }
+
+    func setFormFieldsViewModels () {}
+
     func registerCells(for tableView: UITableView) {
         tableView.register(TextFieldTableViewCell.self, forCellReuseIdentifier: textFieldReuseIdentifier)
     }
