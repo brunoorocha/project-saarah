@@ -9,6 +9,21 @@
 import UIKit
 
 class CreateAccountTableViewDataSource: SaarahFormTableViewDataSource {
+    var tableViewSections = TableViewSections.allCases
+
+    enum TableViewSections: Int, CaseIterable {
+       case fields
+       case button
+
+      var reuseIdentifier: String {
+          switch self {
+          case .fields:
+              return "TextFieldTableViewCell"
+          case .button:
+              return "PurpleButtonTableViewCell"
+          }
+      }
+    }
 
     override func setFormFieldsViewModels() {
         formFieldsViewModels = [
@@ -48,76 +63,39 @@ class CreateAccountTableViewDataSource: SaarahFormTableViewDataSource {
 	}
 
 	func numberOfSections() -> Int {
-		return 2
+        return tableViewSections.count
 	}
-
-	func reuseIdentifier(for section: Int) -> String {
-		switch (section) {
-		case 0:
-			return "TextFieldTableViewCell"
-		case 1:
-			return "PurpleButtonTableViewCell"
-		default:
-			return ""
-		}
-	}
-
-    enum FormPosition: String {
-        case name = "Name"
-        case email = "Email"
-        case password = "Password"
-        case confirmPassword = "Confirm Password"
-        case registerButton = "Register button"
-
-        var indexPath: IndexPath {
-            switch self {
-            case .name:
-                return IndexPath(row: 0, section: 0)
-            case .email:
-                return IndexPath(row: 1, section: 0)
-            case .password:
-                return IndexPath(row: 2, section: 0)
-            case .confirmPassword:
-                return IndexPath(row: 3, section: 0)
-            case .registerButton:
-                return IndexPath(row: 0, section: 1)
-            }
-        }
-    }
 
 	func viewForHeader(in section: Int) -> UIView {
-		switch (section) {
-		case 0:
-			let headerView = GreetingSectionHeaderView()
-			headerView.setTitle(with: "\(Localization(.createAccountScene(.headerTitle)))", andDescription: "\(Localization(.createAccountScene(.headerSubtitle)))")
-			return headerView
-		case 1:
-			return EmptySectionHeaderView()
-		default:
-			return UIView()
-		}
+        guard let section = TableViewSections(rawValue: section) else { return UIView() }
+        switch (section) {
+        case .fields:
+            let headerView = GreetingSectionHeaderView()
+            headerView.setTitle(with: "\(Localization(.createAccountScene(.headerTitle)))", andDescription: "\(Localization(.createAccountScene(.headerSubtitle)))")
+            return headerView
+        case .button:
+            return EmptySectionHeaderView()
+        }
 	}
 
 	func numberOfRows(in section: Int) -> Int {
-		switch (section) {
-		case 0:
-			return numberOfFields()
-		case 1:
-			return 1
-		default:
-			return 0
-		}
+        guard let section = TableViewSections(rawValue: section) else { return 0 }
+        switch (section) {
+        case .fields:
+            return numberOfFields()
+        case .button:
+            return 1
+        }
 	}
 
 	func cell (for tableView: UITableView, in indexPath: IndexPath) -> UITableViewCell {
-		switch (indexPath.section) {
-		case 0:
+        guard let section = TableViewSections(rawValue: indexPath.section) else { return UITableViewCell() }
+        switch (section) {
+        case .fields:
             return firstSection(for: tableView, in: indexPath)
-		case 1:
-			return secondSection(for: tableView, in: indexPath)
-		default:
-			return UITableViewCell()
-		}
+        case .button:
+            return secondSection(for: tableView, in: indexPath)
+        }
 	}
 
 	func firstSection(for tableView: UITableView, in indexPath: IndexPath) -> UITableViewCell {
@@ -125,7 +103,8 @@ class CreateAccountTableViewDataSource: SaarahFormTableViewDataSource {
 	}
 
     func secondSection(for tableView: UITableView, in indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier(for: indexPath.section), for: indexPath) as? PurpleButtonTableViewCell else { return UITableViewCell() }
+        guard let section = TableViewSections(rawValue: indexPath.section),
+            let cell = tableView.dequeueReusableCell(withIdentifier: section.reuseIdentifier, for: indexPath) as? PurpleButtonTableViewCell else { return UITableViewCell() }
         cell.setTitle(with: Localization(.createAccountScene(.createAccountButtonTitlle)).description)
 		return cell
 	}
