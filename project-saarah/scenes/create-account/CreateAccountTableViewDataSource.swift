@@ -8,9 +8,9 @@
 
 import UIKit
 
-class CreateAccountTableViewDataSource: NSObject {
-	func registerCells(for tableView: UITableView) {
-		tableView.register(TextFieldTableViewCell.self, forCellReuseIdentifier: "TextFieldTableViewCell")
+class CreateAccountTableViewDataSource: SaarahFormTableViewDataSource {
+	override func registerCells(for tableView: UITableView) {
+        super.registerCells(for: tableView)
 		tableView.register(PurpleButtonTableViewCell.self, forCellReuseIdentifier: "PurpleButtonTableViewCell")
 	}
 
@@ -28,9 +28,6 @@ class CreateAccountTableViewDataSource: NSObject {
 			return ""
 		}
 	}
-
-    // Used by controller in keyboard observer
-    var selectedIndexPath: IndexPath?
 
     enum FormPosition: String {
         case name = "Name"

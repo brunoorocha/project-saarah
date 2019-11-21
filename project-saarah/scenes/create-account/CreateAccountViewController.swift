@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CreateAccountDisplayLogic: class {
-	func displaySignUpSuccessResponse(viewModel: CreateAccount.SignUp.ViewModel.SignUpViewModel)
+	func displaySignUpSuccessResponse()
     func displaySignUpFailureResponse(viewModels: [CreateAccount.SignUp.ViewModel.FormErrorViewModel])
 }
 
@@ -87,23 +87,18 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 	}
 
 	// MARK: Do something
-	func displaySignUpSuccessResponse(viewModel: CreateAccount.SignUp.ViewModel.SignUpViewModel) {
+	func displaySignUpSuccessResponse() {
 		isCreatingAccount = false
-		if (viewModel.success) {
-			router?.routeToHome()
-		} else {
-			presentAlertModal(
-                "\(Localization(.createAccountScene(.errorSignUpTitle)))",
-                "\(Localization(.createAccountScene(.errorSignUpMessage)))",
-                "\(Localization(.createAccountScene(.errorFormActionTitle)))"
-            )
-		}
-
+        router?.routeToHome()
         hideFullScreenActivityIndicator()
 	}
     
     func displaySignUpFailureResponse(viewModels: [CreateAccount.SignUp.ViewModel.FormErrorViewModel]) {
-        
+        presentAlertModal(
+            "\(Localization(.createAccountScene(.errorSignUpTitle)))",
+            "\(Localization(.createAccountScene(.errorSignUpMessage)))",
+            "\(Localization(.createAccountScene(.errorFormActionTitle)))"
+        )
     }
 
 	func createAccount() { // swiftlint:disable:this function_body_length
