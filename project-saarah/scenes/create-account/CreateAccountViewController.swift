@@ -103,65 +103,60 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
     }
 
 	func createAccount() { // swiftlint:disable:this function_body_length
+        tableViewDataSource.clearAllFieldsErrorMessages(in: contentView.tableView)
+
 		guard let name = validateName() else {
-			presentAlertModal(
-                "\(Localization(.createAccountScene(.errorFormAlertTitle)))",
-                "\(Localization(.createAccountScene(.errorFormNameMessage)))",
-                "\(Localization(.createAccountScene(.errorFormActionTitle)))"
+            tableViewDataSource.showErrorMessage(
+                Localization(.createAccountScene(.errorFormNameMessage)).description,
+                forFieldWithIdentifier: "name", in: contentView.tableView
             )
 			return
 		}
 
 		guard let email = validateEmail() else {
-			presentAlertModal(
-                "\(Localization(.createAccountScene(.errorFormAlertTitle)))",
-                "\(Localization(.createAccountScene(.errorFormEmailMessage)))",
-                "\(Localization(.createAccountScene(.errorFormActionTitle)))"
+			tableViewDataSource.showErrorMessage(
+                Localization(.createAccountScene(.errorFormEmailMessage)).description,
+                forFieldWithIdentifier: "email", in: contentView.tableView
             )
 			return
 		}
 
 		if (!email.isValidEmail()) {
-			presentAlertModal(
-                "\(Localization(.createAccountScene(.errorFormAlertTitle)))",
-                "\(Localization(.createAccountScene(.errorFormInvalidEmail)))",
-                "\(Localization(.createAccountScene(.errorFormActionTitle)))"
+            tableViewDataSource.showErrorMessage(
+                Localization(.createAccountScene(.errorFormInvalidEmail)).description,
+                forFieldWithIdentifier: "email", in: contentView.tableView
             )
 			return
 		}
 
 		guard let password = validatePassword() else {
-			presentAlertModal(
-                "\(Localization(.createAccountScene(.errorFormAlertTitle)))",
-                "\(Localization(.createAccountScene(.errorFormPasswordMessage)))",
-                "\(Localization(.createAccountScene(.errorFormActionTitle)))"
+            tableViewDataSource.showErrorMessage(
+                Localization(.createAccountScene(.errorFormPasswordMessage)).description,
+                forFieldWithIdentifier: "password", in: contentView.tableView
             )
 			return
 		}
 
 		guard let confirmPassword = validateConfirmPassword() else {
-			presentAlertModal(
-                "\(Localization(.createAccountScene(.errorFormAlertTitle)))",
-                "\(Localization(.createAccountScene(.errorFormConfirmPasswordMessage)))",
-                "\(Localization(.createAccountScene(.errorFormActionTitle)))"
+            tableViewDataSource.showErrorMessage(
+                Localization(.createAccountScene(.errorFormConfirmPasswordMessage)).description,
+                forFieldWithIdentifier: "passwordConfirmation", in: contentView.tableView
             )
 			return
 		}
 
 		if (password != confirmPassword) {
-			presentAlertModal(
-                "\(Localization(.createAccountScene(.errorFormAlertTitle)))",
-                "\(Localization(.createAccountScene(.errorFormPasswordsDontMatchMessage)))",
-                "\(Localization(.createAccountScene(.errorFormActionTitle)))"
+			tableViewDataSource.showErrorMessage(
+                Localization(.createAccountScene(.errorFormPasswordsDontMatchMessage)).description,
+                forFieldWithIdentifier: "passwordConfirmation", in: contentView.tableView
             )
 			return
 		}
 
 		if (password.count < 6) {
-			presentAlertModal(
-                "\(Localization(.createAccountScene(.errorFormAlertTitle)))",
-                "\(Localization(.createAccountScene(.errorFormPasswordSize)))",
-                "\(Localization(.createAccountScene(.errorFormActionTitle)))"
+            tableViewDataSource.showErrorMessage(
+                Localization(.createAccountScene(.errorFormPasswordSize)).description,
+                forFieldWithIdentifier: "password", in: contentView.tableView
             )
 			return
 		}
