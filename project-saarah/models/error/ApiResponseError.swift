@@ -50,4 +50,5 @@ enum ApiPossibleResponseErrors: String {
     case objectNotFound
     case objectWithThisPropertyAlreadyExists
     case invalidValue
+    case alreadyExistsAnUserWithEmail
 }

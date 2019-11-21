@@ -339,6 +339,8 @@ extension AppStrings {
                     return "Já existe um objeto com essa propriedade"
                 case .invalidValue:
                     return "Valor inválido"
+                case .alreadyExistsAnUserWithEmail:
+                    return "Já existe uma conta utilizando este email"
                 }
             }
         }

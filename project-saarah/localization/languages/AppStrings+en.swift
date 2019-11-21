@@ -332,6 +332,8 @@ extension AppStrings {
                     return "Already exists a object with this property"
                 case .invalidValue:
                     return "Invalid value"
+                case .alreadyExistsAnUserWithEmail:
+                    return "Already exists an account using this email"
                 }
             }
         default:
