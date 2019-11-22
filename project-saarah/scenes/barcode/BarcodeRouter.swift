@@ -9,7 +9,8 @@
 import UIKit
 
 protocol BarcodeRoutingLogic {
-	//func routeToSomewhere()
+	func routeToProductDetails()
+    func routeToNewProduct()
 }
 
 protocol BarcodeDataPassing {
@@ -21,24 +22,44 @@ class BarcodeRouter: NSObject, BarcodeRoutingLogic, BarcodeDataPassing {
 	var dataStore: BarcodeDataStore?
 
 	// MARK: Routing
-//	func routeToSomewhere() {
-//		let destinationVC = SomewhereViewController()
-//		guard var destinationDataStore = destinationVC.router?.dataStore else { return }
-//
-//		guard let dataStore = dataStore else { return }
-//		guard let viewController = viewController else { return }
-//
-//		passDataToSomewhere(source: dataStore, destination: &destinationDataStore)
-//		navigateToSomewhere(source: viewController, destination: destinationVC)
-//	}
-//
-//	// MARK: Passing data
-//	func passDataToSomewhere(source: BarcodeDataStore, destination: inout SomewhereDataStore) {
-//		destination.name = source.name
-//	}
-//
-//	// MARK: Navigation
-//	func navigateToSomewhere(source: BarcodeViewController, destination: SomewhereViewController) {
-//		source.show(destination, sender: nil)
-//	}
+    func routeToProductDetails() {
+        let destinationVC = ProductDetailViewController()
+        guard var destinationDataStore = destinationVC.router?.dataStore else { return }
+
+        guard let dataStore = dataStore else { return }
+        guard let viewController = viewController else { return }
+
+        passDataToProductDetail(source: dataStore, destination: &destinationDataStore)
+        navigateToProductDetail(source: viewController, destination: destinationVC)
+    }
+
+    func routeToNewProduct() {
+        let destinationVC = AddNewProductViewController()
+        guard var destinationDataStore = destinationVC.router?.dataStore else { return }
+
+        guard let dataStore = dataStore else { return }
+        guard let viewController = viewController else { return }
+        destinationVC.modalPresentationStyle = .fullScreen
+
+        passDataToNewProduct(source: dataStore, destination: &destinationDataStore)
+        navigateToNewProduct(source: viewController, destination: destinationVC)
+    }
+
+	// MARK: Passing data
+	func passDataToProductDetail(source: BarcodeDataStore, destination: inout ProductDetailDataStore) {
+        destination.product = source.product
+	}
+
+    func passDataToNewProduct(source: BarcodeDataStore, destination: inout AddNewProductDataStore) {
+//        destination.barCode = source.barcode
+    }
+
+	// MARK: Navigation
+	func navigateToProductDetail(source: BarcodeViewController, destination: ProductDetailViewController) {
+		source.show(destination, sender: nil)
+	}
+
+    func navigateToNewProduct(source: BarcodeViewController, destination: AddNewProductViewController) {
+         source.present(destination, animated: true, completion: nil)
+    }
 }

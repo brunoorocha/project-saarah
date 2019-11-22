@@ -9,24 +9,27 @@
 import Foundation
 
 protocol BarcodeBusinessLogic {
-	func doSomething(request: Barcode.Something.Request)
+	func readedProduct(request: Barcode.ProductReader.Request)
 }
 
 protocol BarcodeDataStore {
-	//var name: String { get set }
+    var product: Product? {get set}
+    var barcode: String? {get set}
 }
 
 class BarcodeInteractor: BarcodeBusinessLogic, BarcodeDataStore {
-	var presenter: BarcodePresentationLogic?
-//	var worker: BarcodeWorker?
-	//var name: String = ""
+    var presenter: BarcodePresentationLogic?
+//    var worker: BarcodeWorker?
+    var product: Product?
+    var barcode: String?
 
 	// MARK: Do something
-	func doSomething(request: Barcode.Something.Request) {
+	func readedProduct(request: Barcode.ProductReader.Request) {
+        barcode = request.barcode
 //		worker = Worker()
 //		worker?.doSomeWork()
 
-		let response = Barcode.Something.Response()
-		presenter?.presentSomething(response: response)
+		let response = Barcode.ProductReader.Response(product: nil)
+		presenter?.presentProductFeedback(response: response)
 	}
 }

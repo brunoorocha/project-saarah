@@ -11,7 +11,8 @@ import AVFoundation
 import Vision
 
 protocol BarcodeDisplayLogic: class {
-	func displaySomething(viewModel: Barcode.Something.ViewModel)
+    func productFound()
+    func productNotFound()
 }
 
 class BarcodeViewController: UIViewController, BarcodeDisplayLogic {
@@ -30,7 +31,6 @@ class BarcodeViewController: UIViewController, BarcodeDisplayLogic {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupContentView()
-		doSomething()
 
         startLiveVideo()
 	}
@@ -67,16 +67,22 @@ class BarcodeViewController: UIViewController, BarcodeDisplayLogic {
 	func setupContentView() {
 		title = "Barcode"
 		view = contentView
+        contentView.addProductActionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tapToAddProduct(_:))))
 	}
 
-	// MARK: Do something
-	func doSomething() {
-		let request = Barcode.Something.Request()
-		interactor?.doSomething(request: request)
-	}
+    @objc func tapToAddProduct(_ sender: UITapGestureRecognizer) {
+        router?.routeToNewProduct()
+    }
 
-	func displaySomething(viewModel: Barcode.Something.ViewModel) {
-	}
+	func productFound() {
+        hideFullScreenActivityIndicator()
+        router?.routeToProductDetails()
+    }
+
+    func productNotFound() {
+        hideFullScreenActivityIndicator()
+        self.contentView.presentUndefinedProductViews()
+    }
 
     // MARK: Camera settings
     private func startLiveVideo() {
@@ -104,7 +110,14 @@ class BarcodeViewController: UIViewController, BarcodeDisplayLogic {
         requests = [barcodeDetectRequest]
     }
 
-    var barcode: String?
+    var barcode: String? {
+        didSet {
+            guard let barcode = self.barcode else { return }
+            showFullScreenActivityIndicator()
+            let request = Barcode.ProductReader.Request(barcode: barcode)
+            interactor?.readedProduct(request: request)
+        }
+    }
 
     func handleDetectedBarcode(request: VNRequest, error: Error?) {
         if let nsError = error as NSError? {
@@ -116,13 +129,13 @@ class BarcodeViewController: UIViewController, BarcodeDisplayLogic {
             if !self.session.isRunning { return }
             guard let results = request.results as? [VNBarcodeObservation] else { return }
             if let result = results.first {
-                if self.contentView.hasContentVisible && self.barcode == result.payloadStringValue { return }
-                if self.contentView.hasContentVisible && self.barcode != result.payloadStringValue {
-                    self.contentView.animateToHide()
+                if self.barcode == nil {
+                    self.barcode = result.payloadStringValue
+                } else if self.barcode == result.payloadStringValue && self.contentView.hasContentVisible {
+                    return
+                } else {
+                    self.barcode = result.payloadStringValue
                 }
-                self.barcode = result.payloadStringValue
-                // TODO: Request to API
-                self.contentView.presentUndefinedProductViews()
             }
         }
     }

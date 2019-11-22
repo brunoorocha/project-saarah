@@ -10,15 +10,15 @@ import Foundation
 
 enum Barcode {
 	// MARK: Use cases
-	enum Something {
+	enum ProductReader {
 		struct Request {
+            var barcode: String
 		}
 		struct Response {
+            var product: Product?
 		}
 		struct ViewModel {
-			struct SomeViewModel {
-			}
-			var someViewModels: [SomeViewModel]
+            var hasProduct: Bool
 		}
 	}
 }

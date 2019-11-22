@@ -9,15 +9,14 @@
 import Foundation
 
 protocol BarcodePresentationLogic {
-	func presentSomething(response: Barcode.Something.Response)
+	func presentProductFeedback(response: Barcode.ProductReader.Response)
 }
 
 class BarcodePresenter: BarcodePresentationLogic {
 	weak var viewController: BarcodeDisplayLogic?
 
 	// MARK: Do something
-	func presentSomething(response: Barcode.Something.Response) {
-//		let viewModel = Barcode.Something.ViewModel()
-//		viewController?.displaySomething(viewModel: viewModel)
+	func presentProductFeedback(response: Barcode.ProductReader.Response) {
+        response.product != nil ? viewController?.productFound() : viewController?.productNotFound()
 	}
 }
