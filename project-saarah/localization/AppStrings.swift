@@ -231,10 +231,10 @@ enum AppStrings {
 
     enum BarcodeScene {
         case view(View)
-        
+
         enum View {
             case notFound(NotFound)
-            
+
             enum NotFound {
                 case product
                 case overview
