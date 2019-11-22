@@ -33,9 +33,6 @@ class BarcodeViewController: UIViewController, BarcodeDisplayLogic {
 		doSomething()
 
         startLiveVideo()
-
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.flashAction))
-        self.view.addGestureRecognizer(tap)
 	}
 
 	// MARK: Init
@@ -130,31 +127,6 @@ class BarcodeViewController: UIViewController, BarcodeDisplayLogic {
         }
     }
 
-    @objc func flashAction() {
-        if (device.hasTorch) {
-            session.beginConfiguration()
-            flashEnabled(!device.isTorchActive)
-            self.session.commitConfiguration()
-        }
-    }
-
-    private func flashEnabled(_ enabled: Bool) {
-        do {
-            if (device.hasTorch) {
-                try device.lockForConfiguration()
-                if enabled {
-                    device.torchMode = .on
-                    device.flashMode = .on
-                } else {
-                    device.torchMode = .off
-                    device.flashMode = .off
-                }
-                device.unlockForConfiguration()
-            }
-        } catch {
-            print("Device tourch Flash Error ")
-        }
-    }
 }
 
 extension BarcodeViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
