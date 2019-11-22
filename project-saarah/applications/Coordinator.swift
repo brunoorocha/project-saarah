@@ -11,7 +11,7 @@ import UIKit
 class Coordinator {
 
     var window: UIWindow?
-    var worker: AccountStore?
+    var worker: AccountWorker?
 
     init(with window: UIWindow?) {
         self.window = window

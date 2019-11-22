@@ -9,7 +9,8 @@
 import UIKit
 
 protocol CreateAccountDisplayLogic: class {
-	func displaySignUpResponse(viewModel: CreateAccount.SignUp.ViewModel.SignUpViewModel)
+	func displaySignUpSuccessResponse()
+    func displaySignUpFailureResponse(viewModels: [CreateAccount.SignUp.ViewModel.FormErrorViewModel])
 }
 
 class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
@@ -22,7 +23,11 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 	private let tableViewDataSource = CreateAccountTableViewDataSource()
     private var scrolledIndexPath: IndexPath?
 
-	var isCreatingAccount = false
+    var isCreatingAccount = false {
+        didSet {
+            self.isCreatingAccount ? showFullScreenActivityIndicator() : hideFullScreenActivityIndicator()
+        }
+    }
 
 	// MARK: View lifecycle
 	override func viewDidLoad() {
@@ -72,8 +77,9 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 
 	func setupContentView() {
 		contentView.tableView.delegate = self
-		contentView.tableView.dataSource = self
+		contentView.tableView.dataSource = tableViewDataSource
 		tableViewDataSource.registerCells(for: contentView.tableView)
+        tableViewDataSource.textFieldDelegate = self
 		contentView.tableView.reloadData()
 
 		view.addSubview(contentView)
@@ -86,81 +92,73 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 	}
 
 	// MARK: Do something
-	func displaySignUpResponse(viewModel: CreateAccount.SignUp.ViewModel.SignUpViewModel) {
+	func displaySignUpSuccessResponse() {
 		isCreatingAccount = false
-		if (viewModel.success) {
-			router?.routeToHome()
-		} else {
-			presentAlertModal(
-                Localization(.createAccountScene(.errorForm(.alertTitle))).description,
-                Localization(.createAccountScene(.errorForm(.signUpTitle))).description,
-                Localization(.createAccountScene(.errorForm(.action))).description
-            )
-		}
-
-        hideFullScreenActivityIndicator()
+    router?.routeToHome()
 	}
 
+    func displaySignUpFailureResponse(viewModels: [CreateAccount.SignUp.ViewModel.FormErrorViewModel]) {
+        isCreatingAccount = false
+        viewModels.forEach { formErrorViewModel in
+            tableViewDataSource.showErrorMessage(formErrorViewModel.message, forFieldWithIdentifier: formErrorViewModel.field, in: contentView.tableView)
+        }
+    }
+
 	func createAccount() { // swiftlint:disable:this function_body_length
+        tableViewDataSource.clearAllFieldsErrorMessages(in: contentView.tableView)
+
 		guard let name = validateName() else {
-			presentAlertModal(
-                Localization(.createAccountScene(.errorForm(.alertTitle))).description,
+            tableViewDataSource.showErrorMessage(
                 Localization(.createAccountScene(.errorForm(.nameMessage))).description,
-                Localization(.createAccountScene(.errorForm(.action))).description
+                forFieldWithIdentifier: "name", in: contentView.tableView
             )
 			return
 		}
 
 		guard let email = validateEmail() else {
-			presentAlertModal(
-                Localization(.createAccountScene(.errorForm(.alertTitle))).description,
+			tableViewDataSource.showErrorMessage(
                 Localization(.createAccountScene(.errorForm(.emailMessage))).description,
-                Localization(.createAccountScene(.errorForm(.action))).description
+                forFieldWithIdentifier: "email", in: contentView.tableView
             )
 			return
 		}
 
 		if (!email.isValidEmail()) {
-			presentAlertModal(
-                Localization(.createAccountScene(.errorForm(.alertTitle))).description,
+            tableViewDataSource.showErrorMessage(
                 Localization(.createAccountScene(.errorForm(.invalidEmail))).description,
-                Localization(.createAccountScene(.errorForm(.action))).description
+                forFieldWithIdentifier: "email", in: contentView.tableView
             )
 			return
 		}
 
 		guard let password = validatePassword() else {
-			presentAlertModal(
-                Localization(.createAccountScene(.errorForm(.alertTitle))).description,
+            tableViewDataSource.showErrorMessage(
                 Localization(.createAccountScene(.errorForm(.passwordMessage))).description,
-                Localization(.createAccountScene(.errorForm(.action))).description
+                forFieldWithIdentifier: "password", in: contentView.tableView
             )
 			return
 		}
 
 		guard let confirmPassword = validateConfirmPassword() else {
-			presentAlertModal(
-                Localization(.createAccountScene(.errorForm(.alertTitle))).description,
+            tableViewDataSource.showErrorMessage(
                 Localization(.createAccountScene(.errorForm(.confirmPasswordMessage))).description,
-                Localization(.createAccountScene(.errorForm(.action))).description
+                forFieldWithIdentifier: "passwordConfirmation", in: contentView.tableView
             )
 			return
 		}
 
 		if (password != confirmPassword) {
-			presentAlertModal(
-                Localization(.createAccountScene(.errorForm(.alertTitle))).description,
+			tableViewDataSource.showErrorMessage(
                 Localization(.createAccountScene(.errorForm(.passwordsDontMatchMessage))).description,
-                Localization(.createAccountScene(.errorForm(.action))).description
+                forFieldWithIdentifier: "passwordConfirmation", in: contentView.tableView
             )
 			return
 		}
 
 		if (password.count < 6) {
-			presentAlertModal(
-                Localization(.createAccountScene(.errorForm(.alertTitle))).description,
+            tableViewDataSource.showErrorMessage(
                 Localization(.createAccountScene(.errorForm(.passwordSize))).description,
-                Localization(.createAccountScene(.errorForm(.action))).description
+                forFieldWithIdentifier: "password", in: contentView.tableView
             )
 			return
 		}
@@ -169,7 +167,6 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 		let signUpForm = CreateAccount.SignUpForm(name: name, email: email, password: password, confirmPassword: confirmPassword)
 		let request = CreateAccount.SignUp.Request(signUpForm: signUpForm)
 		interactor?.signUp(request: request)
-        showFullScreenActivityIndicator()
 	}
 
 	func validateName() -> String? {
@@ -217,24 +214,9 @@ class CreateAccountViewController: UIViewController, CreateAccountDisplayLogic {
 	}
 }
 
-extension CreateAccountViewController: UITableViewDelegate, UITableViewDataSource {
-	func numberOfSections(in tableView: UITableView) -> Int {
-		return tableViewDataSource.numberOfSections()
-	}
-
-	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return tableViewDataSource.numberOfRows(in: section)
-	}
-
+extension CreateAccountViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		return tableViewDataSource.viewForHeader(in: section)
-	}
-
-	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let reuseIdentifier = tableViewDataSource.reuseIdentifier(for: indexPath.section)
-		let reusableCell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
-		let cell = tableViewDataSource.modify(reusableCell, for: indexPath)
-		return cell
 	}
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -242,4 +224,14 @@ extension CreateAccountViewController: UITableViewDelegate, UITableViewDataSourc
 			createAccount()
 		}
 	}
+}
+
+extension CreateAccountViewController: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+       guard let identifier = textField.accessibilityIdentifier,
+           let row = tableViewDataSource.formFieldsViewModels.firstIndex(where: { $0.identifier == identifier }) else { return true }
+       tableViewDataSource.clearFieldErrorMessage(forFieldWithIdentifier: identifier, in: contentView.tableView)
+        tableViewDataSource.selectedIndexPath = IndexPath(row: row, section: tableViewDataSource.formFieldsSection)
+       return true
+   }
 }

@@ -30,6 +30,7 @@ enum AppStrings {
     case settingsScene(SettingsScene)
     case createAccountScene(CreateAccountScene)
     case onboarding(Onboarding)
+    case errorMessage(ErrorMessage)
 
     // MARK: Enum's
 
@@ -282,5 +283,9 @@ enum AppStrings {
             case second
             case third
         }
+    }
+
+    enum ErrorMessage {
+        case api(ApiPossibleResponseErrors)
     }
 }

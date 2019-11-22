@@ -15,11 +15,20 @@ enum Login {
             let form: Form
         }
         struct Response {
-            let response: SessionResponse?
+            struct Success {}
+            
+            struct Failure {
+                let formErrors: [FormFieldError]
+            }
         }
         struct ViewModel {
             struct LoginViewModel {
                 let success: Bool
+            }
+
+            struct FormErrorViewModel {
+                let field: String
+                let message: String
             }
         }
         struct Form {
