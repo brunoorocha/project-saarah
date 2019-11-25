@@ -43,7 +43,6 @@ class BarcodeRouter: NSObject, BarcodeRoutingLogic, BarcodeDataPassing {
 
         guard let dataStore = dataStore else { return }
         guard let viewController = viewController else { return }
-        destinationVC.modalPresentationStyle = .fullScreen
 
         passDataToNewProduct(source: dataStore, destination: &destinationDataStore)
         navigateToNewProduct(source: viewController, destination: destinationVC)
@@ -64,7 +63,7 @@ class BarcodeRouter: NSObject, BarcodeRoutingLogic, BarcodeDataPassing {
 	}
 
     func navigateToNewProduct(source: BarcodeViewController, destination: AddNewProductViewController) {
-//        source.present(destination, animated: true, completion: nil)
-        source.show(destination, sender: nil)
+        destination.modalPresentationStyle = .fullScreen
+        source.present(destination, animated: true, completion: nil)
     }
 }

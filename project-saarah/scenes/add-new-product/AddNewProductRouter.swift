@@ -86,7 +86,7 @@ class AddNewProductRouter: NSObject, AddNewProductRoutingLogic, AddNewProductDat
 
 	// MARK: Navigation
 	func navigateToChooseMeasurement(source: AddNewProductViewController, destination: SelectProductMeasurementViewController) {
-		source.show(destination, sender: nil)
+		source.present(destination, animated: true, completion: nil)
 	}
 
 	func navigateToAddProductItem(source: AddNewProductViewController, destination: AddProductItemViewController) {

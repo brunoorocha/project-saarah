@@ -73,6 +73,7 @@ class ListInventoryRouter: NSObject, ListInventoryRoutingLogic, ListInventoryDat
  	}
 
     func navigateToReaderBarcode(source: ListInventoryViewController, destination: BarcodeViewController) {
-        source.show(destination, sender: nil)
+        destination.modalPresentationStyle = .fullScreen
+        source.present(destination, animated: true, completion: nil)
     }
 }
