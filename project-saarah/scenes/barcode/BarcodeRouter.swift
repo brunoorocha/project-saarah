@@ -17,6 +17,10 @@ protocol BarcodeDataPassing {
 	var dataStore: BarcodeDataStore? { get }
 }
 
+protocol BarcodeReceptor: class {
+    var barcodeReceptor: String? { get set }
+}
+
 class BarcodeRouter: NSObject, BarcodeRoutingLogic, BarcodeDataPassing {
 	weak var viewController: BarcodeViewController?
 	var dataStore: BarcodeDataStore?
@@ -51,7 +55,7 @@ class BarcodeRouter: NSObject, BarcodeRoutingLogic, BarcodeDataPassing {
 	}
 
     func passDataToNewProduct(source: BarcodeDataStore, destination: inout AddNewProductDataStore) {
-//        destination.barCode = source.barcode
+        destination.barcodeReceptor = source.barcode
     }
 
 	// MARK: Navigation

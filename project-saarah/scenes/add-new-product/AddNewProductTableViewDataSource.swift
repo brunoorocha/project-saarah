@@ -41,6 +41,8 @@ class AddNewProductTableViewDataSource {
 		return firstSection(cell, for: indexPath.row)
 	}
 
+    var barcodeReceived: String?
+
 	func firstSection(_ cell: UITableViewCell, for row: Int) -> UITableViewCell {
 		guard let cell = cell as? TextFieldTableViewCell else { return UITableViewCell() }
 		cell.roundCellIfNeeded(index: row, numberOfCells: 3)
@@ -52,6 +54,7 @@ class AddNewProductTableViewDataSource {
 		case 1:
 			cell.fieldLabel.text = "\(Localization(.addNewProductScene(.barCode)))"
 			cell.textField.placeholder = "\(Localization(.addNewProductScene(.barCodePlacehoder)))"
+            cell.textField.text = barcodeReceived
 		case 2:
 			cell.fieldLabel.text = "\(Localization(.addNewProductScene(.measure)))"
 			cell.textField.placeholder = "\(Localization(.addNewProductScene(.measurePlaceholder)))"

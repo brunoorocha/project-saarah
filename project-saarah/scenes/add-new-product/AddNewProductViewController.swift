@@ -12,6 +12,7 @@ protocol AddNewProductDisplayLogic: class {
 	func displayResponse(viewModel: AddNewProduct.SaveProduct.ViewModel.Response)
     func displayMeasureResponse(viewModel: AddNewProduct.GetMeasure.ViewModel.Measure)
 	func productItemReceived()
+    func barcodeReceived(viewModel: AddNewProduct.GetBarcode.ViewModel)
 }
 
 class AddNewProductViewController: SaarahViewController, AddNewProductDisplayLogic {
@@ -109,6 +110,12 @@ class AddNewProductViewController: SaarahViewController, AddNewProductDisplayLog
 		let request = AddNewProduct.SaveProduct.Request(productForm: productForm)
 		interactor?.saveNewProduct(request: request)
 	}
+
+    var barcode: String?
+
+    func barcodeReceived(viewModel: AddNewProduct.GetBarcode.ViewModel) {
+        tableViewDataSource.barcodeReceived = viewModel.barcode
+    }
 
 	func validateProductName() -> String? {
 		let indexPath = IndexPath(row: 0, section: 0)
