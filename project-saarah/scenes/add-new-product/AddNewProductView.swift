@@ -14,15 +14,19 @@ protocol AddNewProductViewDelegate: class {
 }
 
 class AddNewProductView: UIView {
-    var navigationBar = UINavigationBar()
+    var navigationBar: UINavigationBar?
 	var tableView: SaarahTableView!
 
 	weak var delegate: AddNewProductViewDelegate?
 
-	init() {
+    init(hasNavigate: Bool = false) {
 		super.init(frame: .zero)
 
-		backgroundColor = UIColor.white
+		backgroundColor = AppStyleGuide.Colors.background.uiColor
+
+        if !hasNavigate {
+            setNavigation()
+        }
 
 		instantiateViews()
 		buildViewsHierarchy()
@@ -42,10 +46,17 @@ class AddNewProductView: UIView {
 	}
 
 	func instantiateViews() {
+		tableView = SaarahTableView()
+	}
+
+    func setNavigation() {
         let navbarTitleAttributes = [
             NSAttributedString.Key.font: AppStyleGuide.Typography.heading3.uiFont,
             NSAttributedString.Key.foregroundColor: AppStyleGuide.Colors.textColor.uiColor
         ]
+
+        navigationBar = UINavigationBar()
+        guard let navigationBar = navigationBar else { return }
 
         navigationBar.titleTextAttributes = navbarTitleAttributes
 
@@ -59,23 +70,28 @@ class AddNewProductView: UIView {
         navigationItem.rightBarButtonItem = rightButton
 
         navigationBar.setItems([navigationItem], animated: false)
-
-		tableView = SaarahTableView()
-	}
+    }
 
 	func buildViewsHierarchy() {
-        addSubviews([navigationBar, tableView])
+        if let navigationBar = navigationBar {
+            addSubview(navigationBar)
+        }
+        addSubview(tableView)
 	}
 
 	func setupConstraints() {
-        navigationBar.anchor(
-            top: topAnchor,
-            leading: leadingAnchor,
-            trailing: trailingAnchor
-        )
+        if let navigationBar = navigationBar {
+            navigationBar.anchor(
+                top: topAnchor,
+                leading: leadingAnchor,
+                trailing: trailingAnchor
+            )
+            tableView.topAnchor.constraint(equalTo: navigationBar.bottomAnchor).isActive = true
+        } else {
+            tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
+        }
 
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: navigationBar.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor)

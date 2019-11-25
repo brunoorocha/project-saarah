@@ -13,6 +13,7 @@ class BarcodeView: UIView {
     let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.isUserInteractionEnabled = false
         return imageView
     }()
 
@@ -79,7 +80,7 @@ class BarcodeView: UIView {
         buttonLabel.contentHorizontalAlignment = .left
 
         addProductActionView.addSubviews([addIconImageView, buttonLabel])
-        buttonLabel.isUserInteractionEnabled = true
+        buttonLabel.isUserInteractionEnabled = false
 
         constraintBottomAnimate = addProductActionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -self.mediumMargin)
         constraintBottomAnimate.isActive = false
@@ -129,7 +130,7 @@ class BarcodeView: UIView {
         ])
     }
 
-    func animateToShow(completion: @escaping () -> () = {}) {
+    func animateToShow(completion: @escaping () -> Void = {}) {
         DispatchQueue.main.async {
             UIView.animate(withDuration: self.contentAnimateTime, animations: {
                 self.constraintTopAnimate.isActive = false
@@ -142,7 +143,7 @@ class BarcodeView: UIView {
         }
     }
 
-    func animateToHide(completion: @escaping () -> () = {}) {
+    func animateToHide(completion: @escaping () -> Void = {}) {
         DispatchQueue.main.async {
             UIView.animate(withDuration: self.contentAnimateTime, animations: {
                 self.constraintBottomAnimate.isActive = false

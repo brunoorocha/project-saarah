@@ -43,12 +43,18 @@ class AddNewProductViewController: SaarahViewController, AddNewProductDisplayLog
 
 	func setupContentView() {
 		title = "\(Localization(.addNewProductScene(.title)))"
+        if self.navigationController != nil {
+            contentView = AddNewProductView(hasNavigate: true)
+        }
 		view = contentView
 		contentView.delegate = self
 		contentView.tableView.delegate = self
 		contentView.tableView.dataSource = self
 		tableViewDataSource.registerCell(for: contentView.tableView)
 		contentView.tableView.reloadData()
+//        if self.navigationController == nil {
+//            contentView.setNavigation()
+//        }
 	}
 
 	// MARK: Display new product response

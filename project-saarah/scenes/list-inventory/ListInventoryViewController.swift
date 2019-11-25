@@ -105,13 +105,16 @@ class ListInventoryViewController: UIViewController, ListInventoryDisplayLogic {
     func tappedAddButton(_ sender: AnyObject) {
 
         let optionMenu = UIAlertController(title: nil, message: "\(Localization(.listInventoryScene(.addAlertController(.title))))", preferredStyle: .actionSheet)
-        // TODO: Add barcode reader
-//        let addWithBarcode = UIAlertAction(title: "\(Localization(.listInventoryScene(.addAlertController(.addWithBarCode))))", style: .default)
+
+        let addWithBarcode = UIAlertAction(title: Localization(.listInventoryScene(.addAlertController(.addWithBarCode))).description, style: .default) { _ in
+            self.router?.routeToBarcode()
+        }
 
         let addWithoutBarCode = UIAlertAction(title: "\(Localization(.listInventoryScene(.addAlertController(.addWithoutBarCode))))", style: .default) { _ in
 			self.router?.routeToAddNewProduct()
 		}
 
+        addWithBarcode.setValue(AppStyleGuide.Colors.primary.uiColor, forKey: "titleTextColor")
         addWithoutBarCode.setValue(AppStyleGuide.Colors.primary.uiColor, forKey: "titleTextColor")
 
         let cancelAction = UIAlertAction(title: "\(Localization(.listInventoryScene(.addAlertController(.cancel))))", style: .cancel)
@@ -122,7 +125,7 @@ class ListInventoryViewController: UIViewController, ListInventoryDisplayLogic {
             popoverController.barButtonItem = sender as? UIBarButtonItem
         }
 
-//        optionMenu.addAction(addWithBarcode)
+        optionMenu.addAction(addWithBarcode)
         optionMenu.addAction(addWithoutBarCode)
         optionMenu.addAction(cancelAction)
 

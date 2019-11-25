@@ -64,6 +64,7 @@ class BarcodeRouter: NSObject, BarcodeRoutingLogic, BarcodeDataPassing {
 	}
 
     func navigateToNewProduct(source: BarcodeViewController, destination: AddNewProductViewController) {
-         source.present(destination, animated: true, completion: nil)
+//        source.present(destination, animated: true, completion: nil)
+        source.show(destination, sender: nil)
     }
 }

@@ -58,6 +58,7 @@ class BarcodeViewController: UIViewController, BarcodeDisplayLogic {
         AppUtility.lockOrientation(.all)
         navigationController?.setNavigationBarHidden(false, animated: animated)
         session.stopRunning()
+        contentView.animateToHide()
     }
 
     override func viewDidLayoutSubviews() {
@@ -65,7 +66,6 @@ class BarcodeViewController: UIViewController, BarcodeDisplayLogic {
     }
 
 	func setupContentView() {
-		title = "Barcode"
 		view = contentView
         contentView.addProductActionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tapToAddProduct(_:))))
 	}

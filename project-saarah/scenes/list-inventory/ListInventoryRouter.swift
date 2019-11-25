@@ -11,6 +11,7 @@ import UIKit
 protocol ListInventoryRoutingLogic {
 	func routeToDetail()
 	func routeToAddNewProduct()
+    func routeToBarcode()
 }
 
 protocol ListInventoryDataPassing {
@@ -46,6 +47,13 @@ class ListInventoryRouter: NSObject, ListInventoryRoutingLogic, ListInventoryDat
  		navigateToAddNewProduct(source: viewController, destination: destinationVC)
  	}
 
+    func routeToBarcode() {
+        let destinationVC = BarcodeViewController()
+        guard let viewController = viewController else { return }
+
+        navigateToReaderBarcode(source: viewController, destination: destinationVC)
+    }
+
 	// MARK: Passing data
 	func passDataToDetail(source: ListInventoryDataStore, destination: inout ProductDetailDataStore) {
         guard let viewController = viewController else { return }
@@ -63,4 +71,8 @@ class ListInventoryRouter: NSObject, ListInventoryRoutingLogic, ListInventoryDat
 	func navigateToAddNewProduct(source: ListInventoryViewController, destination: AddNewProductViewController) {
  		source.present(destination, animated: true, completion: nil)
  	}
+
+    func navigateToReaderBarcode(source: ListInventoryViewController, destination: BarcodeViewController) {
+        source.show(destination, sender: nil)
+    }
 }
