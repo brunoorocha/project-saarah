@@ -361,6 +361,19 @@ extension AppStrings {
                     return "Acompanhe as entradas e saídas de produtos e pratos do seu negócio."
                 }
             }
+        case .barcodeScene(let options):
+            switch options {
+            case .view(let views):
+                switch views {
+                case .notFound(let messages):
+                    switch messages {
+                    case .product:
+                        return "Produto não encontrado."
+                    case .overview:
+                        return "Você pode criar um novo produto no estoque com esse código de barras."
+                    }
+                }
+            }
         case .errorMessage(let options):
             switch options {
             case .api(let apiError):

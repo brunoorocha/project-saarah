@@ -12,6 +12,7 @@ protocol AddNewProductPresentationLogic {
     func presentSaveProductResponse(response: AddNewProduct.SaveProduct.Response)
     func presentGetMeasureResponse(response: AddNewProduct.GetMeasure.Response)
 	func productItemReceived()
+    func presentGetBarcodeResponse(response: AddNewProduct.GetBarcode.Response)
 }
 
 class AddNewProductPresenter: AddNewProductPresentationLogic {
@@ -39,4 +40,9 @@ class AddNewProductPresenter: AddNewProductPresentationLogic {
 	func productItemReceived() {
 		viewController?.productItemReceived()
 	}
+
+    func presentGetBarcodeResponse(response: AddNewProduct.GetBarcode.Response) {
+        let viewModel = AddNewProduct.GetBarcode.ViewModel(barcode: response.barcode)
+        viewController?.barcodeReceived(viewModel: viewModel)
+    }
 }

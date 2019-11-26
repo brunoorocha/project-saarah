@@ -22,7 +22,7 @@ class AddNewProductView: UIView {
 	init() {
 		super.init(frame: .zero)
 
-		backgroundColor = UIColor.white
+        backgroundColor = AppStyleGuide.Colors.foreground.uiColor
 
 		instantiateViews()
 		buildViewsHierarchy()
@@ -47,6 +47,7 @@ class AddNewProductView: UIView {
             NSAttributedString.Key.foregroundColor: AppStyleGuide.Colors.textColor.uiColor
         ]
 
+        navigationBar.backgroundColor = AppStyleGuide.Colors.foreground.uiColor
         navigationBar.titleTextAttributes = navbarTitleAttributes
 
         let navigationItem = UINavigationItem(title: "\(Localization(.addNewProductScene(.title)))")
@@ -69,7 +70,7 @@ class AddNewProductView: UIView {
 
 	func setupConstraints() {
         navigationBar.anchor(
-            top: topAnchor,
+            top: layoutMarginsGuide.topAnchor,
             leading: leadingAnchor,
             trailing: trailingAnchor
         )

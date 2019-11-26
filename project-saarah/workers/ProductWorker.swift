@@ -10,6 +10,7 @@ import Foundation
 
 protocol ProductStoreProtocol {
     func fetchProducts(_ completion: @escaping ([Product]) -> Void)
+    func fetchProduct(by barcode: String, _ completion: @escaping (Product?) -> Void)
     func addProduct(name: String, barcode: String?, measureId: String, _ completion: @escaping (Result<Product?, NetworkServiceError>) -> Void)
 }
 
@@ -30,6 +31,14 @@ class ProductWorker {
 
     func addProduct(withName name: String, andBarcode barcode: String?, andMeasureId measureId: String, _ completion: @escaping (Result<Product?, NetworkServiceError>) -> Void) {
         productService.addProduct(name: name, barcode: barcode, measureId: measureId) { (result) in
+            DispatchQueue.main.async {
+                completion(result)
+            }
+        }
+    }
+
+    func fetchProduct(by barcode: String, _ completion: @escaping (Product?) -> Void) {
+        productService.fetchProduct(by: barcode) { (result) in
             DispatchQueue.main.async {
                 completion(result)
             }

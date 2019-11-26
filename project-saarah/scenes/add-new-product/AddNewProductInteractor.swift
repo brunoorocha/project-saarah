@@ -12,7 +12,7 @@ protocol AddNewProductBusinessLogic {
 	func saveNewProduct(request: AddNewProduct.SaveProduct.Request)
 }
 
-protocol AddNewProductDataStore: SelectedMeasureReceptor, ProductItemReceptor {
+protocol AddNewProductDataStore: SelectedMeasureReceptor, ProductItemReceptor, BarcodeReceptor {
 	var product: Product? { get set }
 }
 
@@ -33,6 +33,13 @@ class AddNewProductInteractor: AddNewProductBusinessLogic, AddNewProductDataStor
 			self.presenter?.productItemReceived()
 		}
 	}
+    var barcodeReceptor: String? {
+        didSet {
+            guard let barcode = self.barcodeReceptor else { return }
+            let response = AddNewProduct.GetBarcode.Response(barcode: barcode)
+            presenter?.presentGetBarcodeResponse(response: response)
+        }
+    }
 
     let productWorker = ProductWorker(productService: ApiProductStore())
 

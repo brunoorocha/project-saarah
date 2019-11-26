@@ -52,9 +52,18 @@
 		1B766361234B86740069D581 /* ListInventoryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B766360234B86740069D581 /* ListInventoryBuilder.swift */; };
 		1B7D018F234CD3CD003B365D /* MockProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7D018E234CD3CD003B365D /* MockProduct.swift */; };
 		1B7D0192234CD3F6003B365D /* ProductWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7D0191234CD3F6003B365D /* ProductWorker.swift */; };
+		1B878D2D237C458100B5BFEF /* BarcodePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B878D26237C458100B5BFEF /* BarcodePresenter.swift */; };
+		1B878D2E237C458100B5BFEF /* BarcodeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B878D27237C458100B5BFEF /* BarcodeRouter.swift */; };
+		1B878D2F237C458100B5BFEF /* BarcodeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B878D28237C458100B5BFEF /* BarcodeModels.swift */; };
+		1B878D30237C458100B5BFEF /* BarcodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B878D29237C458100B5BFEF /* BarcodeViewController.swift */; };
+		1B878D31237C458100B5BFEF /* BarcodeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B878D2A237C458100B5BFEF /* BarcodeBuilder.swift */; };
+		1B878D32237C458100B5BFEF /* BarcodeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B878D2B237C458100B5BFEF /* BarcodeInteractor.swift */; };
+		1B878D33237C458100B5BFEF /* BarcodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B878D2C237C458100B5BFEF /* BarcodeView.swift */; };
+		1B878D35237C4BA100B5BFEF /* AppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B878D34237C4BA100B5BFEF /* AppUtility.swift */; };
 		1B8CF0D423705F0100B41355 /* LoginTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8CF0D323705F0100B41355 /* LoginTableViewDataSource.swift */; };
 		1B8CF0D62372E5A900B41355 /* RegisterSectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8CF0D52372E5A900B41355 /* RegisterSectionFooterView.swift */; };
 		1B8CF0D823759F3600B41355 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8CF0D723759F3600B41355 /* Coordinator.swift */; };
+		1BE018662384116A007410A5 /* SaarahView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE018652384116A007410A5 /* SaarahView.swift */; };
 		4800F0C52372E7E10048F34D /* UserDefaults+Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4800F0C42372E7E10048F34D /* UserDefaults+Token.swift */; };
 		4818E1372322AFC500EFF585 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A343CF4723180C31005F2210 /* AppDelegate.swift */; };
 		481ECD6D2357E97600E3CA18 /* AddNewProductTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481ECD6C2357E97600E3CA18 /* AddNewProductTableViewDataSource.swift */; };
@@ -239,10 +248,19 @@
 		1B766360234B86740069D581 /* ListInventoryBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInventoryBuilder.swift; sourceTree = "<group>"; };
 		1B7D018E234CD3CD003B365D /* MockProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProduct.swift; sourceTree = "<group>"; };
 		1B7D0191234CD3F6003B365D /* ProductWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductWorker.swift; sourceTree = "<group>"; };
+		1B878D26237C458100B5BFEF /* BarcodePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodePresenter.swift; sourceTree = "<group>"; };
+		1B878D27237C458100B5BFEF /* BarcodeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeRouter.swift; sourceTree = "<group>"; };
+		1B878D28237C458100B5BFEF /* BarcodeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeModels.swift; sourceTree = "<group>"; };
+		1B878D29237C458100B5BFEF /* BarcodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeViewController.swift; sourceTree = "<group>"; };
+		1B878D2A237C458100B5BFEF /* BarcodeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeBuilder.swift; sourceTree = "<group>"; };
+		1B878D2B237C458100B5BFEF /* BarcodeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeInteractor.swift; sourceTree = "<group>"; };
+		1B878D2C237C458100B5BFEF /* BarcodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeView.swift; sourceTree = "<group>"; };
+		1B878D34237C4BA100B5BFEF /* AppUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtility.swift; sourceTree = "<group>"; };
 		1B8CF0D323705F0100B41355 /* LoginTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTableViewDataSource.swift; sourceTree = "<group>"; };
 		1B8CF0D52372E5A900B41355 /* RegisterSectionFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSectionFooterView.swift; sourceTree = "<group>"; };
 		1B8CF0D723759F3600B41355 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		1BBA19B1231FF4D300116004 /* FileManager+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Image.swift"; sourceTree = "<group>"; };
+		1BE018652384116A007410A5 /* SaarahView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahView.swift; sourceTree = "<group>"; };
 		4800F0C42372E7E10048F34D /* UserDefaults+Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Token.swift"; sourceTree = "<group>"; };
 		481ECD6C2357E97600E3CA18 /* AddNewProductTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewProductTableViewDataSource.swift; sourceTree = "<group>"; };
 		48244F5123478302007B4AA7 /* ProductDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailPresenter.swift; sourceTree = "<group>"; };
@@ -506,6 +524,20 @@
 			path = workers;
 			sourceTree = "<group>";
 		};
+		1B878D25237C457200B5BFEF /* barcode */ = {
+			isa = PBXGroup;
+			children = (
+				1B878D26237C458100B5BFEF /* BarcodePresenter.swift */,
+				1B878D27237C458100B5BFEF /* BarcodeRouter.swift */,
+				1B878D28237C458100B5BFEF /* BarcodeModels.swift */,
+				1B878D29237C458100B5BFEF /* BarcodeViewController.swift */,
+				1B878D2A237C458100B5BFEF /* BarcodeBuilder.swift */,
+				1B878D2B237C458100B5BFEF /* BarcodeInteractor.swift */,
+				1B878D2C237C458100B5BFEF /* BarcodeView.swift */,
+			);
+			path = barcode;
+			sourceTree = "<group>";
+		};
 		48244F50234782E4007B4AA7 /* product-detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -531,6 +563,7 @@
 				1BBA19B1231FF4D300116004 /* FileManager+Image.swift */,
 				A37808A8233BDFF4005B26E8 /* UIColor+rgbaExtension.swift */,
 				48F28F2623606C23005CCF56 /* DateFormat.swift */,
+				1B878D34237C4BA100B5BFEF /* AppUtility.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -739,6 +772,7 @@
 		A3780871233B8CF9005B26E8 /* scenes */ = {
 			isa = PBXGroup;
 			children = (
+				1B878D25237C457200B5BFEF /* barcode */,
 				A391F2F42371BACB00DAEDD3 /* settings */,
 				1B0D66F6237053200018DF25 /* login-scene */,
 				1B76634A23478E4C0069D581 /* list-inventory */,
@@ -793,6 +827,7 @@
 				A32244F3235E8AE700375793 /* UnderConstructionViewController.swift */,
 				A3A4598F23606B9D000A765F /* SkelectonLoadingView.swift */,
 				A34D156123759D7D00DF815D /* FullScreenActivityIndicator.swift */,
+				1BE018652384116A007410A5 /* SaarahView.swift */,
 				A30611F3238408ED00949B34 /* FieldErrorLabel.swift */,
 			);
 			path = "base-components";
@@ -1013,6 +1048,8 @@
 				A3522D722341882300DB1314 /* SaarahTableViewSeparator.swift in Sources */,
 				486CD3C1237069C300FB0610 /* CreateAccountModels.swift in Sources */,
 				48F28F03235932EE005CCF56 /* AddProductItemModels.swift in Sources */,
+				1B878D31237C458100B5BFEF /* BarcodeBuilder.swift in Sources */,
+				1B878D32237C458100B5BFEF /* BarcodeInteractor.swift in Sources */,
 				1B537887235A224A007C819D /* LabeledTableViewCell.swift in Sources */,
 				487B9B2B23311D2100D8D6CC /* Measure.swift in Sources */,
 				A3A79737235B3BBC00B5724F /* HomeNotificationWorker.swift in Sources */,
@@ -1053,6 +1090,7 @@
 				A3CF014C237C4E8D00DD192A /* ApiResponseErrorAdapter.swift in Sources */,
 				487B9B2723311BC900D8D6CC /* ProductLog.swift in Sources */,
 				1B2DB9BA2357AE2E00AF6D80 /* SelectProductMeasurementModels.swift in Sources */,
+				1B878D2E237C458100B5BFEF /* BarcodeRouter.swift in Sources */,
 				487B9B2F23311E5400D8D6CC /* MenuItem.swift in Sources */,
 				1B716459235CB70D000ABC08 /* ProductItemTableViewCell.swift in Sources */,
 				1B15E0CB2354A3530047A0B6 /* AppStrings.swift in Sources */,
@@ -1078,6 +1116,7 @@
 				A3780890233B9CEE005B26E8 /* SaarahTableViewCell.swift in Sources */,
 				1B766361234B86740069D581 /* ListInventoryBuilder.swift in Sources */,
 				A32244F4235E8AE700375793 /* UnderConstructionViewController.swift in Sources */,
+				1B878D2D237C458100B5BFEF /* BarcodePresenter.swift in Sources */,
 				A304F940233CD9EA00C3B6F7 /* CaptionBoldLabel.swift in Sources */,
 				484912192371B55300AF0779 /* AccountWorker.swift in Sources */,
 				1B4DFA7E23595B6E002C2B55 /* ProductItemView.swift in Sources */,
@@ -1104,9 +1143,11 @@
 				A34D156023759AEB00DF815D /* UIViewController+ShowActivityIndicator.swift in Sources */,
 				A3A79735235B3B9600B5724F /* ApiProductStore.swift in Sources */,
 				A3ABCE71233CCFDE00FF54FD /* SaarahIconImageView.swift in Sources */,
+				1B878D33237C458100B5BFEF /* BarcodeView.swift in Sources */,
 				A32F6E702371BC0C00B00B5F /* SettingsView.swift in Sources */,
 				487B9B37233122C400D8D6CC /* Menu.swift in Sources */,
 				48F28F02235932EE005CCF56 /* AddProductItemRouter.swift in Sources */,
+				1B878D2F237C458100B5BFEF /* BarcodeModels.swift in Sources */,
 				A3859A552359F3FE003E4B1B /* NetworkService.swift in Sources */,
 				A304F942233CDA9800C3B6F7 /* SaarahButton.swift in Sources */,
 				1B76635523478E640069D581 /* ListInventoryInteractor.swift in Sources */,
@@ -1134,6 +1175,7 @@
 				A3780894233BA40E005B26E8 /* Heading2Label.swift in Sources */,
 				48244F5823478303007B4AA7 /* ProductDetailRouter.swift in Sources */,
 				A32F6E6F2371BC0C00B00B5F /* SettingsInteractor.swift in Sources */,
+				1B878D35237C4BA100B5BFEF /* AppUtility.swift in Sources */,
 				1B0D66FF2370533B0018DF25 /* LoginRouter.swift in Sources */,
 				A304F946233CE21300C3B6F7 /* DefaultCellTableViewCell.swift in Sources */,
 				4C94BAE8233CE4FA008D62F5 /* ProductTableViewCell.swift in Sources */,
@@ -1155,12 +1197,14 @@
 				1B537885235988A8007C819D /* Date+Formatter.swift in Sources */,
 				A304F94B233CECC100C3B6F7 /* TextFieldTableViewCell.swift in Sources */,
 				484848B62354EEA200A84FB0 /* AddNewProductInteractor.swift in Sources */,
+				1BE018662384116A007410A5 /* SaarahView.swift in Sources */,
 				1B0D66FE2370533B0018DF25 /* LoginPresenter.swift in Sources */,
 				484848B22354EEA200A84FB0 /* AddNewProductRouter.swift in Sources */,
 				A3522D70234186AB00DB1314 /* HomeNotificationTableViewCell.swift in Sources */,
 				484848B32354EEA200A84FB0 /* AddNewProductModels.swift in Sources */,
 				1B2DB9B82357AE2E00AF6D80 /* SelectProductMeasurementPresenter.swift in Sources */,
 				48244F5723478303007B4AA7 /* ProductDetailPresenter.swift in Sources */,
+				1B878D30237C458100B5BFEF /* BarcodeViewController.swift in Sources */,
 				1B7D0192234CD3F6003B365D /* ProductWorker.swift in Sources */,
 				48244F5B23478303007B4AA7 /* ProductDetailInteractor.swift in Sources */,
 			);

@@ -30,6 +30,7 @@ enum AppStrings {
     case settingsScene(SettingsScene)
     case createAccountScene(CreateAccountScene)
     case onboarding(Onboarding)
+    case barcodeScene(BarcodeScene)
     case errorMessage(ErrorMessage)
 
     // MARK: Enum's
@@ -285,6 +286,18 @@ enum AppStrings {
         }
     }
 
+    enum BarcodeScene {
+        case view(View)
+
+        enum View {
+            case notFound(NotFound)
+
+            enum NotFound {
+                case product
+                case overview
+            }
+        }
+    }
     enum ErrorMessage {
         case api(ApiPossibleResponseErrors)
     }

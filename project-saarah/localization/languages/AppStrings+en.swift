@@ -354,6 +354,19 @@ extension AppStrings {
                     return "Track the inputs and outputs of products and dishes of your business."
                 }
             }
+        case .barcodeScene(let options):
+            switch options {
+            case .view(let views):
+                switch views {
+                case .notFound(let messages):
+                    switch messages {
+                    case .product:
+                        return "Product not found."
+                    case .overview:
+                        return "You can create a new product in inventory with this barcode."
+                    }
+                }
+            }
         case .errorMessage(let options):
             switch options {
             case .api(let apiError):
