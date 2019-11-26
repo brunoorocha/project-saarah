@@ -25,14 +25,17 @@ extension AppStrings {
             }
         case .productItemTableViewCell(let options):
             switch options {
-            case .amountLabel:
-                return "Quantity"
-            case .validityLabel:
-                return "Validity"
-            case .priceLabel:
-                return "Price"
-            case .addedOnDayLabel:
-                return "Added on Day"
+            case .label(let labels):
+                switch labels {
+                case .amount:
+                    return "Quantity"
+                case .validity:
+                    return "Validity"
+                case .price:
+                    return "Price"
+                case .addedOnDay:
+                    return "Added on Day"
+                }
             }
         case .homeMenuOptionTitle(let options):
             switch options {
@@ -94,42 +97,60 @@ extension AppStrings {
             switch (options) {
             case .title:
                 return "Create New Product"
-            case .cancelBarButton:
-                return "Cancel"
-            case .saveBarButton:
-                return "Save"
             case .basicInformation:
-                return "BASIC INFOS"
-            case .productName:
-                return "Product Name"
-            case .productNamePlaceholder:
-                return "Tap to type the Product Name"
-            case .barCode:
-                return "Barcode (Optional)"
-            case .barCodePlacehoder:
-                return "Tap to insert the Barcode"
-            case .measure:
-                return "Measurement Unit"
-            case .measurePlaceholder:
-                return "Pounds, Onces, Gallons..."
-            case .successResponseTitle:
-                return "Product created"
-            case .successResponseMessage:
-                return "Do you want to create a product item?"
-            case .alertOkAction:
-                return "OK"
-            case .alertAddProductItemAction:
-				return "Now"
-            case .alertCancelAction:
-				return "Later"
-            case .alertFormTitle:
-				return "Error"
-            case .alertFormName:
-				return "You must fill the name field."
-            case .alertFormBarCode:
-				return "The bar code must contain only numbers."
-            case .alertFormMeasure:
-				return "Select a measure unit."
+                return "Basic Infos"
+            case .barButton(let buttons):
+                switch buttons {
+                case .save:
+                    return "Save"
+                case .cancel:
+                    return "Cancel"
+                }
+            case .alert(let alerts):
+                switch alerts {
+                case .okAction:
+                    return "Ok"
+                case .cancelAction:
+                    return "Later"
+                case .addProductItemAction:
+                    return "Now"
+                case .form(let form):
+                    switch form {
+                    case .title:
+                        return "Error"
+                    case .name:
+                        return "You must fill the product name field."
+                    case .barCode:
+                        return "The bar code must contain only numbers."
+                    case .meausre:
+                        return "Select a measure unit."
+                    }
+                }
+            case .response(let responses):
+                switch responses {
+                case .success(let successes):
+                    switch successes {
+                    case .title:
+                        return "Product created"
+                    case .message:
+                        return "Do you want to create a product item?"
+                    }
+                }
+            case .field(let fields):
+                switch fields {
+                case .productName:
+                    return "Product Name"
+                case .productNamePlaceholder:
+                    return "Tap to type the Product Name"
+                case .barCode:
+                    return "Barcode (Optional)"
+                case .barCodePlacehoder:
+                    return "Tap to insert the Barcode"
+                case .measure:
+                    return "Measurement Unit"
+                case .measurePlaceholder:
+                    return "Pounds, Onces, Gallons..."
+                }
             }
         case .productItemScene(let options):
             switch options {
@@ -142,38 +163,50 @@ extension AppStrings {
             switch options {
             case .title:
                 return "Add product item"
-            case .cancelBarButton:
-                return "Cancel"
-            case .saveBarButton:
-                return "Save"
             case .alertActionTitle:
                 return "Ok"
-            case .basicInformation:
-                return "BASIC INFORMATION"
-            case .quantity:
-                return "Quantity"
-            case .quantityPlaceholder:
-                return "0"
-            case .price:
-                return "Price"
-            case .pricePlaceholder:
-                return "$ 0,00"
-            case .complementaryInformation:
-                return "ADDITIONAL INFORMATION (OPTIONAL)"
-            case .expirationDate:
-                return "Expiration"
-            case .expirationDatePlaceholder:
-                return "Tap to enter expiration date"
-            case .errorFormAlertTitle:
-                return "Error"
-            case .errorFormActionAlertTitle:
-                return "Ok"
-            case .errorFormQuantityAlertMessage:
-                return "The field quantity only accept numbers."
-            case .errorFormPriceAlertMessage:
-                return "The field price only accept numbers."
-            case .errorFormExpirationAlertMessage:
-                return "The field date of expiration date need be filled with day/month/year."
+            case .information(let informations):
+                switch informations {
+                case .basic:
+                    return "Basic Information"
+                case .complementary:
+                    return "Additional information (optional)"
+                }
+            case .barButton(let button):
+                switch button {
+                case .save:
+                    return "Save"
+                case .cancel:
+                    return "Cancel"
+                }
+            case .field(let fields):
+                switch fields {
+                case .quantity:
+                    return "Quantity"
+                case .quantityPlaceholder:
+                    return "0"
+                case .price:
+                    return "Price"
+                case .pricePlaceholder:
+                    return "$ 0,00"
+                case .expirationDate:
+                    return "Expiration"
+                case .expirationDatePlaceholder:
+                    return "Tap to enter expiration date"
+                }
+            case .errorForm(let errors):
+                switch errors {
+                case .alertTitle:
+                    return "Error"
+                case .action:
+                    return "Ok"
+                case .quantityAlertMessage:
+                    return "The field quantity only accept numbers."
+                case .priceAlertMessage:
+                    return "The field price only accept numbers."
+                case .expirationAlertMessage:
+                    return "The field date of expiration date need be filled with day/month/year."
+                }
             case .response(let options):
                 switch (options) {
                 case .successTitle:
@@ -215,7 +248,7 @@ extension AppStrings {
             switch options {
             case .title:
                 return "Login"
-            case .textField(let fields):
+            case .field(let fields):
                 switch fields {
                 case .mail:
                     return "Email"
@@ -248,56 +281,65 @@ extension AppStrings {
                 }
             }
         case .createAccountScene(let options):
-			switch options {
-			case .headerTitle:
-				return "Don't have an account?"
-			case .headerSubtitle:
-				return "No problem. You can create one account quickly."
-			case .nameCellTitle:
-				return "Name"
-			case .nameCellPlaceholder:
-				return "Tap to type your name"
-			case .emailCellTitle:
-				return "Email"
-			case .emailCellPlaceholder:
-				return "Tap to type your email"
-			case .passwordCellTitle:
-				return "Password"
-			case .passwordCellPlaceholder:
-				return "Tap to type your password"
-			case .confirmPasswordCellTitle:
-				return "Confirm password"
-			case .confirmPasswordCellPlaceholder:
-				return "Tap to type your password again"
-			case .createAccountButtonTitlle:
-				return "Create account"
-			case .errorFormAlertTitle:
-				return "Error"
-			case .errorFormActionTitle:
-				return "Ok"
-			case .errorFormNameMessage:
-				return "The name field must be filled out!"
-			case .errorFormEmailMessage:
-				return "The email field must be filled out!"
-			case .errorFormInvalidEmail:
-				return "Insert a valid Email!"
-			case .errorFormPasswordMessage:
-				return "The password field must be filled out!"
-			case .errorFormConfirmPasswordMessage:
-				return "The confirm password field must be filled out!"
-			case .errorFormPasswordsDontMatchMessage:
-				return "The passwords dont match!"
-			case .errorFormPasswordSize:
-				return "The password must contain at least 6 characters!"
-			case .errorSignUpTitle:
-				return "Sign up error"
-			case .errorSignUpMessage:
-				return "An error ocurrent when sign up, try again!"
-			}
+            switch options {
+            case .createAccountButtonTitle:
+                return "Create account"
+            case .header(let header):
+                switch header {
+                case .title:
+                    return "Don't have an account?"
+                case .subtitle:
+                    return "No problem. You can create one account quickly."
+                }
+            case .field(let fields):
+                switch fields {
+                case .name:
+                    return "Name"
+                case .namePlaceholder:
+                    return "Tap to type your name"
+                case .email:
+                    return "Email"
+                case .emailPlaceholder:
+                    return "Tap to type your email"
+                case .password:
+                    return "Password"
+                case .passwordPlaceholder:
+                    return "Tap to type your password"
+                case .confirmPassword:
+                    return "Confirm password"
+                case .confirmPasswordPlaceholder:
+                    return "Tap to type your password again"
+                }
+            case .errorForm(let errors):
+                switch errors {
+                case .alertTitle:
+                    return "Error"
+                case .action:
+                    return "Ok"
+                case .nameMessage:
+                    return "The name field must be filled out!"
+                case .emailMessage:
+                    return "The email field must be filled out!"
+                case .invalidEmail:
+                    return "Insert a valid Email!"
+                case .passwordMessage:
+                    return "The password field must be filled out!"
+                case .confirmPasswordMessage:
+                    return "The confirm password field must be filled out!"
+                case .passwordsDontMatchMessage:
+                    return "The passwords dont match!"
+                case .passwordSize:
+                    return "The password must contain at least 6 characters!"
+                case .signUpTitle:
+                    return "Sign up error"
+                case .signUpMessage:
+                    return "An error ocurrent when sign up, try again!"
+                }
+            }
         case .onboarding(let options):
             switch options {
-            case .before:
-                return "Before"
+            case .previous:
+                return "Previous"
             case .next:
                 return "Next"
             case .close:
@@ -323,6 +365,30 @@ extension AppStrings {
                     case .overview:
                         return "You can create a new product in inventory with this barcode."
                     }
+                }
+            }
+        case .errorMessage(let options):
+            switch options {
+            case .api(let apiError):
+                switch apiError {
+                case .notFoundUserWithEmail:
+                    return "There's no account found with this email"
+                case .passwordDoesntMatchForUserWithEmail:
+                    return "Your password is wrong"
+                case .unauthorizedObjectAccess:
+                    return "Sorry, but you don't have permission to access this object"
+                case .unableToRemoveObject:
+                    return "The object could not be removed"
+                case .unableToCreateObject:
+                    return "The object could not be created"
+                case .objectNotFound:
+                    return "Object not found"
+                case .objectWithThisPropertyAlreadyExists:
+                    return "Already exists a object with this property"
+                case .invalidValue:
+                    return "Invalid value"
+                case .alreadyExistsAnUserWithEmail:
+                    return "Already exists an account using this email"
                 }
             }
         default:

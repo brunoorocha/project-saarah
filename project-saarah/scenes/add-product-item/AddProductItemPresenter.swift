@@ -18,9 +18,10 @@ class AddProductItemPresenter: AddProductItemPresentationLogic {
 	// MARK: Do something
 	func presentResponse(response: AddProductItem.AddItem.Response) {
 		if (response.productLog != nil) {
-			let viewModel = AddProductItem.AddItem.ViewModel.AddItemViewModel(success: true,
-                title: "\(Localization(.addProductItemScene(.response(.successTitle))))",
-                message: "\(Localization(.addProductItemScene(.response(.suceessMessage))))"
+			let viewModel = AddProductItem.AddItem.ViewModel.AddItemViewModel(
+                success: true,
+                title: Localization(.addProductItemScene(.response(.successTitle))).description,
+                message: Localization(.addProductItemScene(.response(.suceessMessage))).description
             )
 			viewController?.displayResponse(viewModel: viewModel)
 		} else {

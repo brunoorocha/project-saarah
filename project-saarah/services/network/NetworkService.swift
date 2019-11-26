@@ -9,7 +9,7 @@
 import Foundation
 
 enum NetworkServiceError: Error {
-    case errorStatusCode(_ statusCode: Int)
+    case errorStatusCode(_ statusCode: Int, _ errorData: Data? = nil)
     case notConnected
     case cancelled
     case unknown
@@ -65,7 +65,7 @@ class NetworkService: NetworkServiceProtocol {
             } else {
                 if let errorResponse = response as? HTTPURLResponse, (400..<600).contains(errorResponse.statusCode) {
                     DispatchQueue.main.async {
-                        completionHandler(.failure(.errorStatusCode(errorResponse.statusCode)))
+                        completionHandler(.failure(.errorStatusCode(errorResponse.statusCode, data)))
                     }
                     return
                 }

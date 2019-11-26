@@ -11,6 +11,7 @@ import UIKit
 class TextFieldTableViewCell: SaarahTableViewCell {
     var fieldLabel = Heading3Label()
     var textField = SaarahTextField()
+    var errorLabel = FieldErrorLabel()
 
     private var arrowRightIcon = SaarahIconImageView(image: AppStyleGuide.Icons.chevronRight.uiImage)
 
@@ -19,7 +20,7 @@ class TextFieldTableViewCell: SaarahTableViewCell {
     private let mediumMargin = AppStyleGuide.Margins.medium.rawValue
 
     override func configureCellComponents() {
-        cellContentView.addSubviews([fieldLabel, textField, arrowRightIcon, separator])
+        cellContentView.addSubviews([fieldLabel, textField, errorLabel, arrowRightIcon, separator])
         contentView.isUserInteractionEnabled = true
 
         arrowRightIcon.isHidden = true
@@ -34,7 +35,11 @@ class TextFieldTableViewCell: SaarahTableViewCell {
             textField.topAnchor.constraint(equalTo: fieldLabel.bottomAnchor, constant: xsmallMargin),
             textField.leadingAnchor.constraint(equalTo: fieldLabel.leadingAnchor),
             textField.trailingAnchor.constraint(equalTo: arrowRightIcon.leadingAnchor, constant: -mediumMargin),
-            textField.bottomAnchor.constraint(equalTo: cellContentView.bottomAnchor, constant: -smallMargin),
+
+            errorLabel.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: xsmallMargin),
+            errorLabel.leadingAnchor.constraint(equalTo: textField.leadingAnchor),
+            errorLabel.trailingAnchor.constraint(equalTo: textField.trailingAnchor),
+            errorLabel.bottomAnchor.constraint(equalTo: cellContentView.bottomAnchor, constant: -smallMargin),
 
             arrowRightIcon.trailingAnchor.constraint(equalTo: cellContentView.trailingAnchor, constant: -mediumMargin),
             arrowRightIcon.centerYAnchor.constraint(equalTo: cellContentView.centerYAnchor),
@@ -43,6 +48,10 @@ class TextFieldTableViewCell: SaarahTableViewCell {
             separator.leadingAnchor.constraint(equalTo: cellContentView.leadingAnchor, constant: mediumMargin),
             separator.trailingAnchor.constraint(equalTo: cellContentView.trailingAnchor)
         ])
+    }
+
+    func clearErrors () {
+        errorLabel.text = ""
     }
 
     func showDisclosureIndicator() {

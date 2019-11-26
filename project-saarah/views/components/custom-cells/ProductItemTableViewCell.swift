@@ -45,10 +45,10 @@ class ProductItemTableViewCell: SaarahTableViewCell {
         cellContentView.layer.masksToBounds = true
 
         // MARK: Configure titles to labels
-        amountLabel.text = "\(Localization(.productItemTableViewCell(.amountLabel)))"
-        validityLabel.text =  "\(Localization(.productItemTableViewCell(.validityLabel)))"
-        priceLabel.text = "\(Localization(.productItemTableViewCell(.priceLabel)))"
-        addedOnDayLabel.text = "\(Localization(.productItemTableViewCell(.addedOnDayLabel)))"
+        amountLabel.text = Localization(.productItemTableViewCell(.label(.amount))).description
+        validityLabel.text = Localization(.productItemTableViewCell(.label(.validity))).description
+        priceLabel.text = Localization(.productItemTableViewCell(.label(.price))).description
+        addedOnDayLabel.text = Localization(.productItemTableViewCell(.label(.addedOnDay))).description
 
         // MARK: Configure constraints to components
         numericAmountLabel.textAlignment = .right

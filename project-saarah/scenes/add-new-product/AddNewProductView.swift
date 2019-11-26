@@ -52,9 +52,9 @@ class AddNewProductView: UIView {
 
         let navigationItem = UINavigationItem(title: "\(Localization(.addNewProductScene(.title)))")
 
-        let leftButton = UIBarButtonItem(title: "\(Localization(.addNewProductScene(.cancelBarButton)))", style: .plain, target: self, action: #selector(cancelButtonAction))
+        let leftButton = UIBarButtonItem(title: "\(Localization(.addNewProductScene(.barButton(.cancel))))", style: .plain, target: self, action: #selector(cancelButtonAction))
 
-        let rightButton = UIBarButtonItem(title: "\(Localization(.addNewProductScene(.saveBarButton)))", style: .done, target: self, action: #selector(saveButtonAction))
+        let rightButton = UIBarButtonItem(title: "\(Localization(.addNewProductScene(.barButton(.save))))", style: .done, target: self, action: #selector(saveButtonAction))
 
         navigationItem.leftBarButtonItem = leftButton
         navigationItem.rightBarButtonItem = rightButton

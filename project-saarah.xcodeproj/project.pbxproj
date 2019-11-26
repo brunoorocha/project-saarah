@@ -135,6 +135,8 @@
 		A304F94D233CED4100C3B6F7 /* SaarahTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304F94C233CED4100C3B6F7 /* SaarahTextField.swift */; };
 		A304F94F233E270600C3B6F7 /* SelectableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304F94E233E270600C3B6F7 /* SelectableCell.swift */; };
 		A304F953233E4AD400C3B6F7 /* SaarahTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304F952233E4AD400C3B6F7 /* SaarahTableView.swift */; };
+		A30611F4238408ED00949B34 /* FieldErrorLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30611F3238408ED00949B34 /* FieldErrorLabel.swift */; };
+		A30611F6238410F700949B34 /* FormFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30611F5238410F700949B34 /* FormFieldViewModel.swift */; };
 		A32244F4235E8AE700375793 /* UnderConstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32244F3235E8AE700375793 /* UnderConstructionViewController.swift */; };
 		A32D814B233F6A03008DB50F /* HomeCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32D814A233F6A03008DB50F /* HomeCardCollectionViewCell.swift */; };
 		A32D814D233F6FE0008DB50F /* HomeMenuCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32D814C233F6FE0008DB50F /* HomeMenuCollectionView.swift */; };
@@ -173,6 +175,7 @@
 		A3859A572359FC8B003E4B1B /* ApiHomeNotificationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3859A562359FC8B003E4B1B /* ApiHomeNotificationStore.swift */; };
 		A3859A59235A0263003E4B1B /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3859A58235A0263003E4B1B /* Endpoint.swift */; };
 		A3859A5B235A0279003E4B1B /* ConeheadApiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3859A5A235A0279003E4B1B /* ConeheadApiEndpoint.swift */; };
+		A39228FE23798E20007BB0D6 /* ApiResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39228FD23798E20007BB0D6 /* ApiResponseError.swift */; };
 		A3A408E12372F38000682D0E /* UIViewController+PresentConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A408E02372F38000682D0E /* UIViewController+PresentConfirmation.swift */; };
 		A3A4599023606B9D000A765F /* SkelectonLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A4598F23606B9D000A765F /* SkelectonLoadingView.swift */; };
 		A3A4599223607100000A765F /* DefaultCellSkelectonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A4599123607100000A765F /* DefaultCellSkelectonTableViewCell.swift */; };
@@ -181,10 +184,12 @@
 		A3A79737235B3BBC00B5724F /* HomeNotificationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A79736235B3BBC00B5724F /* HomeNotificationWorker.swift */; };
 		A3AACBC82340C946000EFB6B /* SaarahViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AACBC72340C946000EFB6B /* SaarahViewController.swift */; };
 		A3ABCE71233CCFDE00FF54FD /* SaarahIconImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ABCE70233CCFDE00FF54FD /* SaarahIconImageView.swift */; };
+		A3AEFA402382BCC0007AB749 /* StoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AEFA3F2382BCC0007AB749 /* StoreError.swift */; };
 		A3B76AD1234CB39D0010B7AF /* HomeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B76AD0234CB39D0010B7AF /* HomeBuilder.swift */; };
 		A3C63041235CE6FF0024F683 /* HomeNotificationSkelectonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C63040235CE6FF0024F683 /* HomeNotificationSkelectonTableViewCell.swift */; };
 		A3C63043235DCEB30024F683 /* HomeTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C63042235DCEB30024F683 /* HomeTableViewDataSource.swift */; };
 		A3C63047235DF6110024F683 /* HomeMenuCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C63046235DF6110024F683 /* HomeMenuCollectionViewDataSource.swift */; };
+		A3CF014C237C4E8D00DD192A /* ApiResponseErrorAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CF014B237C4E8D00DD192A /* ApiResponseErrorAdapter.swift */; };
 		A3D2D0D02340E91100432214 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D2D0C92340E91100432214 /* HomePresenter.swift */; };
 		A3D2D0D22340E91100432214 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D2D0CB2340E91100432214 /* HomeRouter.swift */; };
 		A3D2D0D32340E91100432214 /* HomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D2D0CC2340E91100432214 /* HomeModels.swift */; };
@@ -194,6 +199,7 @@
 		A3D619D3237245B30052BA83 /* SettingsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D619D2237245B30052BA83 /* SettingsBuilder.swift */; };
 		A3D619D52372464D0052BA83 /* SettingsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D619D42372464D0052BA83 /* SettingsTableViewDataSource.swift */; };
 		A3DBCF262361CCFE0044D43F /* ApiMeasureStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DBCF252361CCFE0044D43F /* ApiMeasureStore.swift */; };
+		A3DCC4152385655100452063 /* SaarahFormTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DCC4142385655100452063 /* SaarahFormTableViewDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -324,6 +330,8 @@
 		A304F94C233CED4100C3B6F7 /* SaarahTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahTextField.swift; sourceTree = "<group>"; };
 		A304F94E233E270600C3B6F7 /* SelectableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableCell.swift; sourceTree = "<group>"; };
 		A304F952233E4AD400C3B6F7 /* SaarahTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahTableView.swift; sourceTree = "<group>"; };
+		A30611F3238408ED00949B34 /* FieldErrorLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldErrorLabel.swift; sourceTree = "<group>"; };
+		A30611F5238410F700949B34 /* FormFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFieldViewModel.swift; sourceTree = "<group>"; };
 		A32244F3235E8AE700375793 /* UnderConstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderConstructionViewController.swift; sourceTree = "<group>"; };
 		A32D814A233F6A03008DB50F /* HomeCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		A32D814C233F6FE0008DB50F /* HomeMenuCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuCollectionView.swift; sourceTree = "<group>"; };
@@ -365,6 +373,7 @@
 		A3859A562359FC8B003E4B1B /* ApiHomeNotificationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiHomeNotificationStore.swift; sourceTree = "<group>"; };
 		A3859A58235A0263003E4B1B /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		A3859A5A235A0279003E4B1B /* ConeheadApiEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConeheadApiEndpoint.swift; sourceTree = "<group>"; };
+		A39228FD23798E20007BB0D6 /* ApiResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponseError.swift; sourceTree = "<group>"; };
 		A3A408E02372F38000682D0E /* UIViewController+PresentConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+PresentConfirmation.swift"; sourceTree = "<group>"; };
 		A3A4598F23606B9D000A765F /* SkelectonLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkelectonLoadingView.swift; sourceTree = "<group>"; };
 		A3A4599123607100000A765F /* DefaultCellSkelectonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCellSkelectonTableViewCell.swift; sourceTree = "<group>"; };
@@ -373,10 +382,12 @@
 		A3A79736235B3BBC00B5724F /* HomeNotificationWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNotificationWorker.swift; sourceTree = "<group>"; };
 		A3AACBC72340C946000EFB6B /* SaarahViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahViewController.swift; sourceTree = "<group>"; };
 		A3ABCE70233CCFDE00FF54FD /* SaarahIconImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahIconImageView.swift; sourceTree = "<group>"; };
+		A3AEFA3F2382BCC0007AB749 /* StoreError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreError.swift; sourceTree = "<group>"; };
 		A3B76AD0234CB39D0010B7AF /* HomeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBuilder.swift; sourceTree = "<group>"; };
 		A3C63040235CE6FF0024F683 /* HomeNotificationSkelectonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNotificationSkelectonTableViewCell.swift; sourceTree = "<group>"; };
 		A3C63042235DCEB30024F683 /* HomeTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewDataSource.swift; sourceTree = "<group>"; };
 		A3C63046235DF6110024F683 /* HomeMenuCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		A3CF014B237C4E8D00DD192A /* ApiResponseErrorAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponseErrorAdapter.swift; sourceTree = "<group>"; };
 		A3D2D0C92340E91100432214 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		A3D2D0CB2340E91100432214 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		A3D2D0CC2340E91100432214 /* HomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModels.swift; sourceTree = "<group>"; };
@@ -386,6 +397,7 @@
 		A3D619D2237245B30052BA83 /* SettingsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBuilder.swift; sourceTree = "<group>"; };
 		A3D619D42372464D0052BA83 /* SettingsTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDataSource.swift; sourceTree = "<group>"; };
 		A3DBCF252361CCFE0044D43F /* ApiMeasureStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiMeasureStore.swift; sourceTree = "<group>"; };
+		A3DCC4142385655100452063 /* SaarahFormTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaarahFormTableViewDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -667,6 +679,8 @@
 			isa = PBXGroup;
 			children = (
 				A304F94A233CECC100C3B6F7 /* TextFieldTableViewCell.swift */,
+				A30611F5238410F700949B34 /* FormFieldViewModel.swift */,
+				A3DCC4142385655100452063 /* SaarahFormTableViewDataSource.swift */,
 			);
 			path = "form-cells";
 			sourceTree = "<group>";
@@ -737,6 +751,7 @@
 		A353D7CA231FE44A004A5139 /* models */ = {
 			isa = PBXGroup;
 			children = (
+				A39228FF23798FEC007BB0D6 /* error */,
 				A353D7CD231FE4B1004A5139 /* NavigationDrawerMenu.swift */,
 				487B9B242331193900D8D6CC /* Product.swift */,
 				487B9B2623311BC900D8D6CC /* ProductLog.swift */,
@@ -813,6 +828,7 @@
 				A3A4598F23606B9D000A765F /* SkelectonLoadingView.swift */,
 				A34D156123759D7D00DF815D /* FullScreenActivityIndicator.swift */,
 				1BE018652384116A007410A5 /* SaarahView.swift */,
+				A30611F3238408ED00949B34 /* FieldErrorLabel.swift */,
 			);
 			path = "base-components";
 			sourceTree = "<group>";
@@ -863,6 +879,16 @@
 				A3D619D42372464D0052BA83 /* SettingsTableViewDataSource.swift */,
 			);
 			path = settings;
+			sourceTree = "<group>";
+		};
+		A39228FF23798FEC007BB0D6 /* error */ = {
+			isa = PBXGroup;
+			children = (
+				A39228FD23798E20007BB0D6 /* ApiResponseError.swift */,
+				A3CF014B237C4E8D00DD192A /* ApiResponseErrorAdapter.swift */,
+				A3AEFA3F2382BCC0007AB749 /* StoreError.swift */,
+			);
+			path = error;
 			sourceTree = "<group>";
 		};
 		A3A79733235B3AE300B5724F /* product-service */ = {
@@ -993,6 +1019,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3DCC4152385655100452063 /* SaarahFormTableViewDataSource.swift in Sources */,
 				48BC8069234CB1560001B1A9 /* ConfigurableController.swift in Sources */,
 				1B15E0D22354A44B0047A0B6 /* Localization.swift in Sources */,
 				489C01A1234B89FC00AEC143 /* FileManager+Image.swift in Sources */,
@@ -1060,14 +1087,18 @@
 				484848B52354EEA200A84FB0 /* AddNewProductBuilder.swift in Sources */,
 				487B9B2D23311DE400D8D6CC /* MenuItemProduct.swift in Sources */,
 				1B76635223478E640069D581 /* ListInventoryRouter.swift in Sources */,
+				A3CF014C237C4E8D00DD192A /* ApiResponseErrorAdapter.swift in Sources */,
 				487B9B2723311BC900D8D6CC /* ProductLog.swift in Sources */,
 				1B2DB9BA2357AE2E00AF6D80 /* SelectProductMeasurementModels.swift in Sources */,
 				1B878D2E237C458100B5BFEF /* BarcodeRouter.swift in Sources */,
 				487B9B2F23311E5400D8D6CC /* MenuItem.swift in Sources */,
 				1B716459235CB70D000ABC08 /* ProductItemTableViewCell.swift in Sources */,
 				1B15E0CB2354A3530047A0B6 /* AppStrings.swift in Sources */,
+				A39228FE23798E20007BB0D6 /* ApiResponseError.swift in Sources */,
+				A3AEFA402382BCC0007AB749 /* StoreError.swift in Sources */,
 				A3D619D52372464D0052BA83 /* SettingsTableViewDataSource.swift in Sources */,
 				A3522D692341200A00DB1314 /* HomeNotification.swift in Sources */,
+				A30611F4238408ED00949B34 /* FieldErrorLabel.swift in Sources */,
 				A3B76AD1234CB39D0010B7AF /* HomeBuilder.swift in Sources */,
 				4C94BADD233BA8ED008D62F5 /* UILabel.swift in Sources */,
 				1B4DFA7A23595B6E002C2B55 /* ProductItemModels.swift in Sources */,
@@ -1149,6 +1180,7 @@
 				A304F946233CE21300C3B6F7 /* DefaultCellTableViewCell.swift in Sources */,
 				4C94BAE8233CE4FA008D62F5 /* ProductTableViewCell.swift in Sources */,
 				484848B42354EEA200A84FB0 /* AddNewProductViewController.swift in Sources */,
+				A30611F6238410F700949B34 /* FormFieldViewModel.swift in Sources */,
 				1B5378832359881B007C819D /* Double+RoundToDecimal.swift in Sources */,
 				48244F5923478303007B4AA7 /* ProductDetailModels.swift in Sources */,
 				A3522D6E2341253700DB1314 /* LocalHomeNotificationStore.swift in Sources */,
