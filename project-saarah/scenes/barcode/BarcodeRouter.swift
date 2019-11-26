@@ -59,7 +59,12 @@ class BarcodeRouter: NSObject, BarcodeRoutingLogic, BarcodeDataPassing {
 
 	// MARK: Navigation
 	func navigateToProductDetail(source: BarcodeViewController, destination: ProductDetailViewController) {
-		source.show(destination, sender: nil)
+        let parentViewController = source.navigationController?.viewControllers.first(where: { (viewController) -> Bool in
+            return viewController is ListInventoryViewController
+        })
+        guard let listInventoryViewController = parentViewController as? ListInventoryViewController else { return }
+        guard let listInventoryRouter = listInventoryViewController.router as? ListInventoryRouter else { return }
+        listInventoryRouter.routeToProductDetails(from: source, destination: destination)
 	}
 
     func navigateToNewProduct(source: BarcodeViewController, destination: AddNewProductViewController) {

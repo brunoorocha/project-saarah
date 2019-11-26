@@ -19,17 +19,17 @@ protocol BarcodeDataStore {
 
 class BarcodeInteractor: BarcodeBusinessLogic, BarcodeDataStore {
     var presenter: BarcodePresentationLogic?
-//    var worker: BarcodeWorker?
+    let productWorker = ProductWorker(productService: ApiProductStore())
     var product: Product?
     var barcode: String?
 
 	// MARK: Do something
 	func readedProduct(request: Barcode.ProductReader.Request) {
-        barcode = request.barcode
-//		worker = Worker()
-//		worker?.doSomeWork()
-
-		let response = Barcode.ProductReader.Response(product: nil)
-		presenter?.presentProductFeedback(response: response)
+        self.barcode = request.barcode
+        productWorker.fetchProduct(by: request.barcode, { (product) in
+            self.product = product
+            let response = Barcode.ProductReader.Response(product: product)
+            self.presenter?.presentProductFeedback(response: response)
+        })
 	}
 }

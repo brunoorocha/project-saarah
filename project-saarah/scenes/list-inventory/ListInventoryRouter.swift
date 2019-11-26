@@ -47,6 +47,11 @@ class ListInventoryRouter: NSObject, ListInventoryRoutingLogic, ListInventoryDat
  		navigateToAddNewProduct(source: viewController, destination: destinationVC)
  	}
 
+    func routeToProductDetails(from barcodeVC: BarcodeViewController, destination: ProductDetailViewController) {
+        viewController?.navigationController?.popViewController(animated: true)
+        viewController?.show(destination, sender: nil)
+    }
+
     func routeToBarcode() {
         let destinationVC = BarcodeViewController()
         guard let viewController = viewController else { return }
@@ -73,7 +78,6 @@ class ListInventoryRouter: NSObject, ListInventoryRoutingLogic, ListInventoryDat
  	}
 
     func navigateToReaderBarcode(source: ListInventoryViewController, destination: BarcodeViewController) {
-        destination.modalPresentationStyle = .fullScreen
-        source.present(destination, animated: true, completion: nil)
+        source.show(destination, sender: nil)
     }
 }
