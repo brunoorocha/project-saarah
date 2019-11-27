@@ -9,7 +9,8 @@
 import UIKit
 
 protocol LoginDisplayLogic: class {
-    func displaySignInResponse(viewModel: Login.LogIn.ViewModel.LoginViewModel)
+    func displaySignInResponse()
+    func displayFormErrors(viewModels: [Login.LogIn.ViewModel.FormErrorViewModel])
 }
 
 protocol TappedButtonLoginDelegate: class {
@@ -26,7 +27,11 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
     private var loginTableViewDataSource = LoginTableViewDataSource()
 	private var contentView = LoginView()
     private var scrolledIndexPath: IndexPath?
-    private var isLogin: Bool = false
+    private var isLogin: Bool = false {
+        didSet {
+            self.isLogin ? showFullScreenActivityIndicator() : hideFullScreenActivityIndicator()
+        }
+    }
 
 	// MARK: View lifecycle
 	override func viewDidLoad() {
@@ -85,37 +90,31 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
         loginTableViewDataSource.registerCells(for: contentView.tableView)
         contentView.tableView.dataSource = loginTableViewDataSource
         loginTableViewDataSource.delegate = self
+        loginTableViewDataSource.textFieldDelegate = self
 	}
 
-    func displaySignInResponse(viewModel: Login.LogIn.ViewModel.LoginViewModel) {
+    func displaySignInResponse() {
         isLogin = false
-        if viewModel.success {
-            router?.routeToHome()
-        } else {
-            presentAlertModal(
-                "\(Localization(.loginScene(.errorFormValidation(.alertTitle))))",
-                "\(Localization(.loginScene(.errorFormValidation(.undefined))))",
-                "\(Localization(.loginScene(.errorFormValidation(.action))))"
-            )
-        }
+        router?.routeToHome()
+    }
 
-        hideFullScreenActivityIndicator()
+    func displayFormErrors(viewModels: [Login.LogIn.ViewModel.FormErrorViewModel]) {
+        isLogin = false
+        viewModels.forEach { loginTableViewDataSource.showErrorMessage($0.message, forFieldWithIdentifier: $0.field, in: contentView.tableView) }
     }
 
     func doLogin() {
         guard let email = getFieldEmail() else {
-            presentAlertModal(
-                "\(Localization(.loginScene(.errorFormValidation(.alertTitle))))",
-                "\(Localization(.loginScene(.errorFormValidation(.email))))",
-                "\(Localization(.loginScene(.errorFormValidation(.action))))"
+            loginTableViewDataSource.showErrorMessage(
+                Localization(.loginScene(.errorFormValidation(.email))).description,
+                forFieldWithIdentifier: "email", in: contentView.tableView
             )
             return
         }
         guard let password = getFieldPassword() else {
-            presentAlertModal(
-                "\(Localization(.loginScene(.errorFormValidation(.alertTitle))))",
-                "\(Localization(.loginScene(.errorFormValidation(.password))))",
-                "\(Localization(.loginScene(.errorFormValidation(.action))))"
+            loginTableViewDataSource.showErrorMessage(
+                Localization(.loginScene(.errorFormValidation(.password))).description,
+                forFieldWithIdentifier: "password", in: contentView.tableView
             )
             return
         }
@@ -123,7 +122,6 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
         let form = Login.LogIn.Form(email: email, passowrd: password)
         let request = Login.LogIn.Request(form: form)
         interactor?.logIn(request: request)
-        showFullScreenActivityIndicator()
     }
 
 }
@@ -138,8 +136,10 @@ extension LoginViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if LoginTableViewDataSource.FormPosition.loginButton.indexPath == indexPath
-           && !isLogin {
+        if LoginTableViewDataSource.LoginTableViewSections.loginButton.rawValue == indexPath.section
+            && !isLogin {
+            loginTableViewDataSource.clearAllFieldsErrorMessages(in: contentView.tableView)
+            contentView.endEditing(true)
             doLogin()
         }
     }
@@ -161,6 +161,7 @@ extension LoginViewController {
         if (email.isEmpty) {
             return nil
         }
+
         return email
     }
 
@@ -172,6 +173,17 @@ extension LoginViewController {
         if (password.isEmpty) {
             return nil
         }
+
         return password
+    }
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        guard let identifier = textField.accessibilityIdentifier,
+            let row = loginTableViewDataSource.formFieldsViewModels.firstIndex(where: { $0.identifier == identifier }) else { return true }
+        loginTableViewDataSource.clearFieldErrorMessage(forFieldWithIdentifier: identifier, in: contentView.tableView)
+        loginTableViewDataSource.selectedIndexPath = IndexPath(row: row, section: loginTableViewDataSource.formFieldsSection)
+        return true
     }
 }

@@ -10,26 +10,40 @@ import Foundation
 
 class ApiAccountStore: AccountStore {
 
-    func session(_ completion: @escaping (Result<SessionResponse?, NetworkServiceError>) -> Void) {
+    func session(_ completion: @escaping (Result<SessionResponse?, StoreError>) -> Void) {
           let networkService = NetworkService()
         networkService.request(endpoint: ConeheadApiEndpoint.session) { (result: Result<SessionResponse?, NetworkServiceError>) in
-            completion(result)
+            self.handleResponse(result: result, completion)
         }
     }
 
-    func login(email: String, password: String, _ completion: @escaping (Result<SessionResponse?, NetworkServiceError>) -> Void) {
+    func login(email: String, password: String, _ completion: @escaping (Result<SessionResponse?, StoreError>) -> Void) {
         let networkService = NetworkService()
         networkService.request(endpoint: ConeheadApiEndpoint.login(email: email, passowrd: password)) { (result: Result<SessionResponse?, NetworkServiceError>) in
-            completion(result)
+            self.handleResponse(result: result, completion)
         }
     }
 
-	func signUp(name: String, email: String, password: String, confirmPassword: String, _ completion: @escaping (Result<SessionResponse?, NetworkServiceError>) -> Void) {
+	func signUp(name: String, email: String, password: String, confirmPassword: String, _ completion: @escaping (Result<SessionResponse?, StoreError>) -> Void) {
 		let networkService = NetworkService()
 		networkService.request(endpoint: ConeheadApiEndpoint.signUp(
             name: name, email: email, password: password,
             confirmPassword: confirmPassword)) { (result: Result<SessionResponse?, NetworkServiceError>) in
-			completion(result)
+			self.handleResponse(result: result, completion)
 		}
 	}
+
+    private func handleResponse (result: Result<SessionResponse?, NetworkServiceError>, _ completion: @escaping (Result<SessionResponse?, StoreError>) -> Void) {
+        switch result {
+        case .failure(let error):
+            if let storeError = StoreErrorAdapter.fromNetworkServiceError(error: error) {
+                completion(.failure(storeError))
+                return
+            }
+
+            completion(.failure(StoreError.plain(message: "Unknow error")))
+        case .success(let successResponse):
+            completion(.success(successResponse))
+        }
+    }
 }

@@ -43,4 +43,13 @@ enum AddNewProduct {
             }
         }
     }
+
+    enum GetBarcode {
+        struct Response {
+            let barcode: String
+        }
+        struct ViewModel {
+            var barcode: String
+        }
+    }
 }

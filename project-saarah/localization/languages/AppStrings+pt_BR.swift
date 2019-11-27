@@ -25,14 +25,17 @@ extension AppStrings {
             }
         case .productItemTableViewCell(let options):
             switch options {
-            case .amountLabel:
-                return "Quantidade"
-            case .validityLabel:
-                return "Validade"
-            case .priceLabel:
-                return "Valor"
-            case .addedOnDayLabel:
-                return "Adicionado no dia"
+            case .label(let labels):
+                switch labels {
+                case .amount:
+                    return "Quantidade"
+                case .validity:
+                    return "Validade"
+                case .price:
+                    return "Valor"
+                case .addedOnDay:
+                    return "Adicionado no dia"
+                }
             }
         case .homeMenuOptionTitle(let options):
             switch options {
@@ -94,42 +97,60 @@ extension AppStrings {
             switch (options) {
             case .title:
                 return "Criar novo produto"
-            case .cancelBarButton:
-                return "Cancelar"
-            case .saveBarButton:
-                return "Salvar"
             case .basicInformation:
-                return "INFORMAÇÕES BÁSICAS"
-            case .productName:
-                return "Nome do produto"
-            case .productNamePlaceholder:
-                return "Toque para digitar o nome do produto"
-            case .barCode:
-                return "Código de barras (opcional)"
-            case .barCodePlacehoder:
-                return "Toque para inserir o código de barras"
-            case .measure:
-                return "Unidade de medida"
-            case .measurePlaceholder:
-                return "Quilos, gramas, litros"
-            case .successResponseTitle:
-                return "Produto criado com sucesso"
-            case .successResponseMessage:
-                return "Você deseja adiciona um produto agora?"
-            case .alertOkAction:
-                return "Ok"
-            case .alertCancelAction:
-				return "Mais tarde"
-            case .alertAddProductItemAction:
-				return "Sim"
-            case .alertFormTitle:
-				return "Erro"
-            case .alertFormName:
-				return "Insira o nome do produto."
-            case .alertFormBarCode:
-				return "O código de barra deve conter apenas números."
-            case .alertFormMeasure:
-				return "Selecione uma unidade de medida."
+                return "Informações Básicas"
+            case .barButton(let buttons):
+                switch buttons {
+                case .save:
+                    return "Salvar"
+                case .cancel:
+                    return "Cancelar"
+                }
+            case .alert(let alerts):
+                switch alerts {
+                case .okAction:
+                    return "Ok"
+                case .cancelAction:
+                    return "Mais tarde"
+                case .addProductItemAction:
+                    return "Agora"
+                case .form(let form):
+                    switch form {
+                    case .title:
+                        return "Erro"
+                    case .name:
+                        return "Insira o nome do produto."
+                    case .barCode:
+                        return "O código de barra deve conter apenas números."
+                    case .meausre:
+                        return "Selecione uma unidade de medida."
+                    }
+                }
+            case .response(let responses):
+                switch responses {
+                case .success(let successes):
+                    switch successes {
+                    case .title:
+                        return "Produto criado com sucesso"
+                    case .message:
+                        return "Você deseja adiciona um item do produto agora?"
+                    }
+                }
+            case .field(let fields):
+                switch fields {
+                case .productName:
+                    return "Nome do produto"
+                case .productNamePlaceholder:
+                    return "Toque para digitar o nome do produto"
+                case .barCode:
+                    return "Código de barras (opcional)"
+                case .barCodePlacehoder:
+                    return "Toque para inserir o código de barras"
+                case .measure:
+                    return "Unidade de medida"
+                case .measurePlaceholder:
+                    return "Quilos, gramas, litros"
+                }
             }
         case .productItemScene(let options):
             switch options {
@@ -142,38 +163,50 @@ extension AppStrings {
             switch options {
             case .title:
                 return "Adicionar item do produto"
-            case .cancelBarButton:
-                return "Cancelar"
-            case .saveBarButton:
-                return "Salvar"
             case .alertActionTitle:
                 return "Ok"
-            case .basicInformation:
-                return "INFORMAÇÕES BÁSICAS"
-            case .quantity:
-                return "Quantidade"
-            case .quantityPlaceholder:
-                return "0 "
-            case .price:
-                return "Preço"
-            case .pricePlaceholder:
-                return "R$ 0,00"
-            case .complementaryInformation:
-                return "INFORMAÇÕES COMPLEMENTARES (OPCIONAL)"
-            case .expirationDate:
-                return "Validade"
-            case .expirationDatePlaceholder:
-                return "Toque para inserir a validade"
-            case .errorFormAlertTitle:
-                return "Erro"
-            case .errorFormActionAlertTitle:
-                return "Ok"
-            case .errorFormQuantityAlertMessage:
-                return "O campo quantidade só aceita números."
-            case .errorFormPriceAlertMessage:
-                return "O campo preço só aceita números."
-            case .errorFormExpirationAlertMessage:
-                return "O campo data de validade deve ser preenchido com dia/mês/ano."
+            case .information(let informations):
+                switch informations {
+                case .basic:
+                    return "Informações básicas"
+                case .complementary:
+                    return "Informações complementares (opcional)"
+                }
+            case .barButton(let button):
+                switch button {
+                case .save:
+                    return "Salvar"
+                case .cancel:
+                    return "Cancelar"
+                }
+            case .field(let fields):
+                switch fields {
+                case .quantity:
+                    return "Quantidade"
+                case .quantityPlaceholder:
+                    return "0 "
+                case .price:
+                    return "Preço"
+                case .pricePlaceholder:
+                    return "R$ 0,00"
+                case .expirationDate:
+                    return "Validade"
+                case .expirationDatePlaceholder:
+                    return "Toque para inserir a validade"
+                }
+            case .errorForm(let errors):
+                switch errors {
+                case .alertTitle:
+                    return "Erro"
+                case .action:
+                    return "Ok"
+                case .quantityAlertMessage:
+                    return "O campo quantidade só aceita números."
+                case .priceAlertMessage:
+                    return "O campo preço só aceita números."
+                case .expirationAlertMessage:
+                    return "O campo data de validade deve ser preenchido com dia/mês/ano."
+                }
             case .response(let options):
                 switch (options) {
                 case .successTitle:
@@ -222,7 +255,7 @@ extension AppStrings {
             switch options {
             case .title:
                 return "Entrar"
-            case .textField(let fields):
+            case .field(let fields):
                 switch fields {
                 case .mail:
                     return "Email"
@@ -256,54 +289,63 @@ extension AppStrings {
             }
         case .createAccountScene(let options):
             switch options {
-            case .headerTitle:
-                return "Não possui uma conta?"
-            case .headerSubtitle:
-                return "Sem problemas. Você pode criar uma rapidinho."
-            case .nameCellTitle:
-                return "Nome"
-            case .nameCellPlaceholder:
-                return "Toque para digitar seu nome"
-            case .emailCellTitle:
-                return "Email"
-            case .emailCellPlaceholder:
-                return "Toque para digitar seu email"
-            case .passwordCellTitle:
-                return "Senha"
-            case .passwordCellPlaceholder:
-                return "Toque para digitar sua senha"
-            case .confirmPasswordCellTitle:
-                return "Confirme a senha"
-            case .confirmPasswordCellPlaceholder:
-                return "Toque para digitar sua senha novamente"
-            case .createAccountButtonTitlle:
+            case .createAccountButtonTitle:
                 return "Criar conta"
-            case .errorFormAlertTitle:
-                return "Erro"
-            case .errorFormActionTitle:
-                return "Ok"
-            case .errorFormNameMessage:
-                return "O campo nome é obrigatório!"
-            case .errorFormEmailMessage:
-                return "O campo Email é obrigatório!"
-            case .errorFormInvalidEmail:
-                return "Insera um Email válido!"
-            case .errorFormPasswordMessage:
-                return "O campo senha é obrigatório!"
-            case .errorFormConfirmPasswordMessage:
-                return "O campo confirmar senha é obrigatório"
-            case .errorFormPasswordsDontMatchMessage:
-                return "As senhas devem ser iguais!"
-            case .errorFormPasswordSize:
-                return "A senha deve conter pelo menos 6 caracteres!"
-            case .errorSignUpTitle:
-                return "Falha ao cadastrar"
-            case .errorSignUpMessage:
-                return "Ocorreu algum erro durante o seu cadastro, tente novamente!"
+            case .header(let header):
+                switch header {
+                case .title:
+                    return "Não possui uma conta?"
+                case .subtitle:
+                    return "Sem problemas. Você pode criar uma rapidinho."
+                }
+            case .field(let fields):
+                switch fields {
+                case .name:
+                    return "Nome"
+                case .namePlaceholder:
+                    return "Toque para digitar seu nome"
+                case .email:
+                    return "Email"
+                case .emailPlaceholder:
+                    return "Toque para digitar seu email"
+                case .password:
+                    return "Senha"
+                case .passwordPlaceholder:
+                    return "Toque para digitar sua senha"
+                case .confirmPassword:
+                    return "Confirme a senha"
+                case .confirmPasswordPlaceholder:
+                    return "Toque para digitar sua senha novamente"
+                }
+            case .errorForm(let errors):
+                switch errors {
+                case .alertTitle:
+                    return "Erro"
+                case .action:
+                    return "Ok"
+                case .nameMessage:
+                    return "O campo nome é obrigatório!"
+                case .emailMessage:
+                    return "O campo Email é obrigatório!"
+                case .invalidEmail:
+                    return "Insera um Email válido!"
+                case .passwordMessage:
+                    return "O campo senha é obrigatório!"
+                case .confirmPasswordMessage:
+                    return "O campo confirmar senha é obrigatório"
+                case .passwordsDontMatchMessage:
+                    return "As senhas devem ser iguais!"
+                case .passwordSize:
+                    return "A senha deve conter pelo menos 6 caracteres!"
+                case .signUpTitle:
+                    return "Falha ao cadastrar"
+                case .signUpMessage:
+                    return "Ocorreu algum erro durante o seu cadastro, tente novamente!"
+                }
             }
         case .onboarding(let options):
             switch options {
-            case .before:
+            case .previous:
                 return "Anterior"
             case .next:
                 return "Próximo"
@@ -317,6 +359,43 @@ extension AppStrings {
                     return "Monte o seu cardápio baseado nos produtos do estoque."
                 case .third:
                     return "Acompanhe as entradas e saídas de produtos e pratos do seu negócio."
+                }
+            }
+        case .barcodeScene(let options):
+            switch options {
+            case .view(let views):
+                switch views {
+                case .notFound(let messages):
+                    switch messages {
+                    case .product:
+                        return "Produto não encontrado."
+                    case .overview:
+                        return "Você pode criar um novo produto no estoque com esse código de barras."
+                    }
+                }
+            }
+        case .errorMessage(let options):
+            switch options {
+            case .api(let apiError):
+                switch apiError {
+                case .notFoundUserWithEmail:
+                    return "Nenhuma conta foi encontrada com esse email"
+                case .passwordDoesntMatchForUserWithEmail:
+                    return "Sua senha está incorreta"
+                case .unauthorizedObjectAccess:
+                    return "Você não tem autorização para acessar esse objeto"
+                case .unableToRemoveObject:
+                    return "Não foi possível remover o objeto"
+                case .unableToCreateObject:
+                    return "Não foi possível criar o objeto"
+                case .objectNotFound:
+                    return "Objeto não encontrado"
+                case .objectWithThisPropertyAlreadyExists:
+                    return "Já existe um objeto com essa propriedade"
+                case .invalidValue:
+                    return "Valor inválido"
+                case .alreadyExistsAnUserWithEmail:
+                    return "Já existe uma conta utilizando este email"
                 }
             }
         }

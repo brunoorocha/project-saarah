@@ -12,6 +12,7 @@ protocol AddNewProductPresentationLogic {
     func presentSaveProductResponse(response: AddNewProduct.SaveProduct.Response)
     func presentGetMeasureResponse(response: AddNewProduct.GetMeasure.Response)
 	func productItemReceived()
+    func presentGetBarcodeResponse(response: AddNewProduct.GetBarcode.Response)
 }
 
 class AddNewProductPresenter: AddNewProductPresentationLogic {
@@ -23,8 +24,9 @@ class AddNewProductPresenter: AddNewProductPresentationLogic {
         if response.success {
 			let viewModel = AddNewProduct
                 .SaveProduct.ViewModel.Response(success: true,
-												title: "\(Localization(.addNewProductScene(.successResponseTitle)))",
-												message: "\(Localization(.addNewProductScene(.successResponseMessage)))")
+                                                title: Localization(.addNewProductScene(.response(.success(.title)))).description,
+												message: Localization(.addNewProductScene(.response(.success(.message)))).description
+            )
 			viewController?.displayResponse(viewModel: viewModel)
 		}
 	}
@@ -38,4 +40,9 @@ class AddNewProductPresenter: AddNewProductPresentationLogic {
 	func productItemReceived() {
 		viewController?.productItemReceived()
 	}
+
+    func presentGetBarcodeResponse(response: AddNewProduct.GetBarcode.Response) {
+        let viewModel = AddNewProduct.GetBarcode.ViewModel(barcode: response.barcode)
+        viewController?.barcodeReceived(viewModel: viewModel)
+    }
 }

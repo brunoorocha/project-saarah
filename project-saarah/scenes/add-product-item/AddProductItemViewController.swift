@@ -77,18 +77,18 @@ class AddProductItemViewController: UIViewController, AddProductItemDisplayLogic
 	func saveProductItem() {
 		guard let quantity = validateQuantity() else {
 			presentAlertModal(
-                "\(Localization(.addProductItemScene(.errorFormAlertTitle)))",
-                "\(Localization(.addProductItemScene(.errorFormQuantityAlertMessage)))",
-                "\(Localization(.addProductItemScene(.errorFormActionAlertTitle)))"
+                Localization(.addProductItemScene(.errorForm(.alertTitle))).description,
+                Localization(.addProductItemScene(.errorForm(.quantityAlertMessage))).description,
+                Localization(.addProductItemScene(.errorForm(.action))).description
             )
 			return
 		}
 
 		guard let price = validatePrice() else {
 			presentAlertModal(
-                "\(Localization(.addProductItemScene(.errorFormAlertTitle)))",
-                "\(Localization(.addProductItemScene(.errorFormPriceAlertMessage)))",
-                "\(Localization(.addProductItemScene(.errorFormActionAlertTitle)))"
+                Localization(.addProductItemScene(.errorForm(.alertTitle))).description,
+                Localization(.addProductItemScene(.errorForm(.priceAlertMessage))).description,
+                Localization(.addProductItemScene(.errorForm(.action))).description
             )
 			return
 		}
@@ -139,7 +139,7 @@ extension AddProductItemViewController: AddProductItemTableViewDataSourceDelegat
 
 extension AddProductItemViewController: AddProductItemViewDelegate {
 	func cancelAction() {
-		dismiss(animated: true, completion: nil)
+		router?.routeBack()
 	}
 
 	func saveAction() {

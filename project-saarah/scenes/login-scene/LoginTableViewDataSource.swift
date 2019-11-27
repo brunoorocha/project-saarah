@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginTableViewDataSource: NSObject {
+class LoginTableViewDataSource: SaarahFormTableViewDataSource {
 
     var tableViewSections = LoginTableViewSections.allCases
 
@@ -28,28 +28,33 @@ class LoginTableViewDataSource: NSObject {
        }
     }
 
-    // Used by controller in keyboard observer
-    var selectedIndexPath: IndexPath?
-
-    enum FormPosition: String {
-        case mail = "Mail"
-        case password = "Password"
-        case loginButton = "Login button"
-
-        var indexPath: IndexPath {
-            switch self {
-            case .mail:
-                return IndexPath(row: 0, section: 0)
-            case .password:
-                return IndexPath(row: 1, section: 0)
-            case .loginButton:
-                return IndexPath(row: 0, section: 1)
-            }
-        }
+    override init() {
+        super.init()
+        formFieldsSection = LoginTableViewSections.login.rawValue
     }
 
-    func registerCells(for tableView: UITableView) {
-        tableView.register(TextFieldTableViewCell.self, forCellReuseIdentifier: LoginTableViewSections.login.reuseIdentifier)
+    override func setFormFieldsViewModels () {
+        formFieldsViewModels = [
+            FormFieldViewModel(
+                label: Localization(.loginScene(.field(.mail))).description,
+                placeholder: Localization(.loginScene(.field(.mailPlaceholder))).description,
+                keyboardType: .email,
+                identifier: "email",
+                errorLabel: ""
+            ),
+
+            FormFieldViewModel(
+                label: Localization(.loginScene(.field(.password))).description,
+                placeholder: Localization(.loginScene(.field(.passwordPlaceholder))).description,
+                keyboardType: .password,
+                identifier: "password",
+                errorLabel: ""
+            )
+        ]
+    }
+
+    override func registerCells(for tableView: UITableView) {
+        super.registerCells(for: tableView)
         tableView.register(PurpleButtonTableViewCell.self, forCellReuseIdentifier: LoginTableViewSections.loginButton.reuseIdentifier)
     }
 
@@ -57,7 +62,7 @@ class LoginTableViewDataSource: NSObject {
         guard let section = LoginTableViewSections(rawValue: section) else { return 0 }
         switch section {
         case .login:
-            return 2
+            return numberOfFields()
         case .loginButton:
             return 1
         }
@@ -68,8 +73,10 @@ class LoginTableViewDataSource: NSObject {
         switch section {
         case .login:
             let headerView = GreetingSectionHeaderView()
-            headerView.setTitle(with: "\(Localization(.loginScene(.greeting(.title))))",
-                                andDescription: "\(Localization(.loginScene(.greeting(.description))))")
+            headerView.setTitle(
+                with: Localization(.loginScene(.greeting(.title))).description,
+                andDescription: Localization(.loginScene(.greeting(.description))).description
+            )
             return headerView
         case .loginButton:
             return EmptySectionHeaderView()
@@ -104,65 +111,25 @@ class LoginTableViewDataSource: NSObject {
 
     // MARK: Sections cells
     func firstSectionCell(for tableView: UITableView, in indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: LoginTableViewSections.login.reuseIdentifier, for: indexPath) as? TextFieldTableViewCell else { return UITableViewCell() } // swiftlint:disable:this line_length
-        let row = indexPath.row
-        cell.roundCellIfNeeded(index: row, numberOfCells: 2)
-
-        switch (row) {
-        case 0:
-            cell.fieldLabel.text = "\(Localization(.loginScene(.textField(.mail))))"
-            cell.textField.accessibilityIdentifier = FormPosition.mail.rawValue
-            cell.textField.keyboardType = .emailAddress
-            cell.textField.placeholder = "\(Localization(.loginScene(.textField(.mailPlaceholder))))"
-            cell.textField.delegate = self
-        case 1:
-            cell.fieldLabel.text = "\(Localization(.loginScene(.textField(.password))))"
-            cell.textField.accessibilityIdentifier = FormPosition.password.rawValue
-            cell.textField.isSecureTextEntry = true
-            cell.textField.placeholder = "\(Localization(.loginScene(.textField(.passwordPlaceholder))))"
-            cell.textField.delegate = self
-        default:
-            return UITableViewCell()
-        }
-
-        return cell
+        return fieldCell(for: tableView, in: indexPath)
     }
 
     func secondSectionCell(for tableView: UITableView, in indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: LoginTableViewSections.loginButton.reuseIdentifier, for: indexPath) as? PurpleButtonTableViewCell else { return UITableViewCell() } // swiftlint:disable:this line_length
 
-        cell.setTitle(with: "\(Localization(.loginScene(.title)))")
-
+        cell.setTitle(with: Localization(.loginScene(.title)).description)
         return cell
     }
-}
 
-extension LoginTableViewDataSource: UITableViewDataSource {
-    func numberOfSections (in tableView: UITableView) -> Int {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return cell(for: tableView, in: indexPath)
+    }
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return tableViewSections.count
     }
 
-    func tableView (_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return numberOfRows(in: section)
-    }
-
-    func tableView (_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return cell(for: tableView, in: indexPath)
-    }
-}
-
-extension LoginTableViewDataSource: UITextFieldDelegate {
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        guard let identifier = textField.accessibilityIdentifier else { return true }
-        switch identifier {
-        case FormPosition.mail.rawValue:
-            selectedIndexPath = FormPosition.mail.indexPath
-        case FormPosition.password.rawValue:
-            selectedIndexPath = FormPosition.password.indexPath
-        default:
-            selectedIndexPath = nil
-            return true
-        }
-        return true
     }
 }

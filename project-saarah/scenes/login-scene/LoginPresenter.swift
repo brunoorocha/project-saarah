@@ -9,20 +9,27 @@
 import Foundation
 
 protocol LoginPresentationLogic {
-	func presentLoginResponse(response: Login.LogIn.Response)
+    func presentLoginResponse(response: Login.LogIn.Response.Success)
+    func presentFormErrorsResponse(response: Login.LogIn.Response.Failure)
 }
 
 class LoginPresenter: LoginPresentationLogic {
 	weak var viewController: LoginDisplayLogic?
 
-	// MARK: Do something
-	func presentLoginResponse(response: Login.LogIn.Response) {
-        if (response.response != nil) {
-            let viewModel = Login.LogIn.ViewModel.LoginViewModel(success: true)
-            viewController?.displaySignInResponse(viewModel: viewModel)
-        } else {
-            let viewModel = Login.LogIn.ViewModel.LoginViewModel(success: false)
-            viewController?.displaySignInResponse(viewModel: viewModel)
-        }
+    func presentLoginResponse(response: Login.LogIn.Response.Success) {
+        viewController?.displaySignInResponse()
 	}
+
+    func presentFormErrorsResponse(response: Login.LogIn.Response.Failure) {
+        let formErrorViewModels = response.formErrors.map { formError -> Login.LogIn.ViewModel.FormErrorViewModel in
+            guard let apiResponseError = ApiPossibleResponseErrors(rawValue: formError.error) else {
+                return Login.LogIn.ViewModel.FormErrorViewModel(field: "", message: "")
+            }
+
+            let errorMessage = Localization(.errorMessage(.api(apiResponseError))).description
+            return Login.LogIn.ViewModel.FormErrorViewModel(field: formError.field, message: errorMessage)
+        }
+
+        viewController?.displayFormErrors(viewModels: formErrorViewModels)
+    }
 }

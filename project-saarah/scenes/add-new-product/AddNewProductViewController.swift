@@ -12,6 +12,7 @@ protocol AddNewProductDisplayLogic: class {
 	func displayResponse(viewModel: AddNewProduct.SaveProduct.ViewModel.Response)
     func displayMeasureResponse(viewModel: AddNewProduct.GetMeasure.ViewModel.Measure)
 	func productItemReceived()
+    func barcodeReceived(viewModel: AddNewProduct.GetBarcode.ViewModel)
 }
 
 class AddNewProductViewController: SaarahViewController, AddNewProductDisplayLogic {
@@ -53,24 +54,30 @@ class AddNewProductViewController: SaarahViewController, AddNewProductDisplayLog
 	// MARK: Display new product response
 	func displayResponse(viewModel: AddNewProduct.SaveProduct.ViewModel.Response) {
 		let alert = UIAlertController(title: viewModel.title, message: viewModel.message, preferredStyle: .alert)
-        var okAction: UIAlertAction
+        var action: UIAlertAction
 		if (viewModel.success) {
-			let addProductItemAction = UIAlertAction(title: "\(Localization(.addNewProductScene(.alertAddProductItemAction)))", style: .default) { (_) in
+            let addProductItemAction = UIAlertAction(
+                title: Localization(.addNewProductScene(.alert(.addProductItemAction))).description,
+                style: .default) { (_) in
 				self.router?.routeToAddProductItem()
 			}
 			addProductItemAction.setValue(AppStyleGuide.Colors.primary.uiColor, forKey: "titleTextColor")
 			alert.addAction(addProductItemAction)
 
-			okAction = UIAlertAction(title: "\(Localization(.addNewProductScene(.alertCancelAction)))", style: .cancel) { _ in
+            action = UIAlertAction(title: Localization(.addNewProductScene(.alert(.cancelAction))).description, style: .cancel) { _ in
 				self.router?.routeToListInventory()
 
 			}
-			okAction.setValue(AppStyleGuide.Colors.primary.uiColor, forKey: "titleTextColor")
-			alert.addAction(okAction)
+			action.setValue(AppStyleGuide.Colors.primary.uiColor, forKey: "titleTextColor")
+			alert.addAction(action)
 		} else {
-            okAction = UIAlertAction(title: "\(Localization(.addNewProductScene(.alertOkAction)))", style: .default, handler: nil)
-			okAction.setValue(AppStyleGuide.Colors.primary.uiColor, forKey: "titleTextColor")
-			alert.addAction(okAction)
+            action = UIAlertAction(
+                title: Localization(.addNewProductScene(.alert(.okAction))).description,
+                style: .default,
+                handler: nil
+            )
+			action.setValue(AppStyleGuide.Colors.primary.uiColor, forKey: "titleTextColor")
+			alert.addAction(action)
         }
 
 		present(alert, animated: true, completion: nil)
@@ -89,19 +96,30 @@ class AddNewProductViewController: SaarahViewController, AddNewProductDisplayLog
 
 	func addProduct() {
 		guard let productName = validateProductName() else {
-			presentAlertModal("\(Localization(.addNewProductScene(.alertFormTitle)))", "\(Localization(.addNewProductScene(.alertFormName)))", "\(Localization(.addNewProductScene(.alertOkAction)))")
+            presentAlertModal(
+                Localization(.addNewProductScene(.alert(.form(.title)))).description,
+                Localization(.addNewProductScene(.alert(.form(.name)))).description,
+                Localization(.addNewProductScene(.alert(.okAction))).description
+            )
 			return
 		}
 
 		let validationBarCode = validateBarCode()
 		if (!validationBarCode.isValid) {
-			presentAlertModal("\(Localization(.addNewProductScene(.alertFormTitle)))", "\(Localization(.addNewProductScene(.alertFormBarCode)))", "\(Localization(.addNewProductScene(.alertOkAction)))")
+            presentAlertModal(
+                Localization(.addNewProductScene(.alert(.form(.title)))).description,
+                Localization(.addNewProductScene(.alert(.form(.barCode)))).description,
+                Localization(.addNewProductScene(.alert(.okAction))).description
+            )
 			return
 		}
 
 		if (!validadeSelectMeasure()) {
-			presentAlertModal("\(Localization(.addNewProductScene(.alertFormTitle)))", "\(Localization(.addNewProductScene(.alertFormMeasure)))", "\(Localization(.addNewProductScene(.alertOkAction)))")
-
+			presentAlertModal(
+                Localization(.addNewProductScene(.alert(.form(.title)))).description,
+                Localization(.addNewProductScene(.alert(.form(.meausre)))).description,
+                Localization(.addNewProductScene(.alert(.okAction))).description
+            )
 			return
 		}
 
@@ -109,6 +127,12 @@ class AddNewProductViewController: SaarahViewController, AddNewProductDisplayLog
 		let request = AddNewProduct.SaveProduct.Request(productForm: productForm)
 		interactor?.saveNewProduct(request: request)
 	}
+
+    var barcode: String?
+
+    func barcodeReceived(viewModel: AddNewProduct.GetBarcode.ViewModel) {
+        tableViewDataSource.barcodeReceived = viewModel.barcode
+    }
 
 	func validateProductName() -> String? {
 		let indexPath = IndexPath(row: 0, section: 0)

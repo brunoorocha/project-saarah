@@ -8,141 +8,119 @@
 
 import UIKit
 
-class CreateAccountTableViewDataSource: NSObject {
-	func registerCells(for tableView: UITableView) {
-		tableView.register(TextFieldTableViewCell.self, forCellReuseIdentifier: "TextFieldTableViewCell")
+class CreateAccountTableViewDataSource: SaarahFormTableViewDataSource {
+    var tableViewSections = TableViewSections.allCases
+
+    enum TableViewSections: Int, CaseIterable {
+       case fields
+       case button
+
+      var reuseIdentifier: String {
+          switch self {
+          case .fields:
+              return "TextFieldTableViewCell"
+          case .button:
+              return "PurpleButtonTableViewCell"
+          }
+      }
+    }
+
+    override func setFormFieldsViewModels() {
+        formFieldsViewModels = [
+            FormFieldViewModel(
+                label: Localization(.createAccountScene(.field(.name))).description,
+                placeholder: Localization(.createAccountScene(.field(.namePlaceholder))).description,
+                identifier: "name",
+                errorLabel: ""
+            ),
+            FormFieldViewModel(
+                label: Localization(.createAccountScene(.field(.email))).description,
+                placeholder: Localization(.createAccountScene(.field(.emailPlaceholder))).description,
+                keyboardType: .email,
+                identifier: "email",
+                errorLabel: ""
+            ),
+            FormFieldViewModel(
+                label: Localization(.createAccountScene(.field(.password))).description,
+                placeholder: Localization(.createAccountScene(.field(.passwordPlaceholder))).description,
+                keyboardType: .password,
+                identifier: "password",
+                errorLabel: ""
+            ),
+            FormFieldViewModel(
+                label: Localization(.createAccountScene(.field(.confirmPassword))).description,
+                placeholder: Localization(.createAccountScene(.field(.confirmPasswordPlaceholder))).description,
+                keyboardType: .password,
+                identifier: "passwordConfirmation",
+                errorLabel: ""
+            )
+        ]
+    }
+
+	override func registerCells(for tableView: UITableView) {
+        super.registerCells(for: tableView)
 		tableView.register(PurpleButtonTableViewCell.self, forCellReuseIdentifier: "PurpleButtonTableViewCell")
 	}
 
 	func numberOfSections() -> Int {
-		return 2
+        return tableViewSections.count
 	}
-
-	func reuseIdentifier(for section: Int) -> String {
-		switch (section) {
-		case 0:
-			return "TextFieldTableViewCell"
-		case 1:
-			return "PurpleButtonTableViewCell"
-		default:
-			return ""
-		}
-	}
-
-    // Used by controller in keyboard observer
-    var selectedIndexPath: IndexPath?
-
-    enum FormPosition: String {
-        case name = "Name"
-        case email = "Email"
-        case password = "Password"
-        case confirmPassword = "Confirm Password"
-        case registerButton = "Register button"
-
-        var indexPath: IndexPath {
-            switch self {
-            case .name:
-                return IndexPath(row: 0, section: 0)
-            case .email:
-                return IndexPath(row: 1, section: 0)
-            case .password:
-                return IndexPath(row: 2, section: 0)
-            case .confirmPassword:
-                return IndexPath(row: 3, section: 0)
-            case .registerButton:
-                return IndexPath(row: 0, section: 1)
-            }
-        }
-    }
 
 	func viewForHeader(in section: Int) -> UIView {
-		switch (section) {
-		case 0:
-			let headerView = GreetingSectionHeaderView()
-			headerView.setTitle(with: "\(Localization(.createAccountScene(.headerTitle)))", andDescription: "\(Localization(.createAccountScene(.headerSubtitle)))")
+        guard let section = TableViewSections(rawValue: section) else { return UIView() }
+        switch (section) {
+        case .fields:
+            let headerView = GreetingSectionHeaderView()
+			headerView.setTitle(
+                with: Localization(.createAccountScene(.header(.title))).description,
+                andDescription: Localization(.createAccountScene(.header(.subtitle))).description
+            )
 			return headerView
-		case 1:
-			return EmptySectionHeaderView()
-		default:
-			return UIView()
-		}
+        case .button:
+            return EmptySectionHeaderView()
+        }
 	}
 
 	func numberOfRows(in section: Int) -> Int {
-		switch (section) {
-		case 0:
-			return 4
-		case 1:
-			return 1
-		default:
-			return 0
-		}
-	}
-
-	func modify( _ cell: UITableViewCell, for indexPath: IndexPath) -> UITableViewCell {
-		switch (indexPath.section) {
-		case 0:
-			return firstSection(cell, for: indexPath.row)
-		case 1:
-			return secondSection(cell)
-		default:
-			return UITableViewCell()
-		}
-	}
-
-	func firstSection(_ cell: UITableViewCell, for row: Int) -> UITableViewCell {
-		guard let cell = cell as? TextFieldTableViewCell else { return UITableViewCell() }
-		cell.roundCellIfNeeded(index: row, numberOfCells: 4)
-
-		switch (row) {
-		case 0:
-			cell.fieldLabel.text = "\(Localization(.createAccountScene(.nameCellTitle)))"
-			cell.textField.placeholder = "\(Localization(.createAccountScene(.nameCellPlaceholder)))"
-            cell.textField.accessibilityIdentifier = FormPosition.name.rawValue
-		case 1:
-			cell.fieldLabel.text = "\(Localization(.createAccountScene(.emailCellTitle)))"
-			cell.textField.placeholder = "\(Localization(.createAccountScene(.emailCellPlaceholder)))"
-            cell.textField.accessibilityIdentifier = FormPosition.email.rawValue
-		case 2:
-			cell.fieldLabel.text = "\(Localization(.createAccountScene(.passwordCellTitle)))"
-			cell.textField.placeholder = "\(Localization(.createAccountScene(.passwordCellPlaceholder)))"
-			cell.textField.isSecureTextEntry = true
-            cell.textField.accessibilityIdentifier = FormPosition.password.rawValue
-		case 3:
-			cell.fieldLabel.text = "\(Localization(.createAccountScene(.confirmPasswordCellTitle)))"
-			cell.textField.placeholder = "\(Localization(.createAccountScene(.confirmPasswordCellPlaceholder)))"
-			cell.textField.isSecureTextEntry = true
-            cell.textField.accessibilityIdentifier = FormPosition.confirmPassword.rawValue
-		default:
-			break
-		}
-        cell.textField.delegate = self
-		return cell
-	}
-
-	func secondSection(_ cell: UITableViewCell) -> UITableViewCell {
-		guard let cell = cell as? PurpleButtonTableViewCell else { return UITableViewCell() }
-		cell.setTitle(with: "\(Localization(.createAccountScene(.createAccountButtonTitlle)))")
-		return cell
-	}
-}
-
-extension CreateAccountTableViewDataSource: UITextFieldDelegate {
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        guard let identifier = textField.accessibilityIdentifier else { return true }
-        switch identifier {
-        case FormPosition.name.rawValue:
-            selectedIndexPath = FormPosition.name.indexPath
-        case FormPosition.email.rawValue:
-            selectedIndexPath = FormPosition.email.indexPath
-        case FormPosition.password.rawValue:
-            selectedIndexPath = FormPosition.password.indexPath
-        case FormPosition.confirmPassword.rawValue:
-            selectedIndexPath = FormPosition.confirmPassword.indexPath
-        default:
-            selectedIndexPath = nil
-            return true
+        guard let section = TableViewSections(rawValue: section) else { return 0 }
+        switch (section) {
+        case .fields:
+            return numberOfFields()
+        case .button:
+            return 1
         }
-        return true
+	}
+
+	func cell (for tableView: UITableView, in indexPath: IndexPath) -> UITableViewCell {
+        guard let section = TableViewSections(rawValue: indexPath.section) else { return UITableViewCell() }
+        switch (section) {
+        case .fields:
+            return firstSection(for: tableView, in: indexPath)
+        case .button:
+            return secondSection(for: tableView, in: indexPath)
+        }
+	}
+
+	func firstSection(for tableView: UITableView, in indexPath: IndexPath) -> UITableViewCell {
+		return fieldCell(for: tableView, in: indexPath)
+	}
+
+    func secondSection(for tableView: UITableView, in indexPath: IndexPath) -> UITableViewCell {
+        guard let section = TableViewSections(rawValue: indexPath.section),
+            let cell = tableView.dequeueReusableCell(withIdentifier: section.reuseIdentifier, for: indexPath) as? PurpleButtonTableViewCell else { return UITableViewCell() }
+        cell.setTitle(with: Localization(.createAccountScene(.createAccountButtonTitle)).description)
+		return cell
+	}
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return cell(for: tableView, in: indexPath)
+    }
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return numberOfSections()
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return numberOfRows(in: section)
     }
 }

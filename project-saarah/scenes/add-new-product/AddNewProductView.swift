@@ -22,7 +22,7 @@ class AddNewProductView: UIView {
 	init() {
 		super.init(frame: .zero)
 
-		backgroundColor = UIColor.white
+        backgroundColor = AppStyleGuide.Colors.foreground.uiColor
 
 		instantiateViews()
 		buildViewsHierarchy()
@@ -47,13 +47,14 @@ class AddNewProductView: UIView {
             NSAttributedString.Key.foregroundColor: AppStyleGuide.Colors.textColor.uiColor
         ]
 
+        navigationBar.backgroundColor = AppStyleGuide.Colors.foreground.uiColor
         navigationBar.titleTextAttributes = navbarTitleAttributes
 
         let navigationItem = UINavigationItem(title: "\(Localization(.addNewProductScene(.title)))")
 
-        let leftButton = UIBarButtonItem(title: "\(Localization(.addNewProductScene(.cancelBarButton)))", style: .plain, target: self, action: #selector(cancelButtonAction))
+        let leftButton = UIBarButtonItem(title: "\(Localization(.addNewProductScene(.barButton(.cancel))))", style: .plain, target: self, action: #selector(cancelButtonAction))
 
-        let rightButton = UIBarButtonItem(title: "\(Localization(.addNewProductScene(.saveBarButton)))", style: .done, target: self, action: #selector(saveButtonAction))
+        let rightButton = UIBarButtonItem(title: "\(Localization(.addNewProductScene(.barButton(.save))))", style: .done, target: self, action: #selector(saveButtonAction))
 
         navigationItem.leftBarButtonItem = leftButton
         navigationItem.rightBarButtonItem = rightButton
@@ -69,7 +70,7 @@ class AddNewProductView: UIView {
 
 	func setupConstraints() {
         navigationBar.anchor(
-            top: topAnchor,
+            top: layoutMarginsGuide.topAnchor,
             leading: leadingAnchor,
             trailing: trailingAnchor
         )
